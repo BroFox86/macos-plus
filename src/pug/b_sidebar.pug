@@ -1,0 +1,16 @@
+//- Sidebar ////////////////////////////////////////
+mixin sidebar
+
+	case contents
+		default
+			.sidebar
+				+contents_both
+				+share
+				+community
+
+		when false
+			.sidebar
+				+share
+				+community
+
+//- Share ////////////////////////////////////////

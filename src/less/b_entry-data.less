@@ -1,0 +1,21 @@
+.entry-data {
+  margin: 0;
+  padding: 0;
+  font-size: @font-size--small;
+
+  &__item {
+    display: inline-block;
+    color: @color-darken;
+  }
+
+  &__item + .entry-data__item::before {
+    margin: 0 .5em;
+    content: '\2022';
+  }
+
+  @media (max-width: @breakpoint-mobile) {
+    &__item + .entry-data__item:last-child::before {
+      content: '';
+    }
+  }
+}

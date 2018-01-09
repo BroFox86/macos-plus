@@ -1,0 +1,17 @@
+//- Content Header/////////////////////////////
+
+mixin header-content(caption, title, day, month, year)
+	header.header-content
+		span.header-content__category= caption
+		h1.header-content__title= title 
+		ul.entry-data
+			li.entry-data__item
+				time(
+					datetime=String(year) + '-' + String(month) + '-' + 
+					String(day))= String(day) + '.' + String(month) + '.' + String(year)
+			li.entry-data__item
+				a.link.link--entry(href='https://github.com/BroFox86/Install-macOS-on-Intel-based-PC') GitHub
+			if block
+				block
+
+//-///////////////////////////////////////////////

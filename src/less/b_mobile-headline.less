@@ -1,0 +1,21 @@
+.mobile-headline {
+  position: sticky;
+  top: -1px; // Fix for Chrome
+  z-index: 2;
+  display: none;
+
+  @media (max-width: @breakpoint-nosidebar) {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+    padding: .8em 0;
+    background-color: @color-accent;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1em;
+  }
+}

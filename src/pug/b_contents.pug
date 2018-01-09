@@ -1,0 +1,27 @@
+//- Contents////////////////////////////////////
+
+mixin contents(...items)
+	-var headline = 'Оглавление';
+
+	mixin contentsMarkup
+		each item in items
+			li.contents__item
+				a.contents__link(href='#' + n)= item
+					span.contents__number= n++
+
+	case mobile
+
+		default
+			div.mobile-headline
+				a.mobile-headline__link(href='#contents')= headline
+			aside.contents.contents-mobile
+				ul.contents__list
+					+contentsMarkup
+
+		when false
+			aside.contents
+				h2.contents__title= headline
+				ul.contents__list
+					+contentsMarkup
+					
+//-///////////////////////////////////////////////

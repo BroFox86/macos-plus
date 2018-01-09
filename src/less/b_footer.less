@@ -1,0 +1,38 @@
+.footer {
+  &__top {
+    display: none;
+    padding: @line-height /2 0;
+    text-align: center;
+
+    @media (max-width: @breakpoint-nosidebar) {
+      display: block;
+    }
+  }
+
+  &__bottom {
+    margin-top: @line-height;
+    padding: @line-height *1.2 0;
+    background-color: white;
+
+    @media (max-width: @breakpoint-nosidebar) {
+      margin-top: 0;
+    }
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__copyrights {
+    margin: -0.28em 0 auto;
+    padding: 0 2.77em;
+    color: @color-darken;
+    text-align: center;
+    line-height: @line-height;
+  }
+
+  &__author {
+    color: @color-main--dimmed;
+  }
+}

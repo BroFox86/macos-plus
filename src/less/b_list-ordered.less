@@ -1,0 +1,13 @@
+.list-ordered {
+  margin-top: 0;
+  margin-bottom: @line-height;
+  padding: 0;
+  list-style-position: inside;
+  list-style-type: decimal;
+
+  &--nested {
+    margin-top: @line-height;
+    padding-left: 2.222222222222222em; // In accrodance with auto padding value in nested ul elements in Safari
+    list-style-type: lower-alpha;
+  }
+}

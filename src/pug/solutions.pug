@@ -1,0 +1,147 @@
+doctype html
+include __mixins.pug
+
+html(lang='ru')
+
+	//- Head
+	+head('Решение проблем')
+
+	body.page
+
+		//- Icons
+		+icons
+
+		//- Header
+		+header
+
+		//- Top Menu
+		+main-nav(solutions = selected)
+
+		.page__container
+			main.page__wrapper
+
+				//- Content Header
+				+header-content('Помощь','Решение проблем', '03', '05', '2017')
+
+				a#contents
+
+				//- Banner
+				+banner
+					svg.banner__image.banner__image--svg.banner__image--svg-solutions
+						use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon-solutions')
+				
+				//- Contents
+				- var n = 1
+
+				mixin contents_both
+					+contents('Volumes are Mounted','Паника ядра','Темный экран')
+
+				+contents_both
+
+				section.section
+					h2#1.section__h2 Unibeast: Volumes are Mounted
+					p.section__par
+						| На конечном этапе создания USB-накопителя через UniBeast может появиться сообщение с заголовком"Volumes are Mounted". Это помешает копированию файлов и следовательно сделает невозможным дальнейшее продвижение по инструкции.
+					img.section__image(src='images/solutions/volumes-are-mounted.jpg' alt='Окно UniBeast')
+					p.section__par Решение:
+					ol.list-ordered
+						li
+							| Войдите в Finder, в строке меню выберите 
+							b переход &gt; переход к папке
+						li
+							| Введите во всплывающем окне 
+							b /Volumes
+							|  и найдите в открывшемся списке раздел, имеющий отношение к macOS
+						li
+							| Переименуйте его на что нибудь другое, например на 
+							b Other OS X Base System
+						li Закройте UniBeast и повторите всю процедуру создания загрузочного USB заново
+					h2#2.section__h2 Паника ядра
+					p.section__par
+						| Если установка macOS на ПК прервется экраном с перечеркнутым кружком - это паника ядра - преграда, с которой сталкиваются многие люди, настраивающие хакинтош. Причин может быть много, однако в моем случае данная проблема сразу же возникала при попытке установке macOS Sierra на отдельный раздел жесткого диска (HDD) на системе с UEFI. Если Ваша ситуация во многом аналогична, вероятно, проблему поможет решить нижеследующая инструкция.
+					figure.figure
+						img.figure__image(alt='Экран паники ядра' src='images/solutions/kernel-panic.jpg')
+						figcaption.figure__figcaption
+							| Экран паники ядра macOS. Точнее, один из его разновидностей...
+					ol.list-ordered
+						li Загрузитесь в Windows
+						li
+							| Запустите настроенную в 
+							a.link.link--section(href='index.html') руководстве
+							|  виртуальную машину с macOS или Mac, с помощью которого был создан загрузочный USB
+						li Подключите созданный UniBeast загрузочный USB
+						li
+							| Откройте раздел EFI (он примонтируется как отдельный накопитель) и проследуйте по пути: 
+							b EFI/Clover/<wbr>driversolutions4uefi
+						li
+							| Скачайте альтернативный файл 
+							a.link.link--section(href='https://drive.google.com/open?id=0ByHBmkDdBSBJeEZYSmprQmUwZmc' target='_blank') OsxAptioFixDrv-64.efi
+							|  и скопируйте его в папку 
+							b driversolutions4uefi
+							|  загрузчика Clover. Удалите из папки другие файлы, начинающиеся с названия"
+							b OsxAptioFix...
+							| "
+						li Попытайтесь снова установить macOS Sierra.
+					p.section__par
+						| Если вышеуказанный способ не помог, надо загрузиться в режиме вывода сообщений – Verbose mode:
+					ol.list-ordered
+						li
+							| Загружаемся в 
+							b Clover
+						li
+							| На загрузочном экране выделяем 
+							b Boot MacOS from macOS
+						li
+							| Нажимаем на 
+							b Пробел
+							|  и выбираем 
+							b Boot Mac OS X in Verbose Mode
+					p.section__par
+						| Экран должен заполниться информацией об ошибке, а Вам остается его сфотографировать и искать решение в сети.
+					figure.figure
+						a(href='images/solutions/clover-verbose-mode.jpg')
+							img.section__image(alt='Экран загрузчика Clover' src='images/solutions/clover-verbose-mode.jpg')
+						figcaption.figure__figcaption
+							| Включение режима вывода информации (лога) в Clover - Verbose Mode
+					h2#3.section__h2 Темный экран при выходе из сна
+					ol.list-ordered
+						li
+							| Запустите 
+							a.link.link--section(href='http://mackie100projects.altervista.org/download-clover-configurator/' target='_blank') Clover Configurator
+						li
+							| Найдите папку загрузчика 
+							b Clover
+							| . Она должна располагаться на разделе 
+							b EFI
+							| . Все подключенные разделы можно увидеть в левой колонке 
+							b Finder
+							a(href='images/solutions/plist-location.png' type='image/png')
+								img.section__image(alt='Папка загрузчика Clover' src='images/solutions/plist-location.png')
+						li
+							| Откройте 
+							b config.plist
+							|  через 
+							b Clover Configurator
+						li
+							| Перейдите на вкладку 
+							b Boot
+							|  и измените значение 
+							b darkwake
+							| . Я рекомендую darkwake=8
+							a(href='images/solutions/clover-configurator-boot.png')
+								img.section__image(alt='Окно Clover Configurator' src='images/solutions/clover-configurator-boot.png')
+						li Сохраните изменения и закройте утилиту
+						li Перезагрузите компьютер
+						
+			//- Sidebar
+			- var mobile = false
+			- var n = 1
+			+sidebar
+
+		//- Footer
+		- var footer = true
+		+footer
+
+		//removeIf(production)
+		+viewport_info
+		//endRemoveIf(production)

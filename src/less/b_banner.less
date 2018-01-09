@@ -1,0 +1,63 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: @line-height;
+  background-color: #ec7d2e;
+  box-shadow: @shadow;
+
+  &::after {
+    display: block;
+    padding-bottom: 63.3333333333333%;
+    content: '';
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__container {
+    z-index: 1;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: @color-bg;
+
+    .center();
+    .height_pct(400px, 513px);
+    .width_pct(400px, 810px);
+  }
+
+  &__image {
+    display: block;
+    width: 98%;
+    height: 98%;
+    border-radius: 50%;
+    background-color: @color-bg;
+    box-shadow: 0 1px 3px 5px rgba(0, 0, 0, .1);
+
+    .center();
+  }
+
+  &__image--svg {
+    width: 65%;
+    height: 65%;
+    border-radius: 0;
+    box-shadow: none;
+
+    .center();
+    fill: @color-accent;
+  }
+
+  &__image--svg-solutions {
+    fill: @color-accent;
+  }
+
+  &__image--svg-icloud {
+    fill: @color-icloud;
+  }
+
+  &__image--svg-separate-install {
+    fill: @color-accent;
+  }
+}

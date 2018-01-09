@@ -1,0 +1,63 @@
+.note {
+  box-sizing: border-box;
+  margin: @line-height 0;
+  padding: 1em 1em 1em 3.5em;
+  line-height: 1.5em;
+
+  &::before {
+    display: block;
+    float: left;
+    margin-left: -1.3em;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    letter-spacing: normal;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    font-family: 'Material Icons';
+    line-height: .8;
+
+    font-feature-settings: 'liga'; // Support for IE
+    text-rendering: optimizeLegibility; // Support for Safari and Chrome
+  }
+
+  &__type {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &--tip::before {
+    color: @color-tip--icon;
+    content: 'description';
+  }
+
+  &--warning::before {
+    color: @color-warning--icon;
+    content: 'warning';
+  }
+
+  &--inf {
+    background-color: @color-inf--bg;
+    color: @color-inf;
+  }
+
+  &--tip {
+    background-color: @color-tip--bg;
+    color: @color-tip;
+  }
+
+  &--warning {
+    background-color: @color-warning--bg;
+    color: @color-warning;
+  }
+
+  &--inf::before {
+    color: @color-inf--icon;
+    content: 'help';
+  }
+}

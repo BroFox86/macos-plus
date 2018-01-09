@@ -1,0 +1,27 @@
+//-/ Head //////////////////////////////////////// 
+
+mixin head(title)
+	head
+		title= title 
+		meta(charset='utf-8')
+		meta(content='width=device-width, initial-scale=0.88' name='viewport')
+		link(href='css/styles.min.css' rel='stylesheet')
+		//removeIf(production)	
+		link(href='css/styles.css' rel='stylesheet')
+		//endRemoveIf(production)
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic' rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Roboto+Slab&amp;subset=cyrillic' rel='stylesheet')
+		link(rel='prefetch' href='index.html')
+
+		link(rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png")
+		link(rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png")
+		link(rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png")
+		link(rel="manifest" href="icons/manifest.json")
+		link(rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5")
+		link(rel="shortcut icon" href="icons/favicon.ico")
+		meta(name="apple-mobile-web-app-title" content="macOS+ site")
+		meta(name="application-name" content="macOS+ site")
+		meta(name="msapplication-config" content="icons/browserconfig.xml")
+		meta(name="theme-color" content="#ffffff")
+			
+//-///////////////////////////////////////////////

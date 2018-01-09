@@ -1,0 +1,34 @@
+.header-content {
+  margin-top: @line-height;
+  padding: 4% 4em;
+  background-color: white;
+  box-shadow: @shadow;
+  text-align: center;
+
+  @media (max-width: @breakpoint-responsible) {
+    padding: 1em 5%;
+  }
+
+  &__category {
+    color: @color-accent;
+    font-size: @font-size--small;
+  }
+
+  &__title {
+    margin-top: -.1em;
+    margin-bottom: .3em;
+    color: @color-title;
+    font-weight: 400;
+    font-size: @font-size--h1;
+    font-family: @font-family--title;
+    line-height: 1.2;
+
+    @media (max-width: @breakpoint-responsible) {
+      font-size: @font-size--h2 / 1.3;
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+      margin-top: .1em;
+    }
+  }
+}
