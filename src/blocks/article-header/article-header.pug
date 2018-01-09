@@ -1,21 +1,21 @@
-include ../../pug/*/mixins
+include ../../pug/_mixins
 
-- var altTheme = " article-header__image-wrapper--theme-alt"
-- var accentTheme = " article-header__image-wrapper--theme-accent"
+- var themeAlt = " article-header__img-wrapper--alt-theme"
+- var accentTheme = " article-header__img-wrapper--accent-theme"
 
-mixin article-header(day, month, year)
+mixin article-header
 
-	- headlineTxt = title
+	- headlineTxt = pageTitle
 
 	mixin time
-		time(datetime= String(year) + "-" + String(month) + "-" + String(day))= String(day) + "." + String(month) + "." + String(year)
+		time(datetime= String(datePublished[2]) + "-" + String(datePublished[1]) + "-" + String(datePublished[0]))= String(datePublished[0]) + "." + String(datePublished[1]) + "." + String(datePublished[2])
 
-	.page__article-header.article-header
-		.article-header__image-wrapper(class= attributes.theme)
-			img.article-header__image(src=src alt="")
+	header.article__header.article-header
+		.article-header__img-wrapper(class= attributes.theme)
+			img.article-header__img(src= imgArticle alt="")
 		h1.article-header__headline!= headlineTxt
 		ul.article-header__entry-data
-			case updated
+			case isDateModified
 				default
 					li.article-header__entry-data-item
 						+time
@@ -23,9 +23,7 @@ mixin article-header(day, month, year)
 					li.article-header__entry-data-item
 						+time
 					li.article-header__entry-data-item
-						time.js-modified-date(data-time=String(uYear) + String(uMonth) + String(uDay) datetime=String(uYear) + "-" + String(uMonth) + "-" + 
-						String(uDay)) Обновлено&nbsp;
-			li.article-header__entry-data-item
-				span BroFox
+						time.js-modified-date(data-time=String(dateModified[2]) + String(dateModified[1]) + String(dateModified[0]) datetime=String(dateModified[2]) + "-" + String(dateModified[1]) + "-" + 
+						String(dateModified[0])) Обновлено&nbsp;
 			if block
 			block

@@ -1,0 +1,52 @@
+.lightbox {
+  z-index: 99;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  text-align: center;
+
+  .center(fixed);
+
+  &::before {
+    display: inline-block;
+    height: 50%;
+    content: "";
+  }
+
+  &__inner {
+    display: inline-block;
+		max-width: 80%;
+		vertical-align: middle;
+		max-height: 700px;
+
+    @media (max-width: @tablet) {
+      max-width: 90%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: @accent-color;
+    cursor: pointer;
+  }
+
+  &__close-icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+
+    .center();
+  }
+
+  &__img {
+    display: block;
+		max-width: 100%;
+		max-height: 80vh;
+  }
+}

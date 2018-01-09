@@ -1,17 +1,17 @@
-include ../../pug/*/mixins
+include ../../pug/_mixins
 
 - var footer  = "footer__item"
 
 mixin reference
-	aside(class= attributes.state + "\u0020" + "aside reference")
-		h2.aside__headline Cообщество
+	aside.aside.reference(class= attributes.state)
+		h2.aside__headline Сообщество
 		.reference__container
 			- src	  = "images/community-logo.png"
-			- imgClass = "reference__image"
-			- size	 = 256
+			- imgClass = "reference__img"
+			- size	 = 240
 			- sizes	= size / 16 + "em"
 			- alt	  = ""
-			+respImage
+			+respImg
 
 			a.reference__link(href="https://plus.google.com/u/0/communities/103318624432661992867") macOS+ на Google Plus
 

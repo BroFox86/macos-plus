@@ -1,71 +1,80 @@
-extends /pug/layouts/main
+extends /pug/_layout
 
 prepend head
-	- var title	= "Монтирование раздела EFI в macOS"
-	- var desc	 = "Коротко и ясно о монтировании EFI в macOS с помощью EFI Mounter"
-	- var keywords = "efi, хакинтош"
+	- var pageTitle = "Монтирование скрытого раздела EFI в macOS"
+	- var pageDesc  = "Коротко и ясно о монтировании EFI в macOS с помощью EFI Mounter"
+	- var keywords  = "efi, хакинтош"
+
+prepend body
+	- var urlEnc        = linksEfiFull
+	- var link          = linkEfi
+	- var imgArticleWeb = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition_original.png"
 
 block nav
-	+main-nav(mountEfi = selected, pageA0 = selected)
+	+site-nav(efi = selected, pageA0 = selected)
 
 prepend sidebar
 	- var contents = false
 
 block article-header
-	- var src = "images/pages/mount-efi/article-image.png"
-	+article-header("02","09","2017")
+	- var imgArticle    = "images/pages/montirovaniye-efi-v-macos/article-image.png"
+	- var datePublished = ["02", "09", "2017"]
+	+article-header
 
 block content
-	section#1.page__section.section
-		h2.section__h2 EFI Mounter
-		
-		ol.section__ol
-			li
-				| Загрузите утилиту 
-				a.link.link--section(href="https://www.tonymacx86.com/resources/efi-mounter-v3.280/") EFI Mounter
-				|  и переместите ее в папку программ.
 
-				- var src = "images/pages/mount-efi/apps-folder.png"
-				- var alt = "Папка приложений macOS"
-				+section-image
+	p.article__par 
+		| Есть два способа монтирования раздела EFI — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает утилита EFI Mounter.
+	
+	ol.article__ol
+		li
+			| Загрузите  
+			a.link.link--article(href="https://www.tonymacx86.com/resources/efi-mounter-v3.280/") EFI Mounter
+			|  и переместите ее в папку программ.
 
-			li
-				| При запуске появится сообщение системы безопасности. Подтвердите выбор кнопкой «Открыть».
-				
-				- var src = "images/pages/mount-efi/security-message.png"
-				- var alt = "Сообщение системы безопасности"
-				+section-image(false)
+			- var src = "images/pages/montirovaniye-efi-v-macos/apps-folder.png"
+			- var alt = "Папка приложений macOS"
+			+img
 
-				+note(inf)
-					| Для того, чтобы в macOS разрешить установку программ, загруженных со стороны — т.е. не с AppStore — необходимо отметить соответствующий пункт раздела «Защита и безопасность» в «Системных настройках».
-
-				p.section__par
-					| EFI Mounter обнаружит скрытые разделы на всех жестких дисках и подключенных носителях. На картинке ниже изображены 2 системных накопителя — SSD (твердотелый накопитель) и HDD (жесткий диск). SSD-диск указан как Disk0s1, где s1 — это первый раздел данного диска, который и является EFI — загрузочным разделом в UEFI. 
+		li
+			| При запуске появится сообщение системы безопасности. Подтвердите выбор кнопкой «Открыть».
 			
-			li
-				| Выберите раздел и нажмите ОК, затем Mount.
-				
-				- var src = "images/pages/mount-efi/efi-list.png"
-				- var alt = "Список разделов EFI компьютера"
-				+section-image(false)
-				
-			li
-				| В боковой колонке Finder к списку монтированных накопителей добавился раздел EFI, содержащий одноименную папку и папку Clover внутри нее.
+			- var src = "images/pages/montirovaniye-efi-v-macos/security-message.png"
+			- var alt = "Сообщение системы безопасности"
+			+img(small)
 
-				- var src = "images/pages/mount-efi/opened-efi-partition.png"
-				- var alt = "Подключенный раздел EFI в Finder"
-				+section-image
-				
-		+note(warning)
-			| Не путайте раздел EFI для macOS с аналогичным разделом для Windows. В случае, если по ошибке был смонтирован не тот раздел, извлеките его, поскольку при случайном изменении системных разделов может не загрузиться основная ОС. К тому же они могут быть переписаны некоторыми программами по настройке хакинтоша.
+			+note(inf)
+				| Для того, чтобы в macOS разрешить установку программ, загруженных со стороны — т.е. не с AppStore — необходимо отметить соответствующий пункт раздела «Защита и безопасность» в «Системных настройках».
 
-		p.section__par
-			| Может быть монтирован неподходящий загрузочный раздел EFI в следующих случаях:
+			p.article__par
+				| EFI Mounter обнаружит скрытые разделы на всех жестких дисках и подключенных носителях. На картинке ниже изображены 2 системных накопителя — SSD (твердотелый накопитель) и HDD (жесткий диск). SSD-диск указан как Disk0s1, где s1 — это первый раздел данного диска, который и является EFI — загрузочным разделом в UEFI. 
+		
+		li
+			| Выберите раздел и нажмите ОК, затем Mount.
+			
+			- var src = "images/pages/montirovaniye-efi-v-macos/efi-list.png"
+			- var alt = "Список разделов EFI компьютера"
+			+img(small)
+			
+		li
+			| В боковой колонке Finder к списку монтированных накопителей добавился раздел EFI, содержащий одноименную папку и папку Clover внутри нее.
 
-		ul.section__ul
-			li
-				| Вы установили macOS на один жесткий диск с ОС Windows и по ошибке монтировали загрузочный раздел с файлами этой ОС.
-			li
-				| На целевом жестком диске по какой-либо причине вообще нет раздела EFI и монтировался аналогичный раздел для Windows из другого физического диска.
-			li
-				| По ошибке подключился аналогичный раздел с загрузочного USB.
+			- var src = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition.png"
+			- var alt = "Подключенный раздел EFI в Finder"
+			+img
+			
+	+note(warning)
+		| Не путайте раздел EFI для macOS с аналогичным разделом для Windows. В случае, если по ошибке был смонтирован не тот раздел, извлеките его, поскольку при случайном изменении системных разделов может не загрузиться основная ОС. К тому же они могут быть переписаны некоторыми программами по настройке хакинтоша.
+
+	p.article__par
+		| Может быть монтирован неподходящий загрузочный раздел EFI в следующих случаях:
+
+	ul.article__ul
+		li.article__ul-item
+			| Вы установили macOS на один жесткий диск с ОС Windows и по ошибке монтировали загрузочный раздел с файлами этой ОС.
+		li.article__ul-item
+			| На целевом жестком диске по какой-либо причине вообще нет раздела EFI и монтировался аналогичный раздел для Windows из другого физического диска.
+		li.article__ul-item
+			| По ошибке подключился аналогичный раздел с загрузочного USB.
+	
+	+rate

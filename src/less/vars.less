@@ -2,66 +2,70 @@
 // Breakpoints
 ///////////////////////////////////////////////////////////////////////////////
 
-@bp-narrow:                 1200px;
-@bp-mobile:                 960px;
-@bp-mobile--small:          715px;
-@bp-mobile--tiny:           500px;
-@nav-mobile-fullwidth:      352px;
-@footer-asides-direction:   700px;
+@small-desktop:                1200px;
+@tablet:                       960px;
+@mobile:                       600px;
+@nav-mobile-fullWidth:         352px;
+@footer-asides-direction-bp:   700px;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Fonts
 ///////////////////////////////////////////////////////////////////////////////
 
-@font-family:            "Open Sans",   sans-serif;
-@font-family-headline:   "Roboto Slab", serif;
+@font-family:   "Open Sans", sans-serif;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////
 
-@layout-size:               1140px;
-@font-size-smaller:         14px;
-@font-size-small:           15px;
-@font-size:                 16px;
-@font-size-aside-heading:   18px;
-@font-size-reference:       20.8px;
-@font-size-h1:              40px;
-@font-size-h2:              32px;
-@font-size-h3:              23px;
-@font-size-h1--mobile:      25px;
-@font-size-h2--mobile:      23px;
-@font-size-h3--mobile:      20px;
-@line-height:               26px;
+@layout:   1140px;
+
+@font-size--tiny:    14px;
+@font-size--small:   15px;
+@font-size:          16px;
+
+@font-size--aside:       17px;
+@font-size--reference:   20.8px;
+
+@h1-size:   38px;
+@h2-size:   28px;
+@h3-size:   21px;
+
+@h1-size--mobile:   25px;
+@h2-size--mobile:   23px;
+@h3-size--mobile:   19px;
+@line-height:       26px;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Colors
 ///////////////////////////////////////////////////////////////////////////////
 
-@color-accent:         #4367d4;
-@color-font-lighter:   lighten(@color-font, 15);
-@color-font-light:     lighten(@color-font, 10);
-@color-font:           #222;
-@color-link-visited:   spin(@color-accent, 40);
-@color-inf-font:       @color-font;
-@color-inf-bg:         lighten(#607d8b, 48);
-@color-inf-icon:       #78909c;
-@color-tip-font:       #1b5e20;
-@color-tip-bg:         spin(#fbe9e7, 130);
-@color-tip-icon:       #4caf50;
-@color-warning-font:   #d50000;
-@color-warning-bg:     #fbe9e7;
-@color-warning-icon:   #ff1744;
-@color-vk:             #507299;
-@color-twitter:        #55acee;
-@color-email:          #ffab00;
-@color-gplus:          #dc4e42;
+@font-color:           #333;
+@heading-font-color:   #222;
+@nav-font-color:       #555;
 
-@grey-lighter:   lighten(#eee, 5.5);
-@grey-light:     lighten(#eee, 4.5);
-@grey:           #eee;
-@grey-dark:      darken(#eee, 47.451);
-@grey-darker:    darken(#eee, 52.549);
+@contents-font-color:   #555;
+@accent-color:          #4367d4;
+@visited-link-color:    spin(@accent-color, 40);
+
+@inf-bg-color:         lighten(#607d8b, 48);
+@inf-icon-color:       #78909c;
+@tip-font-color:       #1b5e20;
+@tip-bg-color:         spin(#fbe9e7, 130);
+@tip-icon-color:       #4caf50;
+@warning-font-color:   #d50000;
+@warning-bg-color:     #fbe9e7;
+@warning-icon-color:   #ff1744;
+
+@vk-color:        #507299;
+@twitter-color:   #55acee;
+@email-color:     #ffab00;
+@gplus-color:     #dc4e42;
+
+@grey-dark:     darken(#eee, 47.451);
+@grey-darker:   darken(#eee, 52.549);
+@grey:          #9E9E9E;
+@grey-light:    lighten(@grey, 30);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Shadows

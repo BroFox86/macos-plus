@@ -1,6 +1,6 @@
 {
   "name": "macos-plus",
-  "version": "3.17.7",
+  "version": "4.0.0",
   "description": "Install macos sierra on intel-based PC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,8 +1,9 @@
-var hook = ".js-modified-date";
-var date = $(hook).data("time");
 moment.locale("ru");
-var moment = moment(date, "YYYYMMDD").fromNow();
+
+var $modDate = $(".js-modified-date"),
+    date     = $modDate.data("time"),
+    moment   = moment(date, "YYYYMMDD").fromNow();
 
 $(document).ready(function() {
-  $(hook).append(moment);
+  $modDate.append(moment);
 });

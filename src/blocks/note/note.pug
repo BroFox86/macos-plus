@@ -1,30 +1,30 @@
-- var inftext = "Примечание:", inf = "note--inf";
-- var tiptext = "Совет:", tip = "note--tip";
-- var warningtext = "Предупреждение:", warning = "note--warning";
+- var inftext = "Примечание:", inf = "note--inf"
+- var tiptext = "Совет:", tip = "note--tip"
+- var warningtext = "Предупреждение:", warning = "note--warning"
 
 mixin note(type)
 	case type
 		when inf
-			aside.section__note.note(class= inf)
-				svg.note__icon.note__icon--inf(width="30")
-					use(xlink:href="#icon-help")
+			aside.article__note.note(class= inf)
+				svg.note__icon.note__icon--inf
+					use(xlink:href="#help")
 				p.note__text
-					span.note__type= inftext + "\u0020"	
+					span.note__type= inftext + " "	
 					if block
 					block
 		when tip
-			aside.section__note.note(class= tip)
-				svg.note__icon.note__icon--tip(width="30")
-					use(xlink:href="#icon-description")  
+			aside.article__note.note(class= tip)
+				svg.note__icon.note__icon--tip
+					use(xlink:href="#lightbulb")  
 				p.note__text
-					span.note__type= tiptext + "\u0020"	
+					span.note__type= tiptext + " "	
 					if block
 					block
 		when warning
-			aside.section__note.note(class= warning)
-				svg.note__icon.note__icon--warning(width="30")
-					use(xlink:href="#icon-warning")
+			aside.article__note.note(class= warning)
+				svg.note__icon.note__icon--warning
+					use(xlink:href="#warning")
 				p.note__text
-					strong.note__type= warningtext + "\u0020"	
+					strong.note__type= warningtext + " "	
 					if block
 					block

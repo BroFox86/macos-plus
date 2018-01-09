@@ -1,31 +1,48 @@
 .link {
-	text-decoration: none;
+  text-decoration: none;
 
-	.moz-outline-disabled;
+  &--entry {
+    color: inherit;
 
-	&--entry {
-		color: inherit;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+  &--anchor {
+    padding-right: 10px;
+    color: @accent-color;
+    font-weight: inherit;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: 0.5s;
+  }
 
-	&--section {
-		color: @color-accent;
+  &--article {
+    border-bottom: 1px solid lighten(@accent-color, 25);
+    color: darken(@accent-color, 5);
 
-		&:hover {
-			border-bottom: 1px solid lighten(@color-accent, 25);
-		}
+    &:hover {
+      border: none;
+    }
 
-		&:visited {
-			color: @color-link-visited;
-			border-bottom: 1px solid lighten(@color-link-visited, 25);
-		}
-	}
+    &:visited {
+      border-bottom: 1px solid lighten(@visited-link-color, 25);
+      color: @visited-link-color;
+    }
+  }
 
-	&--note {
-		color: inherit;
-		text-decoration: underline;
-	}
+  &--tooltip {
+    border-bottom: 1px dashed @accent-color;
+    color: @accent-color;
+
+    &:hover {
+      cursor: help;
+    }
+  }
+
+  &--note {
+    color: inherit;
+    text-decoration: underline;
+  }
 }

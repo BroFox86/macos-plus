@@ -7,15 +7,12 @@ mixin footer
 		.footer__top
 			+reference(state = footer)
 			+share(state = footer)
-		.footer__bottom(itemscope itemtype="http://schema.org/Person")
+		.footer__bottom
 				p.footer__copyrights
-					span.footer__copyrights-for &copy; Веб-дизайн и тексты.
+					span.footer__copyrights-for &copy; Дизайн и тексты.
 					span.footer__copyrights-info
 						a.footer__name
 							span &nbsp;Daur “Bro Fox” Gamisonia
 						span , 2017
-				meta(itemprop="name" content="Daur Gamisonia")
-				meta(itemprop="alternateName" content="BroFox")
-				meta(itemprop="email" content="daurgam@gmail.com")
 				+my-links
 					

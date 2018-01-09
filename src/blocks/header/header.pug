@@ -1,19 +1,19 @@
-include ../../pug/*/mixins
+include ../../pug/_mixins
 
 mixin header
-	.page__header.header
-		a.header__logo(href= mainPage)
+	header.page__header.header
+		a.header__logo(href= linkIndex)
+			picture
+				- src   = "images/header__logo--mobile.png"
+				- size  = 250
+				- sizes = size / 16 + "em"
+				- media = "(max-width: 960px)"
+				+respSrcImg
 
-			- src	  = "images/header__logo.png"
-			- imgClass = "header__image"
-			- size	 = 268
-			- sizes	= size / 16 + "em"
-			- alt	  = "Логотип"
-			+respImage
-
-			- src	  = "images/header__logo--mobile.png"
-			- imgClass += " header__image--mobile"
-			+respImage
+				- src      = "images/header__logo.png"
+				- imgClass = "header__img"
+				- alt      = "Логотип"
+				+respImg
 
 		if block
 		block

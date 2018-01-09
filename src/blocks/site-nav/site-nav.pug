@@ -1,0 +1,32 @@
+- var selected = "site-nav__item--selected"
+
+mixin site-nav
+	nav.site-nav
+		a(href="#target").site-nav__open-btn
+			svg.site-nav__open-icon
+				use(xlink:href="#menu")
+		a.site-nav__open-target(id="target")
+		.site-nav__list-wrapper
+			ul.site-nav__list
+				li
+					a(href="#0").site-nav__close-btn
+						svg.site-nav__close-icon
+							use(xlink:href="#close")
+				li.site-nav__item(class=attributes.index)
+					a.site-nav__link(href= linkIndex) macOS на ПК 
+				li.site-nav__item(class=attributes.vmware)
+					a.site-nav__link(href= linkVmware ) macOS на VMWare
+				li.site-nav__item(class="nav__item" class=attributes.services)
+					a.site-nav__link(href= linkServices) Запуск iCloud &amp; AppStore
+				li.site-nav__item(class="nav__item" class=attributes.sound)
+					a.site-nav__link(href= linkSound) Запуск звука
+				li.site-nav__item.site-nav__item--popup(class=attributes.pageA0)
+					a.site-nav__link Разное
+						svg.site-nav__popup-icon
+							use(xlink:href="#arrow-down")
+					ul.site-nav__nested-list
+						li.site-nav__item(class=attributes.kexts)
+							a.site-nav__link(href= linkKexts) Установка кекстов
+						li.site-nav__item(class=attributes.efi)
+							a.site-nav__link(href= linkEfi) Монтирование EFI
+									

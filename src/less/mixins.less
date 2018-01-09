@@ -1,9 +1,9 @@
-.toCenter(@position: absolute) {
+.center(@position: absolute, @left: 0, @right: 0, @top: 0, @bottom: 0) {
 	position: @position;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	top: @top;
+	right: @right;
+	bottom: @bottom;
+	left: @left;
 	margin: auto;
 }
 
@@ -12,7 +12,17 @@
 	padding-right: @right;
 }
 
-.padding(mobile, @left: 7%, @right: 7%) {
+.padding(small-desktop, @left: 8%, @right: 8%) {
+	padding-left: @left;
+	padding-right: @right;
+}
+
+.padding(tablet, @left: 10%, @right: 10%) {
+	padding-left: @left;
+	padding-right: @right;
+}
+
+.padding(mobile, @left: 5%, @right: 5%) {
 	padding-left: @left;
 	padding-right: @right;
 }

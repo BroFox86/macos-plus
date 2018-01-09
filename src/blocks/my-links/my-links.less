@@ -1,33 +1,35 @@
 .my-links {
-	&__item {
-		position: relative;
-		display: inline-block;
-		margin-right: 0.5rem;
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
-		background-color: @grey-dark;
-		transition: background-color 0.4s ease;
-		.moz-outline-disabled;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-		&--vk:hover {
-			background-color: @color-vk;
-		}
+  &__item {
+    position: relative;
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: darken(@grey, 15);
+    transition: background-color 0.4s ease;
 
-		&--email:hover {
-			background-color: @color-email;
-		}
+    &--vk:hover {
+      background-color: @vk-color;
+    }
 
-		&--gplus:hover {
-			background-color: @color-gplus;
-		}
-	}
+    &--gplus:hover {
+      background-color: @gplus-color;
+    }
 
-	&__icon {
-		width: 14px;
-		height: 14px;
-		fill: #fff;
+    &--email:hover {
+      background-color: @email-color;
+    }
+  }
 
-		.toCenter;
-	}
+  &__icon {
+    width: 14px;
+    height: 14px;
+    fill: white;
+
+    .center;
+  }
 }

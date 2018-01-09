@@ -1,23 +1,31 @@
 .scroll-to-top {
-	width: 56px;
-	height: 56px;
-	border-radius: 50%;
-	background: @color-accent;
-	box-shadow: rgba(101, 119, 134, 0.74902) 1px 1px 4px 0;
-	transition: transform 0.30s;
-	transform: scale(0);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: @accent-color;
+  box-shadow: rgba(101, 119, 134, 0.74902) 1px 1px 4px 0;
+  transition: transform 0.30s;
+  transform: scale(0);
 
-	.moz-outline-disabled;
+  @media (max-width: @mobile) {
+    width: 55px;
+    height: 55px;
+  }
 
-	&.is-visible {
-		transform: scale(1);
-	}
+  &.is-visible {
+    transform: scale(1);
+  }
 
-	&__icon {
-		width: 20px;
-		height: 20px;
-		fill: #fff;
+  &__icon {
+    width: 25px;
+    height: 25px;
+    fill: white;
 
-		.toCenter;
-	}
+    .center;
+
+    @media (max-width: @mobile) {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
