@@ -1,0 +1,31 @@
+.link {
+	text-decoration: none;
+
+	.moz-outline-disabled;
+
+	&--entry {
+		color: inherit;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&--section {
+		color: @color-accent;
+
+		&:hover {
+			border-bottom: 1px solid lighten(@color-accent, 25);
+		}
+
+		&:visited {
+			color: @color-link-visited;
+			border-bottom: 1px solid lighten(@color-link-visited, 25);
+		}
+	}
+
+	&--note {
+		color: inherit;
+		text-decoration: underline;
+	}
+}

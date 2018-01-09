@@ -1,0 +1,54 @@
+.share {
+	&__container {
+		display: flex;
+		justify-content: space-around;
+		padding: 1.1rem;
+	}
+
+	&__item {
+		position: relative;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: transform 0.1s ease-in;
+
+		@media(min-width: @bp-mobile) and (max-width: @bp-narrow) {
+			width: 45px;
+			height: 45px;
+		}
+
+		&:hover {
+			transform: scale(1.1);
+		}
+
+		&--vk {
+			background-color: #507299;
+		}
+
+		&--twitter {
+			background-color: #55acee;
+		}
+
+		&--gplus {
+			background-color: #dc4e42;
+		}
+
+		&--fb {
+			background-color: #3b5998;
+		}
+	}
+
+	&__icon {
+		width: 25px;
+		height: 25px;
+		fill: #fff;
+
+		.toCenter;
+
+		@media(min-width: @bp-mobile) and (max-width: @bp-narrow) {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+- var footer  = "footer__item"
+
+mixin share
+	aside(class = attributes.state + "\u0020" + "aside share")
+		h2.aside__headline Поделиться
+		.share__container
+			a.share__item.share__item--vk(title="Вконтакте" onclick="window.open('http://vk.com/share.php?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus%2F','','Width=640,Height=480');")
+				svg.share__icon(width="30")
+					use(xlink:href="#icon-vk")
+			a.share__item.share__item--gplus(title="Google+" onclick="window.open('https://plus.google.com/share?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus%2F','','Width=640,Height=480');")
+				svg.share__icon(width="30")
+					use(xlink:href="#icon-google-plus")
+			a.share__item.share__item--twitter(title="Twitter" onclick="window.open('https://twitter.com/intent/tweet?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus%2F&text=Установка macOS Sierra на ПК на базе Intel.&via=Daur_G','','Width=640,Height=300');")
+				svg.share__icon(width="30")
+					use(xlink:href="#icon-twitter")
+			a.share__item.share__item--fb(title="Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus%2F','','Width=640,Height=480');")
+				svg.share__icon(width="30")
+					use(xlink:href="#icon-facebook")
+
+	

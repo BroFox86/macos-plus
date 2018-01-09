@@ -1,0 +1,51 @@
+.note {
+	padding: 1rem;
+	padding-left: 3.5rem;
+	border-radius: 1.2rem;
+	font-size: @font-size-small;
+	line-height: 1.5;
+
+	&__type {
+		color: inherit;
+		font-weight: 600;
+	}
+
+	&__text {
+		margin: 0;
+	}
+
+	&--inf {
+		background-color: @color-inf-bg;
+		color: @color-inf-font;
+	}
+
+	&--tip {
+		background-color: @color-tip-bg;
+		color: @color-tip-font;
+	}
+
+	&--warning {
+		background-color: @color-warning-bg;
+		color: @color-warning-font;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 1rem;
+		left: 1.1rem;
+		width: 26px;
+		height: 26px;
+
+		&--inf {
+			fill: @color-inf-icon;
+		}
+
+		&--tip {
+			fill: @color-tip-icon;
+		}
+
+		&--warning {
+			fill: @color-warning-icon;
+		}
+	}
+}

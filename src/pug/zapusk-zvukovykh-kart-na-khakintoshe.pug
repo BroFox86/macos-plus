@@ -1,0 +1,188 @@
+extends /pug/layouts/main
+
+prepend head
+	- var title	= "Запуск звуковых карт на хакинтоше"
+	- var desc	 = "Краткое руководство по настройке звука на хакинтоше"
+	- var keywords = "хакинтош, звук, creative"
+
+block nav
+	+main-nav(startSound = selected)
+
+block article-header
+	- var src = "images/pages/start-sound/article-image.png"
+	+article-header("02","09","2017")
+
+mixin main-contents
+	+contents("Codec Commander", "Запуск карт Creative", "Метод AppleALC")
+
+append mobile-contents
+	+main-contents
+
+block content
+	section#1.page__section.section
+		h2.section__h2 Codec Commander
+
+		p.section__par 
+			| Кекст Codec Commander используется для управления контроллером 
+			span.section__tooltip(title="External Amplifier Power Down") EAPD
+			| , включающим внешний усилитель для встроенных в материнские платы кодеков (звуковых карт). Обычно такие усилители установлены в колонках и наушниках. Когда кодек теряет питание, усилитель тоже теряет питание и включить его обратно без дополнительной помощи невозможно. Как правило кодек теряет питание в двух случаях:
+
+		ul.section__ul
+			li
+				| Компьютер перешел в режим сна и затем вышел из него.
+			li
+				| Компьютер начал переходить в режим сна, но спустя небольшой промежуток времени (около 5-20 секунд) была нажата какая-либо клавиша и переход в сон отменился (задержка сна на полминуты — это 
+				a.link.link--section(href="https://www.reddit.com/r/hackintosh/comments/413yqm/el_capitan_taking_3040_seconds_to_sleep/") особенность
+				|  macOS).
+
+		p.section__par 
+			| В обоих случаях может показаться, что звук есть, но на самом деле его нет или он очень тихий. Для решения этой проблемы, собственно, и нужен Codec Commander.
+
+		h3.section__h3 Настройка
+
+		p.section__par 
+			| Последняя версия Сodec Commander доступна на 
+			a.link.link--section(href="https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/") bitbucket.org
+			| . Но не все так просто: без предварительной настройки под Ваш кодек кекст может не заработать. Подробное руководство по настройке Сodec Commander находится на   
+			a.link.link--section(href="https://github.com/RehabMan/EAPD-Codec-Commander") GitHub
+			| . Однако новичку будет очень сложно в нем разобраться. Самый простой способ — найти уже настроенный кекст под кодек своей системы. Я нашел Сodec Commander для ALC1150 на 
+			a.link.link--section(href="https://www.tonymacx86.com/attachments/codeccommander-kext-zip.146742/") tonymackx86.com 
+			| (прямая 
+			a.link.link--section(href="https://yadi.sk/d/k32zKmbk3M3Lrb") ссылка
+			|  на файл).
+
+		h3.section__h3 Установка кекста
+
+		p.section__par 
+			| Устанавливать Сodec Commander надо в папку системы. Рекомендую 
+			a.link.link--section(href= installKexts) автоматическую
+			|  установку с помощью Kext Utility.
+
+	section#2.page__section.section
+		h2.section__h2 Запуск звука на картах Creative
+		
+		p.section__par 
+			| Для работы звуковых карт Creative на macOS энтузиасты разработали кекст kXAudioDriver, он запускает на хакинтоше карты:
+
+		ul.section__ul 
+			li Creative Live! 
+			li Audigy 1/2 
+			li Audigy RX 
+			li EMU E-DSP
+
+		p.section__par
+			| Скачивание и обсуждение кекста доступно на форуме 
+			a.link.link--section(href="http://www.insanelymac.com/forum/topic/104797-creative-sb-live-audigy-audigy2-emu10kx-edsps-osx-driver-info-here/") insanelymac.com
+			| .
+
+		+note(warning)
+			| kXAudioDriver не поддерживает звуковые карты Creative Audigy SE/LS.
+
+	section#3.page__section.section
+		h2.section__h2 Метод AppleALC
+
+		p.section__par
+			| AppleALC  — кекcт, который значительно упрощает запуск звука на хакинтоше. Он позволяет включить поддержку 
+			i встроенного 
+			| звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты. 
+
+		p.section__par
+			| Поддерживает ли Ваш кодек AppleALC можно узнать на 
+			a.link.link--section(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs") wiki-странице
+			|  проекта. Там же есть и подробное  
+			a.link.link--section(href="https://github.com/vit9696/AppleALC/wiki/Установка-и-использование") руководство
+			|  на русском языке по его установке. А здесь я постараюсь изложить его в более кратких и последовательных чертах.
+
+		p.section__par
+			| Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему «ванильный» — оригинальный, не затронутый вмешательствами — кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover — config.plist, которые мог 
+			a.link.link--section(href= mainPage + "#6") произвести
+			| , например, MultiBeast.
+
+		+note(tip)
+			| AppleALC может помочь, если после других методов запуска встроенного звука наблюдаются проблемы.
+
+		h3.section__h3 Шаг 1. Получение оригинального AppleHDA
+		
+		p.section__par
+			| На загрузочной флешке, 
+			a.link.link--section(href= mainPage + "#3") созданной
+			|  UniBeast, помимо значка «Установка macOS Sierra» есть множество скрытых системных файлов. Для того, чтобы добраться до стандартных кекстов системы, необходимо сделать их видимыми.
+
+		ol.section__ol
+			li
+				| Откройте загрузочную флешку с macOS, введите в терминал: <br> code.section__code defaults write com.apple.finder AppleShowAllFiles YES и нажмите Enter.
+			li
+				| Изменения внесены. Но осталось ввести еще одну команду: 
+				code.section__code killall&nbsp;Finder
+				| , чтобы перезапустить Finder и увидеть скрытые файлы.
+			li
+				| Откройте System &gt; Library &gt; Extensions и скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
+
+				- var src = "images/pages/start-sound/native-applehda-in-boot-usb.jpg"
+				- var alt = "Расположение кекста AppleHDA на загрузочном USB-диске"
+				+section-image
+
+		h3.section__h3 Шаг 2.  Восстановление AppleHDA
+
+		ol.section__ol
+			li
+				| Выберите в строке меню пункт «Переход к папке».
+
+				- var src = "images/pages/start-sound/go-to-folder_small.jpg"
+				- var alt = "Переход к папке в macOS"
+				+section-image(false)
+			li
+				| И введите путь к системной папке: /System/Library/Extensions.
+			li
+				| Найдите у удалите AppleHDA.kext.
+			li
+				| Установите оригинальный AppleHDA с помощью 
+				a.link.link--section(href= installKexts) Kext Utility
+				| .
+
+		h3.section__h3 Шаг 3.  Установка AppleALC
+
+		ol.section__ol
+			li
+				| Загрузите 
+				a.link.link--section(href="https://github.com/vit9696/Lilu/releases") Lilu.kext
+				| , который требуется для работы AppleALC, и установите его с помощью 
+				a.link.link--section(href= installKexts) Kext Utility
+				| .
+			li
+				| Загрузите 
+				a.link.link--section(href="https://github.com/vit9696/AppleALC/releases") AppleALC.kext
+				| .
+			li
+				| Монтируйте раздел EFI с помощью 
+				a.link.link--section(href= mountEfi) EFI Mounter
+				| .
+			li
+				| Откройте файл конфигурации Clover —  config.plist через 
+				a.link.link--section(href="http://mackie100projects.altervista.org/download-clover-configurator/") Clover Configurator
+				| .
+
+				- var src = "images/pages/start-sound/plist-location.jpg"
+				- var alt = "Расположение config.plist"
+				+section-image
+
+			li
+				| Перейдите в раздел Kernel and Kext Patches и удалите строки, имеющие отношение к 
+				i AppleHDA/HDA
+				| .
+
+				- var src = "images/pages/start-sound/remove-applehda-string.png"
+				- var alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
+				+section-image
+			li
+				| Скопируйте AppleALC.kext в 
+				a.link.link--section(href= installKexts + "#2") папку 
+				| кекстов Clover.
+
+			li
+				| Сохраните изменения и перезагрузите компьютер. 
+
+				- var src = "images/pages/start-sound/save-config_small.jpg"
+				- var alt = "Сохранение изменений Clover Configurator"
+				+section-image(false)
+

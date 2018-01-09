@@ -1,0 +1,136 @@
+.page {
+	margin: auto;
+	background-color: @grey;
+	color: @color-font;
+	word-wrap: break-word;
+	font-weight: 400;
+	font-size: @font-size;
+	font-family: @font-family;
+	line-height: @line-height;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: transparent;
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin: auto;
+		width: @layout-size;
+
+		@media (max-width: @bp-narrow) {
+			width: 960px;
+		}
+
+		@media (max-width: @bp-mobile) {
+			width: 100%;
+		}
+	}
+
+	&__sidebar {
+		position: sticky;
+		top: @line-height + 51px;
+		margin-top: @line-height;
+		margin-left: @line-height;
+		width: 300px;
+		height: 100%;
+
+		@media (max-width: @bp-narrow) {
+			width: 250px;
+		}
+
+		@media (max-width: @bp-mobile) {
+			display: none;
+		}
+	}
+
+	&__article {
+		width: 814px;
+
+		@media (max-width: @bp-narrow) {
+			width: 650px;
+		}
+
+		@media (max-width: @bp-mobile) {
+			margin: auto;
+			width: 85%;
+		}
+
+		@media (max-width: @bp-mobile--small) {
+			width: 90%;
+		}
+
+		@media (max-width: @bp-mobile--tiny) {
+			width: 100%;
+		}
+	}
+
+	&__header {
+		position: relative;
+		z-index: 99;
+		width: 100%;
+
+		@media (max-width: @bp-mobile) {
+			position: fixed;
+			top: 0;
+		}
+	}
+
+	&__article-header {
+		margin-top: @line-height;
+
+		@media (max-width: @bp-mobile) {
+			margin-top: 57px + @line-height;
+		}
+
+		@media (max-width: @bp-mobile--tiny) {
+			margin-top: 57px + @line-height/1.5;
+		}
+	}
+
+	&__mobile-contents {
+		display: none;
+		margin-top: @line-height;
+
+		@media (max-width: @bp-mobile) {
+			display: block;
+		}
+
+		@media (max-width: @bp-mobile--tiny) {
+			margin-top: @line-height/1.5;
+		}
+	}
+
+	&__section {
+		margin-top: @line-height;
+
+		@media (max-width: @bp-mobile--tiny) {
+			margin-top: @line-height/1.5;
+		}
+	}
+
+	&__scroll-to-top {
+		position: fixed;
+		z-index: 99;
+		display: none;
+
+		@media (max-width: @bp-mobile) {
+			right: 4.5%;
+			bottom: 6%;
+			display: block;
+		}
+
+		@media (max-width: @bp-mobile--tiny) {
+			right: 5%;
+			bottom: 3%;
+		}
+	}
+
+	&__outdated {
+		margin: 0.2em 0; 
+		padding: 0.2em 0; 
+		background: #cccccc; 
+		color: #000000;
+	}
+}

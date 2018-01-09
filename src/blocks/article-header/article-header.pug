@@ -1,0 +1,31 @@
+include ../../pug/*/mixins
+
+- var altTheme = " article-header__image-wrapper--theme-alt"
+- var accentTheme = " article-header__image-wrapper--theme-accent"
+
+mixin article-header(day, month, year)
+
+	- headlineTxt = title
+
+	mixin time
+		time(datetime= String(year) + "-" + String(month) + "-" + String(day))= String(day) + "." + String(month) + "." + String(year)
+
+	.page__article-header.article-header
+		.article-header__image-wrapper(class= attributes.theme)
+			img.article-header__image(src=src alt="")
+		h1.article-header__headline!= headlineTxt
+		ul.article-header__entry-data
+			case updated
+				default
+					li.article-header__entry-data-item
+						+time
+				when true
+					li.article-header__entry-data-item
+						+time
+					li.article-header__entry-data-item
+						time.js-modified-date(data-time=String(uYear) + String(uMonth) + String(uDay) datetime=String(uYear) + "-" + String(uMonth) + "-" + 
+						String(uDay)) Обновлено&nbsp;
+			li.article-header__entry-data-item
+				span BroFox
+			if block
+			block

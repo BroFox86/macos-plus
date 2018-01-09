@@ -1,0 +1,41 @@
+doctype html
+include /pug/*/mixins
+include /pug/*/vars
+include /blocks/**/*
+
+html(lang="ru")
+
+	block head
+		include /pug/*/head
+
+	body.page
+
+		<!--[if lt IE 10]>
+		<p class="page__outdated">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите свой браузер</a>, чтобы улучшить качество отображения этого сайта.</p>
+		<![endif]-->
+
+		// inject:svg 
+		// endinject
+		
+		+header
+			block nav
+
+		.page__container
+
+			article.page__article
+				block article-header
+				block mobile-contents
+					- var mobile = true // Affects on contents
+
+				block content
+
+			block sidebar
+				- var mobile = false // Affects on contents
+				+sidebar
+			
+		+scroll-to-top
+
+		block footer
+			+footer
+
+		include /pug/*/scripts

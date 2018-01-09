@@ -1,0 +1,33 @@
+.my-links {
+	&__item {
+		position: relative;
+		display: inline-block;
+		margin-right: 0.5rem;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: @grey-dark;
+		transition: background-color 0.4s ease;
+		.moz-outline-disabled;
+
+		&--vk:hover {
+			background-color: @color-vk;
+		}
+
+		&--email:hover {
+			background-color: @color-email;
+		}
+
+		&--gplus:hover {
+			background-color: @color-gplus;
+		}
+	}
+
+	&__icon {
+		width: 14px;
+		height: 14px;
+		fill: #fff;
+
+		.toCenter;
+	}
+}

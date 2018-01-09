@@ -1,0 +1,30 @@
+- var inftext = "Примечание:", inf = "note--inf";
+- var tiptext = "Совет:", tip = "note--tip";
+- var warningtext = "Предупреждение:", warning = "note--warning";
+
+mixin note(type)
+	case type
+		when inf
+			aside.section__note.note(class= inf)
+				svg.note__icon.note__icon--inf(width="30")
+					use(xlink:href="#icon-help")
+				p.note__text
+					span.note__type= inftext + "\u0020"	
+					if block
+					block
+		when tip
+			aside.section__note.note(class= tip)
+				svg.note__icon.note__icon--tip(width="30")
+					use(xlink:href="#icon-description")  
+				p.note__text
+					span.note__type= tiptext + "\u0020"	
+					if block
+					block
+		when warning
+			aside.section__note.note(class= warning)
+				svg.note__icon.note__icon--warning(width="30")
+					use(xlink:href="#icon-warning")
+				p.note__text
+					strong.note__type= warningtext + "\u0020"	
+					if block
+					block

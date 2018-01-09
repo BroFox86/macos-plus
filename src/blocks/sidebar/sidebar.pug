@@ -1,0 +1,13 @@
+- var sidebar = "sidebar__item" + "\u0020"
+
+mixin sidebar
+	case contents
+		default
+			.page__sidebar.sidebar
+				+main-contents
+				+reference(state = sidebar)
+				+share(state = sidebar)
+		when false
+			.page__sidebar.sidebar
+				+reference(state = sidebar)
+				+share(state = sidebar)

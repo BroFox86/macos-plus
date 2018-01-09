@@ -1,0 +1,45 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	box-shadow: 0 2px 3px -1px rgba(0,0,0,0.1);
+	.moz-outline-disabled;
+
+	@media (max-width: @bp-mobile) {
+		flex-direction: row-reverse;
+		align-items: center;
+		background-color: @color-accent;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	&__logo {
+		display: block;
+		margin: 1.7rem auto;
+		width: 268px;
+		height: 80px;
+
+		@media (max-width: @bp-mobile) {
+			margin: 0.6rem auto;
+			width: 126px;
+			height: 38px;
+		}
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		@media (max-width: @bp-mobile) {
+			display: none;
+		}
+
+		&--mobile {
+			display: none;
+
+			@media (max-width: @bp-mobile) {
+				display: block;
+			}
+		}
+	}
+}

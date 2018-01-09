@@ -1,0 +1,239 @@
+.main-nav {
+	background-color: @grey-lighter;
+	font-family: @font-family-headline;
+
+	@media (max-width: @bp-mobile) {
+		background-color: @color-accent;
+		font-family: @font-family;
+	}
+
+	&.is-fixed {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		opacity: 0.95;
+
+		.main-nav__list {
+			box-shadow: none;
+		}
+	}
+
+	&__open-btn {
+		.moz-outline-disabled;
+	}
+
+	&__open-icon {
+		position: relative;
+		left: 20px;
+		display: none;
+		width: 22px;
+		height: 22px;
+		fill: #fff;
+
+		@media (max-width: @bp-mobile) {
+			display: block;
+		}
+	}
+
+	&__open-target:target ~ div {
+		transform: none;
+	}
+
+	&__list-wrapper {
+		@media (max-width: @bp-mobile) {
+			position: fixed;
+			top: 0;
+			overflow-y: scroll;
+			width: 50%;
+			height: 100%;
+			background-color: #fff;
+			box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.3);
+			transition: transform 0.25s ease-out;
+			transform: translateX(-130%);
+		}
+
+		@media (max-width: @bp-mobile--small) {
+			width: 75%;
+		}
+
+		@media (max-width: @nav-mobile-fullwidth) {
+			width: 100%;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin: 0;
+		padding: 0;
+		box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.07);
+		list-style-type: none;
+
+		flex-wrap: wrap;
+
+		@media (max-width: @bp-mobile) {
+			flex-direction: column;
+			padding: 1.25rem 1rem;
+			box-shadow: none;
+		}
+	}
+
+	&__close-btn {
+		display: none;
+		margin-bottom: 2rem;
+		float: right;
+
+		@media (max-width: @bp-mobile) {
+			display: block;
+		}
+
+		.moz-outline-disabled;
+	}
+
+	&__close-icon {
+		display: block;
+		width: 20px;
+		height: 20px;
+		fill: @color-accent;
+	}
+
+	&__item {
+		border-left: 1px solid @grey;
+		list-style: none;
+		transition: background-color 0.3s;
+
+		@media (max-width: @bp-mobile) {
+			width: 100%;
+			border: none;
+		}
+
+		&:last-child {
+			border-right: 1px solid @grey;
+
+			@media (max-width: @bp-mobile) {
+				border-right: none;
+			}
+		}
+
+		&:hover {
+			background-color: #fff;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+
+			@media (max-width: @bp-mobile) {
+				background-color: inherit;
+				box-shadow: none;
+			}
+
+			> .main-nav__link {
+				color: @color-accent;
+
+				@media (max-width: @bp-mobile) {
+					color: @grey-dark;
+				}
+			}
+		}
+
+		&--popup {
+			&:hover {
+				.main-nav__item {
+					box-shadow: none;
+				}
+
+				.main-nav__nested-list {
+					display: block;
+				}
+			}
+
+			> .main-nav__link {
+				@media (max-width: @bp-mobile) {
+					padding-left: 0;
+					color: @color-font;
+					cursor: default;
+				}
+			}
+
+			.main-nav__item {
+				background-color: #fff;
+			}
+
+			.main-nav__icon {
+				position: relative;
+				left: 1px;
+				width: 8px;
+				height: 8px;
+				fill: @color-font-lighter;
+				vertical-align: middle;
+
+				@media (max-width: @bp-mobile) {
+					top: 0;
+					fill: @color-font;
+					vertical-align: middle;
+				}
+			}
+		}
+
+		&--selected {
+			background-color: #fff;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+
+			@media (max-width: @bp-mobile) {
+				box-shadow: none;
+			}
+
+			> .main-nav__link {
+				color: @color-accent;
+			}
+		}
+
+		&--selected:not(.main-nav__item--popup) {
+			@media (max-width: @bp-mobile) {
+				border-radius: 4px;
+				background-color: @color-accent;
+				box-shadow: none;
+			}
+
+			> .main-nav__link {
+				@media (max-width: @bp-mobile) {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	&__link {
+		display: block;
+		padding: 1.2rem;
+		color: @color-font-lighter;
+		text-decoration: none;
+		white-space: nowrap;
+		line-height: 1;
+		cursor: pointer;
+		transition: color 0.3s ease;
+
+		@media (max-width: @bp-mobile) {
+			padding: 0.45rem 1.1rem;
+			color: @grey-darker;
+			white-space: normal;
+			line-height: @line-height;
+		}
+	}
+
+	&__nested-list {
+		position: absolute;
+		display: none;
+		padding: 0;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+
+		@media (max-width: @bp-mobile) {
+			position: static;
+			display: block;
+			box-shadow: none;
+		}
+	}
+}

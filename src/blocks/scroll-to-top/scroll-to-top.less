@@ -1,0 +1,23 @@
+.scroll-to-top {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: @color-accent;
+	box-shadow: rgba(101, 119, 134, 0.74902) 1px 1px 4px 0;
+	transition: transform 0.30s;
+	transform: scale(0);
+
+	.moz-outline-disabled;
+
+	&.is-visible {
+		transform: scale(1);
+	}
+
+	&__icon {
+		width: 20px;
+		height: 20px;
+		fill: #fff;
+
+		.toCenter;
+	}
+}
