@@ -324,7 +324,7 @@ gulp.task("styles:critical", function() {
           ".sidebar__item",
           ".sidebar__item:first-child",
 					".article__note",
-					".article__image",
+					".article__img",
           ".note__icon",
         ]
       })
