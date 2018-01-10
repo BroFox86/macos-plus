@@ -14,9 +14,11 @@ block nav
 	+site-nav(kexts = selected, pageA0 = selected)
 
 block article-header
-	- var imgArticle    = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
-	- pageTitle         = "Установка и удаление<br> кекстов в macOS"
-	- var datePublished = ["02", "09", "2017"]
+	- var imgArticle     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
+	- pageTitle          = "Установка и удаление<br> кекстов в macOS"
+	- var datePublished  = ["02", "09", "2017"]
+	- var dateModified   = ["09", "01", "2018"]
+	- var isDateModified = true
 	+article-header(theme = accentTheme) 
 
 mixin table-of-contents
