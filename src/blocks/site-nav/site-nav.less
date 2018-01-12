@@ -39,12 +39,16 @@
       position: fixed;
       top: 0;
       overflow-y: scroll;
-      width: 270px;
+      width: 350px;
       height: 100%;
       background-color: white;
       box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.3);
       transition: transform 0.25s ease-out;
       transform: translateX(-130%);
+		}
+		
+		@media (max-width: @mobile) {
+      width: 285px;
     }
 
     @media (max-width: @nav-mobile-fullWidth) {
