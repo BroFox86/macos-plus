@@ -8,7 +8,7 @@ mixin article-header
 	- headlineTxt = pageTitle
 
 	mixin time
-		time(datetime= String(datePublished[2]) + "-" + String(datePublished[1]) + "-" + String(datePublished[0]))= String(datePublished[0]) + "." + String(datePublished[1]) + "." + String(datePublished[2])
+		time(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
 
 	header.article__header.article-header
 		.article-header__img-wrapper(class= attributes.theme)
@@ -23,7 +23,8 @@ mixin article-header
 					li.article-header__entry-data-item
 						+time
 					li.article-header__entry-data-item
-						time.js-modified-date(data-time=String(dateModified[2]) + String(dateModified[1]) + String(dateModified[0]) datetime=String(dateModified[2]) + "-" + String(dateModified[1]) + "-" + 
-						String(dateModified[0])) Обновлено&nbsp;
+						time.js-modified-date(
+							data-time= dateModified[2] + dateModified[1] + dateModified[0] 
+							datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;
 			if block
 			block
