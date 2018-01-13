@@ -684,4 +684,4 @@ gulp.task("serve", function(callback) {
   gulpSequence(["prebuild"], ["connect:tmp"], ["watch"])(callback);
 });
 
-gulp.task("default", ["serve"], function() {});
+gulp.task("default", ["watch", "connect:tmp"], function() {});
