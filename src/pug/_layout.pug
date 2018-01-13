@@ -69,6 +69,9 @@ html(lang="ru")
 
 					block content
 
+					block rate
+						+rate
+
 				block sidebar
 					- var mobile = false 
 					+sidebar
@@ -90,6 +93,11 @@ html(lang="ru")
 				script(src="js/ru.js")
 				script(src="js/scripts.js")
 				// endbuild 
+
+				// LikeBtn.com BEGIN
+				script.
+					(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");
+				// LikeBtn.com END
 
 				mixin structured-data
 					mixin structured-data-markup
