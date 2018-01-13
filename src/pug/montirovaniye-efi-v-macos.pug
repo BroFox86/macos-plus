@@ -9,6 +9,7 @@ prepend body
 	- var urlEnc        = linksEfiFull
 	- var link          = linkEfi
 	- var imgArticleWeb = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition_original.png"
+	- var likeBtnName   = "Монтирование EFI"
 
 block nav
 	+site-nav(efi = selected, pageA0 = selected)
@@ -76,5 +77,3 @@ block content
 			| На целевом жестком диске по какой-либо причине вообще нет раздела EFI и монтировался аналогичный раздел для Windows из другого физического диска.
 		li.article__ul-item
 			| По ошибке подключился аналогичный раздел с загрузочного USB.
-	
-	+rate("montirovaniye-efi-v-macos")

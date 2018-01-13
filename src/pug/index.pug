@@ -9,6 +9,7 @@ prepend body
 	- var urlEnc        = linkIndexFull
 	- var link          = linkIndex
 	- var imgArticleWeb = "images/pages/index/high-sierra-desktop_original.jpg"
+	- var likeBtnName   = "Установка на ПК"
 
 block nav
 	+site-nav(index = selected)
@@ -523,9 +524,9 @@ block content
 			| Customize разделена на 3 раздела. Первый раздел — Graphics Configuration.
 
 			ul.article__ul.article__ul--nested
-				li
+				li.article__ul-item
 					| Inject NVIDIA — опция для старых видеокарт NVIDIA GeForce серии 8xxx, 9xxx, 2xx, 4xx, 610 и 630.
-				li
+				li.article__ul-item
 					| Inject ATI нужна для старых видеокарт ATI, таких как 4ххх серия.
 
 			- var src = "images/pages/index/customize_graphics.png"
@@ -604,5 +605,3 @@ block content
 			- var src = "images/pages/index/high-sierra-desktop.jpg"
 			- var alt = "Рабочий стол macOS High Sierra"
 			+img
-	
-	+rate("ustanovka-macos-high-sierra-na-pc")

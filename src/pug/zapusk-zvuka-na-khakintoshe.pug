@@ -9,6 +9,7 @@ prepend body
 	- var urlEnc        = linksSoundFull
 	- var link          = linkSound
 	- var imgArticleWeb = "images/pages/zapusk-zvuka-na-khakintoshe/rename-hdas_original.png"
+	- var likeBtnName   = "Запуск звука"
 
 block nav
 	+site-nav(sound = selected)
@@ -102,7 +103,7 @@ block content
 		a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs") wiki-странице
 		|  проекта. Там же есть и подробное  
 		a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Установка-и-использование") руководство
-		|  на русском языке по его установке. А здесь я постараюсь изложить его в более кратких и последовательных чертах.
+		|  на русском языке по его установке. Здесь же я постараюсь изложить его в более кратких и последовательных чертах.
 
 	p.article__par
 		| Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему «ванильный» — оригинальный, не затронутый вмешательствами — кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover — config.plist, которые мог 
@@ -224,5 +225,3 @@ block content
 			- var src = "images/pages/zapusk-zvuka-na-khakintoshe/save-config_small.jpg"
 			- var alt = "Сохранение изменений Clover Configurator"
 			+img(small)
-
-	+rate("zapusk-zvuka-na-khakintoshe")

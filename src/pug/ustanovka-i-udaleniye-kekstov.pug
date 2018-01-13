@@ -3,12 +3,13 @@ extends /pug/_layout
 prepend head
 	- var pageTitle = "Установка и удаление кекстов в macOS"
 	- var pageDesc  = "Коротко и ясно о работе с кекстами на хакинтоше"
-	- var keywords  = "хакинтош, кексты, macos"
+	- var keywords  = "хакинтош, кексты, macos" 
 
 prepend body
 	- var urlEnc        = linksKextsFull
 	- var link          = linkKexts
 	- var imgArticleWeb = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
+	- var likeBtnName   = "Установка и удаление кекстов"
 
 block nav
 	+site-nav(kexts = selected, pageA0 = selected)
@@ -149,5 +150,3 @@ block content
 
 	p.article__par 
 		| В случае, если целевой кекст располагается в папке Clover, просто удалите его оттуда и перезагрузите компьютер.
-
-	+rate("ustanovka-i-udaleniye-kekstov")
