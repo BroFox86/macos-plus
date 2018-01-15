@@ -9,7 +9,7 @@ prepend body
 	- var urlEnc        = linkVmwareFull
 	- var link          = linkVmware
 	- var imgArticleWeb = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg"
-	- var likeBtnName   = "Установка на виртуальную машину"
+	- var likeBtnId     = "Установка через VMWare"
 
 block nav
 	+site-nav(vmware = selected)
@@ -26,10 +26,10 @@ block article-header
 
 block content
 
-	p.article__par
+	p.article__p
 		| Запустить операционную систему macOS High Sierra «поверх» Windows можно с помощью виртуальных машин — программ, которые эмулируют работу одной операционной системы внутри другой. На этой странице приведена инструкция по установке бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине (далее — ВМ) macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. macOS High Sierra в качестве виртуальной системы не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы. Но для беглого ознакомления с ОС от Apple такой вариант вполне сгодится.
 
-	p.article__par Перед установкой загрузите необходимые файлы:
+	p.article__p Перед установкой загрузите необходимые файлы:
 
 	ul.article__ul
 		li.article__ul-item
@@ -169,5 +169,5 @@ block content
 		li
 			| Перезагрузите ВМ еще раз.
 
-	p.article__par 
+	p.article__p 
 		| Вжуух! Установка завершена и теперь macOS High Sierra работает как виртуальная ОС на Windows! :)

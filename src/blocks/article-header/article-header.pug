@@ -14,15 +14,15 @@ mixin article-header
 		.article-header__img-wrapper(class= attributes.theme)
 			img.article-header__img(src= imgArticle alt="")
 		h1.article-header__headline!= headlineTxt
-		ul.article-header__entry-data
+		ul.article-header__list
 			case isDateModified
 				default
-					li.article-header__entry-data-item
+					li.article-header__item
 						+time
 				when true
-					li.article-header__entry-data-item
+					li.article-header__item
 						+time
-					li.article-header__entry-data-item
+					li.article-header__item
 						time.js-modified-date(
 							data-time= dateModified[2] + dateModified[1] + dateModified[0] 
 							datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;

@@ -9,7 +9,7 @@ prepend body
 	- var urlEnc        = linksSoundFull
 	- var link          = linkSound
 	- var imgArticleWeb = "images/pages/zapusk-zvuka-na-khakintoshe/rename-hdas_original.png"
-	- var likeBtnName   = "Запуск звука"
+	- var likeBtnId     = "Запуск звука"
 
 block nav
 	+site-nav(sound = selected)
@@ -32,7 +32,7 @@ block content
 		a.article__anchor.link.link--anchor(href="#1") #
 		| Codec Commander
 
-	p.article__par 
+	p.article__p 
 		| Кекст Codec Commander используется для управления контроллером 
 		span.link.link--tooltip(title="External Amplifier Power Down") EAPD
 		| , включающим внешний усилитель для встроенных в материнские платы кодеков (звуковых карт). Обычно такие усилители установлены в колонках и наушниках. Когда кодек теряет питание, усилитель тоже теряет питание и включить его обратно без дополнительной помощи невозможно. Как правило кодек теряет питание в двух случаях:
@@ -45,12 +45,12 @@ block content
 			a.link.link--article(href="https://www.reddit.com/r/hackintosh/comments/413yqm/el_capitan_taking_3040_seconds_to_sleep/") особенность
 			|  macOS).
 
-	p.article__par 
+	p.article__p 
 		| В обоих случаях может показаться, что звук есть, но на самом деле его нет или он очень тихий. Для решения этой проблемы, собственно, и нужен Codec Commander.
 
 	h3.article__h3 Настройка
 
-	p.article__par 
+	p.article__p 
 		| Последняя версия Сodec Commander доступна на 
 		a.link.link--article(href="https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/") bitbucket.org
 		| . Но не все так просто: без предварительной настройки под Ваш кодек кекст может не заработать. Подробное руководство по настройке Сodec Commander находится на   
@@ -63,7 +63,7 @@ block content
 
 	h3.article__h3 Установка кекста
 
-	p.article__par 
+	p.article__p 
 		| Устанавливать Сodec Commander надо в папку системы. Рекомендую 
 		a.link.link--article(href= linkKexts) автоматическую
 		|  установку с помощью Kext Utility.
@@ -72,7 +72,7 @@ block content
 		a.article__anchor.link.link--anchor(href="#2") #
 		| Запуск звука на картах Creative
 	
-	p.article__par 
+	p.article__p 
 		| Для работы звуковых карт Creative на macOS энтузиасты разработали кекст kXAudioDriver, он запускает на хакинтоше карты:
 
 	ul.article__ul 
@@ -81,7 +81,7 @@ block content
 		li.article__ul-item Audigy RX 
 		li.article__ul-item EMU E-DSP
 
-	p.article__par
+	p.article__p
 		| Скачивание и обсуждение кекста доступно на форуме 
 		a.link.link--article(href="http://www.insanelymac.com/forum/topic/104797-creative-sb-live-audigy-audigy2-emu10kx-edsps-osx-driver-info-here/") insanelymac.com
 		| .
@@ -93,19 +93,19 @@ block content
 		a.article__anchor.link.link--anchor(href="#3") #
 		| Метод AppleALC
 
-	p.article__par
+	p.article__p
 		| AppleALC  — кекcт, который значительно упрощает запуск звука на хакинтоше. Он позволяет включить поддержку 
 		i встроенного 
 		| звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты. 
 
-	p.article__par
+	p.article__p
 		| Поддерживает ли Ваш кодек AppleALC можно узнать на 
 		a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs") wiki-странице
 		|  проекта. Там же есть и подробное  
 		a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Установка-и-использование") руководство
 		|  на русском языке по его установке. Здесь же я постараюсь изложить его в более кратких и последовательных чертах.
 
-	p.article__par
+	p.article__p
 		| Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему «ванильный» — оригинальный, не затронутый вмешательствами — кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover — config.plist, которые мог 
 		a.link.link--article(href= linkIndex + "#6") произвести
 		| , например, MultiBeast.
@@ -115,7 +115,7 @@ block content
 
 	h3.article__h3 Шаг 1. Получение оригинального AppleHDA
 	
-	p.article__par
+	p.article__p
 		| На загрузочной флешке, 
 		a.link.link--article(href= linkIndex + "#3") созданной
 		|  UniBeast, помимо значка «Установка macOS High Sierra» есть множество скрытых системных файлов. Для того, чтобы добраться до стандартных кекстов системы, необходимо сделать их видимыми.

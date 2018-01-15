@@ -8,8 +8,8 @@ prepend head
 prepend body
 	- var urlEnc        = linksEfiFull
 	- var link          = linkEfi
-	- var imgArticleWeb = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition_original.png"
-	- var likeBtnName   = "Монтирование EFI"
+	- var imgArticleWeb = "images/pages/montirovaniye-efi-v-macos/opened-efi-ptition_original.png"
+	- var likeBtnId     = "Монтирование EFI"
 
 block nav
 	+site-nav(efi = selected, pageA0 = selected)
@@ -24,7 +24,7 @@ block article-header
 
 block content
 
-	p.article__par 
+	p.article__p 
 		| Есть два способа монтирования раздела EFI — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает утилита EFI Mounter.
 	
 	ol.article__ol
@@ -47,7 +47,7 @@ block content
 			+note(inf)
 				| Для того, чтобы в macOS разрешить установку программ, загруженных со стороны — т.е. не с AppStore — необходимо отметить соответствующий пункт раздела «Защита и безопасность» в «Системных настройках».
 
-			p.article__par
+			p.article__p
 				| EFI Mounter обнаружит скрытые разделы на всех жестких дисках и подключенных носителях. На картинке ниже изображены 2 системных накопителя — SSD (твердотелый накопитель) и HDD (жесткий диск). SSD-диск указан как Disk0s1, где s1 — это первый раздел данного диска, который и является EFI — загрузочным разделом в UEFI. 
 		
 		li
@@ -60,14 +60,14 @@ block content
 		li
 			| В боковой колонке Finder к списку монтированных накопителей добавился раздел EFI, содержащий одноименную папку и папку Clover внутри нее.
 
-			- var src = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition.png"
+			- var src = "images/pages/montirovaniye-efi-v-macos/opened-efi-ptition.png"
 			- var alt = "Подключенный раздел EFI в Finder"
 			+img
 			
 	+note(warning)
 		| Не путайте раздел EFI для macOS с аналогичным разделом для Windows. В случае, если по ошибке был смонтирован не тот раздел, извлеките его, поскольку при случайном изменении системных разделов может не загрузиться основная ОС. К тому же они могут быть переписаны некоторыми программами по настройке хакинтоша.
 
-	p.article__par
+	p.article__p
 		| Может быть монтирован неподходящий загрузочный раздел EFI в следующих случаях:
 
 	ul.article__ul

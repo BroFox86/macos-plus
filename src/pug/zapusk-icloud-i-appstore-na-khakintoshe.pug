@@ -9,7 +9,7 @@ prepend body
 	- var urlEnc        = linksServicesFull
 	- var link          = linkServices
 	- var imgArticleWeb = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/generate-serial_original.png"
-	- var likeBtnName   = "Запуск сервисов"
+	- var likeBtnId     = "Запуск сервисов Apple"
 		
 block nav
 	+site-nav(services = selected)
@@ -97,7 +97,7 @@ block content
 			a.link.link--article(href="https://checkcoverage.apple.com") checkcoverage.apple.com
 			| .
 
-			p.article__par
+			p.article__p
 				| Проверьте этот серийный номер. Если появится 
 				i ошибка
 				| , как на приведенном ниже скриншоте — значит это то, что 
@@ -136,7 +136,7 @@ block content
 	h2#2.article__h2 Шаг 2. Запуск AppStore
 		a.article__anchor.link.link--anchor(href="#2") #
 
-	p.article__par
+	p.article__p
 		| Запуск AppStore не требует каких-либо дополнительных инструкций, если при попытке входа не появляется никакой ошибки. Однако (особенно при использовании внешних Wi-Fi USB-адаптеров) могут быть проблемы со входом. Это частая проблема и случается она в том случае, если сетевое устройство не назначено как основное (en1 вместо en0). Ниже следует инструкция, которая помогла мне решить эту проблему.
 		
 	ol.article__ol
