@@ -10,15 +10,18 @@ $(document).ready(function () {
 
 	$imgLink.on("click", function (e) {
 		e.preventDefault();
+
+		$lightboxImg.attr({ src: "", alt: "" });
+
 		$('body').bind("mousewheel", function () {
 			return false;
-		});
+		}); 
 
 		$lightbox.fadeIn(duration);
-		
-		var largeImage = $(this).attr("href"),
-		    imageAlt   = $(this).children("img").attr("alt");
 
+		var largeImage = $(this).attr("href"),
+				imageAlt   = $(this).children("img").attr("alt");
+				
 		$lightboxImg.attr({ src: largeImage, alt: imageAlt });
 	});
 
