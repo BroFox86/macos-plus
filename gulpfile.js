@@ -3,11 +3,11 @@
 // Common packages
 var gulp = require("gulp"),
   watch = require("gulp-watch"),
-  del = require("del"),
+	del = require("del"),
+	fs = require('fs'),
   plumber = require("gulp-plumber"),
   notify = require("gulp-notify"),
   gulpSequence = require("gulp-sequence"),
-  wait = require("gulp-wait"),
   flatten = require("gulp-flatten"),
   run = require("gulp-run"),
   path = require("path"),
@@ -28,14 +28,14 @@ var gulp = require("gulp"),
   // Packages for styles
   less = require("gulp-less"),
   postcss = require("gulp-postcss"),
-  autoprefixer = require("autoprefixer"),
+	autoprefixer = require("autoprefixer"),
+	penthouse = require('penthouse'),
   cssnano = require("cssnano"),
   mqpacker = require("css-mqpacker"),
   sortCSSmq = require("sort-css-media-queries"),
   pxtorem = require("postcss-pxtorem"),
   uncss = require("gulp-uncss"),
   gulpStylelint = require("gulp-stylelint"),
-  criticalCss = require("gulp-penthouse"),
   csscomb = require("gulp-csscomb"),
   // Packages for js
   uglify = require("gulp-uglify"),
@@ -56,8 +56,8 @@ var paths = {
     less: "src/less/",
     images: "src/images/",
     svg: "src/images/svg/",
-		favicons: "src/images/favicons/",
-		logos: "src/images/logos/",
+    favicons: "src/images/favicons/",
+    logos: "src/images/logos/",
     fonts: "src/fonts/",
     js: "src/js/"
   },
@@ -177,12 +177,12 @@ gulp.task("html:prebuild", function(callback) {
 
 gulp.task("html:build", function() {
   return gulp
-    .src(paths.tmp.root + "*.html")
+		.src(paths.tmp.root + "*.html")
     .pipe(
       inject(
         gulp
-          .src(paths.tmp.css + "_critical.css")
-          .pipe(postcss(cssnano))
+					.src(paths.tmp.css + "_critical.css")
+					.pipe(postcss(cssnano))
           .pipe(injectString.prepend("<style>"))
           .pipe(injectString.append("</style>")),
         {
@@ -311,26 +311,19 @@ gulp.task("styles:prebuild", function(callback) {
 });
 
 gulp.task("styles:critical", function() {
-  return gulp
-    .src(paths.tmp.css + "main-styles.css")
-    .pipe(
-      criticalCss({
-        out: "_critical.css",
-        url: paths.tmp.root + "index.html",
-        width: 1230,
-        height: 1800,
-        forceInclude: [
-          ".page__sidebar",
-          ".sidebar__item",
-          ".sidebar__item:first-child",
-					".article__note",
-					".article__img",
-          ".note__icon",
-        ]
-      })
-		)
-    .pipe(replace("../", ""))
-    .pipe(gulp.dest(paths.tmp.css));
+  penthouse(
+    {
+      url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
+      css: ".tmp/css/main-styles.css",
+      forceInclude: [
+				".article__img",
+				".note__icon"
+      ]
+    },
+    function(err, criticalCss) {
+      fs.writeFile(paths.tmp.css + "_critical.css", criticalCss);
+    }
+	);
 });
 
 gulp.task("styles:minify", function() {
@@ -410,15 +403,15 @@ gulp.task("js:minify", function() {
 ///////////////////////////////////////////////////////////////////////////////
 
 var respOptions = {
-  errorOnUnusedImage: false,
-  errorOnUnusedConfig: false,
-  errorOnEnlargement: false,
-  silent: true,
-  quality: 80,
-  compressionLevel: 9
-},
-large = "@large",
-huge = "@huge";
+    errorOnUnusedImage: false,
+    errorOnUnusedConfig: false,
+    errorOnEnlargement: false,
+    silent: true,
+    quality: 80,
+    compressionLevel: 9
+  },
+  large = "@large",
+  huge = "@huge";
 
 gulp.task("images:responsive", function() {
   return gulp
@@ -529,22 +522,18 @@ gulp.task("copy:fonts:dist", function() {
 });
 
 gulp.task("copy:favicons", function() {
-  return gulp
-    .src(paths.src.favicons + "*")
-    .pipe(gulp.dest(paths.dist.images));
+  return gulp.src(paths.src.favicons + "*").pipe(gulp.dest(paths.dist.images));
 });
 
 gulp.task("copy:logos", function() {
-  return gulp
-    .src(paths.src.logos + "*")
-    .pipe(gulp.dest(paths.dist.images));
+  return gulp.src(paths.src.logos + "*").pipe(gulp.dest(paths.dist.images));
 });
 
 gulp.task("copy:build", function(callback) {
   gulpSequence([
     "copy:fonts:dist",
-		"copy:favicons",
-		"copy:logos",
+    "copy:favicons",
+    "copy:logos",
     "copy:common"
   ])(callback);
 });
@@ -582,7 +571,8 @@ gulp.task("prebuild", function(callback) {
   gulpSequence(
     ["clean:tmp"],
     ["html:prebuild"],
-    ["styles:prebuild"],
+		["styles:prebuild"],
+		["styles:critical"],
     ["js:prebuild", "images:prebuild", "copy:fonts"]
   )(callback);
 });
@@ -591,7 +581,6 @@ gulp.task("build", function(callback) {
   gulpSequence(
     ["clean:tmp", "clean:dist"],
     ["prebuild"],
-    ["styles:critical"],
     ["html:build"],
     ["html:minify"],
     ["styles:minify"],
