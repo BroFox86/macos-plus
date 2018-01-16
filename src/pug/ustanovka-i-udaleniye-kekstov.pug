@@ -20,7 +20,7 @@ block article-header
 	- var datePublished  = ["02", "09", "2017"]
 	- var dateModified   = ["09", "01", "2018"]
 	- var isDateModified = true
-	+article-header(theme = accentTheme) 
+	+article-header(theme = accentTheme)
 
 mixin table-of-contents
 	+page-nav("Введение", "Установка кекстов", "Удаление кекстов")
@@ -29,63 +29,62 @@ append table-of-contents
 	+table-of-contents
 
 block content
-	h2#1.article__h2
-		a.article__anchor.link.link--anchor(href="#1") #
+	+h2("1")
 		| Введение
 
-	p.article__p 
+	+p 
 		| Слово «Кекст» — транскрипция английского сокращения Kext от Kernel extension, т.е. расширение ядра. В виде кекстов реализованы все драйверы для macOS. Большинство самих же кекстов реализовано в виде специальных установочных пакетов, при запуске которых потребуется лишь ввести пароль, а всё остальное сделают за вас скрипты. Почти так же, как и с привычной установкой драйверов на ОС Windows. Но не всегда всё так легко: порой достается просто файл с расширением .kext. А в случае с хакинтошем, следует готовиться к тому, что, возможно, придётся перепробовать несколько разных кекстов, прежде чем определенная аппаратная часть ПК заработает правильно. 
 
-	p.article__p 
+	+p 
 		| Установка кекстов в macOS состоит из трёх важных этапов: 
 
-	ol.article__ol
+	+ol
 		li Копировании в папку System/Library/Extensions.
 		li Настройке прав доступа.
 		li Удалении и пересоздании кэша кекстов для загрузки системы.
 
-	h2#2.article__h2
-		a.article__anchor.link.link--anchor(href="#2") #
+	+h2("2")
 		| Установка кекстов
 
-	h3.article__h3 Kext Utility
+	+h3
+		| Kext Utility
 
-	p.article__p 
+	+p 
 		| Есть два способа установки кекстов — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает отличная программа 
 		a.link.link--article(href="http://cvad-mac.narod.ru/index/0-4") Kext Utility
 		| . Она делает за меня все 3 описанные выше этапы установки кекстов.
 
-	p.article__p 
+	+p 
 		| Есть несколько способов работы с Kext Utility:
 
-	ul.article__ul
-		li.article__ul-item
+	+ul
+		+ul-item
 			| Перетаскивание одного или нескольких кекстов в окно программы.
-		li.article__ul-item
+		+ul-item
 			| Запуск «вхолостую». В этом случае будет запущена проверка прав доступа к уже установленным кекстам и пересоздание их кэша.
 
-	ol.article__ol
+	+ol
 		li
 			| Скачайте Kext Utility с 
 			a.link.link--article(href="http://cvad-mac.narod.ru/index/0-4") cvad-mac.narod.ru
 			|  и установите, переместив приложение в папку «Программы».
 
-			- var src = "images/pages/ustanovka-i-udaleniye-kekstov/install-location.png"
-			- var alt = "Папка c программами в macOS"
+			- src = "images/pages/ustanovka-i-udaleniye-kekstov/install-location.png"
+			- alt = "Папка c программами в macOS"
 			+img
 
 		li
 			| При каждом запуске программы начинается служебная процедура. Пока она выполняются, крутится индикатор и выводится лог событий.
 
-			- var src = "images/pages/ustanovka-i-udaleniye-kekstov/kext-utility-window.png"
-			- var alt = "Окно программы Kext Utility"
+			- src = "images/pages/ustanovka-i-udaleniye-kekstov/kext-utility-window.png"
+			- alt = "Окно программы Kext Utility"
 			+img
 
 		li
 			| Переместите кекст(ы) в окно программы методом drag-and-drop и дождитесь выполнения установки.
 
-			- var src = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging.jpg"
-			- var alt = "Установка кекста через Kext Utility"
+			- src = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging.jpg"
+			- alt = "Установка кекста через Kext Utility"
 			+img
 
 		li
@@ -93,17 +92,18 @@ block content
 		li
 			| Выйдите из программы и перезагрузите компьютер. После перезагрузки все устройства, для которых были установлены кексты, должны опознаться системой.
 
-	h3.article__h3 Установка в папку Clover
+	+h3
+		| Установка в папку Clover
 
-	p.article__p 
+	+p 
 		| Не всегда требуется устанавливать кексты в системную папку macOS: на хакинтоше есть еще одно место с кекстами — папка Clover. Обычно там располагаются кексты, необходимые для работы хакинтоша. Выбор места для установки следует делать исходя из документации к кексту. 
 
-	ol.article__ol
+	+ol
 		li
 			| Откройте папку Other загрузчика Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other.
 
-			- var src = "images/pages/ustanovka-i-udaleniye-kekstov/kexts-location-in-clover.png"
-			- var alt = "Папка с кекстами в Clover"
+			- src = "images/pages/ustanovka-i-udaleniye-kekstov/kexts-location-in-clover.png"
+			- alt = "Папка с кекстами в Clover"
 			+img
 
 			+note(inf)
@@ -117,23 +117,22 @@ block content
 			+note(tip)
 				| В папке загрузчика Other располагаются кексты для всех версий macOS. Старайтесь копировать кексты именно в эту папку.
 
-	h2#3.article__h2
-		a.article__anchor.link.link--anchor(href="#3") #
+	+h2("3")
 		| Удаление кекстов
 
-	ol.article__ol
+	+ol
 		li
 			| Выберите в строке меню пункт «Переход к папке» и введите путь к системной папке: /System/Library/Extensions
 
-			- var src = "images/pages/ustanovka-i-udaleniye-kekstov/go-to-folder_small.jpg"
-			- var alt = "Переход в системную папку macOS"
+			- src = "images/pages/ustanovka-i-udaleniye-kekstov/go-to-folder_small.jpg"
+			- alt = "Переход в системную папку macOS"
 			+img(small)
 
 		li
 			| Затем найдите там кекст у удалите.
 
-			- var src = "images/pages/ustanovka-i-udaleniye-kekstov/extensions-folder.png"
-			- var alt = "Папка с кекстами в системном разделе macOS"
+			- src = "images/pages/ustanovka-i-udaleniye-kekstov/extensions-folder.png"
+			- alt = "Папка с кекстами в системном разделе macOS"
 			+img
 
 		li
@@ -146,7 +145,8 @@ block content
 			+note(inf)
 				| Помимо основной папки с кекстами в macOS, которая располагается в папке System/, есть еще одно место, где хранятся кексты — /Library/Extensions. Но оно используется гораздо реже и кекстов там немного.
 
-	h3.article__h3 Удаление из папки Clover
+	+h3
+		| Удаление из папки Clover
 
-	p.article__p 
+	+p 
 		| В случае, если целевой кекст располагается в папке Clover, просто удалите его оттуда и перезагрузите компьютер.

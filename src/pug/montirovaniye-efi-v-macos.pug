@@ -24,56 +24,56 @@ block article-header
 
 block content
 
-	p.article__p 
+	+p 
 		| Есть два способа монтирования раздела EFI — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает утилита EFI Mounter.
 	
-	ol.article__ol
+	+ol
 		li
 			| Загрузите  
 			a.link.link--article(href="https://www.tonymacx86.com/resources/efi-mounter-v3.280/") EFI Mounter
 			|  и переместите ее в папку программ.
 
-			- var src = "images/pages/montirovaniye-efi-v-macos/apps-folder.png"
-			- var alt = "Папка приложений macOS"
+			- src = "images/pages/montirovaniye-efi-v-macos/apps-folder.png"
+			- alt = "Папка приложений macOS"
 			+img
 
 		li
 			| При запуске появится сообщение системы безопасности. Подтвердите выбор кнопкой «Открыть».
 			
-			- var src = "images/pages/montirovaniye-efi-v-macos/security-message.png"
-			- var alt = "Сообщение системы безопасности"
+			- src = "images/pages/montirovaniye-efi-v-macos/security-message.png"
+			- alt = "Сообщение системы безопасности"
 			+img(small)
 
 			+note(inf)
 				| Для того, чтобы в macOS разрешить установку программ, загруженных со стороны — т.е. не с AppStore — необходимо отметить соответствующий пункт раздела «Защита и безопасность» в «Системных настройках».
 
-			p.article__p
+			+p
 				| EFI Mounter обнаружит скрытые разделы на всех жестких дисках и подключенных носителях. На картинке ниже изображены 2 системных накопителя — SSD (твердотелый накопитель) и HDD (жесткий диск). SSD-диск указан как Disk0s1, где s1 — это первый раздел данного диска, который и является EFI — загрузочным разделом в UEFI. 
 		
 		li
 			| Выберите раздел и нажмите ОК, затем Mount.
 			
-			- var src = "images/pages/montirovaniye-efi-v-macos/efi-list.png"
-			- var alt = "Список разделов EFI компьютера"
+			- src = "images/pages/montirovaniye-efi-v-macos/efi-list.png"
+			- alt = "Список разделов EFI компьютера"
 			+img(small)
 			
 		li
 			| В боковой колонке Finder к списку монтированных накопителей добавился раздел EFI, содержащий одноименную папку и папку Clover внутри нее.
 
-			- var src = "images/pages/montirovaniye-efi-v-macos/opened-efi-ptition.png"
-			- var alt = "Подключенный раздел EFI в Finder"
+			- src = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition.png"
+			- alt = "Подключенный раздел EFI в Finder"
 			+img
 			
 	+note(warning)
 		| Не путайте раздел EFI для macOS с аналогичным разделом для Windows. В случае, если по ошибке был смонтирован не тот раздел, извлеките его, поскольку при случайном изменении системных разделов может не загрузиться основная ОС. К тому же они могут быть переписаны некоторыми программами по настройке хакинтоша.
 
-	p.article__p
+	+p
 		| Может быть монтирован неподходящий загрузочный раздел EFI в следующих случаях:
 
-	ul.article__ul
-		li.article__ul-item
+	+ul
+		+ul-item
 			| Вы установили macOS на один жесткий диск с ОС Windows и по ошибке монтировали загрузочный раздел с файлами этой ОС.
-		li.article__ul-item
+		+ul-item
 			| На целевом жестком диске по какой-либо причине вообще нет раздела EFI и монтировался аналогичный раздел для Windows из другого физического диска.
-		li.article__ul-item
+		+ul-item
 			| По ошибке подключился аналогичный раздел с загрузочного USB.
