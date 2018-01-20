@@ -422,9 +422,9 @@ gulp.task("images:responsive", function() {
       responsive(
         {
           "**/header__logo.*": [
-            { width: 250 },
-            { width: 250 * 1.5, rename: { suffix: large } },
-            { width: 250 * 2, rename: { suffix: huge } }
+            { width: 240 },
+            { width: 240 * 1.5, rename: { suffix: large } },
+            { width: 240 * 2, rename: { suffix: huge } }
           ],
           "**/header__logo--mobile.*": [
             { width: 126 },
