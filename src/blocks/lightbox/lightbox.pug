@@ -2,6 +2,5 @@ mixin lightbox
 	.lightbox
 		.lightbox__inner
 			.lightbox__close
-				svg.lightbox__close-icon
-					use(xlink:href="#cross-bold")
+				+svg("lightbox__close-icon", "cross-bold")
 			img.lightbox__img(src="#" alt="")

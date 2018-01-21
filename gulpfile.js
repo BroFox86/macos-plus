@@ -3,8 +3,8 @@
 // Common packages
 var gulp = require("gulp"),
   watch = require("gulp-watch"),
-	del = require("del"),
-	fs = require('fs'),
+  del = require("del"),
+  fs = require("fs"),
   plumber = require("gulp-plumber"),
   notify = require("gulp-notify"),
   gulpSequence = require("gulp-sequence"),
@@ -28,8 +28,8 @@ var gulp = require("gulp"),
   // Packages for styles
   less = require("gulp-less"),
   postcss = require("gulp-postcss"),
-	autoprefixer = require("autoprefixer"),
-	penthouse = require('penthouse'),
+  autoprefixer = require("autoprefixer"),
+  penthouse = require("penthouse"),
   cssnano = require("cssnano"),
   mqpacker = require("css-mqpacker"),
   sortCSSmq = require("sort-css-media-queries"),
@@ -55,7 +55,6 @@ var paths = {
     css: "src/css/",
     less: "src/less/",
     images: "src/images/",
-    svg: "src/images/svg/",
     favicons: "src/images/favicons/",
     logos: "src/images/logos/",
     fonts: "src/fonts/",
@@ -101,7 +100,10 @@ function fileContents(filePath, file) {
 
 gulp.task("html:svg", function() {
   return gulp
-    .src(paths.src.svg + "*")
+    .src([
+      paths.src.images + "images-to-sprite/*.svg",
+      paths.src.blocks + "*/images-to-sprite/*.svg"
+    ])
     .pipe(
       svgmin({
         plugins: [
@@ -120,7 +122,7 @@ gulp.task("html:svg", function() {
         parserOptions: { xmlMode: true }
       })
     )
-    .pipe(rename("_images.svg"))
+    .pipe(rename("_sprite.svg"))
     .pipe(gulp.dest(paths.tmp.images));
 });
 
@@ -140,7 +142,7 @@ gulp.task("html:generate", function buildHTML() {
       })
     )
     .pipe(
-      inject(gulp.src(paths.tmp.images + "_images.svg"), {
+      inject(gulp.src(paths.tmp.images + "_sprite.svg"), {
         transform: fileContents
       })
     )
@@ -163,7 +165,7 @@ gulp.task("html:generate:watch", function buildHTML() {
       })
     )
     .pipe(
-      inject(gulp.src(paths.tmp.images + "_images.svg"), {
+      inject(gulp.src(paths.tmp.images + "_sprite.svg"), {
         transform: fileContents
       })
     )
@@ -177,12 +179,12 @@ gulp.task("html:prebuild", function(callback) {
 
 gulp.task("html:build", function() {
   return gulp
-		.src(paths.tmp.root + "*.html")
+    .src(paths.tmp.root + "*.html")
     .pipe(
       inject(
         gulp
-					.src(paths.tmp.css + "_critical.css")
-					.pipe(postcss(cssnano))
+          .src(paths.tmp.css + "_critical.css")
+          .pipe(postcss(cssnano))
           .pipe(injectString.prepend("<style>"))
           .pipe(injectString.append("</style>")),
         {
@@ -315,15 +317,12 @@ gulp.task("styles:critical", function() {
     {
       url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
       css: ".tmp/css/main-styles.css",
-      forceInclude: [
-				".article__img",
-				".note__icon"
-      ]
+      forceInclude: [".article__img", ".note__icon"]
     },
     function(err, criticalCss) {
       fs.writeFile(paths.tmp.css + "_critical.css", criticalCss);
     }
-	);
+  );
 });
 
 gulp.task("styles:minify", function() {
@@ -571,8 +570,8 @@ gulp.task("prebuild", function(callback) {
   gulpSequence(
     ["clean:tmp"],
     ["html:prebuild"],
-		["styles:prebuild"],
-		["styles:critical"],
+    ["styles:prebuild"],
+    ["styles:critical"],
     ["js:prebuild", "images:prebuild", "copy:fonts"]
   )(callback);
 });
@@ -600,9 +599,15 @@ gulp.task("deploy", function() {
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("watch:tasks", function() {
-  watch(paths.src.svg + "*", function() {
-    gulp.start("html:prebuild");
-  });
+  watch(
+    [
+      paths.src.images + "images-to-sprite/*.svg",
+      paths.src.blocks + "*/images-to-sprite/*.svg"
+    ],
+    function() {
+      gulp.start("html:prebuild");
+    }
+  );
 
   watch(
     [paths.src.blocks + "**/*.pug", paths.src.pug + "_*.pug"],

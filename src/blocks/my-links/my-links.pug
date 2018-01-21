@@ -1,11 +1,8 @@
 mixin my-links
 	.footer__my-links.my-links
 		a.my-links__item.my-links__item--vk(href="https://vk.com/id335661231" title="Я ВКонтакте")
-			svg.my-links__icon
-				use(xlink:href="#vk")
+			+svg("my-links__icon", "vk")
 		a.my-links__item.my-links__item--gplus(href="https://plus.google.com/+DaurGamisoniya" title="Я на Google Plus")
-			svg.my-links__icon
-				use(xlink:href="#google-plus")
+			+svg("my-links__icon", "google-plus")
 		a.my-links__item.my-links__item--email(href="mailto:daurgam@gmail.com" title="Написать мне письмо")
-			svg.my-links__icon
-				use(xlink:href="#email")
+			+svg("my-links__icon", "email")

@@ -85,6 +85,10 @@ mixin figure(fullWidth)
 					if block
 					block
 
+mixin svg(className, id)
+	svg(class= className)
+		use(xlink:href="#" + id)
+
 mixin respImg
 	- var src1 = src + " " + size + "w"
 	- var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
