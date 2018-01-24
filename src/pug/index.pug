@@ -1,7 +1,7 @@
 extends /pug/_layout
 
 prepend head
-	- var pageTitle = "Установка macOS High Sierra на ПК на базе Intel"
+	- var pageTitle = "Установка macOS High Sierra на ПК"
 	- var pageDesc  = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
 	- var keywords  = "хакинтош, macos, пк"
 
@@ -16,6 +16,7 @@ block nav
 
 block article-header
 	- var imgArticle     = "images/pages/index/article-image.jpg"
+	- pageTitle          = "Установка macOS на ПК на базе Intel"
 	- var datePublished  = ["03", "05", "2017"]
 	- var dateModified   = ["09", "01", "2018"]
 	- var isDateModified = true
@@ -172,7 +173,7 @@ block content
 		li
 			| Выберите формат OS X Extended (Журналируемый).
 		li
-			| Выберите схему GUID ptition Map (GPT).
+			| Выберите схему GUID partition Map (GPT).
 
 			- src = "images/pages/index/install-unibeast-2.png"
 			- alt = "Форматирование диска в дисковой утилите macOS"
@@ -386,7 +387,7 @@ block content
 				li
 					| Формат: OS X Extended (Журналируемый).
 				li
-					| Схему разделов: GUID ptition Map (GPT).
+					| Схему разделов: GUID partition Map (GPT).
 				li
 					| Нажмите «Стереть».
 				li
