@@ -18,7 +18,8 @@ var gulp = require("gulp"),
   injectString = require("gulp-inject-string"),
   browserSync = require("browser-sync"),
   ghPages = require("gulp-gh-pages"),
-  depcheck = require("gulp-depcheck"),
+	depcheck = require("gulp-depcheck"),
+	changed = require("gulp-changed"),
   // Packages for html
   pug = require("gulp-pug"),
   pugIncludeGlob = require("pug-include-glob"),
@@ -34,14 +35,13 @@ var gulp = require("gulp"),
   mqpacker = require("css-mqpacker"),
   sortCSSmq = require("sort-css-media-queries"),
   pxtorem = require("postcss-pxtorem"),
-  uncss = require("gulp-uncss"),
+  uncss = require("uncss").postcssPlugin,
   gulpStylelint = require("gulp-stylelint"),
   csscomb = require("gulp-csscomb"),
   // Packages for js
   uglify = require("gulp-uglify"),
   // Packages for images
   responsive = require("gulp-responsive"),
-  changed = require("gulp-changed"),
   unusedImages = require("gulp-unused-images"),
   svgstore = require("gulp-svgstore"),
   svgmin = require("gulp-svgmin"),
@@ -81,7 +81,7 @@ var paths = {
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("clean:tmp", function() {
-  console.log("----- Cleaning tmp folder -----");
+  console.log("----- Cleaning .tmp folder -----");
   del.sync(paths.tmp.root + "**");
 });
 
@@ -117,7 +117,8 @@ gulp.task("html:svg", function() {
     .pipe(
       cheerio({
         run: function($, file) {
-          $("svg").attr("style", "display: none");
+					$("svg").attr("style", "display: none");
+					$("path").removeAttr("fill");
         },
         parserOptions: { xmlMode: true }
       })
@@ -183,8 +184,9 @@ gulp.task("html:build", function() {
     .pipe(
       inject(
         gulp
-          .src(paths.tmp.css + "_critical.css")
-          .pipe(postcss(cssnano))
+					.src(paths.tmp.css + "_critical.css")
+					.pipe(replace("../", ""))
+          .pipe(postcss([cssnano()]))
           .pipe(injectString.prepend("<style>"))
           .pipe(injectString.append("</style>")),
         {
@@ -200,7 +202,7 @@ gulp.task("html:build", function() {
             "node_modules/fg-loadcss/src/loadCSS.js",
             "node_modules/fg-loadcss/src/cssrelpreload.js"
           ])
-          .pipe(concat("loadcss.html"))
+          .pipe(concat("fg-loadcss.html"))
           .pipe(uglify())
           .pipe(injectString.prepend("<script>"))
           .pipe(injectString.append("</script>")),
@@ -246,18 +248,6 @@ gulp.task("html:validate", function() {
 // Styles
 ///////////////////////////////////////////////////////////////////////////////
 
-// PostCSS plugins
-var plugins = [
-    pxtorem({
-      propList: ["*", "!box-shadow"]
-    }),
-    mqpacker({
-      sort: sortCSSmq.desktopFirst
-    }),
-    autoprefixer()
-  ],
-  cssnano = [cssnano()];
-
 // gulp.task("styles:plugins", function() {
 //   return gulp
 //     .src(["node_modules/"])
@@ -281,25 +271,38 @@ gulp.task("styles:main", function() {
       })
     )
     .pipe(flatten())
-    .pipe(concat("main-styles.less"))
+    .pipe(concat("main.less"))
     .pipe(
       less({
         paths: [path.join(__dirname, "src/")]
       })
     )
-    .pipe(postcss(plugins))
+    .pipe(
+      postcss([
+        pxtorem({
+          propList: ["*", "!box-shadow"]
+        }),
+        mqpacker({
+          sort: sortCSSmq.desktopFirst
+        }),
+        autoprefixer()
+      ])
+    )
     .pipe(gulp.dest(paths.tmp.css));
 });
 
-// Uncss realize as separate task to avoid trim css before html compilation
+// UnCSS task realized as separate to avoid trim CSS before HTML compilation
+// at the watch task execution
 gulp.task("styles:trim", function() {
   return gulp
-    .src(paths.tmp.css + "main-styles.less")
+    .src(paths.tmp.css + "main.less")
     .pipe(
-      uncss({
-        html: [paths.tmp.root + "*.html"],
-        ignore: [/^.*is-.*$/, /^.*js-.*$/, /^.*outdated.*$/]
-      })
+      postcss([
+        uncss({
+          html: [paths.tmp.root + "*.html"],
+          ignore: [/^.*is-.*$/, /^.*js-.*$/, /^.*page__outdated.*$/]
+        })
+      ])
     )
     .pipe(gulp.dest(paths.tmp.css));
 });
@@ -316,7 +319,7 @@ gulp.task("styles:critical", function() {
   penthouse(
     {
       url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-      css: ".tmp/css/main-styles.css",
+      css: paths.tmp.css + "main.css",
       forceInclude: [".article__img", ".note__icon"]
     },
     function(err, criticalCss) {
@@ -328,7 +331,7 @@ gulp.task("styles:critical", function() {
 gulp.task("styles:minify", function() {
   return gulp
     .src(paths.dist.css + "*.css")
-    .pipe(postcss(cssnano))
+    .pipe(postcss([cssnano()]))
     .pipe(gulp.dest(paths.dist.css));
 });
 
@@ -351,7 +354,7 @@ gulp.task("styles:prettify", function() {
 });
 
 gulp.task("styles:lint", function lintCssTask() {
-  return gulp.src(paths.tmp.css + "*.css").pipe(
+  return gulp.src(paths.tmp.css + "main.css").pipe(
     gulpStylelint({
       reporters: [{ formatter: "string", console: true }]
     })
@@ -571,8 +574,7 @@ gulp.task("prebuild", function(callback) {
     ["clean:tmp"],
     ["html:prebuild"],
     ["styles:prebuild"],
-    ["styles:critical"],
-    ["js:prebuild", "images:prebuild", "copy:fonts"]
+    ["styles:critical", "js:prebuild", "images:prebuild", "copy:fonts"]
   )(callback);
 });
 
@@ -581,11 +583,7 @@ gulp.task("build", function(callback) {
     ["clean:tmp", "clean:dist"],
     ["prebuild"],
     ["html:build"],
-    ["html:minify"],
-    ["styles:minify"],
-    ["js:minify"],
-    ["images:copy"],
-    ["copy:build"],
+    ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"],
     ["html:validate"]
   )(callback);
 });
