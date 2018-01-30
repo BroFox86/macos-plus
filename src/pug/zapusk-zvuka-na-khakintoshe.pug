@@ -6,8 +6,8 @@ prepend head
 	- var keywords  = "хакинтош, звук, creative"
 
 prepend body
-	- var urlEnc        = linkSoundFull
-	- var link          = linkSound
+	- var urlEnc        = hrefSoundShare
+	- var link          = hrefSound
 	- var imgArticleWeb = "images/pages/zapusk-zvuka-na-khakintoshe/rename-hdas_original.png"
 	- var likeBtnId     = "Запуск звука"
 
@@ -66,7 +66,7 @@ block content
 
 	+p 
 		| Устанавливать Сodec Commander надо в папку системы. Рекомендую 
-		a.link.link--article(href= linkKexts) автоматическую
+		a.link.link--article(href= hrefKexts) автоматическую
 		|  установку с помощью Kext Utility.
 
 	+h2("2") 
@@ -110,7 +110,7 @@ block content
 
 	+p
 		| Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему «ванильный» — оригинальный, не затронутый вмешательствами — кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover — config.plist, которые мог 
-		a.link.link--article(href= linkIndex + "#6") произвести
+		a.link.link--article(href= hrefIndex + "#6") произвести
 		| , например, MultiBeast.
 
 	+note(tip)
@@ -121,7 +121,7 @@ block content
 	
 	+p
 		| На загрузочной флешке, 
-		a.link.link--article(href= linkIndex + "#3") созданной
+		a.link.link--article(href= hrefIndex + "#3") созданной
 		|  UniBeast, помимо значка «Установка macOS High Sierra» есть множество скрытых системных файлов. Для того, чтобы добраться до стандартных кекстов системы, необходимо сделать их видимыми.
 
 	+ol
@@ -154,7 +154,7 @@ block content
 			| Найдите у удалите AppleHDA.kext.
 		li
 			| Установите оригинальный AppleHDA с помощью 
-			a.link.link--article(href= linkKexts) Kext Utility
+			a.link.link--article(href= hrefKexts) Kext Utility
 			| .
 
 	+h3
@@ -165,7 +165,7 @@ block content
 			| Загрузите 
 			a.link.link--article(href="https://github.com/vit9696/Lilu/releases") Lilu.kext
 			| , который требуется для работы AppleALC, и установите его с помощью 
-			a.link.link--article(href= linkKexts) Kext Utility
+			a.link.link--article(href= hrefKexts) Kext Utility
 			| .
 		li
 			| Загрузите 
@@ -173,7 +173,7 @@ block content
 			| .
 		li
 			| Монтируйте раздел EFI с помощью 
-			a.link.link--article(href= linkEfi) EFI Mounter
+			a.link.link--article(href= hrefEfi) EFI Mounter
 			| .
 		li
 			| Откройте файл конфигурации Clover —  config.plist через 
@@ -222,7 +222,7 @@ block content
 
 		li
 			| Скопируйте AppleALC.kext в 
-			a.link.link--article(href= linkKexts + "#2") папку 
+			a.link.link--article(href= hrefKexts + "#2") папку 
 			| кекстов Clover.
 
 		li

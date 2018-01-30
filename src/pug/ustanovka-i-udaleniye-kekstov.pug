@@ -6,8 +6,8 @@ prepend head
 	- var keywords  = "хакинтош, кексты, macos" 
 
 prepend body
-	- var urlEnc        = linkKextsFull
-	- var link          = linkKexts
+	- var urlEnc        = hrefKextsShare
+	- var link          = hrefKexts
 	- var imgArticleWeb = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
 	- var likeBtnId     = "Установка и удаление кекстов"
 
@@ -108,7 +108,7 @@ block content
 
 			+note(inf)
 				| Системные разделы по умолчанию скрыты от пользователя. Инструкция по монтированию скрытых разделов приведена на отдельной 
-				a.link.link--note(href= linkEfi) странице
+				a.link.link--note(href= hrefEfi) странице
 				|  этого сайта.
 
 		li

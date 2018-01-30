@@ -11,7 +11,7 @@ mixin article-header
 		time(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
 
 	header.article__header.article-header
-		.article-header__img-wrapper(class= attributes.theme)
+		div.article-header__img-wrapper(class= attributes.theme)
 			img.article-header__img(src= imgArticle alt="")
 		h1.article-header__headline!= headlineTxt
 		ul.article-header__list

@@ -6,8 +6,8 @@ prepend head
 	- var keywords  = "хакинтош, macos, пк"
 
 prepend body
-	- var urlEnc        = linkIndexFull
-	- var link          = linkIndex
+	- var urlEnc        = hrefIndexShare
+	- var link          = hrefIndex
 	- var imgArticleWeb = "images/pages/index/high-sierra-desktop_original.jpg"
 	- var likeBtnId     = "Установка macOS на ПК"
 
@@ -62,7 +62,7 @@ block content
 
 	+p
 		| Для того, чтобы установить официальный образ macOS High Sierra на ПК, потребуется для начала загрузить его через цифровой магазин AppStore. Это можно сделать с помощью виртуальных машин, программ, которые эмулируют работу одной операционной системы внутри другой. На этом сайте будет приведена установка и настройка бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. Установка и настройка виртуальной машины VMWare подробно изложена на отдельной  
-		a.link.link--article(href= linkVmware) странице
+		a.link.link--article(href= hrefVmware) странице
 		|  этого сайта.
 
 	+note(tip)
@@ -583,7 +583,7 @@ block content
 
 			+note(inf)
 				| Вы можете не обнаружить EFI-раздел подключенным, поскольку по умолчанию системные разделы скрыты от пользователя. Для монтирования скрытых разделов в macOS я рекомендую утилиту 
-				a.link.link--note(href= linkEfi) EFI Mounter
+				a.link.link--note(href= hrefEfi) EFI Mounter
 				| .
 
 		li

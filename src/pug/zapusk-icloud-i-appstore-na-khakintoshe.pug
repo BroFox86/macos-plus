@@ -6,8 +6,8 @@ prepend head
 	- var keywords  = "хакинтош, iCloud, AppStore"
 
 prepend body
-	- var urlEnc        = linkServicesFull
-	- var link          = linkServices
+	- var urlEnc        = hrefServicesShare
+	- var link          = hrefServices
 	- var imgArticleWeb = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/generate-serial_original.png"
 	- var likeBtnId     = "Запуск сервисов Apple"
 		
@@ -83,7 +83,7 @@ block content
 
 			+note(inf)
 				| Подходящий вариант и поля уже должны быть введены автоматически во время 
-				a.link.link--note(href= linkIndex + "#6") пост-установки
+				a.link.link--note(href= hrefIndex + "#6") пост-установки
 				|  с MultiBeast. Поэтому, если страницы конфигуратора окажутся полупустыми, убедитесь, что config.plist открыт правильно.
 
 		li

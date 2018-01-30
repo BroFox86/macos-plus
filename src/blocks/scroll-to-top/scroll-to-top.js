@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var $btn    = $(".scroll-to-top"),
-      visible = "is-visible";
+  var $btn         = $(".scroll-to-top"),
+      visible      = "is-visible";
 
   $(window).scroll(function() {
     if ($(this).scrollTop() > 800) {
@@ -11,6 +11,7 @@ $(document).ready(function() {
   });
 
   $btn.click(function(e) {
+		e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 2000);
     return false;
   });

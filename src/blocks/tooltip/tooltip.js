@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
-	var $hook = $(".article__tooltip");
+	var $tooltip = $(".article__tooltip");
 
-	$hook
+	$tooltip
 		.hover(
 		function () {
 			var title = $(this).attr("title");

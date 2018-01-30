@@ -3,7 +3,7 @@
 mixin share
 	aside.aside.share(class= attributes.state)
 		h2.aside__headline Поделиться
-		.share__container
+		div.share__container
 			a.share__item.share__item--vk(
 				title="Вконтакте" 
 				onclick="window.open('http://vk.com/share.php?url=" + urlEnc + "','','Width=640,Height=480');")

@@ -1,12 +1,12 @@
 .site-nav {
   color: @nav-font-color;
-	text-transform: uppercase;
-	font-size: @font-size--small;
-	
+  text-transform: uppercase;
+  font-size: @font-size--small;
+
   @media (max-width: @tablet) {
     background-color: @accent-color;
-		text-transform: none;
-		font-size: 1rem;
+    text-transform: none;
+    font-size: 1rem;
   }
 
   &__open-btn {
@@ -45,9 +45,9 @@
       box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.3);
       transition: transform 0.35s ease-out;
       transform: translateX(-130%);
-		}
-		
-		@media (max-width: @mobile) {
+    }
+
+    @media (max-width: @mobile) {
       width: 285px;
     }
 
@@ -65,11 +65,10 @@
     top: 28px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
     list-style-type: none;
-
-    flex-wrap: wrap;
 
     @media (max-width: @tablet) {
       top: 0;
@@ -78,11 +77,9 @@
     }
 
     &.is-fixed {
-      .center(@position: fixed, @top: 0, @bottom: auto);
+      .center(@position: fixed; @top: 0; @bottom: auto);
 
       .site-nav__item {
-        //box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-
         &:nth-child(2) {
           border-top-left-radius: 0;
           border-bottom-left-radius: 10px;
@@ -116,7 +113,6 @@
     border-top: 1px solid @grey-light;
     border-bottom: 1px solid @grey-light;
     background-color: white;
-    //box-shadow: -1px 0 0 0 rgba(0, 0, 0, 0.05);
     list-style: none;
     cursor: pointer;
 
