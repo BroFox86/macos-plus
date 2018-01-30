@@ -5,7 +5,7 @@
     @media (max-width: @tablet) {
       display: flex;
       justify-content: center;
-      padding: @line-height 0;
+      padding-top: @line-height;
     }
 
     @media (max-width: @footer-asides-direction-bp) {
@@ -14,7 +14,7 @@
     }
 
     @media (max-width: @mobile) {
-      padding: @line-height/2 0;
+      padding-top: @line-height/2;
     }
   }
 
@@ -33,6 +33,10 @@
     text-align: center;
 
     @media (max-width: @tablet) {
+      padding: @line-height 10% @line-height*1.5;
+    }
+
+    @media (max-width: @mobile) {
       padding: @line-height/2 10% @line-height*1.5;
     }
   }
@@ -55,6 +59,6 @@
   }
 
   &__my-links {
-    margin-top: 16px;
+    margin-top: 15px;
   }
 }
