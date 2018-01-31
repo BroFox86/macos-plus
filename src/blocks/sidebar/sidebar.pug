@@ -1,13 +1,13 @@
 - var sidebar = "sidebar__item" + " "
 
 mixin sidebar
-	case contents
-		default
-			aside.page__sidebar.sidebar
-				+table-of-contents
-				+reference(state = sidebar)
-				+share(state = sidebar)
-		when false
-			aside.page__sidebar.sidebar
-				+reference(state = sidebar)
-				+share(state = sidebar)
+  case contents
+    default
+      aside.page__sidebar.sidebar
+        +table-of-contents
+        +reference(state = sidebar)
+        +share(state = sidebar)
+    when false
+      aside.page__sidebar.sidebar
+        +reference(state = sidebar)
+        +share(state = sidebar)

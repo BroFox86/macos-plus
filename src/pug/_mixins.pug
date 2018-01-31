@@ -1,111 +1,111 @@
 mixin h2(anchorId)
-	h2.article__h2(id= anchorId)
-		a.article__anchor.link.link--anchor(href= "#" + anchorId) #
-		if block
-		block
+  h2.article__h2(id= anchorId)
+    a.article__anchor.link.link--anchor(href= "#" + anchorId) #
+    if block
+    block
 
 mixin h3
-	h3.article__h3
-		if block
-		block
+  h3.article__h3
+    if block
+    block
 
 mixin p
-	p.article__p
-		if block
-		block
+  p.article__p
+    if block
+    block
 
 mixin ol
-	ol.article__ol(start= attributes.start)
-		if block
-		block
+  ol.article__ol(start= attributes.start)
+    if block
+    block
 
 mixin ol-nested
-	ol.article__ol.article__ol--nested
-		if block
-		block
+  ol.article__ol.article__ol--nested
+    if block
+    block
 
 mixin ul
-	ul.article__ul
-		if block
-		block
+  ul.article__ul
+    if block
+    block
 
 mixin ul-nested
-	ul.article__ul.article__ul--nested
-		if block
-		block
+  ul.article__ul.article__ul--nested
+    if block
+    block
 
 mixin ul-item
-	li.article__ul-item
-		if block
-		block
+  li.article__ul-item
+    if block
+    block
 
 - var small = " " + "article__img-wrapper--small" 
 
 mixin img(width)
-	- original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
+  - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
 
-	case width
-		default
-			a.article__img-wrapper(href= original)
-				div
-					img.article__img(
-						src = src
-						alt = alt)
-		when small
-			a.article__img-wrapper(
-					href  = src 
-					class = small)
-				div
-					img.article__img(
-						src = src
-						alt = alt)
+  case width
+    default
+      a.article__img-wrapper(href= original)
+        div
+          img.article__img(
+            src = src
+            alt = alt)
+    when small
+      a.article__img-wrapper(
+          href  = src 
+          class = small)
+        div
+          img.article__img(
+            src = src
+            alt = alt)
 
 mixin figure(fullWidth)
-	- original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
+  - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
 
-	case fullWidth
-		default
-			figure.article__figure
-				a.article__img-wrapper(href= original)
-					img.article__img.article__img--figure(
-						src = src
-						alt = alt)
-				figcaption.article__figcaption
-					if block
-					block
-		when false
-			figure.article__figure
-				a.article__img-wrapper(
-					class = small
-					href  = src)
-					img.article__img.article__img--figure(
-						src = src
-						alt = alt)
-				figcaption.article__figcaption
-					if block
-					block
+  case fullWidth
+    default
+      figure.article__figure
+        a.article__img-wrapper(href= original)
+          img.article__img.article__img--figure(
+            src = src
+            alt = alt)
+        figcaption.article__figcaption
+          if block
+          block
+    when false
+      figure.article__figure
+        a.article__img-wrapper(
+          class = small
+          href  = src)
+          img.article__img.article__img--figure(
+            src = src
+            alt = alt)
+        figcaption.article__figcaption
+          if block
+          block
 
 mixin svg(className, id)
-	svg(class= className width= "30")
-		use(xlink:href="#" + id)
+  svg(class= className width= "30")
+    use(xlink:href="#" + id)
 
 mixin respImg
-	- var src1 = src + " " + size + "w"
-	- var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
-	- var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
+  - var src1 = src + " " + size + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
 
-	img(class  = imgClass
-		srcset = src1 + ", " + src2 + ", " + src3
-		sizes  = sizes
-		src	   = src
-		alt	   = alt)
+  img(class  = imgClass
+    srcset = src1 + ", " + src2 + ", " + src3
+    sizes  = sizes
+    src	   = src
+    alt	   = alt)
 
 mixin respSrcImg
-	- var src1 = src + " " + size + "w"
-	- var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
-	- var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
+  - var src1 = src + " " + size + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
 
-	source(
-		media  = media
-		srcset = src1 + ", " + src2 + ", " + src3
-		sizes  = sizes)
+  source(
+    media  = media
+    srcset = src1 + ", " + src2 + ", " + src3
+    sizes  = sizes)

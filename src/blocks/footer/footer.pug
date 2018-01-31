@@ -3,16 +3,16 @@ include ../*/reference
 include ../*/my-links
 
 mixin footer
-	footer.footer
-		div.footer__top
-			+reference(state = footer)
-			+share(state = footer)
-		div.footer__bottom
-				p.footer__copyrights
-					span.footer__copyrights-for &copy; Дизайн и тексты.
-					span.footer__copyrights-info
-						a.footer__name
-							span &nbsp;Daur “Bro Fox” Gamisonia
-						span , 2017
-				+my-links
-					
+  footer.footer
+    div.footer__top
+      +reference(state = footer)
+      +share(state = footer)
+    div.footer__bottom
+        p.footer__copyrights
+          span.footer__copyrights-for &copy; Дизайн и тексты.
+          span.footer__copyrights-info
+            a.footer__name
+              span &nbsp;Daur “Bro Fox” Gamisonia
+            span , 2017
+        +my-links
+          

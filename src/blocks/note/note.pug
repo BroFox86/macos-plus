@@ -3,25 +3,25 @@
 - var warningtext = "Предупреждение:", warning = "note--warning"
 
 mixin note(type)
-	case type
-		when inf
-			aside.article__note.note(class= inf)
-				+svg("note__icon note__icon--inf", "help")
-				p.note__text
-					span.note__type= inftext + " "	
-					if block
-					block
-		when tip
-			aside.article__note.note(class= tip)
-				+svg("note__icon note__icon--tip", "lightbulb")
-				p.note__text
-					span.note__type= tiptext + " "	
-					if block
-					block
-		when warning
-			aside.article__note.note(class= warning)
-				+svg("note__icon note__icon--warning", "warning")
-				p.note__text
-					strong.note__type= warningtext + " "	
-					if block
-					block
+  case type
+    when inf
+      aside.article__note.note(class= inf)
+        +svg("note__icon note__icon--inf", "help")
+        p.note__text
+          span.note__type= inftext + " "	
+          if block
+          block
+    when tip
+      aside.article__note.note(class= tip)
+        +svg("note__icon note__icon--tip", "lightbulb")
+        p.note__text
+          span.note__type= tiptext + " "	
+          if block
+          block
+    when warning
+      aside.article__note.note(class= warning)
+        +svg("note__icon note__icon--warning", "warning")
+        p.note__text
+          strong.note__type= warningtext + " "	
+          if block
+          block

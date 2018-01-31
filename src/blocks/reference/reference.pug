@@ -3,18 +3,18 @@ include ../../pug/_mixins
 - var footer  = "footer__item"
 
 mixin reference
-	aside.aside.reference(class= attributes.state)
-		h2.aside__headline Сообщество
-		div.reference__container
-			- src	  = "images/community-logo.png"
-			- imgClass = "reference__img"
-			- size	 = 240
-			- sizes	= size / 16 + "em"
-			- alt	  = ""
-			+respImg
+  aside.aside.reference(class= attributes.state)
+    h2.aside__headline Сообщество
+    div.reference__container
+      - src	  = "images/community-logo.png"
+      - imgClass = "reference__img"
+      - size	 = 240
+      - sizes	= size / 16 + "em"
+      - alt	  = ""
+      +respImg
 
-			a.reference__link(href="https://plus.google.com/u/0/communities/103318624432661992867") macOS+ на Google Plus
+      a.reference__link(href="https://plus.google.com/u/0/communities/103318624432661992867") macOS+ на Google Plus
 
-				
+        
 
-		  
+      
