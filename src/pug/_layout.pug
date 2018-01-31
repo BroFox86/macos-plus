@@ -10,7 +10,7 @@ html(lang="ru")
 			title= pageTitle
 			meta(name="description" content= pageDesc)
 
-			// inject:loadcss:html 
+			// inject:fg-loadcss:html 
 			// endinject 
 
 			// inject:critical:css 
@@ -64,7 +64,7 @@ html(lang="ru")
 			+header
 				block nav
 
-			.page__container
+			div.page__container
 				article.page__article.article
 
 					block article-header
@@ -90,7 +90,7 @@ html(lang="ru")
 				+lightbox
 
 			block scripts
-				script(data-defer="defer on build" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+				script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
 
 				// build:js js/main.min.js defer
 				script(src="js/stickyfill.min.js")
