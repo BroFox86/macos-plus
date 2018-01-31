@@ -31,17 +31,11 @@
       }
     }
 
-    &:hover {
-      &:before {
-        width: 100%;
+    &:hover::before {
+      width: 100%;
 
-        @media (max-width: @tablet) {
-          width: 115%;
-        }
-      }
-
-      .page-nav__link {
-        color: white;
+      @media (max-width: @tablet) {
+        width: 115%;
       }
     }
   }
@@ -55,6 +49,10 @@
     text-decoration: none;
     line-height: 48px;
     transition: color 0.35s;
+
+    .page-nav__item:hover & {
+      color: white;
+    }
   }
 
   &__text {
