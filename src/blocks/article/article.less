@@ -7,8 +7,8 @@
 
   .padding(desktop);
 
-  @media (max-width: @small-desktop) {
-    .padding(small-desktop);
+  @media (max-width: @desktop) {
+    .padding(desktop);
   }
 
   @media (max-width: @tablet) {
@@ -40,12 +40,6 @@
     @media (max-width: @mobile) {
       font-size: @h2-size--mobile;
     }
-
-    &:hover {
-      .link {
-        opacity: 1;
-      }
-    }
   }
 
   &__h3 {
@@ -71,6 +65,10 @@
 
   &__p {
     margin: 0 0 @line-height;
+
+    .article__ol & {
+      margin-top: @line-height;
+    }
   }
 
   &__ol {
@@ -83,10 +81,6 @@
       margin-top: @line-height;
       padding-left: 5%;
       list-style-type: lower-alpha;
-    }
-
-    .article__p {
-      margin-top: @line-height;
     }
   }
 
@@ -129,10 +123,6 @@
   &__figure {
     margin: @line-height*1.5 auto;
     text-align: center;
-
-    .article__img-wrapper {
-      margin: 0;
-    }
   }
 
   &__figcaption {
@@ -144,6 +134,10 @@
     display: block;
     margin: @line-height*1.5 auto;
     outline: none;
+
+    .article__figure & {
+      margin: 0;
+    }
   }
 
   &__img {

@@ -2,18 +2,6 @@
   &__container {
     position: relative;
     height: 170px;
-
-    &:hover {
-      .reference {
-        &__img {
-          transform: scale(1.1);
-        }
-
-        &__link {
-          opacity: 1;
-        }
-      }
-    }
   }
 
   &__img {
@@ -23,6 +11,10 @@
     transition: transform 0.4s linear;
 
     .center;
+
+    .reference__container:hover & {
+      transform: scale(1.1);
+    }
   }
 
   &__link {
@@ -43,5 +35,9 @@
     line-height: 150px;
     opacity: 0;
     transition: opacity 0.4s linear;
+
+    .reference__container:hover & {
+      opacity: 1;
+    }
   }
 }
