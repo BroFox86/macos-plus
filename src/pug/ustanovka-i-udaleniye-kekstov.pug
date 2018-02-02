@@ -1,9 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Установка и удаление кекстов в macOS"
-  - var pageDesc  = "Коротко и ясно о работе с кекстами на хакинтоше"
-  - var keywords  = "хакинтош, кексты, macos" 
+  - var titlePage = "Установка и удаление кекстов в macOS"
+  - var descPage  = "Коротко и ясно о работе с кекстами на хакинтоше"
 
 prepend body
   - var urlEnc        = hrefKextsShare
@@ -16,7 +15,7 @@ block nav
 
 block article-header
   - var imgArticle     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
-  - pageTitle          = "Установка и удаление <br> кекстов в macOS"
+  - var titleArticle   = "Установка и удаление <br> кекстов в macOS"
   - var datePublished  = ["02", "09", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true

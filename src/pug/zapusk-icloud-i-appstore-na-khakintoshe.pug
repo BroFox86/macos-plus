@@ -1,9 +1,9 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Запуск iCloud и AppStore на хакинтоше"
-  - var pageDesc  = "Инструкции по запуску сервисов Apple iCloud и AppStore на хакинтоше."
-  - var keywords  = "хакинтош, iCloud, AppStore"
+  - var titlePage = "Запуск iCloud и AppStore на хакинтоше"
+  - var descPage  = "Инструкции по запуску сервисов Apple iCloud и AppStore на хакинтоше."
+  - var tags      = "хакинтош, iCloud, AppStore"
 
 prepend body
   - var urlEnc        = hrefServicesShare
@@ -15,7 +15,8 @@ block nav
   +site-nav(services = selected)
 
 block article-header
-  - var imgArticle    = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/article-image.png"
+  - var imgArticle    =  "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/article-image.png"
+  - var titleArticle  = "Запуск iCloud и AppStore<br> на хакинтоше"
   - var datePublished = ["23", "05", "2017"]
   - var dateModified  = ["09", "01", "2018"]
   - var isDateModified = true

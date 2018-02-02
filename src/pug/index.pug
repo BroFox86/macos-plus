@@ -1,9 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Установка macOS High Sierra на ПК на базе Intel"
-  - var pageDesc  = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
-  - var keywords  = "хакинтош, macos, пк"
+  - var titlePage = "Установка macOS High Sierra на ПК на базе Intel"
+  - var descPage  = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
 
 prepend body
   - var urlEnc        = hrefIndexShare
@@ -16,6 +15,7 @@ block nav
 
 block article-header
   - var imgArticle     = "images/pages/index/article-image.jpg"
+  - var titleArticle   = "Установка macOS High Sierra<br> на ПК на базе Intel"
   - var datePublished  = ["03", "05", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true

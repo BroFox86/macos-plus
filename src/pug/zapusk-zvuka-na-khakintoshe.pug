@@ -1,9 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Запуск звука на хакинтоше"
-  - var pageDesc  = "Краткое руководство по настройке звука на хакинтоше"
-  - var keywords  = "хакинтош, звук, creative"
+  - var titlePage = "Запуск звука на хакинтоше"
+  - var descPage  = "Краткое руководство по настройке звука на хакинтоше"
 
 prepend body
   - var urlEnc        = hrefSoundShare
@@ -16,6 +15,7 @@ block nav
 
 block article-header
   - var imgArticle    = "images/pages/zapusk-zvuka-na-khakintoshe/article-image.png"
+  - var titleArticle  = titlePage
   - var datePublished = ["02", "09", "2017"] 
   - var dateModified  = ["09", "01", "2018"]
   - var isDateModified = true

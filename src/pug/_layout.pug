@@ -7,8 +7,8 @@ html(lang="ru")
   block head
     head
       meta(charset="utf-8")
-      title= pageTitle
-      meta(name="description" content= pageDesc)
+      title= titlePage
+      meta(name="description" content= descPage)
 
       // inject:fg-loadcss:html 
       // endinject 
@@ -22,11 +22,10 @@ html(lang="ru")
       
       // inject-string:noscript
 
-      meta(name="keywords" content= keywords)
       meta(content="width=device-width, initial-scale=1" name="viewport")
 
-      meta(property="og:title" content= pageTitle)
-      meta(property="og:description" content= pageDesc)
+      meta(property="og:title" content= titlePage)
+      meta(property="og:description" content= descPage)
       meta(property="og:type" content="article")
       meta(property="og:site_name" content="macOS+ | Лис подскажет")
       meta(property="og:image" content= domainName + "images/logo-social.jpg")
@@ -114,7 +113,7 @@ html(lang="ru")
                 "@type": "WebPage",
                 "@id": "#{domainName}#{link}"
               },
-              "headline": "#{pageTitle}",
+              "headline": "#{titlePage}",
               "image": "#{domainName}#{imgArticleWeb}",
               "datePublished": "#{datePublished[2]}-#{datePublished[1]}-#{datePublished[0]}",
               "dateModified": "#{dateModifiedString}",
@@ -135,7 +134,7 @@ html(lang="ru")
                   "url": "#{domainName}images/logo-news.jpg"
                 }
               },
-              "description": "#{pageDesc}"
+              "description": "#{descPage}"
               }
 
           case isDateModified

@@ -1,9 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Установка macOS на ПК с помощью VMWare"
-  - var pageDesc  = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
-  - var keywords  = "vmware, macos"
+  - var titlePage = "Установка macOS на ПК с помощью VMWare"
+  - var descPage  = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
 
 prepend body
   - var urlEnc        = hrefVmwareShare
@@ -19,31 +18,37 @@ prepend sidebar
 
 block article-header
   - var imgArticle     = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-image.png"
+  - var titleArticle   = "Установка macOS на ПК<br> с помощью VMWare"
   - var datePublished  = ["17", "08", "2017"]
-  - var dateModified   = ["09", "01", "2018"]
+  - var dateModified   = ["02", "02", "2018"]
   - var isDateModified = true
   +article-header
 
 block content
 
   +p
-    | Запустить операционную систему macOS High Sierra «поверх» Windows можно с помощью виртуальных машин — программ, которые эмулируют работу одной операционной системы внутри другой. На этой странице приведена инструкция по установке бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине (далее — ВМ) macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. macOS High Sierra в качестве виртуальной системы не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы. Но для беглого ознакомления с ОС от Apple такой вариант вполне сгодится.
+    | Запустить операционную систему macOS High Sierra «поверх» Windows можно с помощью виртуальных машин — программ, которые эмулируют работу одной операционной системы внутри другой. На этой странице приведена инструкция по установке бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине (далее — ВМ) macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. macOS High Sierra в качестве виртуальной системы не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы.
+
+  +note(warning)
+    | Приведенная ниже инструкция рассчитана на работу с компьютерами на базе  intel. С процессорами AMD могут возникнуть проблемы.
 
   +p
     | Перед установкой загрузите необходимые файлы:
 
   +ul
     +ul-item
-      | Программу VMWare Workstation Player с 
+      | Программу VMWare Workstation Player: 
       a.link.link--article(href="http://www.vmware.com/products/player/playerpro-evaluation.html") www.vmware.com/products
     +ul-item
-      | Образ macOS High Sierra для ВМ с 
+      | Образ macOS High Sierra для ВМ: 
       a.link.link--article(href="https://drive.google.com/drive/folders/1ynPoQluSPz2RWtD2mKCtEhxCZKE30eIj") Google&nbsp;Drive
-      |  или 
+      |  / 
       a.link.link--article(href="https://yadi.sk/d/K9gd1t0L3RFULg") Яндекс&nbsp;Диск
     +ul-item
-      | Патчи Patch Tool и VMWare Tools с  
-      a.link.link--article(href="https://mega.nz/#F!p2BAhCyI!-ai3xBTrLDnUW2q7HJVRNg") mega.nz
+      | Патчи Patch Tool и VMWare Tools: 
+      a.link.link--article(href="https://drive.google.com/file/d/11aMzFAH4BEGcsOe5-qYX_X_3Jv1gphS3/view?usp=sharing") Google Drive
+      |  / 
+      a.link.link--article(href="https://mega.nz/#F!p2BAhCyI!-ai3xBTrLDnUW2q7HJVRNg") Mega
   
   +ol
     li
@@ -85,7 +90,7 @@ block content
       +img(small)
 
     li
-      | Зайдите в настройки созданной ВМ и удалите Hard Disk, нажав на Remove. Не бойтесь, это всего лишь виртуальный жесткий диск ;)
+      | Зайдите в настройки созданной ВМ и удалите Hard Disk, нажав на Remove.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/vmware-settings.jpg"
       - alt = "Настройки VMWare"
@@ -147,7 +152,7 @@ block content
       +img(small)
 
     li
-      | Теперь смонтируйте его: Removable Devices &gt; CD/DVD (SATA) &gt; Connect. На рабочем столе появится подключенный образ с установочным файлом программы.
+      | И смонтируйте его: Removable Devices &gt; CD/DVD (SATA) &gt; Connect. На рабочем столе появится подключенный образ с установочным файлом программы.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools.jpg"
       - alt = "Монтирование диска в VMWare"
@@ -169,6 +174,3 @@ block content
 
     li
       | Перезагрузите ВМ еще раз.
-
-  +p 
-    | Вжуух! Установка завершена и теперь macOS High Sierra работает как виртуальная ОС на Windows! :)
