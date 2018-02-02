@@ -30,8 +30,8 @@ var // Common packages
   less = require("gulp-less"),
   postcss = require("gulp-postcss"),
   autoprefixer = require("autoprefixer"),
-	cssnano = require("cssnano"),
-	mqpacker = require("css-mqpacker"),
+  cssnano = require("cssnano"),
+  mqpacker = require("css-mqpacker"),
   sortCSSmq = require("sort-css-media-queries"),
   pxtorem = require("postcss-pxtorem"),
   uncss = require("uncss").postcssPlugin,
@@ -42,8 +42,8 @@ var // Common packages
   uglify = require("gulp-uglify"),
   // Packages for images
   imagemin = require("gulp-imagemin"),
-	imageminJpegRecompress = require("imagemin-jpeg-recompress"),
-	responsive = require("gulp-responsive"),
+  imageminJpegRecompress = require("imagemin-jpeg-recompress"),
+  responsive = require("gulp-responsive"),
   unusedImages = require("gulp-unused-images"),
   imageDataURI = require("gulp-image-data-uri"),
   cheerio = require("gulp-cheerio"),
@@ -57,8 +57,8 @@ var paths = {
     pug: "src/pug/",
     css: "src/css/",
     less: "src/less/",
-		images: "src/images/",
-		logos: "src/images/logos/",
+    images: "src/images/",
+    logos: "src/images/logos/",
     favicons: "src/images/favicons/",
     fonts: "src/fonts/",
     js: "src/js/"
@@ -76,18 +76,20 @@ var paths = {
     js: "dist/js/",
     images: "dist/images/",
     fonts: "dist/fonts/"
-	},
-	plugins: {
-		css: [],
-		node: ["node_modules/moment/min/moment.min.js",
-		"node_modules/moment/locale/ru.js"]
-	}
+  },
+  plugins: {
+    css: [],
+    node: [
+      "node_modules/moment/min/moment.min.js",
+      "node_modules/moment/locale/ru.js"
+    ]
+  }
 };
 
 var critical = {
-	url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-	forceInclude: [".article__img", ".note__icon"]
-}
+  url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
+  forceInclude: [".article__img", ".note__icon"]
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Clean tasks
@@ -312,10 +314,7 @@ gulp.task("styles:trim", function() {
 });
 
 gulp.task("styles:prebuild", function(callback) {
-  gulpSequence([
-    "styles:main",
-    "styles:trim"
-  ])(callback);
+  gulpSequence(["styles:main", "styles:trim"])(callback);
 });
 
 gulp.task("styles:critical", function() {
@@ -369,81 +368,81 @@ gulp.task("styles:lint", function lintCssTask() {
 ///////////////////////////////////////////////////////////////////////////////
 
 var respOptions = {
-	errorOnUnusedImage: false,
-	errorOnUnusedConfig: false,
-	errorOnEnlargement: false,
-	silent: true,
-	quality: 80,
-	compressionLevel: 9
-},
-large = "@large",
-huge = "@huge";
+    errorOnUnusedImage: false,
+    errorOnUnusedConfig: false,
+    errorOnEnlargement: false,
+    silent: true,
+    quality: 80,
+    compressionLevel: 9
+  },
+  large = "@large",
+  huge = "@huge";
 
 gulp.task("images:responsive", function() {
-return gulp
-	.src(paths.src.blocks + "*/responsive-images/*")
-	.pipe(changed(paths.tmp.images))
-	.pipe(flatten())
-	.pipe(
-		responsive(
-			{
-				"**/header__logo.*": [
-					{ width: 240 },
-					{ width: 240 * 1.5, rename: { suffix: large } },
-					{ width: 240 * 2, rename: { suffix: huge } }
-				],
-				"**/header__logo--mobile.*": [
-					{ width: 126 },
-					{ width: 126 * 1.5, rename: { suffix: large } },
-					{ width: 126 * 2, rename: { suffix: huge } }
-				],
-				"**/community-logo.*": [
-					{ width: 240 },
-					{ width: 240 * 1.5, rename: { suffix: large } },
-					{ width: 240 * 2, rename: { suffix: huge } }
-				]
-			},
-			respOptions
-		)
-	)
-	.pipe(gulp.dest(paths.tmp.images));
+  return gulp
+    .src(paths.src.blocks + "*/responsive-images/*")
+    .pipe(changed(paths.tmp.images))
+    .pipe(flatten())
+    .pipe(
+      responsive(
+        {
+          "**/header__logo.*": [
+            { width: 240 },
+            { width: 240 * 1.5, rename: { suffix: large } },
+            { width: 240 * 2, rename: { suffix: huge } }
+          ],
+          "**/header__logo--mobile.*": [
+            { width: 126 },
+            { width: 126 * 1.5, rename: { suffix: large } },
+            { width: 126 * 2, rename: { suffix: huge } }
+          ],
+          "**/community-logo.*": [
+            { width: 240 },
+            { width: 240 * 1.5, rename: { suffix: large } },
+            { width: 240 * 2, rename: { suffix: huge } }
+          ]
+        },
+        respOptions
+      )
+    )
+    .pipe(gulp.dest(paths.tmp.images));
 });
 
 gulp.task("images:content:firstpass", function() {
-return gulp
-	.src(paths.src.images + "*pages/**/*")
-	.pipe(changed(paths.tmp.images))
-	.pipe(
-		responsive(
-			{
-				"**/article-image.*": [{ width: 330 }],
-				"**/*_small.*": [{}]
-			},
-			respOptions
-		)
-	)
-	.pipe(gulp.dest(paths.tmp.images));
+  return gulp
+    .src(paths.src.images + "*pages/**/*")
+    .pipe(changed(paths.tmp.images))
+    .pipe(
+      responsive(
+        {
+          "**/article-image.*": [{ width: 330 }],
+          "**/*_small.*": [{}]
+        },
+        respOptions
+      )
+    )
+    .pipe(gulp.dest(paths.tmp.images));
 });
 
 gulp.task("images:content", ["images:content:firstpass"], function() {
-return gulp
-	.src(["*pages/**/*", "!*pages/**/*{_small,article-image}.*"], {
-		cwd: paths.src.images
-	})
-	.pipe(changed(paths.tmp.images))
-	.pipe(
-		responsive(
-			{
-				"**/*": [{ width: 586 }, { rename: { suffix: "_original" } }]
-			},
-			respOptions
-		)
-	)
-	.pipe(gulp.dest(paths.tmp.images));
+  return gulp
+    .src(["*pages/**/*", "!*pages/**/*{_small,article-image}.*"], {
+      cwd: paths.src.images
+    })
+    .pipe(changed(paths.tmp.images))
+    .pipe(
+      responsive(
+        {
+          "**/*": [{ width: 586 }, { rename: { suffix: "_original" } }]
+        },
+        respOptions
+      )
+    )
+    .pipe(gulp.dest(paths.tmp.images));
 });
 
 gulp.task("images:prebuild", function(callback) {
-gulpSequence(["images:responsive", "images:content"])(callback);
+  gulpSequence(["images:responsive", "images:content"])(callback);
 });
 
 gulp.task("images:copy", function() {
@@ -494,11 +493,7 @@ gulp.task("js:main", function() {
 });
 
 gulp.task("js:prebuild", function(callback) {
-  gulpSequence([
-    "js:plugins",
-    "js:common",
-    "js:main"
-  ])(callback);
+  gulpSequence(["js:plugins", "js:common", "js:main"])(callback);
 });
 
 gulp.task("js:minify", function() {

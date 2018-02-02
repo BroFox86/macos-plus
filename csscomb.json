@@ -10,7 +10,6 @@
   "eof-newline": true,
   "leading-zero": true,
   "quotes": "double",
-  "sort-order-fallback": "abc",
   "space-before-colon": "",
   "space-after-colon": " ",
   "space-before-combinator": " ",
@@ -62,6 +61,10 @@
       "justify-content",
       "align-items",
       "align-self",
+      "flex-grow",
+      "flex-shrink",
+      "flex-wrap",
+      "order",
 
       "overflow",
       "-ms-overflow-x",
