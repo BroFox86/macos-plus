@@ -67,6 +67,12 @@
       margin: 12px 0 10px;
       font-size: @h1-size--mobile;
     }
+
+    br {
+      @media (max-width: @mobile) {
+        display: none;
+      }
+    }
   }
 
   &__list {
