@@ -35,7 +35,7 @@
     margin: @line-height 0;
     font-weight: 600;
     font-size: @h2-size;
-    line-height: normal;
+    line-height: normal; 
 
     @media (max-width: @mobile) {
       font-size: @h2-size--mobile;
@@ -103,7 +103,7 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: @grey;
+      background-color: @grey-128;
       content: "";
     }
   }
@@ -111,7 +111,7 @@
   &__code {
     padding: 3px 6px;
     border-radius: 4px;
-    background-color: lighten(@grey, 30);
+    background-color: @grey-235;
     font-size: @font-size--small;
   }
 
@@ -144,13 +144,12 @@
     display: block;
     margin: auto;
     max-width: 100%;
-    color: @grey;
+    color: @grey-128;
   }
 
   &__tooltip {
-    border-bottom: 1px dashed @accent-color;
-    color: @accent-color;
-
+    border-bottom: 2px dotted grey;
+    
     &:hover {
       cursor: help;
     }

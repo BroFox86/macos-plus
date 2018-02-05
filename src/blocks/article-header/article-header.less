@@ -7,14 +7,11 @@
     margin-top: 30px;
     height: 2px;
     border-radius: 10px;
-    background-color: @grey-light;
+    background-color: @grey-235;
     content: "";
 
     @media (max-width: @tablet) {
-      z-index: 1;
       margin-top: 20px;
-      height: 2px;
-      background-color: @grey-light;
     }
   }
 
@@ -24,7 +21,7 @@
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background-color: lighten(@grey, 32);
+    background-color: @grey-240;
 
     @media (max-width: @mobile) {
       width: 170px;
@@ -83,7 +80,7 @@
 
   &__item {
     display: inline-block;
-    color: darken(@grey, 7);
+    color: @grey-128;
 
     &::after {
       margin: 0 5px;

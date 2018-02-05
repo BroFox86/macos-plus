@@ -23,16 +23,15 @@
   }
 
   &--article {
-    border-bottom: 1px solid lighten(@accent-color, 25);
     color: darken(@accent-color, 5);
 
     &:hover {
-      border: none;
+      border-bottom: 1px solid lighten(@accent-color, 25);
     }
 
     &:visited {
-      border-bottom: 1px solid lighten(@visited-link-color, 25);
-      color: @visited-link-color;
+      border-bottom: 1px solid lighten(spin(@accent-color, 40), 25);
+      color: spin(@accent-color, 40);
     }
   }
 
