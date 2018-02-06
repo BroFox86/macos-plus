@@ -12,6 +12,7 @@
   &__open-btn {
     display: none;
 
+
     @media (max-width: @tablet) {
       position: absolute;
       top: 20px;
@@ -19,6 +20,8 @@
       display: block;
       width: 20px;
       height: 20px;
+
+      .normalize-btn();
     }
   }
 
@@ -90,6 +93,8 @@
       display: block;
       float: right;
       margin-bottom: 32px;
+
+      .normalize-btn();
     }
   }
 
@@ -106,6 +111,8 @@
     list-style: none;
     cursor: pointer;
 
+    .normalize-btn();
+
     @media (max-width: @tablet) {
       width: 100%;
       border: none;
@@ -117,7 +124,7 @@
       border-bottom-left-radius: @nav-item-border-radius;
 
       @media (max-width: @tablet) {
-        border: none ;
+        border: none;
       }
     }
 
@@ -127,7 +134,7 @@
       border-bottom-right-radius: @nav-item-border-radius;
 
       @media (max-width: @tablet) {
-        border: none ;
+        border: none;
       }
     }
 
@@ -152,7 +159,6 @@
     }
 
     .site-nav__list.is-fixed & {
-      
       &:nth-child(2) {
         border-top-left-radius: 0;
         border-bottom-left-radius: @nav-item-border-radius;
