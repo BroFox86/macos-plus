@@ -1,31 +1,31 @@
 extends /pug/_layout
 
 prepend head
-  - var titlePage = "Установка и удаление кекстов в macOS"
-  - var descPage  = "Коротко и ясно о работе с кекстами на хакинтоше"
+  - var pageTitle = "Установка и удаление кекстов в macOS"
+  - var pageDesc  = "Коротко и ясно о работе с кекстами на хакинтоше"
 
-prepend body
-  - var urlEnc        = hrefKextsShare
-  - var link          = hrefKexts
-  - var imgArticleWeb = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
+prepend page
+  - var encodedUrl    = kextsHrefForShare
+  - var pageHref      = kextsHref
+  - var webArticleImg = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
   - var likeBtnId     = "Установка и удаление кекстов"
 
 block nav
   +site-nav(kexts = selected, pageA0 = selected)
 
 block article-header
-  - var imgArticle     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
-  - var titleArticle   = "Установка и удаление <br> кекстов в macOS"
+  - var articleImg     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
+  - var articleTitle   = "Установка и удаление <br> кекстов в macOS"
   - var datePublished  = ["02", "09", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true
   +article-header(theme = themeAccent)
 
-mixin table-of-contents
+mixin contents-list
   +page-nav("Введение", "Установка кекстов", "Удаление кекстов")
 
-append table-of-contents
-  +table-of-contents
+append contents
+  +contents-list
 
 block content
   +h2("1")
@@ -95,26 +95,26 @@ block content
     | Установка в папку Clover
 
   +p 
-    | Не всегда требуется устанавливать кексты в системную папку macOS: на хакинтоше есть еще одно место с кекстами — папка Clover. Обычно там располагаются кексты, необходимые для работы хакинтоша. Выбор места для установки следует делать исходя из документации к кексту. 
+    | Не всегда требуется устанавливать кексты в системную папку macOS: на хакинтоше есть еще одно место с кекстами — в папке Clover. Обычно там располагаются кексты, необходимые для работы хакинтоша. Выбор места для установки следует делать исходя из документации к кексту. Большое кол-во кекстов, загружаемых через Clover, может существенно замедлить загрузку системы.
 
   +ol
     li
-      | Откройте папку Other загрузчика Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other.
+      | Откройте папку кекстов в Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other. 
 
       - src = "images/pages/ustanovka-i-udaleniye-kekstov/kexts-location-in-clover.png"
       - alt = "Папка с кекстами в Clover"
       +img
 
+    li
+      | Скопируйте туда необходимые кексты и перезагрузите компьютер. 
+      
+      +note(tip)
+        | В папке Clover/Kexts/Other располагаются кексты для всех версий macOS. Советую копировать кексты именно в эту папку.
+
       +note(inf)
         | Системные разделы по умолчанию скрыты от пользователя. Инструкция по монтированию скрытых разделов приведена на отдельной 
-        a.link.link--note(href= hrefEfi) странице
+        a.link.link--note(href= efiHref) странице
         |  этого сайта.
-
-    li
-      | Скопируйте в эту папку необходимые кексты и перезагрузите компьютер.
-
-      +note(tip)
-        | В папке загрузчика Other располагаются кексты для всех версий macOS. Старайтесь копировать кексты именно в эту папку.
 
   +h2("3")
     | Удаление кекстов

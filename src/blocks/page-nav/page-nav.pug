@@ -2,7 +2,7 @@ mixin page-nav(...items)
 
   - var n = 1
 
-  mixin page-nav-inner
+  mixin inner-markup
     h2.aside__headline= "Оглавление"
     ul.page-nav__list
       each item in items
@@ -10,11 +10,11 @@ mixin page-nav(...items)
           a.page-nav__link(href="#" + n)
             span.page-nav__text= item
             span.page-nav__number= n++
-  case mobile
+  case isMobile
     when false
       nav.sidebar__item.aside.page-nav
-        +page-nav-inner
+        +inner-markup
     when true
       nav.page__nav.aside.page-nav
-        +page-nav-inner
+        +inner-markup
         

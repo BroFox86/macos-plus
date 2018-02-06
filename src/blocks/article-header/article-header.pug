@@ -1,25 +1,23 @@
-include /pug/_mixins
-
 - var themeAlt    = "article-header__img-wrapper--theme-alt"
 - var themeAccent = "article-header__img-wrapper--theme-accent"
 
 mixin article-header
 
-  mixin time
+  mixin time-mixin
     time(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
 
   header.article__header.article-header
     div.article-header__img-wrapper(class= attributes.theme)
-      img.article-header__img(src= imgArticle alt="")
-    h1.article-header__headline!= titleArticle
+      img.article-header__img(src= articleImg alt="")
+    h1.article-header__headline!= articleTitle
     ul.article-header__list
       case isDateModified
         default
           li.article-header__item
-            +time
+            +time-mixin
         when true
           li.article-header__item
-            +time
+            +time-mixin
           li.article-header__item
             time.js-modified-date(
               data-time= dateModified[2] + dateModified[1] + dateModified[0] 

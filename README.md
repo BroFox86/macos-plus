@@ -20,11 +20,11 @@
 ### Методики и рекомендации
 
 * БЭМ [Гарри Робертса (Harry Roberts)](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/). В рамках проекта постарался использованы возможности БЭМ по максимуму, включая миксование блоков и файловую структуру.
-* [6 Gulp Best Practices](http://blog.rangle.io/angular-gulp-bestpractices/)
+* “6 Gulp Best Practices” с [rangle.io](http://blog.rangle.io/angular-gulp-bestpractices/)
 
 ### Дополнительно
 
-* Рейтинг Google Speed Inside: [84 балла](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus&tab=desktop).
+* Рейтинг Google Page Speed Inside (PSI): [84 балла](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus&tab=desktop).
 * Полная работоспособность сайта в случае отключения JavaScript, вплоть до работы мобильного меню.
 * Критические стили (Critical CSS).
 * Структурированные данные JSON-LD на основе [schema.org](http://schema.org)

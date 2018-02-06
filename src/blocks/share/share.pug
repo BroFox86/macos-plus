@@ -6,19 +6,19 @@ mixin share
     div.share__container
       a.share__item.share__item--vk(
         title="Вконтакте" 
-        onclick="window.open('http://vk.com/share.php?url=" + urlEnc + "','','Width=640,Height=480');")
+        onclick="window.open('http://vk.com/share.php?url=" + encodedUrl + "','','Width=640,Height=480');")
         +svg("share__icon", "vk")
       a.share__item.share__item--gplus(
         title="Google+" 
-        onclick="window.open('https://plus.google.com/share?url=" + urlEnc + "','','Width=640,Height=480');")
+        onclick="window.open('https://plus.google.com/share?url=" + encodedUrl + "','','Width=640,Height=480');")
         +svg("share__icon", "google-plus")
       a.share__item.share__item--twitter(
         title="Twitter" 
-        onclick="window.open('https://twitter.com/intent/tweet?url=" + urlEnc + "&text=" + titlePage + "&via=Daur_G','','Width=640,Height=300');")
+        onclick="window.open('https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + pageTitle + "&via=Daur_G','','Width=640,Height=300');")
         +svg("share__icon", "twitter")
       a.share__item.share__item--fb(
         title="Facebook" 
-        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=" + urlEnc + "','','Width=640,Height=480');")
+        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl + "','','Width=640,Height=480');")
         +svg("share__icon", "facebook")
 
   

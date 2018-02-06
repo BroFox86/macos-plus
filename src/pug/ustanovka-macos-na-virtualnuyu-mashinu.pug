@@ -1,24 +1,24 @@
 extends /pug/_layout
 
 prepend head
-  - var titlePage = "Установка macOS на ПК с помощью VMWare"
-  - var descPage  = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
+  - var pageTitle = "Установка macOS на ПК с помощью VMWare"
+  - var pageDesc  = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
 
-prepend body
-  - var urlEnc        = hrefVmwareShare
-  - var link          = hrefVmware
-  - var imgArticleWeb = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg"
+prepend page
+  - var encodedUrl    = vmHrefForShare
+  - var pageHref      = vmHref
+  - var webArticleImg = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg"
   - var likeBtnId     = "Установка через VMWare"
 
 block nav
   +site-nav(vmware = selected)
 
 prepend sidebar
-  - var contents = false
+  - var hasContentsList = false
 
 block article-header
-  - var imgArticle     = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-image.png"
-  - var titleArticle   = "Установка macOS на ПК<br> с помощью VMWare"
+  - var articleImg     = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-image.png"
+  - var articleTitle   = "Установка macOS на ПК<br> с помощью VMWare"
   - var datePublished  = ["17", "08", "2017"]
   - var dateModified   = ["02", "02", "2018"]
   - var isDateModified = true

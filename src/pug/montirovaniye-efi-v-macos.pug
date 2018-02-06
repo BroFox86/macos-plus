@@ -1,31 +1,33 @@
 extends /pug/_layout
 
 prepend head
-  - var titlePage = "Монтирование скрытого раздела EFI в macOS"
-  - var descPage  = "Коротко и ясно о монтировании EFI в macOS с помощью EFI Mounter"
+  - var pageTitle = "Монтирование EFI в macOS"
+  - var pageDesc  = "Коротко и ясно о подключении EFI-раздела в macOS с помощью EFI Mounter"
 
-prepend body
-  - var urlEnc        = hrefEfiShare
-  - var link          = hrefEfi
-  - var imgArticleWeb = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition_original.png"
+prepend page
+  - var encodedUrl    = efiHrefForShare
+  - var pageHref      = efiHref
+  - var webArticleImg = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition_original.png"
   - var likeBtnId     = "Монтирование EFI"
 
 block nav
   +site-nav(efi = selected, pageA0 = selected)
 
 prepend sidebar
-  - var contents = false
+  - var hasContentsList = false
 
 block article-header
-  - var imgArticle    = "images/pages/montirovaniye-efi-v-macos/article-image.png"
-  - var titleArticle  = titlePage
+  - var articleImg    = "images/pages/montirovaniye-efi-v-macos/article-image.png"
+  - var articleTitle  = pageTitle
   - var datePublished = ["02", "09", "2017"]
   +article-header
 
 block content
 
   +p 
-    | Есть два способа монтирования раздела EFI — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает утилита EFI Mounter.
+    | Есть два способа подключения (монтирования) раздела 
+    span.article__tooltip(title!="Extensible Firmware Interface (с англ. — «интерфейс расширяемой прошивки») — интерфейс между операционной системой и микропрограммами, управляющими низкоуровневыми функциями оборудования, его основное предназначение: корректно инициализировать оборудование при включении системы и передать управление загрузчику операционной системы. &copy;&nbsp;Wikipedia.") EFI
+    |  — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает утилита EFI Mounter.
   
   +ol
     li

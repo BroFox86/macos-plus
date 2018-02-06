@@ -1,10 +1,10 @@
 - var sidebar = "sidebar__item" + " "
 
 mixin sidebar
-  case contents
+  case hasContentsList
     default
       aside.page__sidebar.sidebar
-        +table-of-contents
+        +contents-list
         +reference(state = sidebar)
         +share(state = sidebar)
     when false

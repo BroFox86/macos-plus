@@ -1,32 +1,32 @@
 extends /pug/_layout
 
 prepend head
-  - var titlePage = "Запуск iCloud и AppStore на хакинтоше"
-  - var descPage  = "Инструкции по запуску сервисов Apple iCloud и AppStore на хакинтоше."
+  - var pageTitle = "Запуск iCloud и AppStore на хакинтоше"
+  - var pageDesc  = "Инструкции по запуску сервисов Apple iCloud и AppStore на хакинтоше."
   - var tags      = "хакинтош, iCloud, AppStore"
 
-prepend body
-  - var urlEnc        = hrefServicesShare
-  - var link          = hrefServices
-  - var imgArticleWeb = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/generate-serial_original.png"
+prepend page
+  - var encodedUrl        = servicesHrefForShare
+  - var pageHref          = servicesHref
+  - var webArticleImg = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/generate-serial_original.png"
   - var likeBtnId     = "Запуск сервисов Apple"
     
 block nav
   +site-nav(services = selected)
 
 block article-header
-  - var imgArticle    =  "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/article-image.png"
-  - var titleArticle  = "Запуск iCloud и AppStore<br> на хакинтоше"
-  - var datePublished = ["23", "05", "2017"]
-  - var dateModified  = ["09", "01", "2018"]
+  - var articleImg     = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/article-image.png"
+  - var articleTitle   = "Запуск iCloud и AppStore<br> на хакинтоше"
+  - var datePublished  = ["23", "05", "2017"]
+  - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true
   +article-header
 
-mixin table-of-contents
+mixin contents-list
   +page-nav("Запуск iCloud", "Запуск AppStore")
 
-append table-of-contents
-  +table-of-contents
+append contents
+  +contents-list
 
 block content	
   +h2("1")
@@ -84,7 +84,7 @@ block content
 
       +note(inf)
         | Подходящий вариант и поля уже должны быть введены автоматически во время 
-        a.link.link--note(href= hrefIndex + "#6") пост-установки
+        a.link.link--note(href= indexHref + "#6") пост-установки
         |  с MultiBeast. Поэтому, если страницы конфигуратора окажутся полупустыми, убедитесь, что config.plist открыт правильно.
 
     li

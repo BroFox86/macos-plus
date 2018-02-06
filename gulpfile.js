@@ -86,7 +86,7 @@ var paths = {
   }
 };
 
-var critical = {
+var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
   forceInclude: [".article__img", ".note__icon"]
 };
@@ -169,9 +169,7 @@ gulp.task("html:generate", function buildHTML() {
 gulp.task("html:generate:watch", function buildHTML() {
   return watch(paths.src.pug + "[^_]*.pug", { ignoreInitial: true })
     .pipe(
-      plumber({
-        errorHandler: notify.onError({ title: "HTML compilation error" })
-      })
+      plumber()
     )
     .pipe(
       pug({
@@ -320,9 +318,9 @@ gulp.task("styles:prebuild", function(callback) {
 gulp.task("styles:critical", function() {
   penthouse(
     {
-      url: critical.url,
+      url: criticalOptns.url,
       css: paths.tmp.css + "main.css",
-      forceInclude: critical.forceInclude
+      forceInclude: criticalOptns.forceInclude
     },
     function(err, criticalCss) {
       fs.writeFile(paths.tmp.css + "_critical.css", criticalCss);
