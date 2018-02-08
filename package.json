@@ -1,6 +1,6 @@
 {
   "name": "macos-plus",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "description": "Install macos sierra on intel-based PC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -67,7 +67,6 @@
   ],
   "dependencies": {
     "fg-loadcss": "^2.0.1",
-    "magnific-popup": "^1.1.0",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0"
   }
