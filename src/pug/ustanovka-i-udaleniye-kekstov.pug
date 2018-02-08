@@ -5,8 +5,8 @@ prepend head
   - var pageDesc  = "Коротко и ясно о работе с кекстами на хакинтоше"
 
 prepend page
-  - var encodedUrl    = kextsHrefForShare
-  - var pageHref      = kextsHref
+  - var encodedUrl    = kextsLinkForShare
+  - var pageLink      = kextsLink
   - var webArticleImg = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
   - var likeBtnId     = "Установка и удаление кекстов"
 
@@ -113,7 +113,7 @@ block content
 
       +note(inf)
         | Системные разделы по умолчанию скрыты от пользователя. Инструкция по монтированию скрытых разделов приведена на отдельной 
-        a.link.link--note(href= efiHref) странице
+        a.link.link--note(href= efiLink) странице
         |  этого сайта.
 
   +h2("3")

@@ -17,6 +17,7 @@ html(lang="ru")
       // endinject
 
       // build:css css/styles.min.css rel="preload" as="style" onload="this.rel=&apos;stylesheet&apos;"
+      link(href="css/normalize.css" rel="stylesheet")
       link(href="css/main.css" rel="stylesheet")
       // endbuild 
       
@@ -111,7 +112,7 @@ html(lang="ru")
               "@type": "NewsArticle",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "#{domainName}#{pageHref}"
+                "@id": "#{domainName}#{pageLink}"
               },
               "headline": "#{pageTitle}",
               "image": "#{domainName}#{webArticleImg}",
