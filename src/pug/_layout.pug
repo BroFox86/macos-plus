@@ -73,21 +73,15 @@ html(lang="ru")
             - var isMobile = true
 
           block content
-
-          block rate
-            +rate
+          +rate
 
         block sidebar
           - var isMobile = false 
           +sidebar
-
-      block footer
-        +footer
       
+      +footer
       +scroll-to-top
-
-      block lightbox
-        +lightbox
+      +lightbox
 
       block scripts
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
