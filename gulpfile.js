@@ -104,6 +104,10 @@ gulp.task("clean:dist", function () {
   del.sync(paths.dist.root + "**");
 });
 
+gulp.task("clean:all", function (callback) {
+  gulpSequence(["clean:tmp", "clean:dist"])(callback);
+});
+
 ///////////////////////////////////////////////////////////////////////////////
 // Tasks for HTML
 ///////////////////////////////////////////////////////////////////////////////
@@ -445,6 +449,7 @@ gulp.task("images:responsive", function () {
         respOptions
       )
     )
+    
     .pipe(gulp.dest(paths.tmp.images));
 });
 
@@ -632,7 +637,13 @@ gulp.task("prebuild", function (callback) {
 
 gulp.task("build", function (callback) {
   gulpSequence(
-    ["clean:tmp", "clean:dist"], ["prebuild"], ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
+    ["clean:all"], ["prebuild"], ["build"]
+  )(callback);
+});
+
+gulp.task("build:fast", function (callback) {
+  gulpSequence(
+    ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
   )(callback);
 });
 
@@ -685,11 +696,11 @@ gulp.task("watch:tasks", function () {
   );
 
   watch(
-    paths.src.blocks + "**/*.{jpg,jpeg,png}", {
+    [paths.src.blocks + "**/*.{jpg,jpeg,png}", paths.src.images + "pages/**/*.{jpg,jpeg,png}"], {
       readDelay: 200
     },
     function () {
-      gulp.start("images:minify");
+      gulp.start("images:prebuild");
     }
   );
 
