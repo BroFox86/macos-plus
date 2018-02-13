@@ -10,7 +10,7 @@ $(document).ready(function () {
     $this = $(this);
 
     var largeImage = $this.attr("href"),
-      imageAlt = $this.children("img").attr("alt");
+        imageAlt   = $this.children("img").attr("alt");
 
     $('body').bind("mousewheel", function () {
       return false;
@@ -20,10 +20,11 @@ $(document).ready(function () {
       src: largeImage,
       alt: imageAlt
     });
+
     $lightbox.fadeIn(duration);
   });
 
-  $lightbox.children("div").mouseenter(function () {
+  $lightbox.children().mouseenter(function () {
     $lightbox.unbind("click");
   });
 
@@ -34,19 +35,21 @@ $(document).ready(function () {
         alt: ""
       });
     }, 500);
-  }
+  };
 
-  $lightbox.children("div").mouseleave(function () {
-      $lightbox.on("click", function () {
-        $('body').unbind("mousewheel");
-        $(this).fadeOut(duration);
-        unloadImg();
-      });
-    }),
+  var $body = $('body');
 
-    $(".lightbox__close").on("click", function () {
-      $('body').unbind("mousewheel");
-      $lightbox.fadeOut(duration);
+  $lightbox.children().mouseleave(function () {
+    $lightbox.on("click", function () {
+      $body.unbind("mousewheel");
+      $(this).fadeOut(duration);
       unloadImg();
     })
+  });
+
+  $(".lightbox__close").on("click", function () {
+    $body.unbind("mousewheel");
+    $lightbox.fadeOut(duration);
+    unloadImg();
+  })
 });
