@@ -1,17 +1,27 @@
 {
   "excludeFiles": [
     ".git",
-    "libs",
     "node_modules",
-    "yaspeller"
+    ".publish",
+    "src",
+    "dist"
   ],
-  "lang": "ru",
   "fileExtensions": [
     ".md",
-    ".css",
     ".html"
   ],
+  "lang": "ru",
   "dictionary": [
-    "someword1"
+    "кекст*",
+    "хакинтош*",
+    "чипсет*",
+    "кодек",
+    "аудиокодек",
+    "забаненн*",
+    "й",
+    "Робертс*",
+    "Шаблонизатор",
+    "микс*",
+    "Полифил"
   ]
 }
