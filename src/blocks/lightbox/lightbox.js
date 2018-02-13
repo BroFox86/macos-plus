@@ -1,49 +1,52 @@
 $(document).ready(function () {
 
-	var $imgLink       = $(".article__img-wrapper"),
-	    $img           = $(".article__img"),
-	    $lightbox      = $(".lightbox"),
-	    $lightboxInner = $(".lightbox__inner"),
-	    $lightboxImg   = $(".lightbox__img"),
-	    $lightboxClose = $(".lightbox__close"),
-			duration       = 300,
-			clearDelay     = 500;
+  var
+    $lightbox = $(".lightbox"),
+    duration = 300;
 
-	$imgLink.on("click", function (e) {
-		e.preventDefault();
+  $(".article__img-wrapper").on("click", function (e) {
+    e.preventDefault();
 
-		var largeImage = $(this).attr("href"),
-				imageAlt   = $(this).children("img").attr("alt");
-			
-		$('body').bind("mousewheel", function () {
-			return false;
-		});
-				
-		$lightboxImg.attr({ src: largeImage, alt: imageAlt });
-		$lightbox.fadeIn(duration);
-	});
+    $this = $(this);
 
-	$lightboxInner.mouseenter(function () {
-		$lightbox.unbind("click");
-	});
+    var largeImage = $this.attr("href"),
+      imageAlt = $this.children("img").attr("alt");
 
-	function unloadImg() {
-		setTimeout(function() {
-			$lightboxImg.attr({ src: "", alt: "" });
-		}, clearDelay);
-	}
+    $('body').bind("mousewheel", function () {
+      return false;
+    });
 
-	$lightboxInner.mouseleave(function () {
-		$lightbox.on("click", function () {
-			$('body').unbind("mousewheel");
-			$lightbox.fadeOut(duration);
-			unloadImg();
-		});
-	}),
+    $lightbox.find("img").attr({
+      src: largeImage,
+      alt: imageAlt
+    });
+    $lightbox.fadeIn(duration);
+  });
 
-	$lightboxClose.on("click", function () {
-		$('body').unbind("mousewheel");
-		$lightbox.fadeOut(duration);
-		unloadImg();
-	})
+  $lightbox.children("div").mouseenter(function () {
+    $lightbox.unbind("click");
+  });
+
+  function unloadImg() {
+    setTimeout(function () {
+      $lightbox.find("img").attr({
+        src: "",
+        alt: ""
+      });
+    }, 500);
+  }
+
+  $lightbox.children("div").mouseleave(function () {
+      $lightbox.on("click", function () {
+        $('body').unbind("mousewheel");
+        $(this).fadeOut(duration);
+        unloadImg();
+      });
+    }),
+
+    $(".lightbox__close").on("click", function () {
+      $('body').unbind("mousewheel");
+      $lightbox.fadeOut(duration);
+      unloadImg();
+    })
 });
