@@ -1,9 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Запуск iCloud и AppStore на хакинтоше"
-  - var pageDesc  = "Инструкции по запуску сервисов Apple iCloud и AppStore на хакинтоше."
-  - var tags      = "хакинтош, iCloud, AppStore"
+  - var pageTitle = "Настройка iCloud и AppStore на хакинтоше"
+  - var pageDesc  = "Инструкции по настройке iCloud и AppStore на хакинтоше с решением некоторых частых проблем."
 
 prepend page
   - var encodedUrl    = servicesLinkForShare
@@ -16,21 +15,21 @@ block nav
 
 block article-header
   - var articleImg     = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/article-image.png"
-  - var articleTitle   = "Запуск iCloud и AppStore&#32;<br>на хакинтоше"
+  - var articleTitle   = "Настройка iCloud и AppStore&#32;<br>на хакинтоше"
   - var datePublished  = ["23", "05", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true
   +article-header
 
 mixin contents-list
-  +page-nav("Запуск iCloud", "Запуск AppStore")
+  +page-nav("Настройка iCloud", "Настройка AppStore")
 
 append contents
   +contents-list
 
 block content	
   +h2("1")
-    | Шаг 1. Запуск iCloud
+    | Шаг 1. Настройка iCloud
     
   +h3
     | а) Сброс данных
@@ -136,7 +135,7 @@ block content
       | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и AppStore.
 
   +h2("2") 
-    | Шаг 2. Запуск AppStore
+    | Шаг 2. Настройка AppStore
 
   +p
     | Запуск AppStore не требует каких-либо дополнительных инструкций, если при попытке входа не появляется никакой ошибки. Однако (особенно при использовании внешних Wi-Fi USB-адаптеров) могут быть проблемы со входом. Это частая проблема и случается она в том случае, если сетевое устройство не назначено как основное (en1 вместо en0). Ниже следует инструкция, которая помогла мне решить эту проблему.

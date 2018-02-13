@@ -2,7 +2,7 @@ extends /pug/_layout
 
 prepend head
   - var pageTitle = "Монтирование EFI в macOS"
-  - var pageDesc  = "Коротко и ясно о подключении EFI-раздела в macOS с помощью EFI Mounter"
+  - var pageDesc  = "Подробно о том, как монтировать раздел EFI в macOS с помощью EFI Mounter"
 
 prepend page
   - var encodedUrl    = efiLinkForShare
@@ -53,7 +53,7 @@ block content
         | EFI Mounter обнаружит скрытые разделы на всех жестких дисках и подключенных носителях. На картинке ниже изображены 2 системных накопителя — SSD (твердотелый накопитель) и HDD (жесткий диск). SSD-диск указан как Disk0s1, где s1 — это первый раздел данного диска, который и является EFI — загрузочным разделом в UEFI. 
     
     li
-      | Выберите раздел и нажмите ОК, затем Mount.
+      | Выберите раздел и нажмите OK, затем Mount.
       
       - src = "images/pages/montirovaniye-efi-v-macos/efi-list.png"
       - alt = "Список разделов EFI компьютера"

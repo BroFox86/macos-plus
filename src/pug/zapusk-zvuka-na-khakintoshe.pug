@@ -1,8 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Запуск звука на хакинтоше"
-  - var pageDesc  = "Краткое руководство по настройке звука на хакинтоше"
+  - var pageTitle = "Завод звука на хакинтоше"
+  - var pageDesc  = "Руководство по настройке звука на хакинтоше. Не всеобъемлющее, но с рядом полезной информации"
 
 prepend page
   - var encodedUrl    = soundLinkForShare
@@ -51,11 +51,11 @@ block content
     | Настройка
 
   +p 
-    | Последняя версия Сodec Commander доступна на 
+    | Последняя версия Codec Commander доступна на 
     a.link.link--article(href="https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/") bitbucket.org
-    | . Но не все так просто: без предварительной настройки под Ваш кодек кекст может не заработать. Подробное руководство по настройке Сodec Commander находится на   
+    | . Но не все так просто: без предварительной настройки под Ваш кодек кекст может не заработать. Подробное руководство по настройке Codec Commander находится на   
     a.link.link--article(href="https://github.com/RehabMan/EAPD-Codec-Commander") GitHub
-    | . Однако новичку будет очень сложно в нем разобраться. Самый простой способ — найти уже настроенный кекст под кодек своей системы. Я нашел Сodec Commander для ALC1150 на 
+    | . Однако новичку будет очень сложно в нем разобраться. Самый простой способ — найти уже настроенный кекст под кодек своей системы. Я нашел Codec Commander для ALC1150 на 
     a.link.link--article(href="https://www.tonymacx86.com/attachments/codeccommander-kext-zip.146742/") tonymackx86.com 
     | (прямая 
     a.link.link--article(href="https://yadi.sk/d/k32zKmbk3M3Lrb") ссылка
@@ -65,15 +65,15 @@ block content
     | Установка кекста
 
   +p 
-    | Устанавливать Сodec Commander надо в папку системы. Рекомендую 
+    | Устанавливать Codec Commander надо в папку системы. Рекомендую 
     a.link.link--article(href= kextsLink) автоматическую
     |  установку с помощью Kext Utility.
 
   +h2("2") 
-    | Запуск звука на картах Creative
+    | Запуск звуковых карт Creative
   
   +p 
-    | Для работы звуковых карт Creative на macOS энтузиасты разработали кекст kXAudioDriver, он запускает на хакинтоше карты:
+    | Для запуска звуковых карт Creative на хакинтоше энтузиасты разработали кекст kXAudioDriver, он заводит на хакинтоше следующие карты:
 
   +ul 
     +ul-item 
@@ -91,13 +91,13 @@ block content
     | .
 
   +note(warning)
-    | kXAudioDriver не поддерживает звуковые карты Creative Audigy SE/LS.
+    | kXAudioDriver в данное время не поддерживает звуковые карты Creative Audigy SE/LS и когда будет — неизвестно.
 
   +h2("3") 
     | Метод AppleALC
 
   +p
-    | AppleALC  — кекcт, который значительно упрощает запуск звука на хакинтоше. Он позволяет включить поддержку 
+    | AppleALC  — кекст, который значительно упрощает настройку звука на хакинтоше. Он позволяет включить поддержку 
     i встроенного 
     | звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты. 
 
