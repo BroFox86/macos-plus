@@ -1,6 +1,1 @@
-node_modules/
-.publish/
-.tmp/
-dist/
-_*/
-package-lock.json
+_afdesign/
