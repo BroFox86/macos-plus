@@ -9,6 +9,13 @@ prepend page
   - var pageLink      = kextsLink
   - var webArticleImg = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
   - var likeBtnId     = "Установка и удаление кекстов"
+  - 
+    var itemList = 
+      [
+        "Введение", 
+        "Установка кекстов", 
+        "Удаление кекстов"
+      ]
 
 block nav
   +site-nav(kexts = selected, pageA0 = selected)
@@ -21,15 +28,8 @@ block article-header
   - var isDateModified = true
   +article-header(theme = themeAccent)
 
-mixin contents-list
-  +page-nav("Введение", "Установка кекстов", "Удаление кекстов")
-
-append contents
-  +contents-list
-
 block content
-  +h2("1")
-    | Введение
+  +h2
 
   +p 
     | Слово «Кекст» — транскрипция английского сокращения Kext от Kernel extension, т.е. расширение ядра. В виде кекстов реализованы все драйверы для macOS. Большинство самих же кекстов реализовано в виде специальных установочных пакетов, при запуске которых потребуется лишь ввести пароль, а всё остальное сделают за вас скрипты. Почти так же, как и с привычной установкой драйверов на ОС Windows. Но не всегда всё так легко: порой достается просто файл с расширением .kext. А в случае с хакинтошем, следует готовиться к тому, что, возможно, придётся перепробовать несколько разных кекстов, прежде чем определенная аппаратная часть ПК заработает правильно. 
@@ -42,8 +42,7 @@ block content
     li Настройке прав доступа.
     li Удалении и пересоздании кэша кекстов для загрузки системы.
 
-  +h2("2")
-    | Установка кекстов
+  +h2
 
   +h3
     | Kext Utility
@@ -116,8 +115,7 @@ block content
         a.link.link--note(href= efiLink) странице
         |  этого сайта.
 
-  +h2("3")
-    | Удаление кекстов
+  +h2
 
   +ol
     li

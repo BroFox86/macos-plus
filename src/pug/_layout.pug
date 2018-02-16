@@ -3,146 +3,152 @@ include /pug/_mixins
 include /pug/_vars
 include /blocks/**/*
 
-html(lang="ru")
-  block head
-    head
-      meta(charset="utf-8")
-      title= pageTitle
-      meta(name="description" content= pageDesc)
 
-      // inject:fg-loadcss:html 
-      // endinject 
+block head
+  head
+    meta(charset="utf-8")
+    title= pageTitle
+    meta(name="description" content= pageDesc)
 
-      // inject:critical:css 
-      // endinject
+    // inject:fg-loadcss:html 
+    // endinject 
 
-      // build:css css/styles.min.css rel="preload" as="style" onload="this.rel=&apos;stylesheet&apos;"
-      link(href="css/normalize.css" rel="stylesheet")
-      link(href="css/main.css" rel="stylesheet")
-      // endbuild 
-      
-      // inject-string:noscript
+    // inject:critical:css 
+    // endinject
 
-      meta(content="width=device-width, initial-scale=1" name="viewport")
+    // build:css css/styles.min.css rel="preload" as="style" onload="this.rel=&apos;stylesheet&apos;"
+    link(href="css/normalize.css" rel="stylesheet")
+    link(href="css/main.css" rel="stylesheet")
+    // endbuild 
+    
+    // inject-string:noscript
 
-      meta(property="og:title" content= pageTitle)
-      meta(property="og:description" content= pageDesc)
-      meta(property="og:type" content="article")
-      meta(property="og:site_name" content="macOS+ | Лис подскажет")
-      meta(property="og:image" content= domainName + "images/logo-social.jpg")
-      meta(property="og:image:width" content="1024")
-      meta(property="og:image:height" content="576")
+    meta(content="width=device-width, initial-scale=1" name="viewport")
 
-      link(rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png")
-      link(rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png")
-      link(rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png")
-      link(rel="manifest" href="manifest.json")
-      link(rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5")
-      link(rel="shortcut icon" href="images/favicon.ico")
-      meta(name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет")
-      meta(name="application-name" content="macOS+ | Лис подскажет")
-      meta(name="msapplication-config" content="browserconfig.xml")
-      meta(name="theme-color" content="#4367d4")
+    meta(property="og:title" content= pageTitle)
+    meta(property="og:description" content= pageDesc)
+    meta(property="og:type" content="article")
+    meta(property="og:site_name" content="macOS+ | Лис подскажет")
+    meta(property="og:image" content= domainName + "images/logo-social.jpg")
+    meta(property="og:image:width" content="1024")
+    meta(property="og:image:height" content="576")
 
-      script(async src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1")
-      script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-100340915-1');
+    link(rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png")
+    link(rel="manifest" href="manifest.json")
+    link(rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5")
+    link(rel="shortcut icon" href="images/favicon.ico")
+    meta(name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет")
+    meta(name="application-name" content="macOS+ | Лис подскажет")
+    meta(name="msapplication-config" content="browserconfig.xml")
+    meta(name="theme-color" content="#4367d4")
 
-  block page
-    body.page
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-100340915-1');
 
-      <!--[if lt IE 10]>
-      <p class="page__outdated">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите свой браузер</a>, чтобы улучшить отображение сайта.</p>
-      <![endif]-->
+block page
+  body.page
 
-      // inject:svg 
-      // endinject
+    <!--[if lt IE 10]>
+    <p class="page__outdated">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите свой браузер</a>, чтобы улучшить отображение сайта.</p>
+    <![endif]-->
 
-      +header
-        block nav
+    // inject:svg 
+    // endinject
 
-      div.page__container
-        article.page__article.article
+    +header
+      block nav
 
-          block article-header
+    div.page__container
+      article.page__article.article
 
-          block contents
-            - var isMobile = true
+        block article-header
 
-          block content
-          +rate
-
-        block sidebar
-          - var isMobile = false 
-          +sidebar
-      
-      +footer
-      +scroll-to-top
-      +lightbox
-
-      block scripts
-        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-
-        // build:js js/main.min.js defer
-        script(src="js/stickyfill.min.js")
-        script(src="js/moment.min.js")
-        script(src="js/ru.js")
-        script(src="js/scripts.js")
-        // endbuild 
-
-        // LikeBtn.com BEGIN
-        script.
-          (function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");
-        // LikeBtn.com END
-
-        mixin structured-data
-          mixin structured-data-markup
-            script(type="application/ld+json"). 
-              {
-              "@context": "http://schema.org",
-              "@type": "NewsArticle",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "#{domainName}#{pageLink}"
-              },
-              "headline": "#{pageTitle}",
-              "image": "#{domainName}#{webArticleImg}",
-              "datePublished": "#{datePublished[2]}-#{datePublished[1]}-#{datePublished[0]}",
-              "dateModified": "#{dateModifiedString}",
-              "author": {
-                "@type": "Person",
-                "name": "Daur Gamisonia",
-                "alternateName": "BroFox",
-                "email": "daurgam@gmail.com",
-                "url": ["https://vk.com/id335661231",
-                     "https://plus.google.com/+DaurGamisoniya",
-                    "http://steamcommunity.com/id/daurfox/"]
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "macOS Plus",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "#{domainName}images/logo-google.jpg"
-                }
-              },
-              "description": "#{pageDesc}"
-              }
-
-          case isDateModified
+        block mobile-page-nav
+          case hasContentsList 
             default
-              - var dateModifiedString = ""
-              +structured-data-markup
+              div
+              - var isMobile = true
+              +page-nav
+            when false
+              //- This comment mean empty block
 
-            when true
-              - var dateModifiedString = dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]
-              +structured-data-markup
+        block content
+        +vote
 
-        +structured-data
+      block sidebar
+        - var isMobile = false
+        +sidebar
+    
+    +footer
+    +scroll-to-top
+    +lightbox
 
-        // build:remove 
-        script(src="js/_display-viewport-size.js")
-        // endbuild 
+    block scripts
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+
+      // build:js js/main.min.js defer
+      script(src="js/stickyfill.min.js")
+      script(src="js/moment.min.js")
+      script(src="js/ru.js")
+      script(src="js/scripts.js")
+      // endbuild 
+
+      // LikeBtn.com BEGIN
+      script.
+        (function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");
+      // LikeBtn.com END
+
+      mixin structured-data
+        mixin structured-data-markup
+          script(type="application/ld+json"). 
+            {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "#{domainName}#{pageLink}"
+            },
+            "headline": "#{pageTitle}",
+            "image": "#{domainName}#{webArticleImg}",
+            "datePublished": "#{datePublished[2]}-#{datePublished[1]}-#{datePublished[0]}",
+            "dateModified": "#{dateModifiedString}",
+            "author": {
+              "@type": "Person",
+              "name": "Daur Gamisonia",
+              "alternateName": "BroFox",
+              "email": "daurgam@gmail.com",
+              "url": ["https://vk.com/id335661231",
+                    "https://plus.google.com/+DaurGamisoniya",
+                  "http://steamcommunity.com/id/daurfox/"]
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "macOS Plus",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "#{domainName}images/logo-google.jpg"
+              }
+            },
+            "description": "#{pageDesc}"
+            }
+
+        case isDateModified
+          default
+            - var dateModifiedString = ""
+            +structured-data-markup
+
+          when true
+            - var dateModifiedString = dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]
+            +structured-data-markup
+
+      +structured-data
+
+      // build:remove 
+      script(src="js/_display-viewport-size.js")
+      // endbuild 

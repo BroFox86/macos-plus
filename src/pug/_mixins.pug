@@ -1,8 +1,11 @@
-mixin h2(anchorId)
-  h2.article__h2(id= anchorId)
-    a.article__anchor.link.link--anchor(href= "#" + anchorId) #
-    if block
-    block
+-// Header mixin ///////////////////////////////////////////////////////////////
+- var headerId = 0
+
+mixin h2
+  h2.article__h2(id = headerId)
+    a.article__anchor.link.link--anchor(href= "#" + headerId) #
+    | #{itemList[headerId++]}
+-///////////////////////////////////////////////////////////////////////////////
 
 mixin h3
   h3.article__h3

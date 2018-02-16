@@ -9,12 +9,15 @@ prepend page
   - var pageLink      = vmLink
   - var webArticleImg = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg"
   - var likeBtnId     = "Установка через VMWare"
+  - 
+    var itemList = 
+      [
+        "Введение", 
+        "Инструкция"
+      ]
 
 block nav
   +site-nav(vmware = selected)
-
-prepend sidebar
-  - var hasContentsList = false
 
 block article-header
   - var articleImg     = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-image.png"
@@ -25,6 +28,7 @@ block article-header
   +article-header
 
 block content
+  +h2
 
   +p
     | Запустить операционную систему macOS High Sierra «поверх» Windows можно с помощью виртуальных машин — программ, которые эмулируют работу одной операционной системы в среде другой. На этой странице приведена инструкция по установке бесплатной версии одной из таких программ — VMWare Workstation Player. Работающая на виртуальной машине (далее — ВМ) macOS High Sierra отображается как обычная программа для Windows — в окне или режиме полного экрана.
@@ -35,12 +39,14 @@ block content
   +note(warning)
     | Приведенная ниже инструкция рассчитана на работу с компьютерами на базе intel. С процессорами AMD могут возникнуть проблемы.
 
+  +h2
+
   +p
-    | Перед установкой загрузите необходимые файлы:
+    | Все, что потребуется перед установкой:
 
   +ul
     +ul-item
-      | Программу VMWare Workstation Player: 
+      | Программа VMWare Workstation Player: 
       a.link.link--article(href="http://www.vmware.com/products/player/playerpro-evaluation.html") www.vmware.com/products
     +ul-item
       | Образ macOS High Sierra для ВМ: 
@@ -52,6 +58,8 @@ block content
       a.link.link--article(href="https://github.com/DrDonk/unlocker") GitHub
       |  / 
       a.link.link--article(href="https://drive.google.com/file/d/1PFMSK7H1p33FukS6Xihv9pY01ISWdZ3l/view?usp=sharing") Google Drive
+    +ul-item
+      | Около 40Гб свободного места на жестком диске.
   
   +ol
     li
@@ -127,7 +135,7 @@ block content
 
     li
       | Нажмите OK и 
-      i закройте (!)
+      i завершите работу (!)
       |  VMWare.
 
     li
@@ -154,10 +162,10 @@ block content
       +img
 
     li
-      | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. На Рабочем столе должен появиться образ патча с инсталлятором.
+      | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
 
-      +p
-        | VMWare Tools нужен для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана. 
+      +note(inf)
+        | Патч VMWare Tools нужен для того, чтобы виртуальная машина работала быстрее и поддерживала родное разрешение экрана. 
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools.jpg"
       - alt = "Загрузка VMWare Tools"
@@ -171,7 +179,7 @@ block content
       +img
 
     li
-      | Система безопасности macOS High Sierra заблокирует VMWare Tools как неизвестное расширение. Для того, чтобы разрешить ситуацию, зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч нажатием кнопки Allow. 
+      | Система безопасности macOS High Sierra заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч нажатием кнопки Allow. 
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/allow-vmware-tools.jpg"
       - alt = "Открытие доступа для VMWare Tools"

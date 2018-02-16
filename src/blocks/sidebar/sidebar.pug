@@ -4,7 +4,7 @@ mixin sidebar
   case hasContentsList
     default
       aside.page__sidebar.sidebar
-        +contents-list
+        +page-nav
         +reference(state = sidebar)
         +share(state = sidebar)
     when false

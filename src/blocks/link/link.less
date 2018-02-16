@@ -12,8 +12,7 @@
   &--anchor {
     padding-right: 10px;
     color: @accent-color;
-    font-weight: inherit;
-    font-size: 0.8em;
+    font: 600 0.8em/1.8 @font-family;
     opacity: 0;
     transition: 0.5s;
 
@@ -23,9 +22,9 @@
   }
 
   &--article {
-    color: darken(@accent-color, 5);
-    transition: border-bottom .2s ease-in-out;
     border-bottom: 1px solid rgba(0, 0, 0, 0);
+    color: darken(@accent-color, 5);
+    transition: border-bottom 0.2s ease-in-out;
 
     &:hover {
       border-color: fade(lighten(@accent-color, 25), 99%);

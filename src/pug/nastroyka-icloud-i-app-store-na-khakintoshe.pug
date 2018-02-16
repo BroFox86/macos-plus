@@ -7,29 +7,28 @@ prepend head
 prepend page
   - var encodedUrl    = servicesLinkForShare
   - var pageLink      = servicesLink
-  - var webArticleImg = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/generate-serial_original.png"
+  - var webArticleImg = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial_original.png"
   - var likeBtnId     = "Запуск сервисов Apple"
+  - 
+    var itemList = 
+      [
+        "Настройка iCloud",
+        "Настройка AppStore"
+      ]
     
 block nav
   +site-nav(services = selected)
 
 block article-header
-  - var articleImg     = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/article-image.png"
+  - var articleImg     = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/article-image.png"
   - var articleTitle   = "Настройка iCloud и AppStore&#32;<br>на хакинтоше"
   - var datePublished  = ["23", "05", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true
   +article-header
 
-mixin contents-list
-  +page-nav("Настройка iCloud", "Настройка AppStore")
-
-append contents
-  +contents-list
-
 block content	
-  +h2("1")
-    | Шаг 1. Настройка iCloud
+  +h2
     
   +h3
     | а) Сброс данных
@@ -38,11 +37,11 @@ block content
     li
       | Выйдите из AppStore , iCloud и других сервисов Apple.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/logout-from-appstore.jpg"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-appstore.jpg"
       - alt = "Выход из AppStore"
       +img
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/logout-from-icloud.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-icloud.png"
       - alt = "Выход из iCloud"
       +img
 
@@ -53,7 +52,7 @@ block content
       i подлинные 
       | устройства Apple — iPhone, iPod и т.д...
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/remove-devices.jpg"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/remove-devices.jpg"
       - alt = "Стереть историю входов учетной записи Apple"
       +img
 
@@ -70,14 +69,14 @@ block content
     li
       | Откройте файл настройки Clover — config.plist через Clover Configurator.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/open-clover-config.jpg"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/open-clover-config.jpg"
       - alt = "Местонахождение Config.plist"
       +img
 
     li
       | В разделе SMBIOS выберите компьютер Mac, который наиболее схож с Вашей конфигурацией.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/pick-mac-model.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/pick-mac-model.png"
       - alt = "Вкладка SMBIOS"
       +img
 
@@ -89,7 +88,7 @@ block content
     li
       | Нажмите на Generate New и сгенерируйте серийный номер.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/generate-serial.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial.png"
       - alt = "Вкладка SMBIOS"
       +img
 
@@ -105,7 +104,7 @@ block content
         i надо 
         | и можно продолжать дальше. В противном случае, если серийный номер окажется «валидным», необходимо будет сгенерировать его по-новому. Иначе возникнут проблемы с дубликатом уже зарегистрированного серийного номера Mac.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/check-serial_small.jpg"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/check-serial_small.jpg"
       - alt = "Проверка серийного номера Mac"
       +img(small)
 
@@ -114,28 +113,27 @@ block content
       code.article__code uuidgen
       | , затем нажмите Enter.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/get-uuidgen.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/get-uuidgen.png"
       - alt = "Вставка uuidgen в терминал"
       +img(small)
 
     li
       | Скопируйте выданное терминалом значение в буфер обмена и вставьте в поле SmUUID.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/smuuid-field.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/smuuid-field.png"
       - alt = "Вкладка SMBIOS"
       +img
     li
       | Сохраните изменения.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/config-6_small.jpg"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/config-6_small.jpg"
       - alt = "Сохранение изменений Clover Configurator"
       +img(small)
 
     li
       | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и AppStore.
 
-  +h2("2") 
-    | Шаг 2. Настройка AppStore
+  +h2
 
   +p
     | Запуск AppStore не требует каких-либо дополнительных инструкций, если при попытке входа не появляется никакой ошибки. Однако (особенно при использовании внешних Wi-Fi USB-адаптеров) могут быть проблемы со входом. Это частая проблема и случается она в том случае, если сетевое устройство не назначено как основное (en1 вместо en0). Ниже следует инструкция, которая помогла мне решить эту проблему.
@@ -144,34 +142,34 @@ block content
     li
       | Откройте поиск Spotlight и введите System Profiler. Откроется окно информации о системе.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/find-system-information.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/find-system-information.png"
       - alt = "Пункт информации о системе в Spotlight"
       +img
 
     li
       | Найдите свой Wi-Fi  адаптер. Если Wi-Fi назначено значение en0, то делать ничего не надо и проблема со входом в AppStore, скорее всего, связана с отсутствием кекста для сетевого устройства. Если назначено другое значение, например, en1 или en2 то продолжайте читать далее.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/wifi-information.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/wifi-information.png"
       - alt = "Раздел Wi-Fi в информации о системе"
       +img
       
     li
       | Откройте Finder и выберите в строке меню «Переход к папке».
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/go-to-folder_small.jpg"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/go-to-folder_small.jpg"
       - alt = "Переход к папке в macOS"
       +img(small)
 
     li
       | И введите /Library/Preferences/<wbr>SystemConfiguration.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/go-to-preferences-folder.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/go-to-preferences-folder.png"
       - alt = "Переход в папку SystemConfiguration"
       +img
 
     li
       | Удалите файлы NetworkInterfaces.plist, preferences.plist и перезагрузите компьютер.
 
-      - src = "images/pages/zapusk-icloud-i-appstore-na-khakintoshe/delete-files.png"
+      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/delete-files.png"
       - alt = "Удаление файлов в SystemConfiguration"
       +img

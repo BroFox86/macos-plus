@@ -3,9 +3,7 @@
   background-color: @grey-235;
   color: @font-color;
   word-wrap: break-word;
-  font-weight: 400;
-  font-family: @font-family;
-  line-height: @line-height;
+  font: 400 16px / 1.6 @font-family;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,9 +43,9 @@
 
   &__sidebar {
     position: sticky;
-    top: @line-height + 55px;
-    margin-top: @line-height + 28px;
-    margin-left: @line-height;
+    top: @margin + 55px;
+    margin-top: @margin + 28px;
+    margin-left: @margin;
     width: 300px;
     height: 100%;
 
@@ -62,7 +60,7 @@
 
   &__article {
     box-sizing: border-box;
-    margin-top: @line-height + 28px;
+    margin-top: @margin + 28px;
     width: 814px;
 
     @media (max-width: @desktop) {
@@ -81,7 +79,7 @@
       z-index: 2;
       display: block;
       margin-top: 0;
-      margin-bottom: @line-height * 1.5;
+      margin-bottom: @margin * 1.5;
     }
   }
 

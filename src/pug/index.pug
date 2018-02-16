@@ -9,6 +9,16 @@ prepend page
   - var pageLink      = indexLink
   - var webArticleImg = "images/pages/index/high-sierra-desktop_original.jpg"
   - var likeBtnId     = "Установка macOS на ПК"
+  - 
+    var itemList = 
+    [
+      "Введение", 
+      "Подготовка", 
+      "Создание флешки", 
+      "Настройка BIOS/UEFI", 
+      "Установка macOS", 
+      "Пост-установка"
+    ]
 
 block nav
   +site-nav(index = selected)
@@ -16,21 +26,13 @@ block nav
 block article-header
   - var articleImg     = "images/pages/index/article-image.jpg"
   - var articleTitle   = "Установка macOS High Sierra&#32;<br>на ПК на базе Intel"
+  - var isDateModified = true
   - var datePublished  = ["03", "05", "2017"]
   - var dateModified   = ["09", "01", "2018"]
-  - var isDateModified = true
   +article-header(theme = themeAlt) 
 
-mixin contents-list
-  +page-nav("Введение", "Подготовка", "Создание флешки", 
-  "Настройка BIOS/UEFI", "Установка macOS", "Пост-установка")
-
-append contents
-  +contents-list
-
 block content
-  +h2("1")
-    | Введение
+  +h2
 
   +p
     | Данное руководство является переведенной и адаптированной версией инструкции по установке официального чистого образа macOS High Sierra на ПК портала 
@@ -55,8 +57,7 @@ block content
     a.link.link--article(href="https://applelife.ru") applelife.ru
     | , если уж совсем не владеете английским. Весьма вероятно, что человек с аналогичной проблемой уже обращался за помощью и решил ее определенным образом.
 
-  +h2("2")
-    | Шаг 1. Подготовка
+  +h2
 
   +h3
     | а) Настройка VMWare
@@ -143,8 +144,7 @@ block content
     +ul-item
       | Сделайте резервную копию всех важных данных!
 
-  +h2("3")
-    | Шаг 2. Создание загрузочной флешки
+  +h2
     
   +ol
     li
@@ -240,8 +240,7 @@ block content
   +note(tip)
     | При желании вернуть флешку в прежнее состояние, необходимо будет не только полностью ее отформатировать в NTFS/FAT32, но возможно, изменить и схему ее разделов на MBR. Если не будет изменен тип схемы, флешку могут не распознать некоторые старые устройства.
 
-  +h2("4")
-    | Шаг 3. Настройка BIOS/UEFI
+  +h2
     
   +p
     | Если идет установка macOS на системе с UEFI, то настройка материнской платы не будет сложной. В противном случае понадобится сбросить настройки BIOS на стандартные и изменить режим работы жесткого диска на AHCI. Ниже приведены общие рекомендации для всех материнских плат. За ними следуют рекомендации по настройке для материнских плат разных производителей.
@@ -363,8 +362,7 @@ block content
     a.link.link--article(href="https://www.tonymacx86.com/threads/msi-9-series-motherboards-os-x-setup-and-configuration.143167/") www.tonymacx86.com/threads/msi-9-series-motherboards-os-x-setup-and-configuration
     | .
 
-  +h2("5")
-    | Шаг 4. Установка macOS Sierra
+  +h2
     
   +p
     | Вы почти закончили! Все, что осталось для установки — загрузиться с флешки, отформатировать жесткий диск и установить macOS! Для лучших результатов рекомендуется вставить накопитель в разъем USB 2.0.
@@ -429,8 +427,7 @@ block content
     a.link.link--note(href="https://geektimes.ru/post/277220/") geektimes.ru
     | .
 
-  +h2("6")
-    | Шаг 5. Пост-установка
+  +h2
 
   +h3
     | a) Настройка устройств с помощью MultiBeast

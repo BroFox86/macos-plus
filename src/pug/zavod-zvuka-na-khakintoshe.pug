@@ -7,29 +7,29 @@ prepend head
 prepend page
   - var encodedUrl    = soundLinkForShare
   - var pageLink      = soundLink
-  - var webArticleImg = "images/pages/zapusk-zvuka-na-khakintoshe/rename-hdas_original.png"
+  - var webArticleImg = "images/pages/zavod-zvuka-na-khakintoshe/rename-hdas_original.png"
   - var likeBtnId     = "Запуск звука"
+  - 
+    var itemList = 
+      [
+        "Кекст Codec Commander", 
+        "Запуск карт Creative", 
+        "Метод AppleALC"
+      ]
 
 block nav
   +site-nav(sound = selected)
 
 block article-header
-  - var articleImg     = "images/pages/zapusk-zvuka-na-khakintoshe/article-image.png"
+  - var articleImg     = "images/pages/zavod-zvuka-na-khakintoshe/article-image.png"
   - var articleTitle   = pageTitle
   - var datePublished  = ["02", "09", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true
   +article-header
 
-mixin contents-list
-  +page-nav("Codec Commander", "Запуск карт Creative", "Метод AppleALC")
-
-append contents
-  +contents-list
-
 block content
-  +h2("1")
-    | Codec Commander
+  +h2
 
   +p 
     | Кекст Codec Commander используется для управления контроллером 
@@ -69,11 +69,10 @@ block content
     a.link.link--article(href= kextsLink) автоматическую
     |  установку с помощью Kext Utility.
 
-  +h2("2") 
-    | Запуск звуковых карт Creative
+  +h2
   
   +p 
-    | Для запуска звуковых карт Creative на хакинтоше энтузиасты разработали кекст kXAudioDriver, он заводит на хакинтоше следующие карты:
+    | Для настройки звуковых карт Creative на хакинтоше энтузиасты разработали кекст kXAudioDriver, он заводит на хакинтоше следующие карты:
 
   +ul 
     +ul-item 
@@ -93,8 +92,7 @@ block content
   +note(warning)
     | kXAudioDriver в данное время не поддерживает звуковые карты Creative Audigy SE/LS и когда будет — неизвестно.
 
-  +h2("3") 
-    | Метод AppleALC
+  +h2 
 
   +p
     | AppleALC  — кекст, который значительно упрощает настройку звука на хакинтоше. Он позволяет включить поддержку 
@@ -134,7 +132,7 @@ block content
     li
       | Откройте System &gt; Library &gt; Extensions и скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/native-applehda-in-boot-usb.jpg"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/native-applehda-in-boot-usb.jpg"
       - alt = "Расположение кекста AppleHDA на загрузочном USB-диске"
       +img
 
@@ -145,7 +143,7 @@ block content
     li
       | Выберите в строке меню пункт «Переход к папке».
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/go-to-folder_small.jpg"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/go-to-folder_small.jpg"
       - alt = "Переход к папке в macOS"
       +img(small)
     li
@@ -180,7 +178,7 @@ block content
       a.link.link--article(href="http://mackie100projects.altervista.org/download-clover-configurator/") Clover Configurator
       | .
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/plist-location.jpg"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/plist-location.jpg"
       - alt = "Расположение config.plist"
       +img
 
@@ -189,7 +187,7 @@ block content
       i AppleHDA/HDA
       | .
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/remove-applehda-string.png"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/remove-applehda-string.png"
       - alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
       +img
     li
@@ -197,7 +195,7 @@ block content
       a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs") github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs
       | . Как правило для ряда кодеков подходит стандартное значение — «1».
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/enter-layout-id.png"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/enter-layout-id.png"
       - alt = "Вкладка Devices программы Clover Configurator"
       +img 
     li
@@ -216,7 +214,7 @@ block content
           i 48444546 
           | в Replace [HEX].
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/rename-hdas.png"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/rename-hdas.png"
       - alt = "Вкладка ACPI программы Clover Configurator"
       +img 
 
@@ -228,6 +226,6 @@ block content
     li
       | Сохраните изменения и перезагрузите компьютер. 
 
-      - src = "images/pages/zapusk-zvuka-na-khakintoshe/save-config_small.jpg"
+      - src = "images/pages/zavod-zvuka-na-khakintoshe/save-config_small.jpg"
       - alt = "Сохранение изменений Clover Configurator"
       +img(small)
