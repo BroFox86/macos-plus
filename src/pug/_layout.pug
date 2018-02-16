@@ -16,7 +16,7 @@ block head
     // inject:critical:css 
     // endinject
 
-    // build:css css/styles.min.css rel="preload" as="style" onload="this.rel=&apos;stylesheet&apos;"
+    // build:css css/styles.min.css rel="preload" as="style" onload="this.rel='stylesheet'"
     link(href="css/normalize.css" rel="stylesheet")
     link(href="css/main.css" rel="stylesheet")
     // endbuild 
@@ -109,7 +109,7 @@ block page
           script(type="application/ld+json"). 
             {
             "@context": "http://schema.org",
-            "@type": "NewsArticle",
+            "@type": "TechArticle",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "#{domainName}#{pageLink}"
@@ -123,9 +123,11 @@ block page
               "name": "Daur Gamisonia",
               "alternateName": "BroFox",
               "email": "daurgam@gmail.com",
-              "url": ["https://vk.com/id335661231",
-                    "https://plus.google.com/+DaurGamisoniya",
-                  "http://steamcommunity.com/id/daurfox/"]
+              "url": [
+                        "https://vk.com/id335661231",
+                        "https://plus.google.com/+DaurGamisoniya",
+                        "http://steamcommunity.com/id/daurfox/"
+                      ]
             },
             "publisher": {
               "@type": "Organization",
