@@ -1,3 +1,1 @@
-$(document).ready(function() {
-  $(".page__sidebar").Stickyfill();
-});
+$(".page__sidebar").Stickyfill();
