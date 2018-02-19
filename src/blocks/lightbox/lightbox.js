@@ -1,23 +1,21 @@
 var
   $lightbox = $(".lightbox"),
-  duration  = 300;
+  duration  = 300,
+  $body     = $('body');
 
-$(".article__img-wrapper").on("click", function (e) {
-  e.preventDefault();
+$(".article__img-wrapper").click(function(event) {
+  
+  event.preventDefault();
 
-  $this = $(this);
-
-  var largeImage = $this.attr("href"),
-      imageAlt   = $this.children("img").attr("alt");
-
-  $('body').bind("mousewheel", function () {
+  $body.bind("mousewheel", function () {
     return false;
   });
 
-  $lightbox.find("img").attr({
-    src: largeImage,
-    alt: imageAlt
-  });
+  $this = $(this);
+
+  var originalImage = $this.attr("href");
+
+  $lightbox.children().append('<img class="lightbox__img" src="' + originalImage + '" />')
 
   $lightbox.fadeIn(duration);
 });
@@ -28,24 +26,19 @@ $lightbox.children().mouseenter(function () {
 
 function unloadImg() {
   setTimeout(function () {
-    $lightbox.find("img").attr({
-      src: "",
-      alt: ""
-    });
-  }, 500);
+    $lightbox.find("img").remove();
+  }, duration);
 };
 
-var $body = $('body');
-
 $lightbox.children().mouseleave(function () {
-  $lightbox.on("click", function () {
+  $lightbox.click(function() {
     $body.unbind("mousewheel");
     $(this).fadeOut(duration);
     unloadImg();
   })
 });
 
-$(".lightbox__close").on("click", function () {
+$(".lightbox__close").click(function() {
   $body.unbind("mousewheel");
   $lightbox.fadeOut(duration);
   unloadImg();
