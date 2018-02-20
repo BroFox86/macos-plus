@@ -21,7 +21,7 @@
       width: 20px;
       height: 20px;
 
-      .normalize-btn();
+      .reset-btn();
     }
   }
 
@@ -69,8 +69,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    .reset-list();
     list-style-type: none;
 
     @media (max-width: @tablet) {
@@ -92,7 +91,7 @@
       float: right;
       margin-bottom: 32px;
 
-      .normalize-btn();
+      .reset-btn();
     }
   }
 
@@ -109,7 +108,7 @@
     list-style: none;
     cursor: pointer;
 
-    .normalize-btn();
+    .reset-btn();
 
     @media (max-width: @tablet) {
       width: 100%;
@@ -245,7 +244,7 @@
   &__nested-list {
     position: absolute;
     display: none;
-    padding: 0;
+    .reset-list();
     border: 1px solid @grey-235;
     border-radius: @nav-item-border-radius;
     border-top-left-radius: 0;
