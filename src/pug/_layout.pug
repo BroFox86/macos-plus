@@ -104,6 +104,10 @@ block page
         (function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");
       // LikeBtn.com END
 
+      // build:remove 
+      script(src="js/_display-viewport-size.js")
+      // endbuild 
+
       mixin structured-data
         mixin structured-data-markup
           script(type="application/ld+json"). 
@@ -150,7 +154,3 @@ block page
             +structured-data-markup
 
       +structured-data
-
-      // build:remove 
-      script(src="js/_display-viewport-size.js")
-      // endbuild 

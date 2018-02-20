@@ -224,7 +224,6 @@ gulp.task("html:build", function () {
           "node_modules/fg-loadcss/src/cssrelpreload.js"
         ])
         .pipe(concat("fg-loadcss.html"))
-        .pipe(uglify())
         .pipe(injectString.prepend("<script>"))
         .pipe(injectString.append("</script>")), {
           starttag: "<!-- inject:fg-loadcss:{{ext}} -->",
@@ -637,7 +636,7 @@ gulp.task("prebuild", function (callback) {
 
 gulp.task("build", function (callback) {
   gulpSequence(
-    ["clean:all"], ["prebuild"], ["build"]
+    ["clean:all"], ["prebuild"], ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
   )(callback);
 });
 

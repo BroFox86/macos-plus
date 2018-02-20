@@ -63,23 +63,22 @@
   }
 
   &__ol {
-    margin: 0 0 @margin;
+    margin-bottom: @margin;
     padding-left: 0;
-    list-style-position: inside;
-    list-style-type: decimal;
+    list-style: inside decimal;
 
-    &--nested {
+    .article__ol, .article__ul & {
       margin-top: @margin;
       padding-left: 5%;
-      list-style-type: lower-alpha;
+      list-style: lower-alpha;
     }
   }
 
   &__ul {
-    margin: 0 0 @margin;
+    margin-bottom: @margin;
     list-style: none;
 
-    &--nested {
+    .article__ol, .article__ul & {
       margin-top: @margin;
     }
   }
@@ -94,7 +93,7 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: @grey-128;
+      background: @grey-128;
       content: "";
     }
   }
@@ -102,7 +101,7 @@
   &__code {
     padding: 3px 6px;
     border-radius: 4px;
-    background-color: @grey-235;
+    background: @grey-235;
     font-size: @font-size--small;
   }
 
@@ -125,6 +124,7 @@
     display: block;
     margin: @margin*1.5 auto;
     outline: none;
+    .normalize-btn();
 
     .article__figure & {
       margin: 0;

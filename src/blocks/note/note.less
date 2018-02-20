@@ -14,17 +14,17 @@
   }
 
   &--inf {
-    background-color: @inf-bg-color;
+    background: @inf-bg-color;
     color: @font-color;
   }
 
   &--tip {
-    background-color: @tip-bg-color;
+    background: @tip-bg-color;
     color: @tip-font-color;
   }
 
   &--warning {
-    background-color: @warning-bg-color;
+    background: @warning-bg-color;
     color: @warning-font-color;
   }
 
@@ -35,15 +35,15 @@
     width: 26px;
     height: 26px;
 
-    &--inf {
+    .note--inf & {
       fill: @inf-icon-color;
     }
 
-    &--tip {
+    .note--tip & {
       fill: @tip-icon-color;
     }
 
-    &--warning {
+    .note--warning & {
       fill: @warning-icon-color;
     }
   }

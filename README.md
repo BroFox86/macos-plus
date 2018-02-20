@@ -19,8 +19,9 @@
 
 ### Методики и рекомендации
 
-* БЭМ [Гарри Робертса (Harry Roberts)](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/). В рамках проекта постарался использованы возможности БЭМ по максимуму, включая миксование блоков и файловую структуру.
-* “6 Gulp Best Practices” с [rangle.io](http://blog.rangle.io/angular-gulp-bestpractices/)
+* “More Transparent UI Code with Namespaces” by [Harry Roberts](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/).
+* “6 Gulp Best Practices” by [Cosmin](http://blog.rangle.io/angular-gulp-bestpractices/).
+* “Google HTML/CSS Style” by [Google](https://google.github.io/styleguide/htmlcssguide.html).
 
 ### Дополнительно
 

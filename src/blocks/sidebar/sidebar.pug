@@ -1,13 +1,13 @@
-- var sidebar = "sidebar__item" + " "
+- var sidebarItem = "sidebar__item"
 
 mixin sidebar
   case hasContentsList
     default
       aside.page__sidebar.sidebar
         +page-nav
-        +reference(state = sidebar)
-        +share(state = sidebar)
+        +reference(state = sidebarItem)
+        +share(state = sidebarItem)
     when false
       aside.page__sidebar.sidebar
-        +reference(state = sidebar)
-        +share(state = sidebar)
+        +reference(state = sidebarItem)
+        +share(state = sidebarItem)

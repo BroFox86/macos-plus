@@ -1,14 +1,14 @@
-- var footer  = "footer__item"
+- var footerItem  = "footer__item"
 
 mixin reference
   aside.aside.reference(class= attributes.state)
     h2.aside__headline Сообщество
     div.reference__container
-      - src	  = "images/community-logo.png"
+      - src      = "images/community-logo.png"
       - imgClass = "reference__img"
-      - size	 = 240
-      - sizes	= size / 16 + "em"
-      - alt	  = ""
+      - size     = 240
+      - sizes    = size / 16 + "em"
+      - alt      = ""
       +resp-img
 
       a.reference__link(href="https://plus.google.com/u/0/communities/103318624432661992867") macOS+ на Google Plus

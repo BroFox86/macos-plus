@@ -6,21 +6,21 @@ mixin note(type)
   case type
     when inf
       aside.article__note.note(class= inf)
-        +svg("note__icon note__icon--inf", "help")
+        +svg("note__icon", "help")
         p.note__text
           span.note__type= inftext + " "	
           if block
           block
     when tip
       aside.article__note.note(class= tip)
-        +svg("note__icon note__icon--tip", "lightbulb")
+        +svg("note__icon", "lightbulb")
         p.note__text
           span.note__type= tiptext + " "	
           if block
           block
     when warning
       aside.article__note.note(class= warning)
-        +svg("note__icon note__icon--warning", "warning")
+        +svg("note__icon", "warning")
         p.note__text
           strong.note__type= warningtext + " "	
           if block
