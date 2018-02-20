@@ -3,23 +3,22 @@ include /pug/_mixins
 include /pug/_vars
 include /blocks/**/*
 
-
 block head
   head
     meta(charset="utf-8")
     title= pageTitle
     meta(name="description" content= pageDesc)
-
-    // inject:fg-loadcss:html 
-    // endinject 
-
+    
     // inject:critical:css 
     // endinject
 
-    // build:css css/styles.min.css rel="preload" as="style" onload="this.rel='stylesheet'"
+    // build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" 
     link(href="css/normalize.css" rel="stylesheet")
     link(href="css/main.css" rel="stylesheet")
     // endbuild 
+
+    // inject:fg-loadcss:html 
+    // endinject 
     
     // inject-string:noscript
 
@@ -93,7 +92,7 @@ block page
       script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
 
       // build:js js/main.min.js defer
-      script(src="js/stickyfill.min.js")
+      script(src="js/stickyfill.js")
       script(src="js/moment.min.js")
       script(src="js/ru.js")
       script(src="js/scripts.js")

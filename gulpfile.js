@@ -219,10 +219,7 @@ gulp.task("html:build", function () {
     .pipe(
       inject(
         gulp
-        .src([
-          "node_modules/fg-loadcss/src/loadCSS.js",
-          "node_modules/fg-loadcss/src/cssrelpreload.js"
-        ])
+        .src("node_modules/fg-loadcss/src/cssrelpreload.js")
         .pipe(concat("fg-loadcss.html"))
         .pipe(injectString.prepend("<script>"))
         .pipe(injectString.append("</script>")), {
@@ -642,7 +639,7 @@ gulp.task("build", function (callback) {
 
 gulp.task("build:fast", function (callback) {
   gulpSequence(
-    ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
+    ["prebuild"], ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
   )(callback);
 });
 

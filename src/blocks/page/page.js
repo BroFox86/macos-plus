@@ -1,1 +1,1 @@
-$(".page__sidebar").Stickyfill();
+Stickyfill.add(".page__sidebar");
