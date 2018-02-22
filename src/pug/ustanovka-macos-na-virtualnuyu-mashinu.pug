@@ -34,7 +34,7 @@ block content
     | Запустить операционную систему macOS High Sierra «поверх» Windows можно с помощью виртуальных машин — программ, которые эмулируют работу одной операционной системы в среде другой. На этой странице приведена инструкция по установке бесплатной версии одной из таких программ — VMWare Workstation Player. Работающая на виртуальной машине (далее — ВМ) macOS High Sierra отображается как обычная программа для Windows — в окне или режиме полного экрана.
   
   +p
-    | MacOS High Sierra в качестве виртуальной системы не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы. Но для поверхностного ознакомления с ОС от Apple такой способ установки вполне сгодится.
+    | MacOS High Sierra в качестве виртуальной ОС не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы. Но для поверхностного ознакомления с ОС от Apple такой способ установки вполне сгодится.
 
   +h2
 
@@ -46,7 +46,7 @@ block content
 
   +ul
     +ul-item
-      | Программа VMWare Workstation Player: 
+      | Программа Workstation Player Free: 
       a.link.link--article(href="http://www.vmware.com/products/player/playerpro-evaluation.html") www.vmware.com/products
     +ul-item
       | Образ macOS High Sierra для ВМ: 
@@ -120,7 +120,7 @@ block content
       +img(small)
     
     li
-      | В параметрах создаваемого диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.
+      | В параметрах диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-hdd-size.jpg"
       - alt = "Размер виртуального жесткого диска в VMWare"
@@ -165,7 +165,7 @@ block content
       | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
 
       +note(inf)
-        | Патч VMWare Tools нужен для того, чтобы виртуальная машина работала быстрее и поддерживала родное разрешение экрана. 
+        | Патч VMWare Tools нужен главным образом для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools.jpg"
       - alt = "Загрузка VMWare Tools"
@@ -179,7 +179,7 @@ block content
       +img
 
     li
-      | Система безопасности macOS High Sierra заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч нажатием кнопки Allow. 
+      | Система безопасности macOS High Sierra заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч кнопкой Allow. 
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/allow-vmware-tools.jpg"
       - alt = "Открытие доступа для VMWare Tools"
@@ -199,4 +199,4 @@ block content
         | Если интерфейс macOS High Sierra будет слишком крупным, в режиме работающей ОС войдите в настройки VMWare: Player > Manage > Virtual Machine Settings > Display и уберите галку с Display Scaling. 
 
       +note(inf)
-        | Русифицировать интерфейс macOS High Sierra можно в настройках ОС. Для этого откройте System Preferences > Language & Region. Затем добавьте язык в “Prefered Languages” и сделайте его первым в списке.
+        | Локализовать интерфейс macOS High Sierra можно в настройках ОС. Для этого откройте System Preferences > Language & Region. Затем добавьте язык в Prefered Languages и сделайте его первым в списке.

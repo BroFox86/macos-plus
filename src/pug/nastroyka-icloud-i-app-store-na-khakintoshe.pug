@@ -1,8 +1,8 @@
 extends /pug/_layout
 
 prepend head
-  - var pageTitle = "Настройка iCloud и AppStore на хакинтоше"
-  - var pageDesc  = "Инструкции по настройке iCloud и AppStore на хакинтоше с решением некоторых частых проблем."
+  - var pageTitle = "Настройка iCloud и App Store на хакинтоше"
+  - var pageDesc  = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
 
 prepend page
   - var encodedUrl    = servicesLinkForShare
@@ -13,7 +13,7 @@ prepend page
     var itemList = 
       [
         "Настройка iCloud",
-        "Настройка AppStore"
+        "Настройка App Store"
       ]
     
 block nav
@@ -21,7 +21,7 @@ block nav
 
 block article-header
   - var articleImg     = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/article-image.png"
-  - var articleTitle   = "Настройка iCloud и AppStore&#32;<br>на хакинтоше"
+  - var articleTitle   = "Настройка iCloud и App Store&#32;<br>на хакинтоше"
   - var datePublished  = ["23", "05", "2017"]
   - var dateModified   = ["09", "01", "2018"]
   - var isDateModified = true
@@ -35,10 +35,10 @@ block content
 
   +ol
     li
-      | Выйдите из AppStore , iCloud и других сервисов Apple.
+      | Выйдите из App Store , iCloud и других сервисов Apple.
 
       - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-appstore.jpg"
-      - alt = "Выход из AppStore"
+      - alt = "Выход из App Store"
       +img
 
       - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-icloud.png"
@@ -131,12 +131,12 @@ block content
       +img(small)
 
     li
-      | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и AppStore.
+      | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и App Store.
 
   +h2
 
   +p
-    | Запуск AppStore не требует каких-либо дополнительных инструкций, если при попытке входа не появляется никакой ошибки. Однако (особенно при использовании внешних Wi-Fi USB-адаптеров) могут быть проблемы со входом. Это частая проблема и случается она в том случае, если сетевое устройство не назначено как основное (en1 вместо en0). Ниже следует инструкция, которая помогла мне решить эту проблему.
+    | Запуск App Store не требует каких-либо дополнительных инструкций, если при попытке входа не появляется никакой ошибки. Однако (особенно при использовании внешних Wi-Fi USB-адаптеров) могут быть проблемы со входом. Это частая проблема и случается она в том случае, если сетевое устройство не назначено как основное (en1 вместо en0). Ниже следует инструкция, которая помогла мне решить эту проблему.
     
   +ol
     li
@@ -147,7 +147,7 @@ block content
       +img
 
     li
-      | Найдите свой Wi-Fi  адаптер. Если Wi-Fi назначено значение en0, то делать ничего не надо и проблема со входом в AppStore, скорее всего, связана с отсутствием кекста для сетевого устройства. Если назначено другое значение, например, en1 или en2 то продолжайте читать далее.
+      | Найдите свой Wi-Fi  адаптер. Если Wi-Fi назначено значение en0, то делать ничего не надо и проблема со входом в App Store, скорее всего, связана с отсутствием кекста для сетевого устройства. Если назначено другое значение, например, en1 или en2 то продолжайте читать далее.
 
       - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/wifi-information.png"
       - alt = "Раздел Wi-Fi в информации о системе"
