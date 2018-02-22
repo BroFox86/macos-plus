@@ -69,8 +69,9 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    .reset-list();
     list-style-type: none;
+
+    .reset-list();
 
     @media (max-width: @tablet) {
       top: 0;
@@ -79,7 +80,9 @@
     }
 
     &.is-fixed {
-      .to-center(@position: fixed; @top: 0; @bottom: auto;)
+      .to-center(@position: fixed;
+      @top: 0;
+      @bottom: auto;);
     }
   }
 
@@ -244,11 +247,12 @@
   &__nested-list {
     position: absolute;
     display: none;
-    .reset-list();
     border: 1px solid @grey-235;
     border-radius: @nav-item-border-radius;
     border-top-left-radius: 0;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+
+    .reset-list();
 
     @media (max-width: @tablet) {
       position: static;
