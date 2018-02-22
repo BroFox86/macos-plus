@@ -4,6 +4,7 @@
   background-color: white;
   box-shadow: @box-shadow;
   word-wrap: break-word;
+  hyphens: auto;
 
   .padding(desktop);
 
@@ -67,7 +68,8 @@
     padding-left: 0;
     list-style: inside decimal;
 
-    .article__ol, .article__ul & {
+    .article__ol,
+    .article__ul & {
       margin-top: @margin;
       padding-left: 5%;
       list-style: lower-alpha;
@@ -78,7 +80,8 @@
     margin-bottom: @margin;
     list-style: none;
 
-    .article__ol, .article__ul & {
+    .article__ol,
+    .article__ul & {
       margin-top: @margin;
     }
   }
@@ -123,7 +126,7 @@
   &__img-wrapper {
     display: block;
     margin: @margin*1.5 auto;
-    outline: none;
+
     .reset-btn();
 
     .article__figure & {
@@ -139,7 +142,7 @@
   }
 
   &__tooltip {
-    border-bottom: 2px dotted grey;
+    border-bottom: 2px dotted @grey-143;
 
     &:hover {
       cursor: help;
