@@ -1,15 +1,16 @@
 extends /pug/_layout
 
-prepend head
-  - var pageTitle = "Завод звука на хакинтоше"
-  - var pageDesc  = "Руководство по настройке звука на хакинтоше. Не всеобъемлющее, но с рядом полезной информации"
-
 prepend page
-  - var encodedUrl    = soundLinkForShare
-  - var pageLink      = soundLink
-  - var webArticleImg = "images/pages/zavod-zvuka-na-khakintoshe/rename-hdas_original.png"
-  - var likeBtnId     = "Запуск звука"
-  - 
+  -
+    var pageTitle     = "Завод звука на хакинтоше"
+        pageDesc      = "Руководство по настройке звука на хакинтоше. Не всеобъемлющее, но с рядом полезной информации"
+        datePublished = ["02", "09", "2017"]
+        dateModified  = ["09", "01", "2018"]
+        pageLink      = soundLink
+        encodedUrl    = soundLinkForShare
+        likeBtnId     = "Запуск звука"
+        webArticleImg = "images/pages/zavod-zvuka-na-khakintoshe/rename-hdas_original.png"
+  -
     var itemList = 
       [
         "Кекст Codec Commander", 
@@ -21,11 +22,10 @@ block nav
   +site-nav(sound = selected)
 
 block article-header
-  - var articleImg     = "images/pages/zavod-zvuka-na-khakintoshe/article-image.png"
-  - var articleTitle   = pageTitle
-  - var datePublished  = ["02", "09", "2017"]
-  - var dateModified   = ["09", "01", "2018"]
-  - var isDateModified = true
+  -
+    var articleImg     = "images/pages/zavod-zvuka-na-khakintoshe/article-image.png"
+        articleTitle   = pageTitle
+        isDateModified = true
   +article-header
 
 block content
@@ -53,7 +53,7 @@ block content
   +p 
     | Последняя версия Codec Commander доступна на 
     a.link.link--article(href="https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/") bitbucket.org
-    | . Но не все так просто: без предварительной настройки под Ваш кодек кекст может не заработать. Подробное руководство по настройке Codec Commander находится на   
+    | . Но не все так просто: без предварительной настройки под ваш кодек кекст может не заработать. Подробное руководство по настройке Codec Commander находится на   
     a.link.link--article(href="https://github.com/RehabMan/EAPD-Codec-Commander") GitHub
     | . Однако новичку будет очень сложно в нем разобраться. Самый простой способ — найти уже настроенный кекст под кодек своей системы. Я нашел Codec Commander для ALC1150 на 
     a.link.link--article(href="https://www.tonymacx86.com/attachments/codeccommander-kext-zip.146742/") tonymackx86.com 
@@ -96,11 +96,11 @@ block content
 
   +p
     | AppleALC  — кекст, который значительно упрощает настройку звука на хакинтоше. Он позволяет включить поддержку 
-    i встроенного 
+    em встроенного 
     | звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты. 
 
   +p
-    | Поддерживает ли Ваш кодек AppleALC можно узнать на 
+    | Поддерживает ли ваш кодек AppleALC можно узнать на 
     a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs") wiki-странице
     |  проекта. Там же есть и подробное  
     a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Установка-и-использование") руководство
@@ -191,9 +191,9 @@ block content
       - alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
       +img
     li
-      | Установите значение layout-id. Список подходящих для Вашего кодека значений находится по ссылке: 
+      | Укажите layout-id. Подробнее об этом по ссылке: 
       a.link.link--article(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs") github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs
-      | . Как правило для ряда кодеков подходит стандартное значение — «1».
+      | . Обычно подходит стандартное значение — «1».
 
       - src = "images/pages/zavod-zvuka-na-khakintoshe/enter-layout-id.png"
       - alt = "Вкладка Devices программы Clover Configurator"

@@ -1,6 +1,6 @@
-- var inftext = "Примечание:", inf = "note--inf"
-- var tiptext = "Совет:", tip = "note--tip"
-- var warningtext = "Предупреждение:", warning = "note--warning"
+- var infText     = "Примечание: ",     inf = "note--inf"
+- var tipText     = "Совет: ",          tip = "note--tip"
+- var warningText = "Предупреждение: ", warning = "note--warning"
 
 mixin note(type)
   case type
@@ -8,20 +8,20 @@ mixin note(type)
       aside.article__note.note(class= inf)
         +svg("note__icon", "help")
         p.note__text
-          span.note__type= inftext + " "	
+          span.note__type= infText
           if block
           block
     when tip
       aside.article__note.note(class= tip)
         +svg("note__icon", "lightbulb")
         p.note__text
-          span.note__type= tiptext + " "	
+          span.note__type= tipText
           if block
           block
     when warning
       aside.article__note.note(class= warning)
         +svg("note__icon", "warning")
         p.note__text
-          strong.note__type= warningtext + " "	
+          strong.note__type= warningText
           if block
           block

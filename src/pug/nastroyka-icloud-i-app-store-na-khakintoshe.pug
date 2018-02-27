@@ -1,15 +1,17 @@
 extends /pug/_layout
 
-prepend head
-  - var pageTitle = "Настройка iCloud и App Store на хакинтоше"
-  - var pageDesc  = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
-
 prepend page
-  - var encodedUrl    = servicesLinkForShare
-  - var pageLink      = servicesLink
-  - var webArticleImg = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial_original.png"
-  - var likeBtnId     = "Запуск сервисов Apple"
-  - 
+  -
+    var pageTitle     = "Настройка iCloud и App Store на хакинтоше"
+        pageDesc      = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
+        datePublished = ["23", "05", "2017"]
+        dateModified  = ["09", "01", "2018"]
+        pageLink      = servicesLink
+        encodedUrl    = servicesLinkForShare
+        likeBtnId     = "Запуск сервисов Apple"
+        webArticleImg = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial_original.png"
+
+  -
     var itemList = 
       [
         "Настройка iCloud",
@@ -20,11 +22,10 @@ block nav
   +site-nav(services = selected)
 
 block article-header
-  - var articleImg     = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/article-image.png"
-  - var articleTitle   = "Настройка iCloud и App Store&#32;<br>на хакинтоше"
-  - var datePublished  = ["23", "05", "2017"]
-  - var dateModified   = ["09", "01", "2018"]
-  - var isDateModified = true
+  -
+    var articleImg     = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/article-image.png"
+        articleTitle   = "Настройка iCloud и App Store&#32;<br>на хакинтоше"
+        isDateModified = true
   +article-header
 
 block content	
@@ -63,7 +64,7 @@ block content
     | б) Настройка Clover
 
   +note(warning)
-    | Не используйте данные, приведенные в инструкции в качестве примеров: они не подойдут к Вашей конфигурации, либо являются забаненными.
+    | Не используйте данные, приведенные в инструкции в качестве примеров: они не подойдут к вашей конфигурации, либо являются забаненными.
 
   +ol
     li
@@ -74,7 +75,7 @@ block content
       +img
 
     li
-      | В разделе SMBIOS выберите компьютер Mac, который наиболее схож с Вашей конфигурацией.
+      | В разделе SMBIOS выберите компьютер Mac, который наиболее схож с ашей конфигурацией.
 
       - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/pick-mac-model.png"
       - alt = "Вкладка SMBIOS"
@@ -99,10 +100,8 @@ block content
 
       +p
         | Проверьте этот серийный номер. Если появится 
-        i ошибка
-        | , как на приведенном ниже скриншоте — значит это то, что 
-        i надо 
-        | и можно продолжать дальше. В противном случае, если серийный номер окажется «валидным», необходимо будет сгенерировать его по-новому. Иначе возникнут проблемы с дубликатом уже зарегистрированного серийного номера Mac.
+        em ошибка
+        | , как на приведенном ниже скриншоте — значит это то, что надо и можно продолжать дальше. В противном случае, если серийный номер окажется «валидным», необходимо будет сгенерировать его по-новому. Иначе возникнут проблемы с дубликатом уже зарегистрированного серийного номера Mac.
 
       - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/check-serial_small.jpg"
       - alt = "Проверка серийного номера Mac"

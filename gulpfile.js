@@ -19,13 +19,11 @@ var // Common packages
   inject = require("gulp-inject"),
   injectString = require("gulp-inject-string"),
   ghPages = require("gulp-gh-pages"),
-  depcheck = require("gulp-depcheck"),
   // Packages for html
   pug = require("gulp-pug"),
   pugIncludeGlob = require("pug-include-glob"),
   htmlmin = require("gulp-htmlmin"),
   useref = require("gulp-useref"),
-  w3cjs = require("gulp-w3cjs"),
   // Packages for styles
   less = require("gulp-less"),
   postcss = require("gulp-postcss"),
@@ -35,7 +33,6 @@ var // Common packages
   sortCSSmq = require("sort-css-media-queries"),
   pxtorem = require("postcss-pxtorem"),
   uncss = require("uncss").postcssPlugin,
-  gulpStylelint = require("gulp-stylelint"),
   penthouse = require("penthouse"),
   csscomb = require("gulp-csscomb"),
   // Packages for js
@@ -44,11 +41,16 @@ var // Common packages
   imagemin = require("gulp-imagemin"),
   imageminJpegRecompress = require("imagemin-jpeg-recompress"),
   responsive = require("gulp-responsive"),
-  unusedImages = require("gulp-unused-images"),
   imageDataURI = require("gulp-image-data-uri"),
   cheerio = require("gulp-cheerio"),
   svgstore = require("gulp-svgstore"),
-  svgmin = require("gulp-svgmin");
+  svgmin = require("gulp-svgmin"),
+  // Packages for testing
+  w3cjs = require("gulp-w3cjs"),
+  unusedImages = require("gulp-unused-images"),
+  gulpStylelint = require("gulp-stylelint"),
+  depcheck = require("gulp-depcheck"),
+  psi = require("psi");
 
 var paths = {
   src: {
@@ -85,26 +87,31 @@ var paths = {
   }
 };
 
-var penthouseOptns = {
+var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
   forceInclude: [".article__img", ".note__icon"]
+};
+
+var psiOptns = {
+  url: "http://ff99d014.ngrok.io",
+  key: ""
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 // Clean tasks
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("clean:tmp", function () {
+gulp.task("clean:tmp", function() {
   console.log("----- Cleaning .tmp folder -----");
   del.sync(paths.tmp.root + "**");
 });
 
-gulp.task("clean:dist", function () {
+gulp.task("clean:dist", function() {
   console.log("----- Cleaning dist folder -----");
   del.sync(paths.dist.root + "**");
 });
 
-gulp.task("clean:all", function (callback) {
+gulp.task("clean:all", function(callback) {
   gulpSequence(["clean:tmp", "clean:dist"])(callback);
 });
 
@@ -116,7 +123,7 @@ function fileContents(filePath, file) {
   return file.contents.toString("utf8");
 }
 
-gulp.task("html:generate-svg", function () {
+gulp.task("html:generate-svg", function() {
   return gulp
     .src([
       paths.src.images + "images-to-sprite/*.svg",
@@ -124,17 +131,21 @@ gulp.task("html:generate-svg", function () {
     ])
     .pipe(
       svgmin({
-        plugins: [{
-          removeTitle: true
-        }]
+        plugins: [
+          {
+            removeTitle: true
+          }
+        ]
       })
     )
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
+    .pipe(
+      svgstore({
+        inlineSvg: true
+      })
+    )
     .pipe(
       cheerio({
-        run: function ($, file) {
+        run: function($, file) {
           $("svg").attr("style", "display: none");
           $("path").removeAttr("fill");
         },
@@ -175,11 +186,9 @@ gulp.task("html:generate", function buildHTML() {
 
 gulp.task("html:generate:watch", function buildHTML() {
   return watch(paths.src.pug + "[^_]*.pug", {
-      ignoreInitial: true
-    })
-    .pipe(
-      plumber()
-    )
+    ignoreInitial: true
+  })
+    .pipe(plumber())
     .pipe(
       pug({
         pretty: true,
@@ -196,21 +205,22 @@ gulp.task("html:generate:watch", function buildHTML() {
     .pipe(gulp.dest(paths.tmp.root));
 });
 
-gulp.task("html:prebuild", function (callback) {
+gulp.task("html:prebuild", function(callback) {
   gulpSequence(["html:generate-svg"], ["html:generate"])(callback);
 });
 
-gulp.task("html:build", function () {
+gulp.task("html:build", function() {
   return gulp
     .src(paths.tmp.root + "*.html")
     .pipe(
       inject(
         gulp
-        .src(paths.tmp.css + "_critical.css")
-        .pipe(replace("../", ""))
-        .pipe(postcss([cssnano()]))
-        .pipe(injectString.prepend("<style>"))
-        .pipe(injectString.append("</style>")), {
+          .src(paths.tmp.css + "_critical.css")
+          .pipe(replace("../", ""))
+          .pipe(postcss([cssnano()]))
+          .pipe(injectString.prepend("<style>"))
+          .pipe(injectString.append("</style>")),
+        {
           starttag: "<!-- inject:critical:{{ext}} -->",
           transform: fileContents
         }
@@ -219,10 +229,11 @@ gulp.task("html:build", function () {
     .pipe(
       inject(
         gulp
-        .src("node_modules/fg-loadcss/src/cssrelpreload.js")
-        .pipe(concat("fg-loadcss.html"))
-        .pipe(injectString.prepend("<script>"))
-        .pipe(injectString.append("</script>")), {
+          .src("node_modules/fg-loadcss/src/cssrelpreload.js")
+          .pipe(concat("fg-loadcss.html"))
+          .pipe(injectString.prepend("<script>"))
+          .pipe(injectString.append("</script>")),
+        {
           starttag: "<!-- inject:fg-loadcss:{{ext}} -->",
           transform: fileContents
         }
@@ -239,7 +250,7 @@ gulp.task("html:build", function () {
 });
 
 // htmlmin won't work together with useref at this time!
-gulp.task("html:minify", function () {
+gulp.task("html:minify", function() {
   return gulp
     .src(paths.dist.root + "*.html")
     .pipe(
@@ -252,9 +263,9 @@ gulp.task("html:minify", function () {
     .pipe(gulp.dest(paths.dist.root));
 });
 
-gulp.task("html:validate", function () {
+gulp.task("html:validate", function() {
   return gulp
-    .src(paths.dist.root + "[^google*]*.html")
+    .src(paths.dist.root + "[^google]*.html")
     .pipe(w3cjs())
     .pipe(w3cjs.reporter());
 });
@@ -263,18 +274,9 @@ gulp.task("html:validate", function () {
 // Tasks for styles
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("styles:normalize", function () {
+gulp.task("styles:main", function() {
   return gulp
-    .src("node_modules/normalize.css/normalize.css")
-    .pipe(gulp.dest(paths.tmp.css));
-});
-
-gulp.task("styles:main", function () {
-  return gulp
-    .src([
-      paths.src.less + "*.less",
-      paths.src.blocks + "**/*.less"
-    ])
+    .src([paths.src.less + "_*.less", paths.src.blocks + "**/*.less"])
     .pipe(
       plumber({
         errorHandler: notify.onError({
@@ -284,11 +286,7 @@ gulp.task("styles:main", function () {
     )
     .pipe(flatten())
     .pipe(concat("main.less"))
-    .pipe(
-      less({
-        paths: [path.join(__dirname, "src/")]
-      })
-    )
+    .pipe(less())
     .pipe(
       postcss([
         pxtorem({
@@ -303,46 +301,50 @@ gulp.task("styles:main", function () {
     .pipe(gulp.dest(paths.tmp.css));
 });
 
-// UnCSS task realized as separate to avoid trim CSS before HTML compilation
-// at the watch task execution
-gulp.task("styles:trim", function () {
+gulp.task("styles:additions", function() {
   return gulp
-    .src(paths.tmp.css + "main.less")
+    .src(paths.src.less + "[^_]*.less")
     .pipe(
-      postcss([
-        uncss({
-          html: [paths.tmp.root + "*.html"],
-          ignore: [/^.*is-.*$/, /^.*js-.*$/, /^.*page__outdated.*$/]
-        })
-      ])
+      less({
+        paths: [path.join(__dirname, "./")]
+      })
     )
     .pipe(gulp.dest(paths.tmp.css));
 });
 
-gulp.task("styles:prebuild", function (callback) {
-  gulpSequence(["styles:normalize", "styles:main", "styles:trim"])(callback);
+gulp.task("styles:prebuild", function(callback) {
+  gulpSequence(["styles:additions", "styles:main"])(callback);
 });
 
-gulp.task("styles:critical", function () {
-  penthouse({
-      url: penthouseOptns.url,
+gulp.task("styles:critical", function() {
+  penthouse(
+    {
+      url: criticalOptns.url,
       css: paths.tmp.css + "main.css",
-      forceInclude: penthouseOptns.forceInclude
+      forceInclude: criticalOptns.forceInclude
     },
-    function (err, criticalCss) {
-      fs.writeFileSync(paths.tmp.css + "_critical.css", criticalCss)
+    function(err, criticalCss) {
+      fs.writeFileSync(paths.tmp.css + "_critical.css", criticalCss);
     }
   );
 });
 
-gulp.task("styles:minify", function () {
+gulp.task("styles:build", function() {
   return gulp
     .src(paths.dist.css + "*.css")
+    .pipe(
+      postcss([
+        uncss({
+          html: [paths.dist.root + "[^google]*.html"],
+          ignore: [/.*[is,js]-.*/, /.*[tooltip, lightbox].*/]
+        })
+      ])
+    )
     .pipe(postcss([cssnano()]))
     .pipe(gulp.dest(paths.dist.css));
 });
 
-gulp.task("styles:prettify", function () {
+gulp.task("styles:prettify", function() {
   return gulp
     .src(paths.src.blocks + "**/*.less")
     .pipe(
@@ -354,7 +356,7 @@ gulp.task("styles:prettify", function () {
     )
     .pipe(csscomb("csscomb.json"))
     .pipe(
-      gulp.dest(function (file) {
+      gulp.dest(function(file) {
         return file.base;
       })
     );
@@ -363,10 +365,12 @@ gulp.task("styles:prettify", function () {
 gulp.task("styles:lint", function lintCssTask() {
   return gulp.src(paths.tmp.css + "main.css").pipe(
     gulpStylelint({
-      reporters: [{
-        formatter: "string",
-        console: true
-      }]
+      reporters: [
+        {
+          formatter: "string",
+          console: true
+        }
+      ]
     })
   );
 });
@@ -386,14 +390,16 @@ var respOptions = {
   large = "@large",
   huge = "@huge";
 
-gulp.task("images:responsive", function () {
+gulp.task("images:responsive", function() {
   return gulp
     .src(paths.src.blocks + "*/responsive-images/*")
     .pipe(changed(paths.tmp.images))
     .pipe(flatten())
     .pipe(
-      responsive({
-          "**/header__logo.*": [{
+      responsive(
+        {
+          "**/header__logo.*": [
+            {
               width: 240
             },
             {
@@ -409,7 +415,8 @@ gulp.task("images:responsive", function () {
               }
             }
           ],
-          "**/header__logo--mobile.*": [{
+          "**/header__logo--mobile.*": [
+            {
               width: 126
             },
             {
@@ -425,7 +432,8 @@ gulp.task("images:responsive", function () {
               }
             }
           ],
-          "**/community-logo.*": [{
+          "**/community-logo.*": [
+            {
               width: 240
             },
             {
@@ -445,19 +453,22 @@ gulp.task("images:responsive", function () {
         respOptions
       )
     )
-    
+
     .pipe(gulp.dest(paths.tmp.images));
 });
 
-gulp.task("images:content:firstpass", function () {
+gulp.task("images:content:firstpass", function() {
   return gulp
     .src(paths.src.images + "*pages/**/*")
     .pipe(changed(paths.tmp.images))
     .pipe(
-      responsive({
-          "**/article-image.*": [{
-            width: 330
-          }],
+      responsive(
+        {
+          "**/article-image.*": [
+            {
+              width: 330
+            }
+          ],
           "**/*_small.*": [{}]
         },
         respOptions
@@ -466,21 +477,25 @@ gulp.task("images:content:firstpass", function () {
     .pipe(gulp.dest(paths.tmp.images));
 });
 
-gulp.task("images:content", ["images:content:firstpass"], function () {
+gulp.task("images:content", ["images:content:firstpass"], function() {
   return gulp
     .src(["*pages/**/*", "!*pages/**/*{_small,article-image}.*"], {
       cwd: paths.src.images
     })
     .pipe(changed(paths.tmp.images))
     .pipe(
-      responsive({
-          "**/*": [{
-            width: 586
-          }, {
-            rename: {
-              suffix: "_original"
+      responsive(
+        {
+          "**/*": [
+            {
+              width: 586
+            },
+            {
+              rename: {
+                suffix: "_original"
+              }
             }
-          }]
+          ]
         },
         respOptions
       )
@@ -488,11 +503,11 @@ gulp.task("images:content", ["images:content:firstpass"], function () {
     .pipe(gulp.dest(paths.tmp.images));
 });
 
-gulp.task("images:prebuild", function (callback) {
+gulp.task("images:prebuild", function(callback) {
   gulpSequence(["images:responsive", "images:content"])(callback);
 });
 
-gulp.task("images:copy", function () {
+gulp.task("images:copy", function() {
   return gulp
     .src(["**/*.*", "!_*"], {
       cwd: paths.tmp.images
@@ -500,7 +515,7 @@ gulp.task("images:copy", function () {
     .pipe(gulp.dest(paths.dist.images));
 });
 
-gulp.task("images:unused", function () {
+gulp.task("images:unused", function() {
   return gulp
     .src([
       paths.tmp.root + "*.{html,xml}",
@@ -522,32 +537,32 @@ gulp.task("images:unused", function () {
 // Tasks for JS
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("js:plugins", function () {
+gulp.task("js:plugins", function() {
   return gulp
     .src(paths.plugins.js)
     .pipe(changed(paths.tmp.js))
     .pipe(gulp.dest(paths.tmp.js));
 });
 
-gulp.task("js:common", function () {
+gulp.task("js:common", function() {
   return gulp
     .src(paths.src.js + "*.js")
     .pipe(changed(paths.tmp.js))
     .pipe(gulp.dest(paths.tmp.js));
 });
 
-gulp.task("js:main", function () {
+gulp.task("js:main", function() {
   return gulp
     .src(paths.src.blocks + "**/*.js")
     .pipe(concat("scripts.js"))
     .pipe(gulp.dest(paths.tmp.js));
 });
 
-gulp.task("js:prebuild", function (callback) {
+gulp.task("js:prebuild", function(callback) {
   gulpSequence(["js:plugins", "js:common", "js:main"])(callback);
 });
 
-gulp.task("js:minify", function () {
+gulp.task("js:minify", function() {
   return gulp
     .src(paths.dist.js + "*.js")
     .pipe(uglify())
@@ -558,36 +573,36 @@ gulp.task("js:minify", function () {
 // Tasks for copying misc files
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("copy:fonts:prebuild", function () {
+gulp.task("copy:fonts:prebuild", function() {
   return gulp
     .src(paths.src.fonts + "*.*")
     .pipe(changed(paths.tmp.fonts))
     .pipe(gulp.dest(paths.tmp.fonts));
 });
 
-gulp.task("copy:fonts:build", function () {
+gulp.task("copy:fonts:build", function() {
   return gulp.src(paths.src.fonts + "*.*").pipe(gulp.dest(paths.dist.fonts));
 });
 
-gulp.task("copy:root-files", function () {
+gulp.task("copy:root-files", function() {
   return gulp.src(paths.src.root + "*.*").pipe(gulp.dest(paths.dist.root));
 });
 
-gulp.task("copy:favicons", function () {
+gulp.task("copy:favicons", function() {
   return gulp
     .src(paths.src.favicons + "*.*")
     .pipe(gulp.dest(paths.dist.images));
 });
 
-gulp.task("copy:logos", function () {
+gulp.task("copy:logos", function() {
   return gulp.src(paths.src.logos + "*.*").pipe(gulp.dest(paths.dist.images));
 });
 
-gulp.task("copy:prebuild", function (callback) {
+gulp.task("copy:prebuild", function(callback) {
   gulpSequence(["copy:fonts:prebuild"])(callback);
 });
 
-gulp.task("copy:build", function (callback) {
+gulp.task("copy:build", function(callback) {
   gulpSequence([
     "copy:logos",
     "copy:favicons",
@@ -601,10 +616,10 @@ gulp.task("copy:build", function (callback) {
 ///////////////////////////////////////////////////////////////////////////////
 
 // Check spelling
-gulp.task("spelling", function (cb) {
+gulp.task("spelling", function(cb) {
   run("./node_modules/.bin/yaspeller .")
     .exec()
-    .on("error", function (err) {
+    .on("error", function(err) {
       console.error(err.message);
       cb();
     })
@@ -621,29 +636,59 @@ gulp.task(
   })
 );
 
+// Google Page Speed Inside tests
+gulp.task("psi:mobile", function() {
+  return psi(psiOptns.url, {
+    key: psiOptns.key,
+    nokey: "true",
+    strategy: "mobile"
+  }).then(function(data) {
+    console.log('done');
+  })
+});
+
+gulp.task("psi:desktop", function() {
+  return psi(psiOptns.url, {
+    nokey: "true",
+    key: psiOptns.key,
+    strategy: "desktop"
+  }).then(function(data) {
+    console.log('done');
+  })
+});
+
 ///////////////////////////////////////////////////////////////////////////////
 // Tasks for build & deploy
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("prebuild", function (callback) {
+gulp.task("prebuild", function(callback) {
   gulpSequence(
-    ["html:prebuild"], ["styles:prebuild"], ["styles:critical", "images:prebuild", "js:prebuild", "copy:fonts:prebuild"]
+    ["html:prebuild"],
+    ["styles:prebuild"],
+    ["styles:critical", "images:prebuild", "js:prebuild", "copy:fonts:prebuild"]
   )(callback);
 });
 
-gulp.task("build", function (callback) {
+gulp.task("build", function(callback) {
   gulpSequence(
-    ["clean:all"], ["prebuild"], ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
+    ["clean:all"],
+    ["prebuild"],
+    ["html:build"],
+    ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
+    ["html:validate", "images:unused"]
   )(callback);
 });
 
-gulp.task("build:fast", function (callback) {
+gulp.task("build:fast", function(callback) {
   gulpSequence(
-    ["prebuild"], ["html:build"], ["html:minify", "styles:minify", "js:minify", "images:copy", "copy:build"], ["html:validate", "images:unused"]
+    ["prebuild"],
+    ["html:build"],
+    ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
+    ["html:validate", "images:unused"]
   )(callback);
 });
 
-gulp.task("deploy", function () {
+gulp.task("deploy", function() {
   return gulp.src(paths.dist.root + "**/*.*").pipe(ghPages());
 });
 
@@ -651,63 +696,75 @@ gulp.task("deploy", function () {
 // Tasks for watching
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("watch:tasks", function () {
+gulp.task("watch:tasks", function() {
   watch(
     [
       paths.src.images + "images-to-sprite/*.svg",
       paths.src.blocks + "*/images-to-sprite/*.svg"
-    ], {
+    ],
+    {
       readDelay: 200
     },
-    function () {
+    function() {
       gulp.start("html:prebuild");
     }
   );
 
   watch(
-    [paths.src.blocks + "**/*.pug", paths.src.pug + "_*.pug"], {
+    [paths.src.blocks + "**/*.pug", paths.src.pug + "_*.pug"],
+    {
       readDelay: 200
     },
-    function () {
+    function() {
       gulp.start("html:prebuild");
     }
   );
 
   watch(
-    [paths.src.blocks + "**/*.less", paths.src.less + "*.less"], {
+    [paths.src.blocks + "**/*.less", paths.src.less + "*.less"],
+    {
       readDelay: 200
     },
-    function () {
+    function() {
       gulp.start("styles:main");
     }
   );
 
   watch(
-    [paths.src.blocks + "**/*.js", paths.src.js + "*.js"], {
+    [paths.src.blocks + "**/*.js", paths.src.js + "*.js"],
+    {
       readDelay: 200
     },
-    function () {
+    function() {
       gulp.start("js:prebuild");
     }
   );
 
   watch(
-    [paths.src.blocks + "**/*.{jpg,jpeg,png}", paths.src.images + "pages/**/*.{jpg,jpeg,png}"], {
+    [
+      paths.src.blocks + "**/*.{jpg,jpeg,png}",
+      paths.src.images + "pages/**/*.{jpg,jpeg,png}"
+    ],
+    {
       readDelay: 200
     },
-    function () {
+    function() {
       gulp.start("images:prebuild");
     }
   );
 
-  watch(paths.src.fonts + "*.*", {
-    readDelay: 200
-  }, function () {
-    gulp.start("copy:fonts-to-tmp");
-  });
+  watch(
+    paths.src.fonts + "*.*",
+    {
+      readDelay: 200
+    },
+    function() {
+      gulp.start("copy:fonts-to-tmp");
+    }
+  );
 });
 
-gulp.task("watch", function (callback) {
+gulp.task("watch", function(callback) {
   gulpSequence(["html:generate:watch", "watch:tasks"])(callback);
 });
 
@@ -715,7 +772,7 @@ gulp.task("watch", function (callback) {
 // Tasks for local server
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("connect:tmp", function () {
+gulp.task("connect:tmp", function() {
   browserSync.init({
     server: paths.tmp.root,
     notify: false,
@@ -727,7 +784,7 @@ gulp.task("connect:tmp", function () {
   browserSync.watch(paths.tmp.js + "*.js").on("change", browserSync.reload);
 });
 
-gulp.task("connect:dist", function () {
+gulp.task("connect:dist", function() {
   browserSync.init({
     server: paths.dist.root,
     notify: false,
@@ -739,8 +796,8 @@ gulp.task("connect:dist", function () {
 // Main tasks
 ///////////////////////////////////////////////////////////////////////////////
 
-gulp.task("serve", function (callback) {
+gulp.task("serve", function(callback) {
   gulpSequence(["prebuild"], ["watch", "connect:tmp"])(callback);
 });
 
-gulp.task("default", ["watch", "connect:tmp"], function () {});
+gulp.task("default", ["watch", "connect:tmp"], function() {});

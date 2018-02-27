@@ -1,4 +1,4 @@
-$(".article__tooltip")
+$("article span.article__tooltip")
   .hover(
     function () {
       var title = $(this).attr("title");

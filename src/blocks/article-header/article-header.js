@@ -1,6 +1,6 @@
 moment.locale("ru");
 
-var $modDate = $(".js-modified-date"),
+var $modDate = $("article time.js-modified-date"),
     date     = $modDate.data("time"),
     moment   = moment(date, "YYYYMMDD").fromNow();
 

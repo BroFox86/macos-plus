@@ -1,4 +1,4 @@
-var $btn    = $(".scroll-to-top"),
+var $btn    = $("button.scroll-to-top"),
     visible = "is-visible";
 
 $(window).scroll(function () {

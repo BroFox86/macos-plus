@@ -1,9 +1,9 @@
 var
-  $lightbox = $(".lightbox"),
+  $lightbox = $("div.lightbox"),
   duration  = 300,
   $body     = $('body');
 
-$(".article__img-wrapper").click(function(event) {
+$("article a.article__img-wrapper").click(function(event) {
   
   event.preventDefault();
 

@@ -1,15 +1,16 @@
 extends /pug/_layout
 
-prepend head
-  - var pageTitle = "Установка и удаление кекстов в macOS"
-  - var pageDesc  = "Руководство по работе с кекстами на хакинтоше"
-
 prepend page
-  - var encodedUrl    = kextsLinkForShare
-  - var pageLink      = kextsLink
-  - var webArticleImg = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
-  - var likeBtnId     = "Установка и удаление кекстов"
-  - 
+  -
+    var pageTitle     = "Установка и удаление кекстов в macOS"
+        pageDesc      = "Руководство по работе с кекстами на хакинтоше"
+        datePublished = ["02", "09", "2017"]
+        dateModified  = ["09", "01", "2018"]
+        pageLink      = kextsLink
+        encodedUrl    = kextsLinkForShare
+        likeBtnId     = "Установка и удаление кекстов"
+        webArticleImg = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
+  -
     var itemList = 
       [
         "Введение", 
@@ -21,11 +22,10 @@ block nav
   +site-nav(kexts = selected, pageA0 = selected)
 
 block article-header
-  - var articleImg     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
-  - var articleTitle   = "Установка и удаление&#32;<br>кекстов в macOS"
-  - var datePublished  = ["02", "09", "2017"]
-  - var dateModified   = ["09", "01", "2018"]
-  - var isDateModified = true
+  -
+    var articleImg     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
+        articleTitle   = "Установка и удаление&#32;<br>кекстов в macOS"
+        isDateModified = true
   +article-header(theme = themeAccent)
 
 block content

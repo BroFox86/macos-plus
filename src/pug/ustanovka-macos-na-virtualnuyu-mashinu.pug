@@ -1,15 +1,17 @@
 extends /pug/_layout
 
-prepend head
-  - var pageTitle = "Установка macOS на ПК с помощью VMWare"
-  - var pageDesc  = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
-
 prepend page
-  - var encodedUrl    = vmLinkForShare
-  - var pageLink      = vmLink
-  - var webArticleImg = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg"
-  - var likeBtnId     = "Установка через VMWare"
-  - 
+  -
+    var pageTitle     = "Установка macOS на ПК с помощью VMWare"
+        pageDesc      = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
+        datePublished = ["17", "08", "2017"]
+        dateModified  = ["12", "02", "2018"]
+        pageLink      = vmLink
+        encodedUrl    = vmLinkForShare
+        likeBtnId     = "Установка через VMWare"
+        webArticleImg = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg"
+  
+  -
     var itemList = 
       [
         "Введение", 
@@ -20,11 +22,10 @@ block nav
   +site-nav(vmware = selected)
 
 block article-header
-  - var articleImg     = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-image.png"
-  - var articleTitle   = "Установка macOS на ПК&#32;<br>с помощью VMWare"
-  - var datePublished  = ["17", "08", "2017"]
-  - var dateModified   = ["12", "02", "2018"]
-  - var isDateModified = true
+  -
+    var articleImg     = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-image.png"
+        articleTitle   = "Установка macOS на ПК&#32;<br>с помощью VMWare"
+        isDateModified = true
   +article-header
 
 block content
@@ -135,7 +136,7 @@ block content
 
     li
       | Нажмите OK и 
-      i завершите работу (!)
+      em завершите работу (!)
       |  VMWare.
 
     li
@@ -152,10 +153,10 @@ block content
       +img
 
     li
-      | Все, теперь можно запускать VMWare и устанавливать macOS High Sierra!  
+      | Все, теперь можно запустить VMWare и начать процесс установки macOS High Sierra!  
 
       +p
-        | В процессе установки будет предложено создать нового пользователя, придумать ему пароль, а также войти в учетную запись Apple.
+        | В процессе установки будет предложено создать нового пользователя, придумать ему пароль и войти в учетную запись Apple.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/start-vm.jpg"
       - alt = "Запуск VMWare"
@@ -164,12 +165,12 @@ block content
     li
       | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
 
-      +note(inf)
-        | Патч VMWare Tools нужен главным образом для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана.
-
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools.jpg"
       - alt = "Загрузка VMWare Tools"
       +img(small)
+
+      +note(inf)
+        | Патч VMWare Tools нужен главным образом для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана.
 
     li
       | Установите VMWare Tools и перезагрузите ВМ. 
