@@ -8,8 +8,8 @@ mixin article-header
 
   header.article__header.article-header
     div.article-header__img-wrapper(class= attributes.theme)
-      img.article-header__img(src= articleImg alt="")
-    h1.article-header__headline!= articleTitle
+      img.article-header__img(src= articleHeader.image alt="")
+    h1.article-header__headline!= articleHeader.title
     ul.article-header__list
       case isDateModified
         default

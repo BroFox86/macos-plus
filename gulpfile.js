@@ -60,7 +60,6 @@ var paths = {
     css: "src/css/",
     less: "src/less/",
     images: "src/images/",
-    logos: "src/images/logos/",
     favicons: "src/images/favicons/",
     fonts: "src/fonts/",
     js: "src/js/"
@@ -98,7 +97,7 @@ var psiOptns = {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-// Clean tasks
+// Clean
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("clean:tmp", function() {
@@ -116,7 +115,7 @@ gulp.task("clean:all", function(callback) {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for HTML
+// HTML
 ///////////////////////////////////////////////////////////////////////////////
 
 function fileContents(filePath, file) {
@@ -263,15 +262,8 @@ gulp.task("html:minify", function() {
     .pipe(gulp.dest(paths.dist.root));
 });
 
-gulp.task("html:validate", function() {
-  return gulp
-    .src(paths.dist.root + "[^google]*.html")
-    .pipe(w3cjs())
-    .pipe(w3cjs.reporter());
-});
-
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for styles
+// Styles
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("styles:main", function() {
@@ -336,7 +328,7 @@ gulp.task("styles:build", function() {
       postcss([
         uncss({
           html: [paths.dist.root + "[^google]*.html"],
-          ignore: [/.*[is,js]-.*/, /.*[tooltip, lightbox].*/]
+          ignore: [/.*[is,js]-.*/, /.*[tooltip,lightbox].*/]
         })
       ])
     )
@@ -362,21 +354,8 @@ gulp.task("styles:prettify", function() {
     );
 });
 
-gulp.task("styles:lint", function lintCssTask() {
-  return gulp.src(paths.tmp.css + "main.css").pipe(
-    gulpStylelint({
-      reporters: [
-        {
-          formatter: "string",
-          console: true
-        }
-      ]
-    })
-  );
-});
-
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for Images
+// Images
 ///////////////////////////////////////////////////////////////////////////////
 
 var respOptions = {
@@ -464,12 +443,13 @@ gulp.task("images:content:firstpass", function() {
     .pipe(
       responsive(
         {
-          "**/article-image.*": [
+          "**/_article-logo.*": [
             {
               width: 330
             }
           ],
-          "**/*_small.*": [{}]
+          "**/*_small.*": [{}],
+          "**/_meta.*": [{}]
         },
         respOptions
       )
@@ -479,7 +459,7 @@ gulp.task("images:content:firstpass", function() {
 
 gulp.task("images:content", ["images:content:firstpass"], function() {
   return gulp
-    .src(["*pages/**/*", "!*pages/**/*{_small,article-image}.*"], {
+    .src(["*pages/**/*", "!*pages/**/*{_small,_article-logo,_meta}.*"], {
       cwd: paths.src.images
     })
     .pipe(changed(paths.tmp.images))
@@ -515,26 +495,8 @@ gulp.task("images:copy", function() {
     .pipe(gulp.dest(paths.dist.images));
 });
 
-gulp.task("images:unused", function() {
-  return gulp
-    .src([
-      paths.tmp.root + "*.{html,xml}",
-      paths.tmp.css + "*.*",
-      paths.tmp.images + "**/*[^_original, @*]"
-    ])
-    .pipe(
-      plumber({
-        errorHandler: notify.onError({
-          title: "Images filter error"
-        })
-      })
-    )
-    .pipe(unusedImages())
-    .pipe(plumber.stop());
-});
-
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for JS
+// JS
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("js:plugins", function() {
@@ -570,7 +532,7 @@ gulp.task("js:minify", function() {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for copying misc files
+// Copy files
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("copy:fonts:prebuild", function() {
@@ -594,8 +556,8 @@ gulp.task("copy:favicons", function() {
     .pipe(gulp.dest(paths.dist.images));
 });
 
-gulp.task("copy:logos", function() {
-  return gulp.src(paths.src.logos + "*.*").pipe(gulp.dest(paths.dist.images));
+gulp.task("copy:logo", function() {
+  return gulp.src(paths.src.images + "_logo.jpg").pipe(gulp.dest(paths.dist.images));
 });
 
 gulp.task("copy:prebuild", function(callback) {
@@ -604,19 +566,60 @@ gulp.task("copy:prebuild", function(callback) {
 
 gulp.task("copy:build", function(callback) {
   gulpSequence([
-    "copy:logos",
     "copy:favicons",
+    "copy:logo",
     "copy:root-files",
     "copy:fonts:build"
   ])(callback);
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for checking and testing
+// Checking and testing
 ///////////////////////////////////////////////////////////////////////////////
 
+// Validate HTML
+gulp.task("validate", function() {
+  return gulp
+    .src(paths.dist.root + "[^google]*.html")
+    .pipe(w3cjs())
+    .pipe(w3cjs.reporter());
+});
+
+// Check unused images
+gulp.task("unused", function() {
+  return gulp
+    .src([
+      paths.tmp.root + "*.{html,xml}",
+      paths.tmp.css + "*.*",
+      paths.tmp.images + "**/*[^_original, @*]"
+    ])
+    .pipe(
+      plumber({
+        errorHandler: notify.onError({
+          title: "Images filter error"
+        })
+      })
+    )
+    .pipe(unusedImages())
+    .pipe(plumber.stop());
+});
+
+// Lint styles
+gulp.task("stylelint", function lintCssTask() {
+  return gulp.src(paths.tmp.css + "main.css").pipe(
+    gulpStylelint({
+      reporters: [
+        {
+          formatter: "string",
+          console: true
+        }
+      ]
+    })
+  );
+});
+
 // Check spelling
-gulp.task("spelling", function(cb) {
+gulp.task("yaspeller", function(cb) {
   run("./node_modules/.bin/yaspeller .")
     .exec()
     .on("error", function(err) {
@@ -625,16 +628,6 @@ gulp.task("spelling", function(cb) {
     })
     .on("finish", cb);
 });
-
-// Check unused packages
-gulp.task(
-  "depcheck",
-  depcheck({
-    dependencies: false,
-    missing: false,
-    ignoreMatches: ["stylelint-config-*", "yaspeller"]
-  })
-);
 
 // Google Page Speed Inside tests
 gulp.task("psi:mobile", function() {
@@ -657,8 +650,18 @@ gulp.task("psi:desktop", function() {
   })
 });
 
+// Check unused packages
+gulp.task(
+  "depcheck",
+  depcheck({
+    dependencies: false,
+    missing: false,
+    ignoreMatches: ["stylelint-config-*", "yaspeller"]
+  })
+);
+
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for build & deploy
+// Build & deploy
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("prebuild", function(callback) {
@@ -675,7 +678,7 @@ gulp.task("build", function(callback) {
     ["prebuild"],
     ["html:build"],
     ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["html:validate", "images:unused"]
+    ["validate", "unused"]
   )(callback);
 });
 
@@ -684,7 +687,7 @@ gulp.task("build:fast", function(callback) {
     ["prebuild"],
     ["html:build"],
     ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["html:validate", "images:unused"]
+    ["validate", "unused"]
   )(callback);
 });
 
@@ -693,7 +696,7 @@ gulp.task("deploy", function() {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for watching
+// Watch
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("watch:tasks", function() {
@@ -769,7 +772,7 @@ gulp.task("watch", function(callback) {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Tasks for local server
+// Local server
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("connect:tmp", function() {
@@ -793,7 +796,7 @@ gulp.task("connect:dist", function() {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Main tasks
+// Main
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("serve", function(callback) {

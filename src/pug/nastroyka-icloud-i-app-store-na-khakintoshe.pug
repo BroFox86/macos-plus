@@ -2,31 +2,33 @@ extends /pug/_layout
 
 prepend page
   -
-    var pageTitle     = "Настройка iCloud и App Store на хакинтоше"
-        pageDesc      = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
-        datePublished = ["23", "05", "2017"]
-        dateModified  = ["09", "01", "2018"]
-        pageLink      = servicesLink
-        encodedUrl    = servicesLinkForShare
-        likeBtnId     = "Запуск сервисов Apple"
-        webArticleImg = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial_original.png"
+    var pageTitle      = "Настройка iCloud и App Store на хакинтоше"
+        pageDesc       = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
+        isDateModified = true
+        datePublished  = ["23", "05", "2017"]
+        dateModified   = ["09", "01", "2018"]
+        pageLink       = servicesLink
+        encodedUrl     = servicesLinkForShare
+        likeBtnId      = "Запуск сервисов Apple"
 
-  -
-    var itemList = 
-      [
-        "Настройка iCloud",
-        "Настройка App Store"
-      ]
+    var metaImage = {
+      src: "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/_meta.jpg",
+      width: 1334,
+      height: 772
+    };
+
+    var itemList = [
+      "Настройка iCloud",
+      "Настройка App Store"
+    ]
+
+    var articleHeader = {
+      image: "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/_article-logo.png",
+      title: "Настройка iCloud и App Store&#32;<br>на хакинтоше"
+    };
     
 block nav
   +site-nav(services = selected)
-
-block article-header
-  -
-    var articleImg     = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/article-image.png"
-        articleTitle   = "Настройка iCloud и App Store&#32;<br>на хакинтоше"
-        isDateModified = true
-  +article-header
 
 block content	
   +h2

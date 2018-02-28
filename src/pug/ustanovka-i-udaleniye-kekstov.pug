@@ -2,30 +2,36 @@ extends /pug/_layout
 
 prepend page
   -
-    var pageTitle     = "Установка и удаление кекстов в macOS"
-        pageDesc      = "Руководство по работе с кекстами на хакинтоше"
-        datePublished = ["02", "09", "2017"]
-        dateModified  = ["09", "01", "2018"]
-        pageLink      = kextsLink
-        encodedUrl    = kextsLinkForShare
-        likeBtnId     = "Установка и удаление кекстов"
-        webArticleImg = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg"
-  -
-    var itemList = 
-      [
-        "Введение", 
-        "Установка кекстов", 
-        "Удаление кекстов"
-      ]
+    var pageTitle      = "Установка и удаление кекстов в macOS"
+        pageDesc       = "Руководство по работе с кекстами на хакинтоше"
+        isDateModified = true
+        datePublished  = ["02", "09", "2017"]
+        dateModified   = ["09", "01", "2018"]
+        pageLink       = kextsLink
+        encodedUrl     = kextsLinkForShare
+        likeBtnId      = "Установка и удаление кекстов"
+
+    var metaImage = {
+      src: "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging_original.jpg",
+      width: 797,
+      height: 534
+    };
+
+    var itemList = [
+      "Введение", 
+      "Установка кекстов", 
+      "Удаление кекстов"
+    ]
+
+    var articleHeader = {
+      image: "images/pages/ustanovka-i-udaleniye-kekstov/_article-logo.png",
+      title: "Установка и удаление&#32;<br>кекстов в macOS"
+    };
 
 block nav
   +site-nav(kexts = selected, pageA0 = selected)
 
 block article-header
-  -
-    var articleImg     = "images/pages/ustanovka-i-udaleniye-kekstov/article-image.png"
-        articleTitle   = "Установка и удаление&#32;<br>кекстов в macOS"
-        isDateModified = true
   +article-header(theme = themeAccent)
 
 block content
@@ -113,7 +119,7 @@ block content
       +note(inf)
         | Системные разделы по умолчанию скрыты от пользователя. Инструкция по монтированию скрытых разделов приведена на отдельной 
         a.link.link--note(href= efiLink) странице
-        |  этого сайта.
+        | .
 
   +h2
 

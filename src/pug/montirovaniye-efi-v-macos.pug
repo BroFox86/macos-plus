@@ -9,16 +9,20 @@ prepend page
         pageLink        = efiLink
         encodedUrl      = efiLinkForShare
         likeBtnId       = "Монтирование EFI"
-        webArticleImg   = "images/pages/montirovaniye-efi-v-macos/opened-efi-partition_original.png"
+
+    var metaImage = {
+      src: "images/pages/montirovaniye-efi-v-macos/_meta.jpg",
+      width: 882,
+      height: 548
+    };
+
+    var articleHeader = {
+      image: "images/pages/montirovaniye-efi-v-macos/_article-logo.png",
+      title: pageTitle
+    };
   
 block nav
   +site-nav(efi = selected, pageA0 = selected)
-  
-block article-header
-  -
-    var articleImg   = "images/pages/montirovaniye-efi-v-macos/article-image.png"
-        articleTitle = pageTitle
-  +article-header
 
 block content
   +p 
