@@ -1,5 +1,6 @@
 .link {
   text-decoration: none;
+  hyphens: none;
 
   &--entry {
     color: inherit;
@@ -24,15 +25,18 @@
   &--article {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     color: darken(@accent-color, 5);
-    transition: border-bottom 0.2s ease-in-out;
+    transition: border-bottom, padding 0.2s ease-in-out;
+    padding-bottom: 10px;
 
     &:hover {
-      border-color: fade(lighten(@accent-color, 25), 99%);
+      border-color: @link-border-color;
+      padding-bottom: 2px;
     }
 
     &:visited {
       border-color: fade(lighten(spin(@accent-color, 40), 25), 99%);
       color: spin(@accent-color, 40);
+      padding: 2px;
     }
   }
 
