@@ -12,7 +12,7 @@ prepend page
         likeBtnId      = "Запуск звука"
 
     var metaImage = {
-      src: "images/pages/zavod-zvuka-na-khakintoshe/_meta.jpg",
+      src: "images/pages/zavod-zvuka-na-khakintoshe/meta.jpg",
       width: 1334,
       height: 772
     };
@@ -24,12 +24,12 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/zavod-zvuka-na-khakintoshe/_article-logo.png",
+      image: "images/pages/zavod-zvuka-na-khakintoshe/article-logo.png",
       title: pageTitle
     };
 
 block nav
-  +site-nav(sound = selected)
+  +siteNav(sound = selected)
 
 block content
   +h2
@@ -40,9 +40,9 @@ block content
     | , включающим внешний усилитель для встроенных в материнские платы кодеков (звуковых карт). Обычно такие усилители установлены в колонках и наушниках. Когда кодек теряет питание, усилитель тоже теряет питание и включить его обратно без дополнительной помощи невозможно. Как правило кодек теряет питание в двух случаях:
 
   +ul
-    +ul-item
+    +markedItem
       | Компьютер перешел в режим сна и затем вышел из него.
-    +ul-item
+    +markedItem
       | Компьютер начал переходить в режим сна, но спустя небольшой промежуток времени (около 5-20 секунд) была нажата какая-либо клавиша и переход в сон отменился (задержка сна на полминуты — это 
       a.link.link--article(href="https://www.reddit.com/r/hackintosh/comments/413yqm/el_capitan_taking_3040_seconds_to_sleep/") особенность
       |  macOS).
@@ -78,13 +78,13 @@ block content
     | Для настройки звуковых карт Creative на хакинтоше энтузиасты разработали кекст kXAudioDriver, он заводит на хакинтоше следующие карты:
 
   +ul 
-    +ul-item 
+    +markedItem 
       | Creative Live! 
-    +ul-item 
+    +markedItem 
       | Audigy 1/2 
-    +ul-item 
+    +markedItem 
       | Audigy RX 
-    +ul-item 
+    +markedItem 
       | EMU E-DSP
 
   +p

@@ -27,15 +27,15 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/index/_article-logo.jpg",
+      image: "images/pages/index/article-logo.jpg",
       title: "Установка macOS High Sierra&#32;<br>на ПК на базе Intel"
     };
 
 block nav
-  +site-nav(index = selected)
+  +siteNav(index = selected)
 
-block article-header
-  +article-header(theme = themeAlt) 
+block article header
+  +articleHeader(theme = themeAlt) 
 
 block content
   +h2
@@ -76,7 +76,7 @@ block content
   +p
     | Для того, чтобы установить официальный образ macOS High Sierra на ПК, потребуется для начала загрузить его через цифровой магазин App Store. Это можно сделать с помощью виртуальных машин, программ, которые эмулируют работу одной операционной системы внутри другой. На этом сайте будет приведена установка и настройка бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. Установка и настройка виртуальной машины VMWare подробно изложена на отдельной  
     a.link.link--article(href= vmLink) странице
-    |  этого сайта.
+    | .
 
   +note(tip)
     | Загрузка официального образа macOS с App Store возможна также и на любом компьютере Apple Mac, работающем на OS X Lion 10.7.5 или более поздней версии. При наличии такой возможности пропустите главу настройки VMWare.
@@ -94,11 +94,11 @@ block content
     | Потребуется подробная информация о конфигурации вашего компьютера:
 
   +ul
-    +ul-item
+    +markedItem
       | Поддерживает ли система (материнская плата) UEFI, либо использует BIOS?
-    +ul-item
+    +markedItem
       | Поколение процессора intel Core. Например, Haswell или Skylake. Подтверждена работа на семействе процессоров Core 2. В принципе, с процессорами intel у macOS нет проблем.
-    +ul-item
+    +markedItem
       | Аудиокодек материнской платы, если используете встроенную звуковую карту. На системах с чипсетом intel как правило установлен один из кодеков Realtek ALC.
 
   +ol
@@ -144,16 +144,16 @@ block content
     | в) Перед тем, как начать
 
   +ul
-    +ul-item
+    +markedItem
       | Имейте наготове USB-накопитель (далее — флешка) объемом от 16Gb.
-    +ul-item
+    +markedItem
       | Зарегистрируйтесь на 
       a.link.link--article(href="https://tonymacx86.com/login/login") www.tonymacx86.com
-    +ul-item
+    +markedItem
       | Загрузите последние версии UniBeast и MultiBeast из раздела 
       a.link.link--article(href="https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/") Downloads
       | .
-    +ul-item
+    +markedItem
       | Сделайте резервную копию всех важных данных!
 
   +h2
@@ -319,15 +319,15 @@ block content
     |  для BIOS:
 
   +ul
-    +ul-item
+    +markedItem
       | Используйте только одну видеокарту с одним подключенным монитором.
-    +ul-item
+    +markedItem
       | Отключите любые жесткие диски за исключением пустого, на который будет установлена macOS.
-    +ul-item
+    +markedItem
       |	Отключите любую USB периферию, кроме клавиатуры и мыши.
-    +ul-item
+    +markedItem
       | Отключите любые PCI-карты за исключением видеокарты: они могут быть несовместимы с macOS.
-    +ul-item
+    +markedItem
       | Рекомендуется использовать пустой жесткий диск.
 
   +ol
@@ -448,15 +448,15 @@ block content
     | Каким образом работает MultiBeast:
 
   +ul
-    +ul-item 
+    +markedItem 
       | Монтирует раздел EFI жесткого диска.
-    +ul-item
+    +markedItem
       | По аналогии с созданным UniBeast загрузочным USB, MultiBeast создает на нем директорию с загрузчиком Clover.
-    +ul-item
+    +markedItem
       | Устанавливает необходимые 
       span.article__tooltip(title!="«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. &copy;&nbsp;Wikipedia.") кексты
       |  в системную папку macOS (System/Library/<wbr>Extensions) или в папку загрузчика (/EFI/EFI/Clover/<wbr>Kexts).
-    +ul-item
+    +markedItem
       | Добавляет необходимые параметры в файл конфигурации Clover — config.plist.
 
   +note(tip)
@@ -502,9 +502,9 @@ block content
       | , установленную на материнских платах компьютеров Apple. Подходящая опция должна быть отмеченной по умолчанию.
 
       +ul
-        +ul-item
+        +markedItem
           | Кексты VoodooTSCSync предназначены только для процессоров c разъемом LGA2011.
-        +ul-item
+        +markedItem
           | FakeSMC HWMonitor используется для получения данных о температурах и скоростях вращения систем охлаждения. 
 
       - src = "images/pages/index/drivers_misc.png"
@@ -521,11 +521,11 @@ block content
     li
       | Вкладка USB содержит несколько опций:
       +ul
-        +ul-item
+        +markedItem
           | 3rd pty USB 3.0 для сторонних контроллеров USB 3.0.
-        +ul-item
+        +markedItem
           | 7/8/9 Series USB Support для USB 2.0/3.0 чипсетов Intel 7/8/9 серии.
-        +ul-item
+        +markedItem
           | Increase Max Port Limit для USB 2.0/3.0 чипсетов Intel 9 и 100-й серии.
 
       - src = "images/pages/index/drivers_usb.png"
@@ -543,9 +543,9 @@ block content
       | Customize разделена на 3 раздела. Первый раздел — Graphics Configuration.
 
       +ul
-        +ul-item
+        +markedItem
           | Inject NVIDIA — опция для старых видеокарт NVIDIA GeForce серии 8xxx, 9xxx, 2xx, 4xx, 610 и 630.
-        +ul-item
+        +markedItem
           | Inject ATI нужна для старых видеокарт ATI, таких как 4xxx серия.
 
       - src = "images/pages/index/customize_graphics.png"

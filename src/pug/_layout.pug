@@ -68,15 +68,15 @@ block page
     div.page__container
       article.page__article.article
 
-        block article-header
-          +article-header
+        block article header
+          +articleHeader
 
-        block mobile-page-nav
+        block mobile page nav
           case hasContentsList 
             default
               div
               - var isMobile = true
-              +page-nav
+              +pageNav
             when false
               //- This comment mean empty block
 
@@ -88,7 +88,7 @@ block page
         +sidebar
     
     +footer
-    +scroll-to-top
+    +scrollToTop
     +lightbox
 
     block scripts
@@ -111,8 +111,8 @@ block page
       script(src="js/_display-viewport-size.js")
       // endbuild 
 
-      mixin structured-data
-        mixin structured-data-markup
+      mixin structuredData
+        mixin structuredDataMarkup
           script(type="application/ld+json"). 
             {
             "@context": "http://schema.org",
@@ -141,7 +141,7 @@ block page
               "name": "macOS Plus",
               "logo": {
                 "@type": "ImageObject",
-                "url": "#{domainName}images/_logo.jpg"
+                "url": "#{domainName}images/logo.jpg"
               }
             },
             "description": "#{pageDesc}"
@@ -150,10 +150,10 @@ block page
         case isDateModified
           default
             - var dateModifiedString = ""
-            +structured-data-markup
+            +structuredDataMarkup
 
           when true
             - var dateModifiedString = dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]
-            +structured-data-markup
+            +structuredDataMarkup
 
-      +structured-data
+      +structuredData

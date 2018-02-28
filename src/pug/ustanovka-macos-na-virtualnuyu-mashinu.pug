@@ -23,12 +23,12 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/_article-logo.png",
+      image: "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-logo.png",
       title: "Установка macOS на ПК&#32;<br>с помощью VMWare"
     };
 
 block nav
-  +site-nav(vmware = selected)
+  +siteNav(vmware = selected)
 
 block content
   +h2
@@ -48,20 +48,20 @@ block content
     | Что потребуется перед установкой:
 
   +ul
-    +ul-item
+    +markedItem
       | Программа Workstation Player Free: 
       a.link.link--article(href="http://www.vmware.com/products/player/playerpro-evaluation.html") www.vmware.com/products
-    +ul-item
+    +markedItem
       | Образ macOS High Sierra для ВМ: 
       a.link.link--article(href="https://drive.google.com/drive/folders/1ynPoQluSPz2RWtD2mKCtEhxCZKE30eIj") Google&nbsp;Drive
       |  / 
       a.link.link--article(href="https://yadi.sk/d/K9gd1t0L3RFULg") Яндекс&nbsp;Диск
-    +ul-item
+    +markedItem
       | Патч VMWare Unlocker: 
       a.link.link--article(href="https://github.com/DrDonk/unlocker") GitHub
       |  / 
       a.link.link--article(href="https://drive.google.com/file/d/1PFMSK7H1p33FukS6Xihv9pY01ISWdZ3l/view?usp=sharing") Google Drive
-    +ul-item
+    +markedItem
       | Около 40Гб свободного места на жестком диске.
   
   +ol
@@ -125,7 +125,7 @@ block content
     li
       | В параметрах диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-hdd-size.jpg"
+      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-hdd-size_small.jpg"
       - alt = "Размер виртуального жесткого диска в VMWare"
       +img(small)
 
@@ -167,7 +167,7 @@ block content
     li
       | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools.jpg"
+      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools_small.jpg"
       - alt = "Загрузка VMWare Tools"
       +img(small)
 

@@ -1,8 +1,8 @@
-mixin page-nav
+mixin pageNav
 
   - var n = 0
 
-  mixin page-nav-inner
+  mixin pageNavInner
     h2.aside__headline= "Оглавление"
     ul.page-nav__list
       each item in itemList
@@ -16,8 +16,8 @@ mixin page-nav
   case isMobile
     when false
       nav.sidebar__item.aside.page-nav
-        +page-nav-inner
+        +pageNavInner
     when true
       nav.page__nav.aside.page-nav
-        +page-nav-inner
+        +pageNavInner
         

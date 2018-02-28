@@ -18,17 +18,17 @@ mixin p
     block
 
 mixin ol
-  ol.article__ol(start= attributes.start)
+  ol.article__numbered-list(start= attributes.start)
     if block
     block
 
 mixin ul
-  ul.article__ul
+  ul.article__marked-list
     if block
     block
 
-mixin ul-item
-  li.article__ul-item
+mixin markedItem
+  li.article__marked-item
     if block
     block
 
@@ -82,7 +82,7 @@ mixin svg(className, id)
   svg(class= className width= "30")
     use(xlink:href="#" + id)
 
-mixin resp-img
+mixin respImg
   - var src1 = src + " " + size + "w"
   - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
   - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
@@ -93,7 +93,7 @@ mixin resp-img
     src	   = src
     alt	   = alt)
 
-mixin resp-img-source
+mixin imgSourceTag
   - var src1 = src + " " + size + "w"
   - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
   - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"

@@ -5,31 +5,39 @@ prepend page
     var pageTitle       = "Монтирование EFI в macOS"
         pageDesc        = "Подробно о том, как монтировать раздел EFI в macOS с помощью EFI Mounter"
         datePublished   = ["02", "09", "2017"]
-        hasContentsList = false
         pageLink        = efiLink
         encodedUrl      = efiLinkForShare
         likeBtnId       = "Монтирование EFI"
 
     var metaImage = {
-      src: "images/pages/montirovaniye-efi-v-macos/_meta.jpg",
+      src: "images/pages/montirovaniye-efi-v-macos/meta.jpg",
       width: 882,
       height: 548
     };
 
+    var itemList = [
+      "Введение", 
+      "Инструкция"
+    ]
+
     var articleHeader = {
-      image: "images/pages/montirovaniye-efi-v-macos/_article-logo.png",
-      title: pageTitle
+      image: "images/pages/montirovaniye-efi-v-macos/article-logo.png",
+      title: "Монтирование EFI в&nbsp;macOS"
     };
   
 block nav
-  +site-nav(efi = selected, pageA0 = selected)
+  +siteNav(efi = selected, pageA0 = selected)
 
 block content
+  +h2
+
   +p 
     | Есть два способа подключения (монтирования) раздела 
     span.article__tooltip(title!="Extensible Firmware Interface (с англ. — «интерфейс расширяемой прошивки») — интерфейс между операционной системой и микропрограммами, управляющими низкоуровневыми функциями оборудования, его основное предназначение: корректно инициализировать оборудование при включении системы и передать управление загрузчику операционной системы. &copy;&nbsp;Wikipedia.") EFI
     |  — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает утилита EFI Mounter.
   
+  +h2
+
   +ol
     li
       | Загрузите  
@@ -43,7 +51,7 @@ block content
     li
       | При запуске появится сообщение системы безопасности. Подтвердите выбор кнопкой «Открыть».
       
-      - src = "images/pages/montirovaniye-efi-v-macos/security-message.png"
+      - src = "images/pages/montirovaniye-efi-v-macos/security-message_small.png"
       - alt = "Сообщение системы безопасности"
       +img(small)
 
@@ -56,7 +64,7 @@ block content
     li
       | Выберите раздел и нажмите OK, затем Mount.
       
-      - src = "images/pages/montirovaniye-efi-v-macos/efi-list.png"
+      - src = "images/pages/montirovaniye-efi-v-macos/efi-list_small.png"
       - alt = "Список разделов EFI компьютера"
       +img(small)
       
@@ -74,9 +82,9 @@ block content
     | Может быть монтирован неподходящий загрузочный раздел EFI в следующих случаях:
 
   +ul
-    +ul-item
+    +markedItem
       | Вы установили macOS на один жесткий диск с ОС Windows и по ошибке монтировали загрузочный раздел с файлами этой ОС.
-    +ul-item
+    +markedItem
       | На целевом жестком диске по какой-либо причине вообще нет раздела EFI и монтировался аналогичный раздел для Windows из другого физического диска.
-    +ul-item
+    +markedItem
       | По ошибке подключился аналогичный раздел с загрузочного USB.

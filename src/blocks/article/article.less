@@ -63,30 +63,30 @@
     }
   }
 
-  &__ol {
+  &__numbered-list {
     margin-bottom: @margin;
     padding-left: 0;
     list-style: inside decimal;
 
-    .article__ol &,
-    .article__ul & {
+    .article__numbered-list &,
+    .article__marked-list & {
       margin-top: @margin;
       padding-left: 5%;
       list-style: lower-alpha;
     }
   }
 
-  &__ul {
+  &__marked-list {
     margin-bottom: @margin;
     list-style: none;
 
-    .article__ol &,
-    .article__ul & {
+    .article__numbered-list &,
+    .article__marked-list & {
       margin-top: @margin;
     }
   }
 
-  &__ul-item {
+  &__marked-item {
     position: relative;
 
     &::before {

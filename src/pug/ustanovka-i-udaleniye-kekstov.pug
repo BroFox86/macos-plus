@@ -24,15 +24,15 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/ustanovka-i-udaleniye-kekstov/_article-logo.png",
+      image: "images/pages/ustanovka-i-udaleniye-kekstov/article-logo.png",
       title: "Установка и удаление&#32;<br>кекстов в macOS"
     };
 
 block nav
-  +site-nav(kexts = selected, pageA0 = selected)
+  +siteNav(kexts = selected, pageA0 = selected)
 
-block article-header
-  +article-header(theme = themeAccent)
+block article header
+  +articleHeader(theme = themeAccent)
 
 block content
   +h2
@@ -62,9 +62,9 @@ block content
     | Есть несколько способов работы с Kext Utility:
 
   +ul
-    +ul-item
+    +markedItem
       | Перетаскивание одного или нескольких кекстов в окно программы.
-    +ul-item
+    +markedItem
       | Запуск «вхолостую». В этом случае будет запущена проверка прав доступа к уже установленным кекстам и пересоздание их кэша.
 
   +ol

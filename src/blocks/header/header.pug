@@ -6,12 +6,12 @@ mixin header
         - size  = 240
         - sizes = size / 16 + "em"
         - media = "(max-width: 960px)"
-        +resp-img-source
+        +imgSourceTag
 
         - src      = "images/header__logo.png"
         - imgClass = "header__img"
         - alt      = "Логотип"
-        +resp-img
+        +respImg
 
     if block
     block
