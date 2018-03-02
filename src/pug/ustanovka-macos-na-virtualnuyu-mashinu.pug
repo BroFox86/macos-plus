@@ -45,22 +45,22 @@ block content
     | Приведенная ниже инструкция рассчитана на работу с компьютерами на базе intel. С процессорами AMD могут возникнуть проблемы.
 
   +p
-    | Что потребуется перед установкой:
+    | Перед установкой потребуются:
 
   +ul
     +markedItem
       | Программа Workstation Player Free: 
-      a.link.link--article(href="http://www.vmware.com/products/player/playerpro-evaluation.html") www.vmware.com/products
+      +link('http://www.vmware.com/products/player/playerpro-evaluation.html', 'www.vmware.com/products')
     +markedItem
       | Образ macOS High Sierra для ВМ: 
-      a.link.link--article(href="https://drive.google.com/drive/folders/1ynPoQluSPz2RWtD2mKCtEhxCZKE30eIj") Google&nbsp;Drive
+      +link('https://drive.google.com/drive/folders/1ynPoQluSPz2RWtD2mKCtEhxCZKE30eIj', 'Google&nbsp;Drive')
       |  / 
-      a.link.link--article(href="https://yadi.sk/d/K9gd1t0L3RFULg") Яндекс&nbsp;Диск
+      +link('https://yadi.sk/d/K9gd1t0L3RFULg', 'Яндекс&nbsp;Диск')
     +markedItem
       | Патч VMWare Unlocker: 
-      a.link.link--article(href="https://github.com/DrDonk/unlocker") GitHub
+      +link('https://github.com/DrDonk/unlocker', 'GitHub')
       |  / 
-      a.link.link--article(href="https://drive.google.com/file/d/1PFMSK7H1p33FukS6Xihv9pY01ISWdZ3l/view?usp=sharing") Google Drive
+      +link('https://drive.google.com/file/d/1PFMSK7H1p33FukS6Xihv9pY01ISWdZ3l/view?usp=sharing', 'Google Drive')
     +markedItem
       | Около 40Гб свободного места на жестком диске.
   
@@ -75,7 +75,7 @@ block content
       +img
 
     li
-      | Откройте VMWare и нажмите “Create a new Virtual Machine”
+      | Откройте VMWare и нажмите “Create a new Virtual Machine”.
     li
       | Выберите “I will install the operating system later”.
 
@@ -143,7 +143,7 @@ block content
 
     li
       | Перейдите в папку ВМ, откройте файл macOS 10.13 с помощью блокнота. Это небольшой файл размером ~2 Кб, не имеющий расширения. Вставьте туда последней строкою код: 
-      code.article__code smc.version = "0"
+      +code('smc.version = "0"')
       | . Сохраните изменения.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/open-vm-file.jpg"

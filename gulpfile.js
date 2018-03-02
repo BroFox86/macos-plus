@@ -1,6 +1,6 @@
 "use strict";
 
-var // Common packages
+var // Common
   gulp = require("gulp"),
   watch = require("gulp-watch"),
   browserSync = require("browser-sync"),
@@ -19,12 +19,15 @@ var // Common packages
   inject = require("gulp-inject"),
   injectString = require("gulp-inject-string"),
   ghPages = require("gulp-gh-pages"),
-  // Packages for html
+  // HTML
   pug = require("gulp-pug"),
   pugIncludeGlob = require("pug-include-glob"),
   htmlmin = require("gulp-htmlmin"),
   useref = require("gulp-useref"),
-  // Packages for styles
+  cheerio = require("gulp-cheerio"),
+  svgstore = require("gulp-svgstore"),
+  svgmin = require("gulp-svgmin"),
+  // Styles
   less = require("gulp-less"),
   postcss = require("gulp-postcss"),
   autoprefixer = require("autoprefixer"),
@@ -35,17 +38,13 @@ var // Common packages
   uncss = require("uncss").postcssPlugin,
   penthouse = require("penthouse"),
   csscomb = require("gulp-csscomb"),
-  // Packages for js
+  // JS
   uglify = require("gulp-uglify"),
-  // Packages for images
+  // Images
   imagemin = require("gulp-imagemin"),
   imageminJpegRecompress = require("imagemin-jpeg-recompress"),
   responsive = require("gulp-responsive"),
-  imageDataURI = require("gulp-image-data-uri"),
-  cheerio = require("gulp-cheerio"),
-  svgstore = require("gulp-svgstore"),
-  svgmin = require("gulp-svgmin"),
-  // Packages for testing
+  // Testing
   w3cjs = require("gulp-w3cjs"),
   unusedImages = require("gulp-unused-images"),
   gulpStylelint = require("gulp-stylelint"),
@@ -97,7 +96,7 @@ var psiOptns = {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-// Clean
+// Cleaning
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("clean:tmp", function() {
@@ -532,7 +531,7 @@ gulp.task("js:minify", function() {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Copy files
+// Copying
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("copy:fonts:prebuild", function() {
@@ -574,7 +573,7 @@ gulp.task("copy:build", function(callback) {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Checking and testing
+// Check and test
 ///////////////////////////////////////////////////////////////////////////////
 
 // Validate HTML

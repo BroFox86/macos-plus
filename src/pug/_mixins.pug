@@ -32,7 +32,27 @@ mixin markedItem
     if block
     block
 
-- var small = " " + "article__img-wrapper--small" 
+mixin link(href, text)
+  a.link.link--article(href= href )!= text
+
+mixin noteLink(href, text)
+  a.link.link--note(href= href )!= text
+
+mixin svg(className, id)
+  svg(class= className width= "30")
+    use(xlink:href="#" + id)
+
+mixin tooltip(title, text)
+  span.article__tooltip(title!= title)= text
+
+mixin code(string)
+  code.article__code= string
+
+mixin key(key)
+  kbd.article__key= key
+
+-// Image mixin ///////////////////////////////////////////////////////////////
+- var small = "article__img-wrapper--small"
 
 mixin img(width)
   - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
@@ -77,10 +97,7 @@ mixin figure(fullWidth)
         figcaption.article__figcaption
           if block
           block
-
-mixin svg(className, id)
-  svg(class= className width= "30")
-    use(xlink:href="#" + id)
+-///////////////////////////////////////////////////////////////////////////////
 
 mixin respImg
   - var src1 = src + " " + size + "w"
