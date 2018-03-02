@@ -3,8 +3,8 @@
   border-radius: 10px;
   background-color: white;
   box-shadow: @box-shadow;
-  word-wrap: break-word;
-  hyphens: auto;
+  display: flex;
+  flex-direction: column;
 
   .padding(desktop);
 
@@ -24,6 +24,11 @@
     @media (max-width: @mobile) {
       margin-bottom: 35px;
     }
+  }
+
+  &__content {
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
   &__h2 {

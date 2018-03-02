@@ -81,13 +81,14 @@
     }
   }
 
-  &__nav {
+  &__mobile-nav {
     display: none;
 
     @media (max-width: @tablet) {
       z-index: 2;
       display: block;
       margin-bottom: @margin * 1.5;
+      order: -1;
     }
   }
 

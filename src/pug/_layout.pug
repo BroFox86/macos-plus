@@ -71,17 +71,17 @@ block page
         block article header
           +articleHeader
 
-        block mobile page nav
+        div.article__content
+          block content
+          +vote
+
+        block mobile page-nav
           case hasContentsList 
             default
-              div
               - var isMobile = true
               +pageNav
             when false
               //- This comment mean empty block
-
-        block content
-        +vote
 
       block sidebar
         - var isMobile = false
