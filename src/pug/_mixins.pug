@@ -1,10 +1,12 @@
 -// Header mixin ///////////////////////////////////////////////////////////////
+
 - var headerId = 0
 
 mixin h2
-  h2.article__h2(id = headerId)
-    a.article__anchor.link.link--anchor(href= "#" + headerId) #
+  h2.article__h2(id = (headerId + 1))
+    a.article__anchor.link.link--anchor(href= "#" + (headerId + 1)) #
     | #{itemList[headerId++]}
+
 -///////////////////////////////////////////////////////////////////////////////
 
 mixin h3
@@ -13,7 +15,7 @@ mixin h3
     block
 
 mixin p
-  p.article__p
+  p.article__par
     if block
     block
 
@@ -52,7 +54,8 @@ mixin key(key)
   kbd.article__key= key
 
 -// Image mixin ///////////////////////////////////////////////////////////////
-- var small = "article__img-wrapper--small"
+
+- var small = ""
 
 mixin img(width)
   - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
@@ -65,18 +68,15 @@ mixin img(width)
             src = src
             alt = alt)
     when small
-      a.article__img-wrapper(
-          href  = src 
-          class = small)
-        div
-          img.article__img(
-            src = src
-            alt = alt)
+      div.article__img-wrapper
+        img.article__img(
+          src = src
+          alt = alt)
 
-mixin figure(fullWidth)
+mixin figure(width)
   - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
 
-  case fullWidth
+  case width
     default
       figure.article__figure
         a.article__img-wrapper(href= original)
@@ -86,17 +86,15 @@ mixin figure(fullWidth)
         figcaption.article__figcaption
           if block
           block
-    when false
+    when small
       figure.article__figure
-        a.article__img-wrapper(
-          class = small
-          href  = src)
-          img.article__img.article__img--figure(
-            src = src
-            alt = alt)
+        img.article__img.article__img--figure(
+          src = src
+          alt = alt)
         figcaption.article__figcaption
           if block
           block
+          
 -///////////////////////////////////////////////////////////////////////////////
 
 mixin respImg

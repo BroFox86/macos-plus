@@ -1,7 +1,7 @@
 .article-header {
   text-align: center;
   hyphens: none;
-  order: -1;
+  order: 1;
 
   &::after {
     position: relative;
@@ -13,6 +13,10 @@
     content: "";
 
     @media (max-width: @tablet) {
+      margin-top: 30px;
+    }
+
+    @media (max-width: @mobile) {
       margin-top: 20px;
     }
   }
