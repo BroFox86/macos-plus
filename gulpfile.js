@@ -80,7 +80,8 @@ var paths = {
   plugins: {
     js: [
       "node_modules/moment/min/moment.min.js",
-      "node_modules/moment/locale/ru.js"
+      "node_modules/moment/locale/ru.js",
+      "node_modules/stickyfilljs/dist/stickyfill.js"
     ]
   }
 };
@@ -327,7 +328,7 @@ gulp.task("styles:build", function() {
       postcss([
         uncss({
           html: [paths.dist.root + "[^google]*.html"],
-          ignore: [/.*[is,js]-.*/, /.*[tooltip,lightbox].*/]
+          ignore: [/.*[js,has]-.*/, /.*[tooltip,lightbox].*/]
         })
       ])
     )
@@ -467,7 +468,7 @@ gulp.task("images:content", ["images:content:firstpass"], function() {
         {
           "**/*": [
             {
-              width: 586
+              width: 630
             },
             {
               rename: {
