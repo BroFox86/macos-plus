@@ -1,1 +1,3 @@
-Stickyfill.add(".page__sidebar");
+var element = $(".page__sidebar");
+
+Stickyfill.addOne(element);
