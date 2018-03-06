@@ -37,7 +37,6 @@ var // Common
   pxtorem = require("postcss-pxtorem"),
   uncss = require("uncss").postcssPlugin,
   penthouse = require("penthouse"),
-  csscomb = require("gulp-csscomb"),
   // JS
   uglify = require("gulp-uglify"),
   // Images
@@ -47,9 +46,7 @@ var // Common
   // Testing
   w3cjs = require("gulp-w3cjs"),
   unusedImages = require("gulp-unused-images"),
-  gulpStylelint = require("gulp-stylelint"),
-  depcheck = require("gulp-depcheck"),
-  psi = require("psi");
+  depcheck = require("gulp-depcheck");
 
 var paths = {
   src: {
@@ -336,24 +333,6 @@ gulp.task("styles:build", function() {
     .pipe(gulp.dest(paths.dist.css));
 });
 
-gulp.task("styles:prettify", function() {
-  return gulp
-    .src(paths.src.blocks + "**/*.less")
-    .pipe(
-      plumber({
-        errorHandler: notify.onError({
-          title: "Styles prettification error"
-        })
-      })
-    )
-    .pipe(csscomb("csscomb.json"))
-    .pipe(
-      gulp.dest(function(file) {
-        return file.base;
-      })
-    );
-});
-
 ///////////////////////////////////////////////////////////////////////////////
 // Images
 ///////////////////////////////////////////////////////////////////////////////
@@ -604,59 +583,12 @@ gulp.task("unused", function() {
     .pipe(plumber.stop());
 });
 
-// Lint styles
-gulp.task("stylelint", function lintCssTask() {
-  return gulp.src(paths.tmp.css + "main.css").pipe(
-    gulpStylelint({
-      reporters: [
-        {
-          formatter: "string",
-          console: true
-        }
-      ]
-    })
-  );
-});
-
-// Check spelling
-gulp.task("yaspeller", function(cb) {
-  run("./node_modules/.bin/yaspeller .")
-    .exec()
-    .on("error", function(err) {
-      console.error(err.message);
-      cb();
-    })
-    .on("finish", cb);
-});
-
-// Google Page Speed Inside tests
-gulp.task("psi:mobile", function() {
-  return psi(psiOptns.url, {
-    key: psiOptns.key,
-    nokey: "true",
-    strategy: "mobile"
-  }).then(function(data) {
-    console.log('done');
-  })
-});
-
-gulp.task("psi:desktop", function() {
-  return psi(psiOptns.url, {
-    nokey: "true",
-    key: psiOptns.key,
-    strategy: "desktop"
-  }).then(function(data) {
-    console.log('done');
-  })
-});
-
 // Check unused packages
 gulp.task(
   "depcheck",
   depcheck({
     dependencies: false,
-    missing: false,
-    ignoreMatches: ["stylelint-config-*", "yaspeller"]
+    missing: false
   })
 );
 
