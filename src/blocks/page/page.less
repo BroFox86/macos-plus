@@ -4,18 +4,18 @@
   color: @font-color;
   word-wrap: break-word;
   font: 400 16px / 1.6 @font-family;
-  
+
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transpent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-  :focus {
-    outline: none;
-  }
-
   ::-moz-focus-inner {
     border: 0;
+  }
+
+  :focus {
+    outline: none;
   }
 
   &__outdated {
@@ -87,8 +87,8 @@
     @media (max-width: @tablet) {
       z-index: 2;
       display: block;
-      margin-bottom: @margin * 1.5;
       order: 2;
+      margin-bottom: @margin * 1.5;
     }
   }
 

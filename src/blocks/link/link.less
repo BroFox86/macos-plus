@@ -23,26 +23,27 @@
   }
 
   &--article {
+    padding-bottom: 7px;
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     color: darken(@accent-color, 5);
     transition: border-bottom, padding 0.2s ease-in-out;
-    padding-bottom: 7px;
 
     &:hover {
-      border-color: @link-border-color;
       padding-bottom: 2px;
+      border-color: @link-border-color;
     }
 
     &:visited {
+      padding: 2px;
       border-color: fade(lighten(spin(@accent-color, 40), 25), 99%);
       color: spin(@accent-color, 40);
-      padding: 2px;
     }
   }
 
   &--note {
     color: inherit;
     text-decoration: underline;
+
     text-decoration-skip: ink;
   }
 }
