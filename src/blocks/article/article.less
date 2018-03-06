@@ -8,6 +8,11 @@
 
   .padding(desktop);
 
+  *::selection {
+    background: lighten(@accent-color, 7);
+    color: #fff;
+  }
+
   @media (max-width: @tablet) {
     .padding(tablet);
   }
