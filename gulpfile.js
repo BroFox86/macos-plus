@@ -27,6 +27,7 @@ var // Common
   cheerio = require("gulp-cheerio"),
   svgstore = require("gulp-svgstore"),
   svgmin = require("gulp-svgmin"),
+  w3cjs = require("gulp-w3cjs"),
   // Styles
   less = require("gulp-less"),
   postcss = require("gulp-postcss"),
@@ -43,10 +44,7 @@ var // Common
   imagemin = require("gulp-imagemin"),
   imageminJpegRecompress = require("imagemin-jpeg-recompress"),
   responsive = require("gulp-responsive"),
-  // Testing
-  w3cjs = require("gulp-w3cjs"),
-  unusedImages = require("gulp-unused-images"),
-  depcheck = require("gulp-depcheck");
+  unusedImages = require("gulp-unused-images");
 
 var paths = {
   src: {
@@ -257,6 +255,13 @@ gulp.task("html:minify", function() {
       })
     )
     .pipe(gulp.dest(paths.dist.root));
+});
+
+gulp.task("html:validate", function() {
+  return gulp
+    .src(paths.dist.root + "[^google]*.html")
+    .pipe(w3cjs())
+    .pipe(w3cjs.reporter());
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -474,6 +479,24 @@ gulp.task("images:copy", function() {
     .pipe(gulp.dest(paths.dist.images));
 });
 
+gulp.task("images:unused", function() {
+  return gulp
+    .src([
+      paths.tmp.root + "*.{html,xml}",
+      paths.tmp.css + "*.*",
+      paths.tmp.images + "**/*[^_original, @*]"
+    ])
+    .pipe(
+      plumber({
+        errorHandler: notify.onError({
+          title: "Images filter error"
+        })
+      })
+    )
+    .pipe(unusedImages())
+    .pipe(plumber.stop());
+});
+
 ///////////////////////////////////////////////////////////////////////////////
 // JS
 ///////////////////////////////////////////////////////////////////////////////
@@ -553,46 +576,6 @@ gulp.task("copy:build", function(callback) {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Check and test
-///////////////////////////////////////////////////////////////////////////////
-
-// Validate HTML
-gulp.task("validate", function() {
-  return gulp
-    .src(paths.dist.root + "[^google]*.html")
-    .pipe(w3cjs())
-    .pipe(w3cjs.reporter());
-});
-
-// Check unused images
-gulp.task("unused", function() {
-  return gulp
-    .src([
-      paths.tmp.root + "*.{html,xml}",
-      paths.tmp.css + "*.*",
-      paths.tmp.images + "**/*[^_original, @*]"
-    ])
-    .pipe(
-      plumber({
-        errorHandler: notify.onError({
-          title: "Images filter error"
-        })
-      })
-    )
-    .pipe(unusedImages())
-    .pipe(plumber.stop());
-});
-
-// Check unused packages
-gulp.task(
-  "depcheck",
-  depcheck({
-    dependencies: false,
-    missing: false
-  })
-);
-
-///////////////////////////////////////////////////////////////////////////////
 // Build & deploy
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -610,7 +593,7 @@ gulp.task("build", function(callback) {
     ["prebuild"],
     ["html:build"],
     ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["validate", "unused"]
+    ["html:validate", "images:unused"]
   )(callback);
 });
 
@@ -619,7 +602,7 @@ gulp.task("build:fast", function(callback) {
     ["prebuild"],
     ["html:build"],
     ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["validate", "unused"]
+    ["html:validate", "images:unused"]
   )(callback);
 });
 
