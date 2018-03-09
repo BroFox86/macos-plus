@@ -1,6 +1,6 @@
-$("article span.article__tooltip")
+$("article .article__tooltip")
   .hover(
-    function () {
+    function() {
       var title = $(this).attr("title");
       $(this)
         .data("tipText", title)
@@ -10,12 +10,12 @@ $("article span.article__tooltip")
         .appendTo("body")
         .fadeIn(300);
     },
-    function () {
+    function() {
       $(this).attr("title", $(this).data("tipText"));
       $(".tooltip").remove();
     }
   )
-  .mousemove(function (e) {
+  .mousemove(function(e) {
     var mousex = e.pageX + 20; //Get X coordinates
     var mousey = e.pageY + 10; //Get Y coordinates
     $(".tooltip").css({
