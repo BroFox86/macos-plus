@@ -13,9 +13,9 @@
   &--anchor {
     padding-right: 10px;
     color: @accent-color;
-    font: 600 0.8em/1.8 @font-family;
+    font: 600 0.8em @font-family;
     opacity: 0;
-    transition: 0.5s;
+    transition: opacity 0.5s;
 
     .article__h2:hover & {
       opacity: 1;
@@ -35,15 +35,14 @@
 
     &:visited {
       padding: 2px;
-      border-color: fade(lighten(spin(@accent-color, 40), 25), 99%);
+      border-color: fade(lighten(@visited-link-color, 40), 99%);
       color: @visited-link-color;
     }
   }
 
   &--note {
+    padding-bottom: 1px;
+    border-bottom: 1px solid fade(#fff, 60%);
     color: inherit;
-    text-decoration: underline;
-
-    text-decoration-skip: ink;
   }
 }

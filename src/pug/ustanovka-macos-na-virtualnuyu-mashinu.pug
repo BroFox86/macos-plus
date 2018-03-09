@@ -42,62 +42,62 @@ block content
   +h2
 
   +note(warning)
-    | Данная инструкция рассчитана на работу с компьютерами на базе intel. С процессорами AMD могут возникнуть проблемы.
+    | Инструкция рассчитана на работу с компьютерами на базе intel. С процессорами AMD могут возникнуть проблемы.
 
   +p
     | Что потребуется перед установкой:
 
   +ul
-    +markedItem
+    +li
       | Программа Workstation Player Free: 
       +link('http://www.vmware.com/products/player/playerpro-evaluation.html', 'www.vmware.com/products')
-    +markedItem
+    +li
       | Образ macOS High Sierra для ВМ: 
       +link('https://drive.google.com/drive/folders/1ynPoQluSPz2RWtD2mKCtEhxCZKE30eIj', 'Google&nbsp;Drive')
       |  / 
       +link('https://yadi.sk/d/K9gd1t0L3RFULg', 'Яндекс&nbsp;Диск')
-    +markedItem
+    +li
       | Патч VMWare Unlocker: 
       +link('https://github.com/DrDonk/unlocker', 'GitHub')
       |  / 
       +link('https://drive.google.com/file/d/1PFMSK7H1p33FukS6Xihv9pY01ISWdZ3l/view?usp=sharing', 'Google Drive')
-    +markedItem
+    +li
       | Около 40 Гб свободного места на жестком диске.
   
   +ol
-    li
+    +li
       | Установите VMWare Workstation Player (далее — VMWare).
-    li
+    +li
       | Распакуйте архив c Unlocker и запустите win-install.cmd от имени администратора. Таким образом в VMWare добавляется поддержка macOS.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-patch-tool.jpg"
       - alt = "Добавление поддержки macOS в VMWare"
       +img
 
-    li
+    +li
       | Откройте VMWare и нажмите “Create a new Virtual Machine”.
-    li
+    +li
       | Выберите “I will install the operating system later”.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-later_small.jpg"
       - alt = "Создание виртуальной машины в VMWare"
       +img(small)
 
-    li
+    +li
       | Укажите Apple Mac OS X версии 10.13
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-os_small.jpg"
       - alt = "Выбор версии ОС в VMWare"
       +img(small)
 
-    li
+    +li
       | И папку, в которую будет установлена виртуальная ОС. Запомните ее путь.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-vm-location_small.jpg"
       - alt = "Выбор папки для VMWare"
       +img(small)
 
-    li
+    +li
       | Затем войдите в настройки созданной ВМ и удалите Hard Disk.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/vmware-settings.jpg"
@@ -108,10 +108,10 @@ block content
       - alt = "Удаление жесткого диска в VMWare"
       +img(small)
 
-    li
+    +li
       | Добавьте виртуальный жесткий диск: Add &gt; Hard Disk &gt; SATA. 
       
-    li 
+    +li
       | После выберите “Use an Existing Virtual Disk” и укажите путь к образу с macOS High Sierra (большой файл с расширением vmdk).
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-disk_small.jpg"
@@ -122,25 +122,25 @@ block content
       - alt = "Добавление образа в VMWare"
       +img(small)
     
-    li
+    +li
       | В параметрах диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-hdd-size_small.jpg"
       - alt = "Размер виртуального жесткого диска в VMWare"
       +img(small)
 
-    li
+    +li
       | Не забудьте выделить достаточное кол-во памяти для VMWare — порядка 50-65% от общей суммы ОЗУ компьютера.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/memory-size.jpg"
       - alt = "Выделение памяти для VMWare"
       +img
 
-    li
+    +li
       | Нажмите OK и 
       em завершите работу
       |  VMWare, иначе при старте ВМ появится сообщение об ошибке.
-    li
+    +li
       | Перейдите в папку ВМ и откройте файл macOS 10.13 с помощью блокнота. Это небольшой файл размером ~2 Кб, не имеющий расширения. Вставьте туда последней строкою код: 
       +code('smc.version = "0"')
       | . Сохраните изменения.
@@ -153,7 +153,7 @@ block content
       - alt = "Редактирование файла VMWare"
       +img
 
-    li
+    +li
       | Все, теперь можно запустить VMWare и начать процесс установки macOS High Sierra!  
 
       +p
@@ -163,7 +163,7 @@ block content
       - alt = "Запуск VMWare"
       +img
 
-    li
+    +li
       | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools_small.jpg"
@@ -173,21 +173,21 @@ block content
       +note(inf)
         | Патч VMWare Tools нужен главным образом для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана.
 
-    li
+    +li
       | Установите VMWare Tools и перезагрузите ВМ. 
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools.jpg"
       - alt = "Установка VMWare Tools"
       +img
 
-    li
+    +li
       | Система безопасности macOS High Sierra заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч кнопкой Allow. 
 
       - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/allow-vmware-tools.jpg"
       - alt = "Открытие доступа для VMWare Tools"
       +img
 
-    li
+    +li
       | Перезагрузите ВМ еще раз. 
       
       +p 

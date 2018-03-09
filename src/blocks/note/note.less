@@ -1,49 +1,41 @@
 .note {
-  padding: 16px;
-  padding-left: 56px;
-  border-radius: 15px;
+  padding: 14px 14px 14px 65px;
+  border-radius: @border-radius--large;
+  box-shadow: -4px 6px 15px 0 rgba(0, 0, 0, 0.2);
   font: @font-size--small / 1.5 @font-family;
+  color: #fff;
+  width: 75%;
+
+  @media (max-width: @mobile) {
+    width: auto;
+    padding-right: 15px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+  }
 
   &__text {
     display: inline-block;
     margin: 0;
     margin-right: 4px;
-    color: inherit;
     font-weight: 600;
   }
 
   &--inf {
-    background: @inf-bg-color;
-    color: @font-color--very-light;
+    background: @inf-note;
   }
 
   &--tip {
-    background: @tip-bg-color;
-    color: @tip-font-color;
+    background: @tip-note;
   }
 
   &--warning {
-    background: @warning-bg-color;
-    color: @warning-font-color;
-  }
-
-  &__icon {
-    position: absolute;
-    top: 16px;
-    left: 18px;
-    width: 26px;
-    height: 26px;
-
-    .note--inf & {
-      fill: @inf-icon-color;
-    }
-
-    .note--tip & {
-      fill: @tip-icon-color;
-    }
-
-    .note--warning & {
-      fill: @warning-icon-color;
-    }
+    background: @warning-note;
   }
 }

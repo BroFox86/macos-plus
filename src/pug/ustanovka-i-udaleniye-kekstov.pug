@@ -44,9 +44,12 @@ block content
     | Установка кекстов в macOS состоит из трёх важных этапов: 
 
   +ol
-    li Копировании в папку System/Library/Extensions.
-    li Настройке прав доступа.
-    li Удалении и пересоздании кэша кекстов для загрузки системы.
+    +li
+      | Копировании в папку System/Library/Extensions.
+    +li
+      | Настройке прав доступа.
+    +li
+      | Удалении и пересоздании кэша кекстов для загрузки системы.
 
   +h2
 
@@ -62,13 +65,13 @@ block content
     | Есть несколько способов работы с Kext Utility:
 
   +ul
-    +markedItem
+    +li
       | Перетаскивание одного или нескольких кекстов в окно программы.
-    +markedItem
+    +li
       | Запуск «вхолостую». В этом случае будет запущена проверка прав доступа к уже установленным кекстам и пересоздание их кэша.
 
   +ol
-    li
+    +li
       | Скачайте Kext Utility с 
       +link('http://cvad-mac.narod.ru/index/0-4', 'cvad-mac.narod.ru')
       |  и установите, переместив приложение в папку «Программы».
@@ -77,23 +80,23 @@ block content
       - alt = "Папка c программами в macOS"
       +img
 
-    li
+    +li
       | При каждом открытии программы начинается служебная процедура. Пока она выполняются, крутится индикатор и выводится лог событий.
 
       - src = "images/pages/ustanovka-i-udaleniye-kekstov/kext-utility-window.png"
       - alt = "Окно программы Kext Utility"
       +img
 
-    li
+    +li
       | Переместите кекст(ы) в окно программы методом drag-and-drop и дождитесь выполнения установки.
 
       - src = "images/pages/ustanovka-i-udaleniye-kekstov/kext-dragging.jpg"
       - alt = "Установка кекста через Kext Utility"
       +img
 
-    li
+    +li
       | Как только появится кнопка Quit, кекст(ы) будут установлены.
-    li
+    +li
       | Выйдите из программы и перезагрузите компьютер. После перезагрузки все устройства, для которых были установлены кексты, должны опознаться системой.
 
   +h3
@@ -103,14 +106,14 @@ block content
     | Не всегда требуется устанавливать кексты в системную папку macOS: на хакинтоше есть еще одно место с кекстами — в папке Clover. Обычно там располагаются кексты, необходимые для работы хакинтоша. Выбор места для установки следует делать исходя из документации к кексту. Большое кол-во кекстов, загружаемых через Clover, может существенно замедлить загрузку системы.
 
   +ol
-    li
+    +li
       | Откройте папку кекстов в Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other. 
 
       - src = "images/pages/ustanovka-i-udaleniye-kekstov/kexts-location-in-clover.png"
       - alt = "Папка с кекстами в Clover"
       +img
 
-    li
+    +li
       | Скопируйте туда необходимые кексты и перезагрузите компьютер. 
       
       +note(tip)
@@ -124,25 +127,25 @@ block content
   +h2
 
   +ol
-    li
+    +li
       | Выберите в строке меню пункт «Переход к папке» и введите путь к системной папке: /System/Library/Extensions
 
       - src = "images/pages/ustanovka-i-udaleniye-kekstov/go-to-folder_small.jpg"
       - alt = "Переход в системную папку macOS"
       +img(small)
 
-    li
+    +li
       | Затем найдите там кекст у удалите.
 
       - src = "images/pages/ustanovka-i-udaleniye-kekstov/extensions-folder.png"
       - alt = "Папка с кекстами в системном разделе macOS"
       +img
 
-    li
+    +li
       | После запустите 
       +link('http://cvad-mac.narod.ru/index/0-4', 'Kext Utility')
       |  и подождите окончания процедуры по пересозданию кеша.
-    li
+    +li
       | Перезагрузите компьютер.
 
       +note(inf)

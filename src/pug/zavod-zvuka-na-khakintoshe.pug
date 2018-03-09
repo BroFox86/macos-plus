@@ -36,13 +36,13 @@ block content
 
   +p
     | Кекст Codec Commander используется для управления контроллером 
-    +tooltip('External Amplifier Power Down', 'EAPD')
+    +tooltip('External Amplifier Power Down', 'EAPD', abbr)
     | , включающим внешний усилитель для встроенных в материнские платы кодеков (звуковых карт). Обычно такие усилители установлены в колонках и наушниках. Когда кодек теряет питание, усилитель тоже теряет питание и включить его обратно без дополнительной помощи невозможно. Как правило кодек теряет питание в двух случаях:
 
   +ul
-    +markedItem
+    +li
       | Компьютер перешел в режим сна и затем вышел из него.
-    +markedItem
+    +li
       | Компьютер начал переходить в режим сна, но спустя небольшой промежуток времени (около 5-20 секунд) была нажата какая-либо клавиша и переход в сон отменился (задержка сна на полминуты — это 
       +link('https://www.reddit.com/r/hackintosh/comments/413yqm/el_capitan_taking_3040_seconds_to_sleep/', 'особенность')
       |  macOS).
@@ -78,13 +78,13 @@ block content
     | Для настройки звуковых карт Creative на хакинтоше энтузиасты разработали кекст kXAudioDriver, он заводит на хакинтоше следующие карты:
 
   +ul 
-    +markedItem 
+    +li
       | Creative Live! 
-    +markedItem 
+    +li
       | Audigy 1/2 
-    +markedItem 
+    +li
       | Audigy RX 
-    +markedItem 
+    +li
       | EMU E-DSP
 
   +p
@@ -129,11 +129,11 @@ block content
     | С помощью сочетания ⌘ + Shift + . (точка) можно отображать скрытые файлы в macOS и таким же способом их скрывать.
 
   +ol
-    li
+    +li
       | Откройте флешку с macOS и отобразите скрытые папки.
-    li
+    +li
       | Перейдите в System &gt; Library &gt; Extensions.
-    li 
+    +li
       | Скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
 
       - src = "images/pages/zavod-zvuka-na-khakintoshe/native-applehda-in-boot-usb.jpg"
@@ -144,17 +144,17 @@ block content
     | Шаг 2.  Восстановление AppleHDA
 
   +ol
-    li
+    +li
       | Выберите в строке меню пункт «Переход к папке».
 
       - src = "images/pages/zavod-zvuka-na-khakintoshe/go-to-folder_small.jpg"
       - alt = "Переход к папке в macOS"
       +img(small)
-    li
+    +li
       | И введите путь к системной папке: /System/Library/Extensions.
-    li
+    +li
       | Найдите у удалите AppleHDA.kext.
-    li
+    +li
       | Установите оригинальный AppleHDA с помощью 
       +link(kextsLink, 'Kext Utility')
       | .
@@ -163,19 +163,19 @@ block content
     | Шаг 3.  Установка AppleALC
 
   +ol
-    li
+    +li
       | Загрузите 
       +link('https://github.com/vit9696/Lilu/releases', 'Lilu.kext')
       | , который требуется для работы AppleALC, и установите его с помощью Kext Utility.
-    li
+    +li
       | Загрузите 
       +link('https://github.com/vit9696/AppleALC/releases', 'AppleALC.kext')
       | .
-    li
+    +li
       | Монтируйте раздел EFI с помощью 
       +link(efiLink, 'EFI Mounter')
       | .
-    li
+    +li
       | Откройте файл конфигурации Clover —  config.plist через 
       +link('http://mackie100projects.altervista.org/download-clover-configurator/', 'Clover Configurator')
       | .
@@ -184,7 +184,7 @@ block content
       - alt = "Расположение config.plist"
       +img
 
-    li
+    +li
       | Перейдите в раздел Kernel and Kext Patches и удалите строки, имеющие отношение к 
       i AppleHDA/HDA
       | .
@@ -192,7 +192,7 @@ block content
       - src = "images/pages/zavod-zvuka-na-khakintoshe/remove-applehda-string.png"
       - alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
       +img
-    li
+    +li
       | Укажите layout-id. Подробнее об этом тут: 
       +link('https://github.com/vit9696/AppleALC/wiki/Supported-codecs', 'github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs')
       | . Обычно подходит стандартное значение — «1».
@@ -200,19 +200,19 @@ block content
       - src = "images/pages/zavod-zvuka-na-khakintoshe/enter-layout-id.png"
       - alt = "Вкладка Devices программы Clover Configurator"
       +img 
-    li
+    +li
       | (Необязательно) Чтобы позволить многим системам на основе процессоров семейства Skylake работать с AppleALC, необходимо переименовать 
       +link('https://github.com/corpnewt/Hackintosh-Tips-And-Tricks/blob/master/README.md#audio', 'HDAS в HDEF')
       |  при помощи нескольких строк в файле конфигурации Clover. Для этого на вкладке DSDT найдите форму Patches и введите в каждое из перечисленных полей следующие значения: 
 
       +ol
-        li 
+        +li
           i “Rename HDAS to HDEF” 
           | в поле Comment.
-        li 
+        +li
           i 48444153 
           | в Find [HEX].
-        li 
+        +li
           i 48444546 
           | в Replace [HEX].
 
@@ -220,10 +220,10 @@ block content
       - alt = "Вкладка ACPI программы Clover Configurator"
       +img 
 
-    li
+    +li
       | Скопируйте AppleALC.kext в кекстов Clover.
 
-    li
+    +li
       | Сохраните изменения и перезагрузите компьютер. 
 
       - src = "images/pages/zavod-zvuka-na-khakintoshe/save-config_small.jpg"

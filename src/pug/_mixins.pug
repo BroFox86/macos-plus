@@ -1,13 +1,9 @@
--// Header mixin ///////////////////////////////////////////////////////////////
-
 - var headerId = 0
 
 mixin h2
   h2.article__h2(id = (headerId + 1))
     a.article__anchor.link.link--anchor(href= "#" + (headerId + 1)) #
     | #{itemList[headerId++]}
-
--///////////////////////////////////////////////////////////////////////////////
 
 mixin h3
   h3.article__h3
@@ -29,8 +25,8 @@ mixin ul
     if block
     block
 
-mixin markedItem
-  li.article__marked-item
+mixin li
+  li.article__list-item
     if block
     block
 
@@ -44,8 +40,14 @@ mixin svg(className, id)
   svg(class= className width= "30")
     use(xlink:href="#" + id)
 
-mixin tooltip(title, text)
-  span.article__tooltip(title!= title)= text
+- var abbr = null
+
+mixin tooltip(title, text, hasAbbr)
+  case hasAbbr
+    default
+      span.article__tooltip(title!= title)= text
+    when abbr
+      abbr.article__tooltip(title!= title)= text
 
 mixin code(string)
   code.article__code= string
@@ -53,9 +55,7 @@ mixin code(string)
 mixin key(key)
   kbd.article__key= key
 
--// Image mixin ///////////////////////////////////////////////////////////////
-
-- var small = ""
+- var small = null
 
 mixin img(width)
   - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
@@ -94,8 +94,6 @@ mixin figure(width)
         figcaption.article__figcaption
           if block
           block
-          
--///////////////////////////////////////////////////////////////////////////////
 
 mixin respImg
   - var src1 = src + " " + size + "w"
