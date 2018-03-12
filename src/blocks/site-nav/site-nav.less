@@ -157,6 +157,12 @@
       box-shadow: none;
     }
 
+    .site-nav__nested-list & {
+      &:nth-child(1) {
+        border-top-right-radius: @border-radius;
+      }
+    }
+
     .site-nav__list.is-fixed & {
       border-bottom: none;
       box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.11);
