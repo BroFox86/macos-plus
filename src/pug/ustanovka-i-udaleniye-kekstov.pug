@@ -3,7 +3,7 @@ extends /pug/_layout
 prepend page
   -
     var pageTitle      = "Установка и удаление кекстов в macOS"
-        pageDesc       = "Руководство по работе с кекстами на хакинтоше"
+        pageDesc       = "Подробная и доступная инструкция по установке и удалению кекстов на хакинтоше"
         isDateModified = true
         datePublished  = ["02", "09", "2017"]
         dateModified   = ["09", "01", "2018"]
@@ -31,7 +31,7 @@ prepend page
 block nav
   +siteNav(kexts = selected, pageA0 = selected)
 
-block article header
+block articleHeader
   +articleHeader(theme = themeAccent)
 
 block content

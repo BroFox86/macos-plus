@@ -1,10 +1,10 @@
 .article {
-  display: flex;
-  flex-direction: column;
-  padding: 60px 0;
+  padding: @margin * 2 0;
   border-radius: @border-radius;
   background-color: white;
   box-shadow: @box-shadow;
+  word-wrap: break-word;
+  hyphens: auto;
 
   .padding(desktop);
 
@@ -18,7 +18,7 @@
   }
 
   @media (max-width: @mobile) {
-    padding: 30px 0;
+    padding: @margin * 1.5 0;
 
     .padding(mobile);
   }
@@ -29,12 +29,6 @@
     @media (max-width: @mobile) {
       margin-bottom: 35px;
     }
-  }
-
-  &__content {
-    order: 3;
-    word-wrap: break-word;
-    hyphens: auto;
   }
 
   &__h2 {
@@ -59,8 +53,8 @@
 
   &__anchor {
     position: absolute;
-    left: -3.5%;
     top: 15%;
+    left: -3.5%;
 
     @media (max-width: @mobile) {
       display: none;
@@ -70,21 +64,21 @@
   &__par {
     margin: 0 0 @margin;
 
-    .article__numbered-list & {
+    .article__ordered-list & {
       margin-top: @margin;
     }
   }
 
-  &__numbered-list {
+  &__ordered-list {
     margin-bottom: @margin;
     padding-left: 0;
     list-style: inside decimal;
 
-    .article__numbered-list &,
+    .article__ordered-list &,
     .article__marked-list & {
       margin-top: @margin;
       padding-left: 5%;
-      list-style: lower-alpha;
+      list-style: inside lower-alpha;
     }
   }
 
@@ -92,19 +86,19 @@
     margin-bottom: @margin;
     list-style: none;
 
-    .article__numbered-list &,
+    .article__ordered-list &,
     .article__marked-list & {
       margin-top: @margin;
     }
   }
 
   &__list-item {
-      margin-bottom: 5px;
+    margin-bottom: 5px;
 
     &:last-child {
       margin-bottom: 0;
     }
-    
+
     .article__marked-list & {
       position: relative;
 
@@ -112,10 +106,10 @@
         position: absolute;
         top: 9px;
         left: -20px;
-        width: 7px;
-        height: 7px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
-        background: @grey-128;
+        background: @grey-143;
         content: "";
       }
     }
@@ -166,7 +160,8 @@
     color: @grey-128;
   }
 
-  &__tooltip, &__tooltip[title] {
+  &__tooltip,
+  &__tooltip[title] {
     border-bottom: 2px dotted @grey-143;
     text-decoration: none;
     hyphens: none;

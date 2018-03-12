@@ -68,14 +68,10 @@ block page
     div.page__container
       article.page__article.article
 
-        block article header
+        block articleHeader
           +articleHeader
 
-        div.article__content
-          block content
-          +vote
-
-        block mobile page-nav
+        block pageNav
           case hasContentsList 
             default
               - var isMobile = true
@@ -83,12 +79,15 @@ block page
             when false
               //- This comment mean empty block
 
+        block content
+        +vote
+
       block sidebar
         - var isMobile = false
         +sidebar
     
     +footer
-    +scrollToTop
+    +scrollButton
     +lightbox
 
     block scripts

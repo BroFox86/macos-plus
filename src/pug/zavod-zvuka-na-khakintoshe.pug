@@ -3,13 +3,13 @@ extends /pug/_layout
 prepend page
   -
     var pageTitle      = "Завод звука на хакинтоше"
-        pageDesc       = "Руководство по настройке звука на хакинтоше. Не всеобъемлющее, но с рядом полезной информации"
+        pageDesc       = "Инструкции по настройке звука на хакинтоше. Не всеобъемлющие, но с рядом полезной информации, которая может быть полезной"
         isDateModified = true
         datePublished  = ["02", "09", "2017"]
         dateModified   = ["09", "01", "2018"]
         pageLink       = soundLink
         encodedUrl     = soundLinkForShare
-        likeBtnId      = "Запуск звука"
+        likeBtnId      = "Завод звука"
 
     var metaImage = {
       src: "images/pages/zavod-zvuka-na-khakintoshe/meta.jpg",
@@ -19,7 +19,7 @@ prepend page
 
     var itemList = [
       "Кекст Codec Commander", 
-      "Запуск карт Creative", 
+      "Завод карт Creative", 
       "Метод AppleALC"
     ]
 
@@ -103,7 +103,7 @@ block content
     |  звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты.
 
   +note(tip)
-    | AppleALC может помочь, если после других методов запуска встроенного звука наблюдаются проблемы.
+    | AppleALC может помочь, если после других методов завода встроенного звука наблюдаются проблемы.
 
   +p
     | Поддерживает ли ваш кодек AppleALC можно узнать на 
