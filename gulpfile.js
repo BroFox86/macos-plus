@@ -18,7 +18,6 @@ var // Common
   path = require("path"),
   inject = require("gulp-inject"),
   injectString = require("gulp-inject-string"),
-  ghPages = require("gulp-gh-pages"),
   // HTML
   pug = require("gulp-pug"),
   pugIncludeGlob = require("pug-include-glob"),
@@ -576,7 +575,7 @@ gulp.task("copy:build", function(callback) {
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Build & deploy
+// Build
 ///////////////////////////////////////////////////////////////////////////////
 
 gulp.task("prebuild", function(callback) {
@@ -602,12 +601,8 @@ gulp.task("build:fast", function(callback) {
     ["prebuild"],
     ["html:build"],
     ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["html:validate", "images:unused"]
+    ["html:validate"]
   )(callback);
-});
-
-gulp.task("deploy", function() {
-  return gulp.src(paths.dist.root + "**/*.*").pipe(ghPages());
 });
 
 ///////////////////////////////////////////////////////////////////////////////
