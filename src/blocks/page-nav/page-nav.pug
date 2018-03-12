@@ -8,7 +8,7 @@ mixin pageNav
       each item in itemList
         li.page-nav__item
           a.page-nav__link(href="#" + (n+1))
-            span.page-nav__text= itemList[n]
+            span.page-nav__text!= itemList[n] + " "
             span.page-nav__number= (n++) + 1
 
   case isMobile
