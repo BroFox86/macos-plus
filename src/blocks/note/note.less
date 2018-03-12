@@ -1,14 +1,14 @@
 .note {
   padding: 14px 14px 14px 65px;
-  border-radius: @border-radius--large;
-  box-shadow: -4px 6px 15px 0 rgba(0, 0, 0, 0.2);
-  font: @font-size--small / 1.5 @font-family;
-  color: #fff;
   width: 75%;
+  border-radius: @border-radius--large;
+  box-shadow: -3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font: @font-size--small / 1.5 @font-family;
 
   @media (max-width: @mobile) {
-    width: auto;
     padding-right: 15px;
+    width: auto;
   }
 
   &__icon {
@@ -21,9 +21,10 @@
   }
 
   &__text {
-    display: inline-block;
     margin: 0;
-    margin-right: 4px;
+  }
+
+  &__type {
     font-weight: 600;
   }
 
