@@ -3,7 +3,10 @@
   background: @grey-235;
   color: @font-color;
   word-wrap: break-word;
-  font: 400 16px / 1.6 @font-family;
+  font-weight: 400;
+  font-size: @font-size;
+  font-family: @font-family;
+  line-height: 1.6;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -26,7 +29,7 @@
 
   &__header {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     width: 100%;
 
     @media (max-width: @tablet) {
@@ -85,7 +88,7 @@
     display: none;
 
     @media (max-width: @tablet) {
-      z-index: 2;
+      z-index: 1;
       display: block;
       margin-bottom: @margin * 1.5;
     }
