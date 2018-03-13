@@ -1,45 +1,49 @@
-var
-  $lightbox = $("div.lightbox"),
-  duration  = 300,
-  $body     = $('body');
+setLightbox("article a.article__img-wrapper");
 
-$("article a.article__img-wrapper").click(function(event) {
-  
-  event.preventDefault();
+function setLightbox(element) {
+  var $element  = $(element),
+      $lightbox = $("div.lightbox"),
+      duration  = 300,
+      $body     = $("body");
 
-  $body.bind("mousewheel", function () {
-    return false;
+  $element.click(function(event) {
+    event.preventDefault();
+
+    $body.bind("mousewheel", function() {
+      return false;
+    });
+
+    var originalImage = $(this).attr("href");
+
+    $lightbox
+      .children()
+      .append('<img class="lightbox__img" src="' + originalImage + '" />');
+    $lightbox.fadeIn(duration);
   });
 
-  $this = $(this);
+  $lightbox.children().mouseenter(function() {
+    $lightbox.unbind("click");
+  });
 
-  var originalImage = $this.attr("href");
+  function unloadImg() {
+    setTimeout(function() {
+      $lightbox.find("img").remove();
+    }, duration);
+  }
 
-  $lightbox.children().append('<img class="lightbox__img" src="' + originalImage + '" />')
+  $lightbox.children().mouseleave(function() {
+    $lightbox.click(function() {
+      $body.unbind("mousewheel");
+      $(this).fadeOut(duration);
+      unloadImg();
+    });
+  });
 
-  $lightbox.fadeIn(duration);
-});
-
-$lightbox.children().mouseenter(function () {
-  $lightbox.unbind("click");
-});
-
-function unloadImg() {
-  setTimeout(function () {
-    $lightbox.find("img").remove();
-  }, duration);
-};
-
-$lightbox.children().mouseleave(function () {
-  $lightbox.click(function() {
+  $(".lightbox__close").click(function() {
     $body.unbind("mousewheel");
-    $(this).fadeOut(duration);
+    $lightbox.fadeOut(duration);
     unloadImg();
-  })
-});
+  });
+}
 
-$(".lightbox__close").click(function() {
-  $body.unbind("mousewheel");
-  $lightbox.fadeOut(duration);
-  unloadImg();
-})
+
