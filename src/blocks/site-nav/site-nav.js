@@ -1,6 +1,6 @@
-toggleFixedNav();
+toggleFixedNav("(min-width: 960px)");
 
-function toggleFixedNav() {
+function toggleFixedNav(mediaQuery) {
 
   var $nav    = $(".site-nav__list"),
       $header = $(".header"),
@@ -11,7 +11,7 @@ function toggleFixedNav() {
   $(window).scroll(function() {
     var y = $(this).scrollTop();
 
-    if (y >= offset && window.matchMedia("(min-width: 960px)").matches) {
+    if (y >= offset && window.matchMedia(mediaQuery).matches) {
       $nav.addClass(fixed);
       $header.css("margin-bottom", margin);
     } else {

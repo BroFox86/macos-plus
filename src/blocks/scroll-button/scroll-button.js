@@ -1,12 +1,12 @@
-toggleScrollBtn("button.scroll-button");
+toggleScrollBtn("button.scroll-button", "(max-width: 960px)");
 
-function toggleScrollBtn(element) {
+function toggleScrollBtn(element, mediaQuery) {
 
   var $element = $(element),
       display  = "is-visible";
 
   $(window).scroll(function() {
-    if (window.matchMedia("(max-width: 960px)").matches) {
+    if (window.matchMedia(mediaQuery).matches) {
       if ($(window).scrollTop() > 800) {
         $element.addClass(display);
       } else {
