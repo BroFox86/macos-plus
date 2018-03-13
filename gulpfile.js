@@ -672,7 +672,7 @@ gulp.task("watch:tasks", function() {
       readDelay: 200
     },
     function() {
-      gulp.start("copy:fonts-to-tmp");
+      gulp.start("copy:fonts:prebuild");
     }
   );
 });
