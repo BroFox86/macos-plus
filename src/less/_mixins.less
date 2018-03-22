@@ -1,4 +1,8 @@
-.to-center(@position: absolute; @left: 0; @right: 0; @top: 0; @bottom: 0) {
+.to-center(@position: absolute;
+@left: 0;
+@right: 0;
+@top: 0;
+@bottom: 0) {
   position: @position;
   top: @top;
   right: @right;
@@ -8,21 +12,27 @@
 }
 
 .reset-list() {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.padding(desktop; @left: 8%; @right: 8%) {
-  padding-left: @left;
+.padding(desktop;
+@left: 8%;
+@right: 8%) {
   padding-right: @right;
+  padding-left: @left;
 }
 
-.padding(tablet; @left: 10%; @right: 10%) {
-  padding-left: @left;
+.padding(tablet;
+@left: 10%;
+@right: 10%) {
   padding-right: @right;
+  padding-left: @left;
 }
 
-.padding(mobile; @left: 5%; @right: 5%) {
-  padding-left: @left;
+.padding(mobile;
+@left: 5%;
+@right: 5%) {
   padding-right: @right;
+  padding-left: @left;
 }
