@@ -26,7 +26,7 @@
     position: relative;
     top: 15px;
     display: block;
-    margin: 15px;
+    margin: 10px 15px;
     width: 40%;
     transform: translateY(-400px);
     animation: fall @fall-duration ease-out @animation-delay,
@@ -34,7 +34,7 @@
   }
 
   &__text-wrapper {
-    margin: 15px;
+    margin: 10px 15px;
     text-align: center;
     line-height: 1;
   }
@@ -42,12 +42,12 @@
   &__type {
     margin-bottom: 10px;
     color: lighten( @accent-color, 0);
-    font-weight: 700;
     font-size: 7rem;
-    font-family: sans-serif;
-
+    font-weight: 600;
+    
     @media (max-width: @mobile) {
-      font-size: 5rem;
+      font-size: 4rem;
+      margin-bottom: 15px;
     }
   }
 
@@ -57,7 +57,11 @@
     color: @grey-82;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: @font-size--large;
+
+    @media (max-width: @mobile) {
+      font-size: @font-size;
+    }
   }
 }
 
