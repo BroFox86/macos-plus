@@ -70,8 +70,8 @@
     }
   }
 
-  &__article {
-    box-sizing: border-box;
+  &__article,
+  &__error {
     margin-top: @margin + 28px;
     width: 814px;
 
@@ -81,6 +81,12 @@
 
     @media (max-width: @tablet) {
       width: 100%;
+    }
+  }
+
+  &__error {
+    @media (max-width: @tablet) {
+      margin: 0;
     }
   }
 

@@ -410,6 +410,23 @@ gulp.task("images:responsive", function() {
                 suffix: huge
               }
             }
+          ],
+          "**/404.*": [
+            {
+              width: 260
+            },
+            {
+              width: 260 * 1.5,
+              rename: {
+                suffix: large
+              }
+            },
+            {
+              width: 260 * 2,
+              rename: {
+                suffix: huge
+              }
+            }
           ]
         },
         respOptions

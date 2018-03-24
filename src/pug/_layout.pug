@@ -5,53 +5,54 @@ include /blocks/**/*
 
 block page
   head
-    meta(charset="utf-8")
-    title= pageTitle
-    meta(name="description" content= pageDesc)
-    
-    // inject:critical:css 
-    // endinject
+    block head
+      meta(charset="utf-8")
+      title= pageTitle
+      meta(name="description" content= pageDesc)
+      
+      // inject:critical:css 
+      // endinject
 
-    // build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" 
-    link(href="css/normalize.css" rel="stylesheet")
-    link(href="css/main.css" rel="stylesheet")
-    // endbuild 
+      // build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" 
+      link(href="css/normalize.css" rel="stylesheet")
+      link(href="css/main.css" rel="stylesheet")
+      // endbuild 
 
-    // inject:fg-loadcss:html 
-    // endinject 
-    
-    // inject-string:noscript
+      // inject:fg-loadcss:html 
+      // endinject 
+      
+      // inject-string:noscript
 
-    meta(content="width=device-width, initial-scale=1" name="viewport")
+      meta(content="width=device-width, initial-scale=1" name="viewport")
 
-    meta(property="og:title" content= pageTitle)
-    meta(property="og:description" content= pageDesc)
-    meta(property="og:type" content="article")
-    meta(property="og:image" content= domainName + metaImage.src)
-    meta(property="og:image:width" content= metaImage.width)
-    meta(property="og:image:height" content= metaImage.height)
-    meta(property="og:url" content= domainName)
-    meta(property="og:site_name" content="macOS+ | Лис подскажет")
+      meta(property="og:title" content= pageTitle)
+      meta(property="og:description" content= pageDesc)
+      meta(property="og:type" content="article")
+      meta(property="og:image" content= domainName + metaImage.src)
+      meta(property="og:image:width" content= metaImage.width)
+      meta(property="og:image:height" content= metaImage.height)
+      meta(property="og:url" content= domainName)
+      meta(property="og:site_name" content="macOS+ | Лис подскажет")
 
-    link(rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png")
-    link(rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png")
-    link(rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png")
-    link(rel="manifest" href="manifest.json")
-    link(rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5")
-    link(rel="shortcut icon" href="images/favicon.ico")
-    meta(name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет")
-    meta(name="application-name" content="macOS+ | Лис подскажет")
-    meta(name="msapplication-config" content="browserconfig.xml")
-    meta(name="theme-color" content="#4367d4")
+      link(rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png")
+      link(rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png")
+      link(rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png")
+      link(rel="manifest" href="manifest.json")
+      link(rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5")
+      link(rel="shortcut icon" href="images/favicon.ico")
+      meta(name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет")
+      meta(name="application-name" content="macOS+ | Лис подскажет")
+      meta(name="msapplication-config" content="browserconfig.xml")
+      meta(name="theme-color" content="#4367d4")
 
-    //- Google Tag BEGIN
-    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1")
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-100340915-1');
-    //- Google Tag END
+      //- Google Tag BEGIN
+      script(async src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1")
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-100340915-1');
+      //- Google Tag END
 
   body.page(lang="ru")
 
@@ -64,23 +65,24 @@ block page
 
     +header
       block nav
+        +siteNav
 
     div.page__container
-      article.page__article.article
+      block containerInner
+        article.page__article.article
+          block articleHeader
+            +articleHeader
 
-        block articleHeader
-          +articleHeader
+          block pageNav
+            case hasPageNav
+              default
+                - var isMobile = true
+                +pageNav
+              when false
+                //- This comment mean empty block
 
-        block pageNav
-          case hasContentsList 
-            default
-              - var isMobile = true
-              +pageNav
-            when false
-              //- This comment mean empty block
-
-        block content
-        +vote
+          block content
+          +vote
 
       block sidebar
         - var isMobile = false
@@ -91,7 +93,6 @@ block page
     +lightbox
 
     block scripts
-      //- JQuery
       script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
 
       // build:js js/main.min.js defer
@@ -101,15 +102,15 @@ block page
       script(src="js/scripts.js")
       // endbuild 
 
-      //- LikeBtn BEGIN
+      //- LikeBtn
       script.
         (function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","https://w.likebtn.com/js/w/widget.js");
-      //- LikeBtn END
 
       // build:remove 
       script(src="js/_display-viewport-size.js")
       // endbuild 
 
+    block structuredData
       mixin structuredData
         mixin structuredDataMarkup
           script(type="application/ld+json"). 

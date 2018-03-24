@@ -1,0 +1,9 @@
+mixin error
+  div.page__error.error
+    - src      = "images/404.jpg"
+    - imgClass = "error__img"
+    +respImg
+
+    div.error__text-wrapper
+      div.error__type 404
+      div.error__desc Страница не найдена

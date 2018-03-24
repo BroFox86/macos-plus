@@ -1,0 +1,22 @@
+extends /pug/_layout
+
+prepend page
+  -
+    var encodedUrl = indexLinkForShare
+        hasPageNav = false
+
+block head
+  meta(charset="utf-8")
+  meta(content="width=device-width, initial-scale=1" name="viewport")
+  title= "Страница не найдена"
+
+  // build:css css/styles.min.css
+  link(href="css/normalize.css" rel="stylesheet")
+  link(href="css/main.css" rel="stylesheet")
+  // endbuild 
+
+block containerInner
+  +error
+
+block structuredData
+block scripts
