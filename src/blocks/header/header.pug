@@ -4,14 +4,12 @@ mixin header
       picture
         - src   = "images/header__logo--mobile.png"
         - size  = 126
-        - sizes = size / 16 + "em"
         - media = "(max-width: 960px)"
         +imgSourceTag
 
         - imgClass = "header__img"
         - src      = "images/header__logo.png"
         - size     = 240
-        - sizes    = size / 16 + "em"
         +respImg
 
     if block
