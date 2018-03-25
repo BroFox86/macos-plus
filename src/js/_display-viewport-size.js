@@ -1,5 +1,3 @@
-'use strict';
-
 var viewportwidth, viewportheight;
 
 if (typeof window.innerWidth != 'undefined') {

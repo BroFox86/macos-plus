@@ -1,15 +1,15 @@
 mixin pageNav
 
-  - var n = 0
+  - var i = 0
 
   mixin pageNavInner
     h2.aside__headline= "Оглавление"
     ul.page-nav__list
       each item in itemList
         li.page-nav__item
-          a.page-nav__link(href="#" + (n+1))
-            span.page-nav__text!= itemList[n] + " "
-            span.page-nav__number= (n++) + 1
+          a.page-nav__link(href="#" + (i+1))
+            span.page-nav__text!= itemList[i] + " "
+            span.page-nav__number= (i++) + 1
 
   case isMobile
     when false

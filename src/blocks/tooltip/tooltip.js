@@ -18,7 +18,6 @@ function setTooltip(element) {
           .appendTo("body")
           .fadeIn(300);
       },
-
       function() {
         $(this).attr("title", $(this).data("tipText"));
         $(".tooltip").remove();
@@ -35,5 +34,3 @@ function setTooltip(element) {
       });
     });
 }
-
-

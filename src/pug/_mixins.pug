@@ -1,9 +1,9 @@
-- var headerId = 0
+- var j = 0
 
 mixin h2
-  h2.article__h2(id = (headerId + 1))
-    a.article__anchor.link.link--anchor(href= "#" + (headerId + 1)) #
-    | #{itemList[headerId++]}
+  h2.article__h2(id = (j + 1))
+    a.article__anchor.link.link--anchor(href= "#" + (j + 1)) #
+    | #{itemList[j++]}
 
 mixin h3
   h3.article__h3
@@ -104,7 +104,7 @@ mixin respImg
     srcset = src1 + ", " + src2 + ", " + src3
     sizes  = sizes
     src	   = src
-    alt	   = alt)
+    alt	   = "")
 
 mixin imgSourceTag
   - var src1 = src + " " + size + "w"
