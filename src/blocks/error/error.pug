@@ -2,6 +2,8 @@ mixin error
   div.page__error.error
     - src      = "images/404.jpg"
     - imgClass = "error__img"
+    - size     = 326
+    - sizes    = size / 16 + "em"
     +respImg
 
     div.error__text-wrapper
