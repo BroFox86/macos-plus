@@ -9,7 +9,7 @@ function setLightbox(element) {
   $element.click(function(event) {
     event.preventDefault();
 
-    $body.bind("mousewheel", function() {
+    $body.on("mousewheel", function() {
       return false;
     });
 
@@ -22,7 +22,7 @@ function setLightbox(element) {
   });
 
   $lightbox.children().mouseenter(function() {
-    $lightbox.unbind("click");
+    $lightbox.off("click");
   });
 
   function unloadImg() {
@@ -33,14 +33,14 @@ function setLightbox(element) {
 
   $lightbox.children().mouseleave(function() {
     $lightbox.click(function() {
-      $body.unbind("mousewheel");
+      $body.off("mousewheel");
       $(this).fadeOut(duration);
       unloadImg();
     });
   });
 
   $(".lightbox__close").click(function() {
-    $body.unbind("mousewheel");
+    $body.off("mousewheel");
     $lightbox.fadeOut(duration);
     unloadImg();
   });
