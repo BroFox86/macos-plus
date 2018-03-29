@@ -2,7 +2,7 @@ toggleFixedNav("(min-width: 960px)");
 
 function toggleFixedNav(mediaQuery) {
 
-  var $nav    = $(".site-nav__list"),
+  var $nav    = $(".menu__list"),
       $header = $(".header"),
       fixed   = "is-fixed",
       offset  = $nav.offset().top,
