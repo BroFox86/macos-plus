@@ -29,7 +29,7 @@
     margin: 10px 15px;
     width: 40%;
     transform: translateY(-400px);
-    animation: fall @fall-duration ease-out @animation-delay,
+    animation: fall @fall-duration ease-out @start-delay,
     shake @shake-duration @shake-delay forwards;
   }
 
@@ -43,10 +43,10 @@
     margin-bottom: 10px;
     color: lighten( @accent-color, 0);
     font-size: 7rem;
-    
+
     @media (max-width: @mobile) {
-      font-size: 4rem;
       margin-bottom: 15px;
+      font-size: 4rem;
     }
   }
 

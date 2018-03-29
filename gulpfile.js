@@ -82,7 +82,7 @@ var paths = {
 
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-  forceInclude: [".article__img", ".note__icon"]
+  forceInclude: [".article__img", ".note__icon", ".error__img"]
 };
 
 var psiOptns = {

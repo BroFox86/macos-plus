@@ -10,10 +10,18 @@ block head
   meta(content="width=device-width, initial-scale=1" name="viewport")
   title= "Страница не найдена"
 
-  // build:css css/styles.min.css
+  // inject:critical:css 
+  // endinject
+
+  // build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" 
   link(href="css/normalize.css" rel="stylesheet")
   link(href="css/main.css" rel="stylesheet")
   // endbuild 
+
+  // inject:fg-loadcss:html 
+  // endinject 
+  
+  // inject-string:noscript
 
 block containerInner
   +error
