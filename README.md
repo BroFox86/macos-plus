@@ -21,7 +21,7 @@
 
 * “More Transparent UI Code with Namespaces” by [Harry Roberts](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/)
 * “6 Gulp Best Practices” by [Cosmin](http://blog.rangle.io/angular-gulp-bestpractices/)
-* “Google HTML/CSS Style Guide” by [Google](https://google.github.io/styleguide/htmlcssguide.html)
+* HTML/CSS Style Guide” by [Google](https://google.github.io/styleguide/htmlcssguide.html)
 
 ### Дополнительно
 
@@ -37,4 +37,4 @@
 
 ____________________
 
-*Внимание! Большая просьба не нарушать авторские права и использовать репозиторий только в ознакомительных целях, не распространяя его содержимое за пределами GitHub.* 
+*Внимание! Большая просьба не нарушать авторские права и использовать репозиторий только в ознакомительных целях.* 
