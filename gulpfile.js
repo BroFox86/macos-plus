@@ -445,7 +445,7 @@ gulp.task("images:content:firstpass", function() {
         {
           "**/article-logo.*": [
             {
-              width: 330
+              width: 184
             }
           ],
           "**/*_small.*": [{}],
