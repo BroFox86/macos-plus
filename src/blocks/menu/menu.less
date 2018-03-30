@@ -76,6 +76,7 @@
     cursor: pointer;
 
     @media (max-width: @tablet) {
+      display: flex;
       position: static;
       flex-direction: column;
       margin-top: 60px;
@@ -114,6 +115,8 @@
       left: 50%;
       top: 0;
       transform: translateX(-50%);
+      box-shadow: @box-shadow;
+      border: none;
     }
   }
 
