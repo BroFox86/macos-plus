@@ -12,7 +12,7 @@ prepend page
         likeBtnId      = "Установка через VMWare"
 
     var metaImage = {
-      src: "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg",
+      src: "images/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools_original.jpg",
       width: 1024,
       height: 834
     };
@@ -23,7 +23,7 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/article-logo.png",
+      image: "images/ustanovka-macos-na-virtualnuyu-mashinu/article-logo.png",
       title: "Установка macOS на ПК&#32;<br>с помощью VMWare"
     };
 
@@ -74,7 +74,7 @@ block content
     +li
       | Распакуйте архив c Unlocker и запустите win-install.cmd от имени администратора. Таким образом в VMWare добавляется поддержка macOS.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-patch-tool.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/install-patch-tool.jpg"
       - alt = "Добавление поддержки macOS в VMWare"
       +img
 
@@ -83,32 +83,32 @@ block content
     +li
       | Выберите “I will install the operating system later”.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-later_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/install-later_small.jpg"
       - alt = "Создание виртуальной машины в VMWare"
       +img(small)
 
     +li
       | Укажите Apple Mac OS X версии 10.13
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-os_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/select-os_small.jpg"
       - alt = "Выбор версии ОС в VMWare"
       +img(small)
 
     +li
       | И папку, в которую будет установлена виртуальная ОС. Запомните ее путь.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-vm-location_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/select-vm-location_small.jpg"
       - alt = "Выбор папки для VMWare"
       +img(small)
 
     +li
       | Затем в настройках созданной ВМ удалите Hard Disk.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/vmware-settings.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/vmware-settings.jpg"
       - alt = "Настройки VMWare"
       +img
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/remove-hdd.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/remove-hdd.jpg"
       - alt = "Удаление жесткого диска в VMWare"
       +img(small)
 
@@ -118,25 +118,25 @@ block content
     +li
       | После выберите “Use an Existing Virtual Disk” и укажите путь к образу с macOS High Sierra (большой файл с расширением vmdk).
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-disk_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/select-disk_small.jpg"
       - alt = "Добавление жесткого диска в VMWare"
       +img(small)
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/browse-macos-image_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/browse-macos-image_small.jpg"
       - alt = "Добавление образа в VMWare"
       +img(small)
     
     +li
       | В параметрах диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/select-hdd-size_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/select-hdd-size_small.jpg"
       - alt = "Размер виртуального жесткого диска в VMWare"
       +img(small)
 
     +li
       | Не забудьте выделить достаточное кол-во памяти для VMWare — порядка 50-65% от общей суммы ОЗУ компьютера.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/memory-size.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/memory-size.jpg"
       - alt = "Выделение памяти для VMWare"
       +img
 
@@ -149,11 +149,11 @@ block content
       +code('smc.version = "0"')
       | . Сохраните изменения.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/open-vm-file.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/open-vm-file.jpg"
       - alt = "Файлы VMWare"
       +img
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/edit-vm-file.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/edit-vm-file.jpg"
       - alt = "Редактирование файла VMWare"
       +img
 
@@ -163,14 +163,14 @@ block content
       +p
         | В процессе установки будет предложено создать нового пользователя, придумать пароль и войти в учетную запись Apple.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/start-vm.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/start-vm.jpg"
       - alt = "Запуск VMWare"
       +img
 
     +li
       | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools_small.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/mount-vmware-tools_small.jpg"
       - alt = "Загрузка VMWare Tools"
       +img(small)
 
@@ -180,14 +180,14 @@ block content
     +li
       | Установите VMWare Tools и перезагрузите ВМ. 
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/install-vmware-tools.jpg"
       - alt = "Установка VMWare Tools"
       +img
 
     +li
       | Система безопасности macOS High Sierra заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч кнопкой Allow. 
 
-      - src = "images/pages/ustanovka-macos-na-virtualnuyu-mashinu/allow-vmware-tools.jpg"
+      - src = "images/ustanovka-macos-na-virtualnuyu-mashinu/allow-vmware-tools.jpg"
       - alt = "Открытие доступа для VMWare Tools"
       +img
 
@@ -197,7 +197,7 @@ block content
       +p 
         | Готово, теперь macOS High Sierra должна работать на Windows как виртуальная ОС! :)
 
-      - src = 'images/pages/ustanovka-macos-na-virtualnuyu-mashinu/vmware-macos-desktop.jpg'
+      - src = 'images/ustanovka-macos-na-virtualnuyu-mashinu/vmware-macos-desktop.jpg'
       - alt = 'Рабочий стол macOS High Sierra на VMWare'
       +img
 

@@ -13,9 +13,9 @@ mixin pageNav
 
   case isMobile
     when false
-      nav.sidebar__item.aside.page-nav
+      nav.aside.page-nav.sidebar__item
         +pageNavInner
     when true
-      nav.page__mobile-nav.aside.page-nav
+      nav.aside.page-nav.page__mobile-nav
         +pageNavInner
         

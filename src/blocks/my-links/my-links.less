@@ -6,12 +6,12 @@
   &__item {
     position: relative;
     display: block;
-    margin-right: 8px;
     width: 30px;
     height: 30px;
+    margin-right: 8px;
+    transition: background-color 0.4s ease;
     border-radius: 50%;
     background: @grey-120;
-    transition: background-color 0.4s ease;
 
     &--vk:hover {
       background: @vk;
@@ -31,6 +31,6 @@
     height: 14px;
     fill: white;
 
-    .to-center();
+    .x-center();
   }
 }

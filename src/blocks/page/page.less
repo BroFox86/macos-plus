@@ -1,11 +1,11 @@
 .page {
   margin: 0;
-  background: @grey-235;
-  color: @font-color;
   word-wrap: break-word;
-  font-weight: 400;
-  font-size: @font-size;
+  color: @font-color;
+  background: @grey-235;
   font-family: @font-family;
+  font-size: @font-size;
+  font-weight: 400;
   line-height: 1.6;
 
   -moz-osx-font-smoothing: grayscale;
@@ -41,8 +41,8 @@
   &__container {
     display: flex;
     justify-content: center;
-    margin: auto;
     width: @layout;
+    margin: auto;
 
     @media (max-width: @desktop) {
       width: 960px;
@@ -56,10 +56,10 @@
   &__sidebar {
     position: sticky;
     top: @margin + 63px;
-    margin-top: @margin + 23px;
-    margin-left: @margin;
     width: 300px;
     height: 100%;
+    margin-top: @margin + 23px;
+    margin-left: @margin;
 
     @media (max-width: @desktop) {
       width: 250px;
@@ -72,8 +72,8 @@
 
   &__article,
   &__error {
-    margin-top: @margin + 23px;
     width: 814px;
+    margin-top: @margin + 23px;
 
     @media (max-width: @desktop) {
       width: 650px;
@@ -105,9 +105,9 @@
 
     @media (max-width: @tablet) {
       position: fixed;
+      z-index: 3;
       right: 6%;
       bottom: 4%;
-      z-index: 3;
       display: block;
     }
 

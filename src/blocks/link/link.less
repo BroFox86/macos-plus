@@ -12,11 +12,11 @@
 
   &--anchor {
     padding-right: 10px;
-    color: @accent-color;
-    font-weight: 600;
-    font-size: 0.8em;
-    opacity: 0;
     transition: opacity 0.5s;
+    opacity: 0;
+    color: @accent-color;
+    font-size: 0.8em;
+    font-weight: 600;
 
     .article__h2:hover & {
       opacity: 1;
@@ -25,9 +25,9 @@
 
   &--article {
     padding-bottom: 7px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
-    color: @accent-color;
     transition: border-bottom, padding 0.2s ease-in-out;
+    color: @accent-color;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
 
     &:hover {
       padding-bottom: 2px;
@@ -36,14 +36,14 @@
 
     &:visited {
       padding: 2px;
-      border-color: fade(lighten(@visited-link-color, 40), 99%);
       color: @visited-link-color;
+      border-color: fade(lighten(@visited-link-color, 40), 99%);
     }
   }
 
   &--note {
     padding-bottom: 1px;
-    border-bottom: 1px solid fade(#fff, 60%);
     color: inherit;
+    border-bottom: 1px solid fade(#fff, 60%);
   }
 }

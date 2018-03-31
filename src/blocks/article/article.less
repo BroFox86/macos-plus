@@ -1,27 +1,27 @@
 .article {
   box-sizing: border-box;
   padding: @margin*2 0;
+  word-wrap: break-word;
+  hyphens: auto;
   border-radius: @border-radius;
   background-color: white;
   box-shadow: @box-shadow;
-  word-wrap: break-word;
-  hyphens: auto;
 
-  .padding(desktop);
+  .x-padding(desktop);
 
   *::selection {
-    background: lighten(@accent-color, 0);
     color: #fff;
+    background: lighten(@accent-color, 0);
   }
 
   @media (max-width: @tablet) {
-    .padding(tablet);
+    .x-padding(tablet);
   }
 
   @media (max-width: @mobile) {
     padding: @margin * 1.5 0;
 
-    .padding(mobile);
+    .x-padding(mobile);
   }
 
   &__header {
@@ -35,8 +35,8 @@
   &__h2 {
     position: relative;
     margin: @margin 0;
-    font-weight: 600;
     font-size: @h2-size;
+    font-weight: 600;
 
     @media (max-width: @mobile) {
       font-size: @h2-size--mobile;
@@ -45,8 +45,8 @@
 
   &__h3 {
     margin: @margin 0 @margin/2;
-    font-weight: 600;
     font-size: @h3-size;
+    font-weight: 600;
 
     @media (max-width: @mobile) {
       font-size: @h3-size--mobile;
@@ -110,9 +110,9 @@
         left: -20px;
         width: 6px;
         height: 6px;
+        content: "";
         border-radius: 50%;
         background: @grey-143;
-        content: "";
       }
     }
   }
@@ -120,10 +120,10 @@
   &__code,
   &__key {
     padding: 3px 6px;
-    border-radius: @border-radius--small;
-    background: @grey-235;
     white-space: nowrap;
     hyphens: none;
+    border-radius: @border-radius--small;
+    background: @grey-235;
     font-size: @font-size--small;
   }
 
@@ -144,8 +144,8 @@
 
   &__img-wrapper {
     display: block;
-    margin: @margin*1.5 auto;
     width: 630px;
+    margin: @margin*1.5 auto;
     text-align: center;
 
     @media (max-width: @desktop) {
@@ -164,9 +164,9 @@
 
   &__tooltip,
   &__tooltip[title] {
-    border-bottom: 2px dotted @grey-143;
     text-decoration: none;
     hyphens: none;
+    border-bottom: 2px dotted @grey-143;
 
     &:hover {
       cursor: help;

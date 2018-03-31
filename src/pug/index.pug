@@ -12,7 +12,7 @@ prepend page
         likeBtnId      = "Установка macOS на ПК"
 
     var metaImage = {
-      src: "images/pages/index/high-sierra-desktop_original.jpg",
+      src: "images/index/high-sierra-desktop_original.jpg",
       width: 960,
       height: 540
     };
@@ -27,7 +27,7 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/index/article-logo.jpg",
+      image: "images/index/article-logo.jpg",
       title: "Установка macOS High Sierra&#32;<br>на ПК на базе Intel"
     };
 
@@ -112,7 +112,7 @@ block content
     +li
       | В разделе «Суммарная информация» узнайте чипсет своей МП.
 
-      - src = "images/pages/index/сhipset.jpg"
+      - src = "images/index/сhipset.jpg"
       - alt = "Информация о чипсете в AIDA64"
       +figure
         | Чипсет моей МП — H170 (100-я серия чипсетов Intel).
@@ -120,7 +120,7 @@ block content
     +li
       | И «тип BIOS» — AMI UEFI или AWARD BIOS. 
 
-      - src = "images/pages/index/bios-type.jpg"
+      - src = "images/index/bios-type.jpg"
       - alt = "«Тип BIOS» в AIDA64"
       +img
 
@@ -131,14 +131,14 @@ block content
     +li
       | На той же вкладке указан аудиокодек.
 
-      - src = "images/pages/index/audio-codec.jpg"
+      - src = "images/index/audio-codec.jpg"
       - alt = "Аудиокодек в AIDA64"
       +img
 
     +li
       | Название сетевой карты в разделе «Сеть PCI/PnP».
 
-      - src = "images/pages/index/ethernet-card.jpg"
+      - src = "images/index/ethernet-card.jpg"
       - alt = "Раздел сетевого оборудования в AIDA64"
       +figure
         | Моя встроенная сетевая карта — Killer E2400 (Atheros).
@@ -177,7 +177,7 @@ block content
     +li
       | Откройте Finder &gt; «Программы» &gt; «Утилиты» &gt; «Дисковая утилита» и выберите ее в левой колонке.
 
-      - src = "images/pages/index/install-unibeast-1.png"
+      - src = "images/index/install-unibeast-1.png"
       - alt = "Окно дисковой утилиты macOS"
       +img
 
@@ -192,7 +192,7 @@ block content
     +li
       | Выберите схему GUID partition Map (GPT).
 
-      - src = "images/pages/index/install-unibeast-2.png"
+      - src = "images/index/install-unibeast-2.png"
       - alt = "Форматирование диска в дисковой утилите macOS"
       +img
 
@@ -206,7 +206,7 @@ block content
     +li
       | На этапе Destination Select выберите флешку и нажмите Continue.
 
-      - src = "images/pages/index/install-unibeast-4.png"
+      - src = "images/index/install-unibeast-4.png"
       - alt = "Этап Destination select в UniBeast"
       +img
 
@@ -227,7 +227,7 @@ block content
       +note(inf)
         | Чипсеты Intel для МП 100-й серии — это такие модели как h370, B150 и т.п. Чипсеты 9-й серии — H97, Z97 и т.п.
 
-      - src = "images/pages/index/install-unibeast-5.png"
+      - src = "images/index/install-unibeast-5.png"
       - alt = "Этап Bootloader Configuration в UniBeast"
       +img
 
@@ -239,7 +239,7 @@ block content
       +note(tip)
         | Если при создании загрузочного USB с помощью UniBeast появится окно c сообщением “Volumes are Mounted”, выберите в строке меню Go &gt; Go to Folder, затем введите /Volumes и извлеките том OSX Install ESD.
 
-      - src = "images/pages/index/install-unibeast-6.png"
+      - src = "images/index/install-unibeast-6.png"
       - alt = "Этап Installation в UniBeast"
       +img
 
@@ -390,7 +390,7 @@ block content
     +li
       | Когда появится интерфейс Clover, запустите установку macOS High Sierra с загрузочной флешки.
 
-      - src = "images/pages/index/unibeast-clover-screen.jpg"
+      - src = "images/index/unibeast-clover-screen.jpg"
       - alt = "Загрузочный экран Clover"
       +img
     +li
@@ -466,21 +466,21 @@ block content
         i Legacy Boot Mode 
         | рекомендуем для 5/6 серий и всех систем на базе BIOS.
 
-      - src = "images/pages/index/quick-start.png"
+      - src = "images/index/quick-start.png"
       - alt = "Вкладка Quick Start в MultiBeast"
       +img
 
     +li
       | На вкладке Audio представлен список опций для аудиокодеков Realtek ALC. Ниже представлены опции для звука, реализуемого посредством HDMI. Выберите подходящий вариант для своей системы, отметив только один пункт. Если в системе чипсет Intel 100-серии, то дополнительно отметьте и соответствующую опцию. Если так и не смогли определить встроенный аудио-кодек своей системы, вероятно, подойдет один из вариантов VoodooHDA.
 
-      - src = "images/pages/index/drivers_audio.png"
+      - src = "images/index/drivers_audio.png"
       - alt = "Раздел Audio в MultiBeast"
       +img
 
     +li
       | В Disc представлены опции для сторонних (3rd pty) SATA-контроллеров жестких дисков, а также Intel Generic AHCI SATA, которые предназначены только для определенных чипсетов (см. описание).
 
-      - src = "images/pages/index/drivers_disk.png"
+      - src = "images/index/drivers_disk.png"
       - alt = "Раздел Disk в MultiBeast"
       +img
 
@@ -495,14 +495,14 @@ block content
         +li
           | FakeSMC HWMonitor используется для получения данных о температурах и скоростях вращения систем охлаждения. 
 
-      - src = "images/pages/index/drivers_misc.png"
+      - src = "images/index/drivers_misc.png"
       - alt = "Раздел Misc в MultiBeast"
       +img
 
     +li
       | В Network выберите подходящую сетевую карту.
 
-      - src = "images/pages/index/drivers_network.png"
+      - src = "images/index/drivers_network.png"
       - alt = "Раздел Network в MultiBeast"
       +img
 
@@ -516,14 +516,14 @@ block content
         +li
           | Increase Max Port Limit для USB 2.0/3.0 чипсетов Intel 9 и 100-й серии.
 
-      - src = "images/pages/index/drivers_usb.png"
+      - src = "images/index/drivers_usb.png"
       - alt = "Раздел USB в MultiBeast"
       +img
 
     +li
       | Переходим ко вкладке Bootloaders. Подходящий пункт должен быть отмеченным по умолчанию.
 
-      - src = "images/pages/index/bootloaders.png"
+      - src = "images/index/bootloaders.png"
       - alt = "Вкладка Bootloaders в MultiBeast"
       +img
 
@@ -536,21 +536,21 @@ block content
         +li
           | Inject ATI нужна для старых видеокарт ATI, таких как 4xxx серия.
 
-      - src = "images/pages/index/customize_graphics.png"
+      - src = "images/index/customize_graphics.png"
       - alt = "Раздел Graphics Configuration в MultiBeast"
       +img
 
     +li
       | Раздел SSDT содержит только опции для процессоров семейства Sandy Bridge.
 
-      - src = "images/pages/index/customize_ssdt.png"
+      - src = "images/index/customize_ssdt.png"
       - alt = "Раздел SSDT Options в MultiBeast"
       +img
 
     +li
       | Раздел System Definitions содержит ряд опций, которые маскируют ПК под настоящий компьютер Mac, тем самым открывая доступ к сервисам Apple, а также нужны для нормальной работы macOS в целом. Выбирать подходящий вариант не придется, так как он уже должен быть отмечен. Раскройте списки и убедитесь в этом сами.
 
-      - src = "images/pages/index/customize_sys-definitions.png"
+      - src = "images/index/customize_sys-definitions.png"
       - alt = "Раздел System Definitions в MultiBeast"
       +img
 
@@ -559,7 +559,7 @@ block content
     +li
       | В Build нажмите на Install.
 
-      - src = "images/pages/index/build.png"
+      - src = "images/index/build.png"
       - alt = "Вкладка Build в MultiBeast"
       +img
 
@@ -589,28 +589,28 @@ block content
     +li
       | Откройте config.plist через Clover Configurator.
 
-      - src = "images/pages/index/plist-location.jpg"
+      - src = "images/index/plist-location.jpg"
       - alt = "Расположение config.plist"
       +img
 
     +li
       | Перейдите на вкладку System pameters и поставьте галочку на NvidiaWeb.
 
-      - src = "images/pages/index/clover-settings.png"
+      - src = "images/index/clover-settings.png"
       - alt = "Пункт NvidiaWeb.article__bold в настройках Clover Configurator"
       +img
 
     +li
       | Сохраните изменения и выйдите из программы.
 
-      - src = "images/pages/index/save-config_small.jpg"
+      - src = "images/index/save-config_small.jpg"
       - alt = "Сохранение изменений Clover Configurator"
       +img(small)
 
     +li
       | По окончании безопасно извлеките загрузочный USB и перезагрузите компьютер. Теперь можно загружаться в macOS без USB.  
 
-      - src = "images/pages/index/high-sierra-desktop.jpg"
+      - src = "images/index/high-sierra-desktop.jpg"
       - alt = "Рабочий стол macOS High Sierra"
       +img
 

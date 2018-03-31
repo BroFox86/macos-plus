@@ -1,14 +1,13 @@
 .scroll-button {
   width: 70px;
   height: 70px;
-  outline: none;
-  border: none;
+  transition: transform 0.30s;
+  transform: scale(0);
   border-radius: 50%;
   background: @accent-color;
   box-shadow: rgba(101, 119, 134, 0.74902) 1px 1px 4px 0;
-  cursor: pointer;
-  transition: transform 0.30s;
-  transform: scale(0);
+
+  .x-button();
 
   @media (max-width: @mobile) {
     width: 55px;
@@ -24,7 +23,7 @@
     height: 25px;
     fill: white;
 
-    .to-center();
+    .x-center();
 
     @media (max-width: @mobile) {
       width: 20px;

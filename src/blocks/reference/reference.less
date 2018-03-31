@@ -10,7 +10,7 @@
     width: 240px;
     transition: transform 0.4s linear;
 
-    .to-center();
+    .x-center();
 
     .reference__container:hover & {
       transform: scale(1.1);
@@ -19,22 +19,22 @@
 
   &__link {
     position: absolute;
-    top: 0;
     z-index: 2;
+    top: 0;
     display: block;
     width: 100%;
     height: 100%;
+    transition: opacity 0.5s linear;
+    text-align: center;
+    text-decoration: none;
+    opacity: 0;
+    color: white;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
     font-size: @font-size--x-large;
+    font-weight: 600;
     line-height: 150px;
-    opacity: 0;
-    transition: opacity 0.5s linear;
 
     .reference__container:hover & {
       opacity: 1;

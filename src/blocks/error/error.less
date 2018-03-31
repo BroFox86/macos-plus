@@ -1,10 +1,10 @@
 .error {
   position: relative;
   display: flex;
-  justify-content: center;
+  overflow: hidden;
   align-items: center;
   flex-wrap: wrap;
-  overflow: hidden;
+  justify-content: center;
   box-sizing: border-box;
   height: 530px;
   border-radius: @border-radius;
@@ -17,20 +17,23 @@
   }
 
   @media (max-width: @mobile) {
-    height: 97vh;
-
     align-content: center;
+    height: 97vh;
   }
 
   &__img {
     position: relative;
     top: 15px;
     display: block;
-    margin: 10px 15px;
     width: 40%;
+    margin: 10px 15px;
     transform: translateY(-400px);
-    animation: fall @fall-duration ease-out @start-delay,
-    shake @shake-duration @shake-delay forwards;
+
+    &.is-animated {
+      animation:
+      fall  @fall-duration  ease-out @start-delay,
+      shake @shake-duration          @shake-delay forwards;
+    }
   }
 
   &__text-wrapper {
@@ -53,10 +56,10 @@
   &__desc {
     position: relative;
     left: 4px;
-    color: @grey-82;
     text-transform: uppercase;
-    font-weight: 600;
+    color: @grey-82;
     font-size: @font-size--large;
+    font-weight: 600;
 
     @media (max-width: @mobile) {
       font-size: @font-size;
@@ -66,12 +69,12 @@
 
 @keyframes fall {
   from {
-    opacity: 0;
     transform: translateY(-400px);
+    opacity: 0;
   }
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 

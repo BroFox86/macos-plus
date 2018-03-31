@@ -5,11 +5,11 @@
   &::after {
     position: relative;
     display: block;
-    margin-top: 30px;
     height: 2px;
+    margin-top: 30px;
+    content: "";
     border-radius: @border-radius;
     background: @grey-235;
-    content: "";
 
     @media (max-width: @tablet) {
       margin-top: 30px;
@@ -22,9 +22,9 @@
 
   &__img-wrapper {
     position: relative;
-    margin: auto;
     width: 230px;
     height: 230px;
+    margin: auto;
     border-radius: 50%;
     background: @grey-240;
 
@@ -44,13 +44,14 @@
 
   &__img {
     width: 80%;
-    .to-center();
+
+    .x-center();
   }
 
   &__headline {
     margin: 20px 0 15px;
-    font-weight: 600;
     font-size: @h1-size;
+    font-weight: 600;
     line-height: 1.5;
 
     @media (max-width: @mobile) {
@@ -66,9 +67,9 @@
   }
 
   &__list {
+    margin: 0;
+    padding: 0;
     font-size: @font-size--tiny;
-
-    .reset-list();
   }
 
   &__item {

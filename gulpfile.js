@@ -1,75 +1,84 @@
 "use strict";
 
+/* ==========================================================================
+  Vars
+  ========================================================================== */
+
 var // Common
-  gulp = require("gulp"),
-  watch = require("gulp-watch"),
-  browserSync = require("browser-sync"),
-  del = require("del"),
-  fs = require("fs"),
-  concat = require("gulp-concat"),
-  rename = require("gulp-rename"),
-  replace = require("gulp-replace"),
-  changed = require("gulp-changed"),
-  plumber = require("gulp-plumber"),
-  notify = require("gulp-notify"),
+  gulp         = require("gulp"),
+  watch        = require("gulp-watch"),
+  browserSync  = require("browser-sync"),
+  del          = require("del"),
+  fs           = require("fs"),
+  concat       = require("gulp-concat"),
+  rename       = require("gulp-rename"),
+  replace      = require("gulp-replace"),
+  changed      = require("gulp-changed"),
+  plumber      = require("gulp-plumber"),
+  notify       = require("gulp-notify"),
   gulpSequence = require("gulp-sequence"),
-  flatten = require("gulp-flatten"),
-  run = require("gulp-run"),
-  path = require("path"),
-  inject = require("gulp-inject"),
+  flatten      = require("gulp-flatten"),
+  run          = require("gulp-run"),
+  path         = require("path"),
+  inject       = require("gulp-inject"),
   injectString = require("gulp-inject-string"),
   // HTML
-  pug = require("gulp-pug"),
+  pug            = require("gulp-pug"),
   pugIncludeGlob = require("pug-include-glob"),
-  htmlmin = require("gulp-htmlmin"),
-  useref = require("gulp-useref"),
-  cheerio = require("gulp-cheerio"),
-  svgstore = require("gulp-svgstore"),
-  svgmin = require("gulp-svgmin"),
-  w3cjs = require("gulp-w3cjs"),
+  htmlmin        = require("gulp-htmlmin"),
+  useref         = require("gulp-useref"),
+  cheerio        = require("gulp-cheerio"),
+  svgstore       = require("gulp-svgstore"),
+  w3cjs          = require("gulp-w3cjs"),
   // Styles
-  less = require("gulp-less"),
-  postcss = require("gulp-postcss"),
+  less         = require("gulp-less"),
+  postcss      = require("gulp-postcss"),
   autoprefixer = require("autoprefixer"),
-  cssnano = require("cssnano"),
-  mqpacker = require("css-mqpacker"),
-  sortCSSmq = require("sort-css-media-queries"),
-  pxtorem = require("postcss-pxtorem"),
-  uncss = require("uncss").postcssPlugin,
-  penthouse = require("penthouse"),
+  cssnano      = require("cssnano"),
+  mqpacker     = require("css-mqpacker"),
+  sortCSSmq    = require("sort-css-media-queries"),
+  pxtorem      = require("postcss-pxtorem"),
+  uncss        = require("uncss").postcssPlugin,
+  penthouse    = require("penthouse"),
   // JS
   uglify = require("gulp-uglify"),
   // Images
-  imagemin = require("gulp-imagemin"),
+  imagemin               = require("gulp-imagemin"),
+  imageminSvgo           = require("imagemin-svgo"),
   imageminJpegRecompress = require("imagemin-jpeg-recompress"),
-  responsive = require("gulp-responsive"),
-  unusedImages = require("gulp-unused-images");
+  responsive             = require("gulp-responsive"),
+  unusedImages           = require("gulp-unused-images");
+
+/* ==========================================================================
+  Paths and parameters
+  ========================================================================== */
 
 var paths = {
   src: {
-    root: "src/",
-    blocks: "src/blocks/",
-    pug: "src/pug/",
-    css: "src/css/",
-    less: "src/less/",
-    images: "src/images/",
-    favicons: "src/images/favicons/",
-    fonts: "src/fonts/",
-    js: "src/js/"
+    root:             "src/",
+    blocks:           "src/blocks/",
+    pug:              "src/pug/",
+    css:              "src/css/",
+    less:             "src/less/",
+    images:           "src/images/",
+    imagesToSprite:   "src/images-to-sprite/",
+    favicons:         "src/favicons/",
+    fonts:            "src/fonts/",
+    js:               "src/js/"
   },
   tmp: {
-    root: ".tmp/",
-    css: ".tmp/css/",
-    images: ".tmp/images/",
-    fonts: ".tmp/fonts/",
-    js: ".tmp/js/"
+    root:     ".tmp/",
+    css:      ".tmp/css/",
+    images:   ".tmp/images/",
+    fonts:    ".tmp/fonts/",
+    js:       ".tmp/js/"
   },
   dist: {
-    root: "dist/",
-    css: "dist/css/",
-    js: "dist/js/",
-    images: "dist/images/",
-    fonts: "dist/fonts/"
+    root:     "dist/",
+    css:      "dist/css/",
+    js:       "dist/js/",
+    images:   "dist/images/",
+    fonts:    "dist/fonts/"
   },
   plugins: {
     js: [
@@ -90,9 +99,9 @@ var psiOptns = {
   key: ""
 };
 
-///////////////////////////////////////////////////////////////////////////////
-// Cleaning
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Cleaning
+   ========================================================================== */
 
 gulp.task("clean:tmp", function() {
   console.log("----- Cleaning .tmp folder -----");
@@ -108,9 +117,9 @@ gulp.task("clean:all", function(callback) {
   gulpSequence(["clean:tmp", "clean:dist"])(callback);
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// HTML
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   HTML
+   ========================================================================== */
 
 function fileContents(filePath, file) {
   return file.contents.toString("utf8");
@@ -119,17 +128,15 @@ function fileContents(filePath, file) {
 gulp.task("html:generate-svg", function() {
   return gulp
     .src([
-      paths.src.images + "images-to-sprite/*.svg",
+      paths.src.imagesToSprite + "*.svg",
       paths.src.blocks + "*/images-to-sprite/*.svg"
     ])
     .pipe(
-      svgmin({
-        plugins: [
-          {
-            removeTitle: true
-          }
-        ]
-      })
+      imagemin([
+        imageminSvgo({
+          plugins: [{ removeViewBox: false }]
+        })
+      ])
     )
     .pipe(
       svgstore({
@@ -153,7 +160,7 @@ gulp.task("html:generate-svg", function() {
 
 gulp.task("html:generate", function buildHTML() {
   return gulp
-    .src(paths.src.pug + "[^_]*.pug")
+    .src(paths.src.pug + "[^_]*")
     .pipe(
       plumber({
         errorHandler: notify.onError({
@@ -178,7 +185,7 @@ gulp.task("html:generate", function buildHTML() {
 });
 
 gulp.task("html:generate:watch", function buildHTML() {
-  return watch(paths.src.pug + "[^_]*.pug", {
+  return watch(paths.src.pug + "[^_]*", {
     ignoreInitial: true
   })
     .pipe(plumber())
@@ -263,13 +270,13 @@ gulp.task("html:validate", function() {
     .pipe(w3cjs.reporter());
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Styles
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Styles
+   ========================================================================== */
 
 gulp.task("styles:main", function() {
   return gulp
-    .src([paths.src.less + "_*.less", paths.src.blocks + "**/*.less"])
+    .src([paths.src.less + "_*", paths.src.blocks + "*/*.less"])
     .pipe(
       plumber({
         errorHandler: notify.onError({
@@ -296,7 +303,7 @@ gulp.task("styles:main", function() {
 
 gulp.task("styles:additions", function() {
   return gulp
-    .src(paths.src.less + "[^_]*.less")
+    .src(paths.src.less + "[^_]*")
     .pipe(
       less({
         paths: [path.join(__dirname, "./")]
@@ -324,12 +331,12 @@ gulp.task("styles:critical", function() {
 
 gulp.task("styles:build", function() {
   return gulp
-    .src(paths.dist.css + "*.css")
+    .src(paths.dist.css + "*")
     .pipe(
       postcss([
         uncss({
           html: [paths.dist.root + "[^google]*.html"],
-          ignore: [/.*[js,has]-.*/, /.*[tooltip,lightbox].*/]
+          ignore: [/.*[is,has]-.*/, /.*[tooltip,lightbox].*/]
         })
       ])
     )
@@ -337,9 +344,9 @@ gulp.task("styles:build", function() {
     .pipe(gulp.dest(paths.dist.css));
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Images
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Images
+   ========================================================================== */
 
 var respOptions = {
     errorOnUnusedImage: false,
@@ -438,7 +445,7 @@ gulp.task("images:responsive", function() {
 
 gulp.task("images:content:firstpass", function() {
   return gulp
-    .src(paths.src.images + "*pages/**/*")
+    .src(paths.src.images + "*/*")
     .pipe(changed(paths.tmp.images))
     .pipe(
       responsive(
@@ -459,7 +466,7 @@ gulp.task("images:content:firstpass", function() {
 
 gulp.task("images:content", ["images:content:firstpass"], function() {
   return gulp
-    .src(["*pages/**/*", "!*pages/**/*{_small,article-logo,meta}.*"], {
+    .src(["*/*", "!*/*{_small,article-logo,meta}.*"], {
       cwd: paths.src.images
     })
     .pipe(changed(paths.tmp.images))
@@ -489,7 +496,7 @@ gulp.task("images:prebuild", function(callback) {
 
 gulp.task("images:copy", function() {
   return gulp
-    .src(["**/*.*", "!_*"], {
+    .src(["**", "!_*"], {
       cwd: paths.tmp.images
     })
     .pipe(gulp.dest(paths.dist.images));
@@ -499,8 +506,8 @@ gulp.task("images:unused", function() {
   return gulp
     .src([
       paths.tmp.root + "*.{html,xml}",
-      paths.tmp.css + "*.*",
-      paths.tmp.images + "**/*[^_original, @*]"
+      paths.tmp.css + "*",
+      paths.tmp.images + "*/*[^_original, @*]"
     ])
     .pipe(
       plumber({
@@ -513,9 +520,9 @@ gulp.task("images:unused", function() {
     .pipe(plumber.stop());
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// JS
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   JS
+   ========================================================================== */
 
 gulp.task("js:plugins", function() {
   return gulp
@@ -526,14 +533,14 @@ gulp.task("js:plugins", function() {
 
 gulp.task("js:common", function() {
   return gulp
-    .src(paths.src.js + "*.js")
+    .src(paths.src.js + "*")
     .pipe(changed(paths.tmp.js))
     .pipe(gulp.dest(paths.tmp.js));
 });
 
 gulp.task("js:main", function() {
   return gulp
-    .src(paths.src.blocks + "**/*.js")
+    .src(paths.src.blocks + "*/*.js")
     .pipe(concat("scripts.js"))
     .pipe(gulp.dest(paths.tmp.js));
 });
@@ -544,24 +551,24 @@ gulp.task("js:prebuild", function(callback) {
 
 gulp.task("js:minify", function() {
   return gulp
-    .src(paths.dist.js + "*.js")
+    .src(paths.dist.js + "*")
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist.js));
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Copying
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Copying
+   ========================================================================== */
 
 gulp.task("copy:fonts:prebuild", function() {
   return gulp
-    .src(paths.src.fonts + "*.*")
+    .src(paths.src.fonts + "*")
     .pipe(changed(paths.tmp.fonts))
     .pipe(gulp.dest(paths.tmp.fonts));
 });
 
 gulp.task("copy:fonts:build", function() {
-  return gulp.src(paths.src.fonts + "*.*").pipe(gulp.dest(paths.dist.fonts));
+  return gulp.src(paths.src.fonts + "*").pipe(gulp.dest(paths.dist.fonts));
 });
 
 gulp.task("copy:root-files", function() {
@@ -570,7 +577,7 @@ gulp.task("copy:root-files", function() {
 
 gulp.task("copy:favicons", function() {
   return gulp
-    .src(paths.src.favicons + "*.*")
+    .src(paths.src.favicons + "*")
     .pipe(gulp.dest(paths.dist.images));
 });
 
@@ -591,9 +598,9 @@ gulp.task("copy:build", function(callback) {
   ])(callback);
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Build
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Build
+   ========================================================================== */
 
 gulp.task("prebuild", function(callback) {
   gulpSequence(
@@ -622,9 +629,9 @@ gulp.task("build:fast", function(callback) {
   )(callback);
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Watch
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Watch
+   ========================================================================== */
 
 gulp.task("watch:tasks", function() {
   watch(
@@ -641,7 +648,7 @@ gulp.task("watch:tasks", function() {
   );
 
   watch(
-    [paths.src.blocks + "**/*.pug", paths.src.pug + "_*.pug"],
+    [paths.src.blocks + "*/*.pug", paths.src.pug + "_*"],
     {
       readDelay: 200
     },
@@ -651,7 +658,7 @@ gulp.task("watch:tasks", function() {
   );
 
   watch(
-    [paths.src.blocks + "**/*.less", paths.src.less + "*.less"],
+    [paths.src.blocks + "*/*.less", paths.src.less + "*"],
     {
       readDelay: 200
     },
@@ -661,7 +668,7 @@ gulp.task("watch:tasks", function() {
   );
 
   watch(
-    [paths.src.blocks + "**/*.js", paths.src.js + "*.js"],
+    [paths.src.blocks + "*/*.js", paths.src.js + "*"],
     {
       readDelay: 200
     },
@@ -673,7 +680,7 @@ gulp.task("watch:tasks", function() {
   watch(
     [
       paths.src.blocks + "**/*.{jpg,jpeg,png}",
-      paths.src.images + "pages/**/*.{jpg,jpeg,png}"
+      paths.src.images + "**"
     ],
     {
       readDelay: 200
@@ -684,7 +691,7 @@ gulp.task("watch:tasks", function() {
   );
 
   watch(
-    paths.src.fonts + "*.*",
+    paths.src.fonts + "*",
     {
       readDelay: 200
     },
@@ -698,9 +705,9 @@ gulp.task("watch", function(callback) {
   gulpSequence(["html:generate:watch", "watch:tasks"])(callback);
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Local server
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Local server
+   ========================================================================== */
 
 gulp.task("connect:tmp", function() {
   browserSync.init({
@@ -722,9 +729,9 @@ gulp.task("connect:dist", function() {
   });
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Main
-///////////////////////////////////////////////////////////////////////////////
+/* ==========================================================================
+   Main
+   ========================================================================== */
 
 gulp.task("serve", function(callback) {
   gulpSequence(["prebuild"], ["watch", "connect:tmp"])(callback);

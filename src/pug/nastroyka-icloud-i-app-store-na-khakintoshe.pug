@@ -12,7 +12,7 @@ prepend page
         likeBtnId      = "Запуск сервисов Apple"
 
     var metaImage = {
-      src: "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/meta.jpg",
+      src: "images/nastroyka-icloud-i-app-store-na-khakintoshe/meta.jpg",
       width: 1334,
       height: 772
     };
@@ -23,7 +23,7 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/article-logo.png",
+      image: "images/nastroyka-icloud-i-app-store-na-khakintoshe/article-logo.png",
       title: "Настройка iCloud и App&nbsp;Store&#32;<br>на хакинтоше"
     };
     
@@ -40,11 +40,11 @@ block content
     +li
       | Выйдите из App Store , iCloud и других сервисов Apple.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-appstore.jpg"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-appstore.jpg"
       - alt = "Выход из App Store"
       +img
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-icloud.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/logout-from-icloud.png"
       - alt = "Выход из iCloud"
       +img
 
@@ -55,7 +55,7 @@ block content
       i подлинные 
       | устройства Apple — iPhone, iPod и т.д...
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/remove-devices.jpg"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/remove-devices.jpg"
       - alt = "Стереть историю входов учетной записи Apple"
       +img
 
@@ -72,14 +72,14 @@ block content
     +li
       | Откройте файл настройки Clover — config.plist через Clover Configurator.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/open-clover-config.jpg"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/open-clover-config.jpg"
       - alt = "Местонахождение Config.plist"
       +img
 
     +li
       | В разделе SMBIOS выберите компьютер Mac, который наиболее схож с ашей конфигурацией.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/pick-mac-model.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/pick-mac-model.png"
       - alt = "Вкладка SMBIOS"
       +img
 
@@ -91,7 +91,7 @@ block content
     +li
       | Нажмите на Generate New и сгенерируйте серийный номер.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/generate-serial.png"
       - alt = "Вкладка SMBIOS"
       +img
 
@@ -105,7 +105,7 @@ block content
         em ошибка
         | , как на приведенном ниже скриншоте — значит это то, что надо и можно продолжать дальше. В противном случае, если серийный номер окажется «валидным», необходимо будет сгенерировать его по-новому. Иначе возникнут проблемы с дубликатом уже зарегистрированного серийного номера Mac.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/check-serial_small.jpg"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/check-serial_small.jpg"
       - alt = "Проверка серийного номера Mac"
       +img(small)
 
@@ -114,20 +114,20 @@ block content
       +code("uuidgen")
       | , затем нажмите Enter.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/get-uuidgen.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/get-uuidgen.png"
       - alt = "Вставка uuidgen в терминал"
       +img(small)
 
     +li
       | Скопируйте выданное терминалом значение в буфер обмена и вставьте в поле SmUUID.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/smuuid-field.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/smuuid-field.png"
       - alt = "Вкладка SMBIOS"
       +img
     +li
       | Сохраните изменения.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/config-6_small.jpg"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/config-6_small.jpg"
       - alt = "Сохранение изменений Clover Configurator"
       +img(small)
 
@@ -143,34 +143,34 @@ block content
     +li
       | Откройте поиск Spotlight и введите System Profiler. Откроется окно информации о системе.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/find-system-information.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/find-system-information.png"
       - alt = "Пункт информации о системе в Spotlight"
       +img
 
     +li
       | Найдите свой Wi-Fi  адаптер. Если Wi-Fi назначено значение en0, то делать ничего не надо и проблема со входом в App Store, скорее всего, связана с отсутствием кекста для сетевого устройства. Если назначено другое значение, например, en1 или en2 то продолжайте читать далее.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/wifi-information.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/wifi-information.png"
       - alt = "Раздел Wi-Fi в информации о системе"
       +img
       
     +li
       | Откройте Finder и выберите в строке меню «Переход к папке».
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/go-to-folder_small.jpg"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/go-to-folder_small.jpg"
       - alt = "Переход к папке в macOS"
       +img(small)
 
     +li
       | И введите /Library/Preferences/<wbr>SystemConfiguration.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/go-to-preferences-folder.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/go-to-preferences-folder.png"
       - alt = "Переход в папку SystemConfiguration"
       +img
 
     +li
       | Удалите файлы NetworkInterfaces.plist, preferences.plist и перезагрузите компьютер.
 
-      - src = "images/pages/nastroyka-icloud-i-app-store-na-khakintoshe/delete-files.png"
+      - src = "images/nastroyka-icloud-i-app-store-na-khakintoshe/delete-files.png"
       - alt = "Удаление файлов в SystemConfiguration"
       +img

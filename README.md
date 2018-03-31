@@ -21,7 +21,8 @@
 
 * “More Transparent UI Code with Namespaces” by [Harry Roberts](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/)
 * “6 Gulp Best Practices” by [Cosmin](http://blog.rangle.io/angular-gulp-bestpractices/)
-* HTML/CSS Style Guide” by [Google](https://google.github.io/styleguide/htmlcssguide.html)
+* “HTML/CSS Style Guide” by [Google](https://google.github.io/styleguide/htmlcssguide.html)
+* “Principles of writing consistent, idiomatic CSS” by [Necolas](https://github.com/necolas/idiomatic-css)
 
 ### Дополнительно
 
