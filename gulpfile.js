@@ -367,72 +367,48 @@ gulp.task("images:responsive", function() {
     .pipe(
       responsive(
         {
-          "**/header__logo.*": [
-            {
-              width: 240
-            },
+          "**/header__logo.*": [ 
+            { width: 240 },
             {
               width: 240 * 1.5,
-              rename: {
-                suffix: large
-              }
+              rename: { suffix: large }
             },
             {
               width: 240 * 2,
-              rename: {
-                suffix: huge
-              }
+              rename: { suffix: huge }
             }
           ],
           "**/header__logo--mobile.*": [
-            {
-              width: 126
-            },
+            { width: 126 },
             {
               width: 126 * 1.5,
-              rename: {
-                suffix: large
-              }
+              rename: { suffix: large }
             },
             {
               width: 126 * 2,
-              rename: {
-                suffix: huge
-              }
+              rename: { suffix: huge }
             }
           ],
           "**/community-logo.*": [
-            {
-              width: 240
-            },
+            { width: 240 },
             {
               width: 240 * 1.5,
-              rename: {
-                suffix: large
-              }
+              rename: { suffix: large }
             },
             {
               width: 240 * 2,
-              rename: {
-                suffix: huge
-              }
+              rename: { suffix: huge }
             }
           ],
           "**/404.*": [
-            {
-              width: 326
-            },
+            { width: 326 },
             {
               width: 326 * 1.5,
-              rename: {
-                suffix: large
-              }
+              rename: { suffix: large }
             },
             {
               width: 326 * 2,
-              rename: {
-                suffix: huge
-              }
+              rename: { suffix: huge }
             }
           ]
         },
@@ -451,9 +427,7 @@ gulp.task("images:content:firstpass", function() {
       responsive(
         {
           "**/article-logo.*": [
-            {
-              width: 184
-            }
+            { width: 184 }
           ],
           "**/*_small.*": [{}],
           "**/meta.*": [{}]
@@ -474,13 +448,9 @@ gulp.task("images:content", ["images:content:firstpass"], function() {
       responsive(
         {
           "**/*": [
+            {  width: 630 },
             {
-              width: 630
-            },
-            {
-              rename: {
-                suffix: "_original"
-              }
+              rename: { suffix: "_original" }
             }
           ]
         },
@@ -599,37 +569,6 @@ gulp.task("copy:build", function(callback) {
 });
 
 /* ==========================================================================
-   Build
-   ========================================================================== */
-
-gulp.task("prebuild", function(callback) {
-  gulpSequence(
-    ["html:prebuild"],
-    ["styles:prebuild"],
-    ["styles:critical", "images:prebuild", "js:prebuild", "copy:fonts:prebuild"]
-  )(callback);
-});
-
-gulp.task("build", function(callback) {
-  gulpSequence(
-    ["clean:all"],
-    ["prebuild"],
-    ["html:build"],
-    ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["html:validate", "images:unused"]
-  )(callback);
-});
-
-gulp.task("build:fast", function(callback) {
-  gulpSequence(
-    ["prebuild"],
-    ["html:build"],
-    ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
-    ["html:validate"]
-  )(callback);
-});
-
-/* ==========================================================================
    Watch
    ========================================================================== */
 
@@ -639,9 +578,7 @@ gulp.task("watch:tasks", function() {
       paths.src.images + "images-to-sprite/*.svg",
       paths.src.blocks + "*/images-to-sprite/*.svg"
     ],
-    {
-      readDelay: 200
-    },
+    { readDelay: 200 },
     function() {
       gulp.start("html:prebuild");
     }
@@ -649,9 +586,7 @@ gulp.task("watch:tasks", function() {
 
   watch(
     [paths.src.blocks + "*/*.pug", paths.src.pug + "_*"],
-    {
-      readDelay: 200
-    },
+    { readDelay: 200 },
     function() {
       gulp.start("html:prebuild");
     }
@@ -659,9 +594,7 @@ gulp.task("watch:tasks", function() {
 
   watch(
     [paths.src.blocks + "*/*.less", paths.src.less + "*"],
-    {
-      readDelay: 200
-    },
+    { readDelay: 200 },
     function() {
       gulp.start("styles:main");
     }
@@ -669,9 +602,7 @@ gulp.task("watch:tasks", function() {
 
   watch(
     [paths.src.blocks + "*/*.js", paths.src.js + "*"],
-    {
-      readDelay: 200
-    },
+    { readDelay: 200 },
     function() {
       gulp.start("js:prebuild");
     }
@@ -682,9 +613,7 @@ gulp.task("watch:tasks", function() {
       paths.src.blocks + "**/*.{jpg,jpeg,png}",
       paths.src.images + "**"
     ],
-    {
-      readDelay: 200
-    },
+    { readDelay: 200 },
     function() {
       gulp.start("images:prebuild");
     }
@@ -692,9 +621,7 @@ gulp.task("watch:tasks", function() {
 
   watch(
     paths.src.fonts + "*",
-    {
-      readDelay: 200
-    },
+    { readDelay: 200 },
     function() {
       gulp.start("copy:fonts:prebuild");
     }
@@ -728,6 +655,37 @@ gulp.task("connect:dist", function() {
     open: false
   });
 });
+
+/* ==========================================================================
+   Build
+   ========================================================================== */
+
+   gulp.task("prebuild", function(callback) {
+    gulpSequence(
+      ["html:prebuild"],
+      ["styles:prebuild"],
+      ["styles:critical", "images:prebuild", "js:prebuild", "copy:fonts:prebuild"]
+    )(callback);
+  });
+  
+  gulp.task("build", function(callback) {
+    gulpSequence(
+      ["clean:all"],
+      ["prebuild"],
+      ["html:build"],
+      ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
+      ["html:validate", "images:unused"]
+    )(callback);
+  });
+  
+  gulp.task("build:fast", function(callback) {
+    gulpSequence(
+      ["prebuild"],
+      ["html:build"],
+      ["styles:build", "html:minify", "js:minify", "images:copy", "copy:build"],
+      ["html:validate"]
+    )(callback);
+  });
 
 /* ==========================================================================
    Main
