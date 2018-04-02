@@ -51,9 +51,9 @@
 @link-border-color:    #abbbec;
 @visited-link-color:   darken(#8a39b6, 5);
 
-@inf:       lighten(#7e57c2, 3);
+@inf:       lighten(#7e57c2, 4);
 @tip:       #26a69a;
-@warning:   #ec407a;
+@warning:   lighten(#ec407a, 0);
 
 @vk:        #507299;
 @twitter:   #55acee;
@@ -71,13 +71,13 @@
 // Shadows
 // ==========================================================================
 
-@box-shadow:   0 1px 4px 0 rgba(0, 0, 0, 0.1);
+@box-shadow:   0 1px 4px 0 rgba(0, 0, 0, .1);
 
 // ==========================================================================
 // Animations
 // ==========================================================================
 
-@start-delay:      0.5s;
-@fall-duration:    0.25s;
-@shake-duration:   0.2s;
+@start-delay:      .5s;
+@fall-duration:    .25s;
+@shake-duration:   .2s;
 @shake-delay:      @fall-duration + @start-delay;
