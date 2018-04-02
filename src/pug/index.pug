@@ -6,7 +6,7 @@ prepend page
         pageDesc       = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
         isDateModified = true
         datePublished  = ["03", "05", "2017"]
-        dateModified   = ["09", "01", "2018"]
+        dateModified   = ["02", "04", "2018"]
         pageLink       = indexLink
         encodedUrl     = indexLinkForShare
         likeBtnId      = "Установка macOS на ПК"
@@ -160,17 +160,45 @@ block content
     +li
       | Сделайте резервную копию всех важных данных!
 
+  +note(warning)
+    | UniBeast 8.2.0 содержит 
+    +noteLink('https://www.tonymacx86.com/threads/unibeast-8-2-bug-with-10-13-4-installer-not-shown-in-clover-missing-iabootfiles.248994/', 'баг')
+    | . Для его исправления удалите скрытый файл .IAPhysicalMedia в корне загрузочной флешки, либо дождитесь обновления.
+
   +h2
     
   +ol
     +li
-      | Откройте App Store.
-    +li
-      | Найдите и загрузите образ High Sierra.
-      
-  +p
-    | Приложение установки Install macOS High Sierra появится в списке доступных программ. Возможно, последует также запуск стандартного установщика. Но он нам не нужен, поэтому можете выйти из него через значок в доке.
-
+      | Найдите в App Store образ High Sierra и загрузите.
+    +li 
+      | (Необязательно) Если вместо полноценного образа загрузится установщик размером в ~20 Мб, выполните инструкцию ниже. В противном случае пропустите данный этап.
+      +ol
+        +li
+          | Запустите Install macOS High Sierra и дождитесь окончания загрузки данных.
+          - src = 'images/index/install-image-from-appstore.png'
+          - alt = 'Загрузка образа macOS High Sierra через приложение установки'
+          +img
+        +li
+          | В конце будет предложено перезагрузить ОС. 
+          em Не делайте этого!
+          |  Выйдите из приложения установки через значок в доке.
+        +li
+          | Откройте терминал (Finder > Программы > Утилиты > Терминал).
+        +li
+          | Введите 
+          +code('sudo -s')
+          |  и пароль администратора. Далее следующие 3 команды:
+        +li
+          +code('mkdir /Applications/Install\ macOS\ High\ Sierra.app<wbr>/Contents<wbr>/SharedSupport')
+        +li
+          +code('cd /macOS\ Install\ Data')
+        +li
+          +code('find . -mount | cpio -pvdm <wbr>/Applications<wbr>/Install\ macOS\ High\ Sierra.app<wbr>/Contents<wbr>/SharedSupport')
+          +p
+            | Последняя команда начнет сборку образа из загруженных данных, дождитесь ее окончания. На строку “Failed to set file flags” не обращайте внимания.
+          - src = 'images/index/build-an-image.png'
+          - alt = 'Сборка образа macOS High Sierra из AppStore'
+          +img
   +ol
     +li
       | Вставьте флешку.
