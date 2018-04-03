@@ -4,6 +4,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
+  font-size: 0;
   background: rgba(0,0,0,.85);
 
   .x-center(fixed);
@@ -16,38 +17,49 @@
 
   &__inner {
     display: inline-block;
-    max-width: 80%;
-    max-height: 700px;
+    max-width: 60vw;
+    max-height: 80vh;
     vertical-align: middle;
 
     @media (max-width: @tablet) {
-      max-width: 90%;
+      max-width: 95vw;
     }
   }
 
   &__close {
     position: absolute;
-    top: 4%;
-    right: 4%;
+    top: 5%;
+    right: 5%;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: @accent-color;
 
-    .x-button();
+    .x-button(@background-color: @accent-color);
+
+    @media (max-width: @tablet) {
+      .x-center(@top: 5%; @bottom: auto);
+    }
+
+    &:active {
+      background-color: darken(@accent-color, 5);
+    }
   }
 
   &__close-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     fill: white;
 
     .x-center();
+
+    .lightbox__close:active & {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &__img {
     display: block;
     max-width: 100%;
-    max-height: 80vh;
   }
 }
