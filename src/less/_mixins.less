@@ -22,9 +22,17 @@
   padding-left: @left;
 }
 
-.x-button(@border: none) {
-  padding: 0;
-  outline: none;
-  border: @border;
-  cursor: pointer;
+.x-button(
+  @border: border; 
+  @border-value: none; 
+  @background-color: transparent; 
+  @padding: padding; 
+  @padding-value: 0; 
+  @outline: none; 
+  @cursor: pointer) {
+  @{padding}: @padding-value;
+  outline: @outline;
+  @{border}: @border-value;
+  cursor: @cursor;
+  background-color: @background-color;
 }
