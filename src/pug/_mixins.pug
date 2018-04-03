@@ -50,7 +50,7 @@ mixin tooltip(title, text, hasAbbr)
       abbr.article__tooltip(title!= title)= text
 
 mixin code(string)
-  code.article__code= string
+  code.article__code!= string
 
 mixin key(key)
   kbd.article__key= key
