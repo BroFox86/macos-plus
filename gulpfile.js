@@ -25,6 +25,7 @@ var // Common
   // HTML
   pug            = require("gulp-pug"),
   pugIncludeGlob = require("pug-include-glob"),
+  htmlbeautify   = require('gulp-html-beautify'),
   htmlmin        = require("gulp-htmlmin"),
   useref         = require("gulp-useref"),
   cheerio        = require("gulp-cheerio"),
@@ -169,7 +170,6 @@ gulp.task("html:generate", function buildHTML() {
     )
     .pipe(
       pug({
-        pretty: true,
         basedir: __dirname + "/src",
         plugins: [pugIncludeGlob()]
       })
@@ -180,6 +180,7 @@ gulp.task("html:generate", function buildHTML() {
       })
     )
     .pipe(replace("../images/", "images/"))
+    .pipe(htmlbeautify({ indent_size: 2 }))
     .pipe(gulp.dest(paths.tmp.root));
 });
 
@@ -192,7 +193,6 @@ gulp.task("html:generate:watch", function buildHTML() {
     )
     .pipe(
       pug({
-        pretty: true,
         basedir: __dirname + "/src",
         plugins: [pugIncludeGlob()]
       })
@@ -203,6 +203,7 @@ gulp.task("html:generate:watch", function buildHTML() {
       })
     )
     .pipe(replace("../images/", "images/"))
+    .pipe(htmlbeautify({ indent_size: 2 }))
     .pipe(gulp.dest(paths.tmp.root));
 });
 
