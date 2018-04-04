@@ -1,7 +1,9 @@
 setTooltip("article .article__tooltip");
 
 function setTooltip(element) {
-  var $element = $(element);
+  var $element = $(element),
+      $body    = $("body"),
+      duration = 200;
 
   $element
     .hover(
@@ -11,24 +13,24 @@ function setTooltip(element) {
 
         $(this)
           .data("tipText", title)
-          .removeAttr("title");
+          .attr("title", "");
 
         $('<p class="tooltip"></p>')
           .text(title)
-          .appendTo("body")
-          .fadeIn(300);
+          .appendTo($body)
+          .fadeIn(duration);
       },
       function() {
         $(this).attr("title", $(this).data("tipText"));
-        $(".tooltip").remove();
+        $("p.tooltip").fadeOut(duration);
       }
     )
 
     .mousemove(function(e) {
-      var mousex = e.pageX + 20; //Get X coordinates
-      var mousey = e.pageY + 10; //Get Y coordinates
+      var mousex = e.pageX + 20;
+      var mousey = e.pageY + 10;
 
-      $(".tooltip").css({
+      $("p.tooltip").css({
         top: mousey,
         left: mousex
       });
