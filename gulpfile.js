@@ -92,12 +92,8 @@ var paths = {
 
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-  forceInclude: [".article__img", ".note__icon", ".error__img"]
-};
-
-var psiOptns = {
-  url: "http://ff99d014.ngrok.io",
-  key: ""
+  forceInclude: [".article__img", ".note__icon", ".error__img"],
+  propertiesToRemove: ["backdrop-filter"]
 };
 
 /* ==========================================================================
@@ -328,7 +324,8 @@ gulp.task("styles:critical", function() {
     {
       url: criticalOptns.url,
       css: paths.tmp.css + "main.css",
-      forceInclude: criticalOptns.forceInclude
+      forceInclude: criticalOptns.forceInclude,
+      propertiesToRemove: criticalOptns.propertiesToRemove
     },
     function(err, criticalCss) {
       fs.writeFileSync(paths.tmp.css + "_critical.css", criticalCss);
