@@ -132,6 +132,9 @@ gulp.task("html:generate-svg", function() {
       paths.src.blocks + "*/images-to-sprite/*.svg"
     ])
     .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
+    .pipe(
       imagemin([
         imageminSvgo({
           plugins: [{ removeViewBox: false }]
@@ -155,18 +158,14 @@ gulp.task("html:generate-svg", function() {
       })
     )
     .pipe(rename("_sprite.svg"))
-    .pipe(gulp.dest(paths.tmp.images));
+    .pipe(gulp.dest(paths.tmp.root));
 });
 
 gulp.task("html:generate", function buildHTML() {
   return gulp
     .src(paths.src.pug + "[^_]*")
     .pipe(
-      plumber({
-        errorHandler: notify.onError({
-          title: "HTML compilation error"
-        })
-      })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
     .pipe(
       pug({
@@ -188,7 +187,9 @@ gulp.task("html:generate:watch", function buildHTML() {
   return watch(paths.src.pug + "[^_]*", {
     ignoreInitial: true
   })
-    .pipe(plumber())
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(
       pug({
         pretty: true,
@@ -212,6 +213,9 @@ gulp.task("html:prebuild", function(callback) {
 gulp.task("html:build", function() {
   return gulp
     .src(paths.tmp.root + "*.html")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(
       inject(
         gulp
@@ -254,6 +258,9 @@ gulp.task("html:minify", function() {
   return gulp
     .src(paths.dist.root + "*.html")
     .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
+    .pipe(
       htmlmin({
         collapseWhitespace: true,
         removeComments: true,
@@ -278,11 +285,7 @@ gulp.task("styles:main", function() {
   return gulp
     .src([paths.src.less + "_*", paths.src.blocks + "*/*.less"])
     .pipe(
-      plumber({
-        errorHandler: notify.onError({
-          title: "Styles compilation error"
-        })
-      })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
     .pipe(flatten())
     .pipe(concat("main.less"))
@@ -304,6 +307,9 @@ gulp.task("styles:main", function() {
 gulp.task("styles:additions", function() {
   return gulp
     .src(paths.src.less + "[^_]*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(
       less({
         paths: [path.join(__dirname, "./")]
@@ -332,6 +338,9 @@ gulp.task("styles:critical", function() {
 gulp.task("styles:build", function() {
   return gulp
     .src(paths.dist.css + "*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(
       postcss([
         uncss({
@@ -362,6 +371,9 @@ var respOptions = {
 gulp.task("images:responsive", function() {
   return gulp
     .src(paths.src.blocks + "*/responsive-images/*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(changed(paths.tmp.images))
     .pipe(flatten())
     .pipe(
@@ -422,6 +434,9 @@ gulp.task("images:responsive", function() {
 gulp.task("images:content:firstpass", function() {
   return gulp
     .src(paths.src.images + "*/*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(changed(paths.tmp.images))
     .pipe(
       responsive(
@@ -443,6 +458,9 @@ gulp.task("images:content", ["images:content:firstpass"], function() {
     .src(["*/*", "!*/*{_small,article-logo,meta}.*"], {
       cwd: paths.src.images
     })
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(changed(paths.tmp.images))
     .pipe(
       responsive(
@@ -480,11 +498,7 @@ gulp.task("images:unused", function() {
       paths.tmp.images + "*/*[^_original, @*]"
     ])
     .pipe(
-      plumber({
-        errorHandler: notify.onError({
-          title: "Images filter error"
-        })
-      })
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
     .pipe(unusedImages())
     .pipe(plumber.stop());
@@ -522,6 +536,9 @@ gulp.task("js:prebuild", function(callback) {
 gulp.task("js:minify", function() {
   return gulp
     .src(paths.dist.js + "*")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist.js));
 });
