@@ -161,7 +161,11 @@
     color: @grey-128;
   }
 
-  &__tooltip,
+  //
+  // Tooltip specificity is increased 
+  // to override normalize.css values for <abbr>
+  //
+
   &__tooltip[title] {
     text-decoration: none;
     hyphens: none;
