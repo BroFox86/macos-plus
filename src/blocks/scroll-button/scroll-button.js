@@ -15,8 +15,7 @@ function toggleScrollBtn(element, mediaQuery) {
     }
   });
 
-  $element.click(function(e) {
-    e.preventDefault();
+  $element.click(function() {
     $("html, body").animate(
       {
         scrollTop: 0
