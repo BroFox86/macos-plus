@@ -76,11 +76,9 @@
     padding-left: 0;
     list-style: inside decimal;
 
-    .article__ordered-list &,
-    .article__marked-list & {
+    .article__ordered-list & {
       margin-top: @margin;
       padding-left: 5%;
-      list-style: inside lower-alpha;
     }
   }
 
@@ -88,25 +86,35 @@
     margin-bottom: @margin;
     list-style: none;
 
-    .article__ordered-list &,
-    .article__marked-list & {
+    .article__ordered-list & {
       margin-top: @margin;
     }
   }
 
   &__list-item {
+    position: relative;
     margin-bottom: 5px;
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    .article__marked-list & {
-      position: relative;
+    .article__ordered-list & & {
+      list-style: none;
 
       &::before {
         position: absolute;
-        top: 10px;
+        left: -30px;
+        display: inline-block;
+        width: 25px;
+        text-align: right;
+      }
+    }
+
+    .article__marked-list & {
+      &::before {
+        position: absolute;
+        top: 9.5px;
         left: -20px;
         width: 6px;
         height: 6px;
@@ -117,8 +125,7 @@
     }
   }
 
-  &__code,
-  &__key {
+  &__code {
     padding: 3px 6px;
     hyphens: none;
     border-radius: @border-radius--small;

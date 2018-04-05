@@ -1,7 +1,7 @@
-addCyrillicOrder();
+addCyrillicOrder("ol ol");
 
-function addCyrillicOrder() {
-  var classname = "ol ol",
+function addCyrillicOrder(element) {
+  var classname = element,
       style     = document.createElement("style");
 
   document.head.appendChild(style);
@@ -13,15 +13,4 @@ function addCyrillicOrder() {
       0
     );
   });
-
-  style.sheet.insertRule(
-    classname + ">li{list-style-type:none;position:relative}",
-    0
-  );
-
-  style.sheet.insertRule(
-    classname +
-      ">li::before{position:absolute;width:2em;left:-2.25em;text-align:right;display:inline-block}",
-    0
-  );
 }
