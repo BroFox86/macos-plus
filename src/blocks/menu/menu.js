@@ -1,17 +1,18 @@
-toggleFixedNav("(min-width: 960px)");
+toggleFixedNav(".menu__inner > .menu__list", "min-width: 960px");
 
-function toggleFixedNav(mediaQuery) {
+function toggleFixedNav(element, media) {
 
-  var $nav    = $(".menu__inner > .menu__list"),
+  var $nav    = $(element),
       $header = $(".header"),
       fixed   = "is-fixed",
       offset  = $nav.offset().top,
       margin  = $nav.outerHeight();
 
   $(window).scroll(function() {
+    
     var y = $(this).scrollTop();
 
-    if (y >= offset && window.matchMedia(mediaQuery).matches) {
+    if (y >= offset && window.matchMedia("(" + media + ")").matches) {
       $nav.addClass(fixed);
       $header.css("margin-bottom", margin);
     } else {
