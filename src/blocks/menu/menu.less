@@ -73,7 +73,8 @@
     cursor: pointer;
     border: 1px solid @grey-235;
     border-radius: @border-radius;
-    background: white;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(15px);
 
     @media (max-width: @tablet) {
       position: static;
@@ -116,10 +117,12 @@
       left: 50%;
       transform: translateX(-50%);
       border: none;
-      background: rgba(255, 255, 255, .8);
       box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
 
-      backdrop-filter: blur(15px);
+      .menu__list {
+        top: 61px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
+      }
     }
   }
 
