@@ -1,4 +1,4 @@
-setLightbox("article a.article__img-wrapper");
+setLightbox("a.article__img-wrapper");
 
 function setLightbox(element) {
   var $element  = $(element),
@@ -9,9 +9,7 @@ function setLightbox(element) {
   $element.click(function(event) {
     event.preventDefault();
 
-    $body.on("mousewheel", function() {
-      return false;
-    });
+    $lightbox.on("touchmove mousewheel", false);
 
     var originalImage = $(this).attr("href");
 
@@ -33,14 +31,14 @@ function setLightbox(element) {
 
   $lightbox.children().mouseleave(function() {
     $lightbox.click(function() {
-      $body.off("mousewheel");
+      $lightbox.off("touchmove mousewheel");
       $(this).fadeOut(duration);
       unloadImg();
     });
   });
 
   $(".lightbox__close").click(function() {
-    $body.off("mousewheel");
+    $lightbox.off("touchmove mousewheel");
     $lightbox.fadeOut(duration);
     unloadImg();
   });
