@@ -80,18 +80,6 @@
       margin-top: @margin;
       padding-left: 5%;
     }
-
-    &.has-cyrillic-order {
-      list-style: none;
-
-      li::before {
-        position: absolute;
-        left: -30px;
-        display: inline-block;
-        width: 25px;
-        text-align: right;
-      }
-    }
   }
 
   &__marked-list {
@@ -121,6 +109,18 @@
         content: "";
         border-radius: 50%;
         background: @grey-143;
+      }
+    }
+
+    .has-cyrillic-order & {
+      list-style: none;
+
+      &::before {
+        position: absolute;
+        left: -30px;
+        display: inline-block;
+        width: 25px;
+        text-align: right;
       }
     }
   }
