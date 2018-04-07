@@ -5,6 +5,8 @@ function addCyrillicOrder(element) {
   var style = document.createElement("style");
   document.head.appendChild(style);
 
+  $(element).addClass("has-cyrillic-order");
+
   "абвгдежзиклмнопрстуфхцчшщэюя".split("").forEach(function(c, i) {
     return style.sheet.insertRule(
       element +

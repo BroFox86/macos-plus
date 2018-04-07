@@ -76,9 +76,21 @@
     padding-left: 0;
     list-style: inside decimal;
 
-    .article__ordered-list & {
+    ol & {
       margin-top: @margin;
       padding-left: 5%;
+    }
+
+    &.has-cyrillic-order {
+      list-style: none;
+
+      li::before {
+        position: absolute;
+        left: -30px;
+        display: inline-block;
+        width: 25px;
+        text-align: right;
+      }
     }
   }
 
@@ -86,7 +98,7 @@
     margin-bottom: @margin;
     list-style: none;
 
-    .article__ordered-list & {
+    ol & {
       margin-top: @margin;
     }
   }
@@ -99,19 +111,7 @@
       margin-bottom: 0;
     }
 
-    .article__ordered-list .article__ordered-list & {
-      list-style: none;
-
-      &::before {
-        position: absolute;
-        left: -30px;
-        display: inline-block;
-        width: 25px;
-        text-align: right;
-      }
-    }
-
-    .article__marked-list & {
+    ul & {
       &::before {
         position: absolute;
         top: 9.5px;
