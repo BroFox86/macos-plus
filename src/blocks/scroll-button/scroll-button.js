@@ -1,26 +1,25 @@
-toggleScrollBtn("button.scroll-button", "(max-width: 960px)");
+toggleScrollBtn("button.scroll-button", "max-width: 960px");
 
-function toggleScrollBtn(element, mediaQuery) {
+function toggleScrollBtn(element, media) {
+  "use strict";
 
   var $element = $(element),
-      display  = "is-visible";
+      visible  = "is-visible";
 
   $(window).scroll(function() {
-    if (window.matchMedia(mediaQuery).matches) {
+    if (window.matchMedia("(" + media + ")").matches) {
+
       if ($(window).scrollTop() > 800) {
-        $element.addClass(display);
+        $element.addClass(visible);
       } else {
-        $element.removeClass(display);
+        $element.removeClass(visible);
       }
     }
   });
 
   $element.click(function() {
     $("html, body").animate(
-      {
-        scrollTop: 0
-      },
-      2000
+      { scrollTop: 0 }, 2000
     );
     return false;
   });
