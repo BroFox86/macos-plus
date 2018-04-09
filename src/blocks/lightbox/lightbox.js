@@ -1,12 +1,14 @@
 setLightbox("a.article__img-wrapper");
 
 function setLightbox(element) {
+  
   var $element  = $(element),
       $lightbox = $("div.lightbox"),
       duration  = 300,
       $body     = $("body");
 
   $element.on("click", function(event) {
+    event.preventDefault();
     $lightbox.on("touchmove mousewheel", false);
     
     var originalImage = $(this).attr("href");
