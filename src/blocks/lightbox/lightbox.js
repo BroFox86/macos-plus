@@ -6,11 +6,9 @@ function setLightbox(element) {
       duration  = 300,
       $body     = $("body");
 
-  $element.click(function(event) {
-    event.preventDefault();
-
+  $element.on("click", function(event) {
     $lightbox.on("touchmove mousewheel", false);
-
+    
     var originalImage = $(this).attr("href");
 
     $lightbox
@@ -31,14 +29,12 @@ function setLightbox(element) {
 
   $lightbox.children().mouseleave(function() {
     $lightbox.click(function() {
-      $lightbox.off("touchmove mousewheel");
       $(this).fadeOut(duration);
       unloadImg();
     });
   });
 
   $(".lightbox__close").click(function() {
-    $lightbox.off("touchmove mousewheel");
     $lightbox.fadeOut(duration);
     unloadImg();
   });
