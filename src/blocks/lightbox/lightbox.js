@@ -1,7 +1,8 @@
 setLightbox("a.article__img-wrapper");
 
 function setLightbox(element) {
-  
+  "use strict";
+
   var $element  = $(element),
       $lightbox = $("div.lightbox"),
       duration  = 300,

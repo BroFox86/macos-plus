@@ -1,6 +1,7 @@
 toggleFixedNav(".menu__inner > .menu__list", "min-width: 960px");
 
 function toggleFixedNav(element, media) {
+  "use strict";
 
   var $nav    = $(element),
       $header = $(".header"),

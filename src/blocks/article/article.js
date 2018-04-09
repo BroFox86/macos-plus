@@ -1,6 +1,7 @@
 addCyrillicOrder("ol ol");
 
 function addCyrillicOrder(element) {
+  "use strict";
 
   var style = document.createElement("style");
   document.head.appendChild(style);
