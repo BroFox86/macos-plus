@@ -171,7 +171,7 @@ gulp.task("html:generate", function buildHTML() {
       })
     )
     .pipe(
-      inject(gulp.src(paths.tmp.images + "_sprite.svg"), {
+      inject(gulp.src(paths.tmp.root + "_sprite.svg"), {
         transform: fileContents
       })
     )
@@ -194,7 +194,7 @@ gulp.task("html:generate:watch", function buildHTML() {
       })
     )
     .pipe(
-      inject(gulp.src(paths.tmp.images + "_sprite.svg"), {
+      inject(gulp.src(paths.tmp.root + "_sprite.svg"), {
         transform: fileContents
       })
     )
