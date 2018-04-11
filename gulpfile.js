@@ -440,7 +440,7 @@ gulp.task("images:content:firstpass", function() {
       responsive(
         {
           "**/article-logo.*": [
-            { width: 184 }
+            { width: 192 }
           ],
           "**/*_small.*": [{}],
           "**/meta.*": [{}]
