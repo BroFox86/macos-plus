@@ -12,11 +12,15 @@
 
   &--anchor {
     padding-right: 10px;
-    transition: opacity .5s;
+    transition: opacity, color, .3s;
     opacity: 0;
-    color: @accent-color;
+    color: lighten(@accent-color, 10);
     font-size: .8em;
     font-weight: 600;
+
+    &:hover {
+      color: @accent-color;
+    }
 
     .article__h2:hover & {
       opacity: 1;
