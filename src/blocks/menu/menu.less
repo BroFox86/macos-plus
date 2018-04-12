@@ -16,12 +16,11 @@
     display: none;
 
     @media (max-width: @tablet) {
-      position: absolute;
-      top: 20px;
-      left: 20px;
       display: block;
       width: 21px;
       height: 21px;
+
+      .x-center(@left: 20px; @right: auto);
     }
   }
 
