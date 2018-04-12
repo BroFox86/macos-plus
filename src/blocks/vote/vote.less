@@ -1,37 +1,21 @@
 .vote {
   &::before {
-    position: relative;
     display: block;
     width: 100%;
     height: 2px;
-    margin-top: @margin*3;
     content: "";
     background: @grey-235;
-
-    @media (max-width: @mobile) {
-      margin-top: @margin * 2;
-    }
   }
 
   &__inner {
-    margin-top: @margin;
+    padding: 50px;
     text-align: center;
-
-    @media (max-width: @mobile) {
-      margin-top: @margin;
-    }
   }
 
   &__text {
-    display: inline-block;
-    margin: @margin;
-    vertical-align: middle;
+    margin: 0 0 20px;
+    font-size: @font-size--large;
     font-style: italic;
-    line-height: 1;
-  }
-
-  &__btn {
-    display: inline-block;
-    vertical-align: middle;
+    color: @font-color--light;
   }
 }
