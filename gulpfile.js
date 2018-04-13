@@ -609,7 +609,7 @@ gulp.task("watch:tasks", function() {
     [paths.src.blocks + "*/*.scss", paths.src.scss + "*"],
     { readDelay: 200 },
     function() {
-      gulp.start("styles:main");
+      gulp.start("styles:prebuild");
     }
   );
 
