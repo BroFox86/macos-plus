@@ -11,18 +11,18 @@
     margin-right: 8px;
     transition: background-color .4s ease;
     border-radius: 50%;
-    background: @grey-120;
+    background: $grey-120;
 
     &--vk:hover {
-      background: @vk;
+      background: $vk;
     }
 
     &--gplus:hover {
-      background: @gplus;
+      background: $gplus;
     }
 
     &--email:hover {
-      background: @email;
+      background: $email;
     }
   }
 
@@ -31,6 +31,6 @@
     height: 14px;
     fill: white;
 
-    .x-center();
+    @include x-center();
   }
 }

@@ -2,14 +2,14 @@
   &__top {
     display: none;
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding-top: 60px;
     }
 
-    @media (max-width: @mobile) {
+    @media (max-width: $mobile) {
       padding-top: 20px;
     }
   }
@@ -24,7 +24,7 @@
     margin: 50px 0;
     text-align: center;
 
-    @media (max-width: @mobile) {
+    @media (max-width: $mobile) {
       margin-top: 20px;
     }
   }
@@ -36,14 +36,14 @@
   &__copyrights {
     display: inline-block;
     margin-right: 5px;
-    color: @grey-82;
+    color: $grey-82;
   }
 
   &__author {
     display: inline-block;
     margin-right: 5px;
     text-decoration: none;
-    color: @font-color;
+    color: $font-color;
   }
 
   &__year {

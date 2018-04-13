@@ -3,12 +3,12 @@
   padding: 14px;
   padding-left: 60px;
   color: #fff;
-  border-radius: @border-radius--large;
+  border-radius: $border-radius--large;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
-  font-size: @font-size--small;
+  font-size: $font-size--small;
   line-height: 1.45;
 
-  @media (max-width: @mobile) {
+  @media (max-width: $mobile) {
     width: auto;
     padding-right: 15px;
   }
@@ -31,14 +31,14 @@
   }
 
   &--inf {
-    background: @inf;
+    background: $inf;
   }
 
   &--tip {
-    background: @tip;
+    background: $tip;
   }
 
   &--warning {
-    background: @warning;
+    background: $warning;
   }
 }

@@ -1,14 +1,14 @@
 .aside {
   overflow: hidden;
-  border-radius: @border-radius;
+  border-radius: $border-radius;
   background: white;
 
   &__headline {
     margin: 0;
     padding: 18px;
     text-align: center;
-    border-bottom: 2px solid @grey-235;
-    font-size: @font-size--large;
+    border-bottom: 2px solid $grey-235;
+    font-size: $font-size--large;
     font-weight: 600;
     line-height: 1;
   }

@@ -2,50 +2,50 @@
   box-sizing: border-box;
   word-wrap: break-word;
   hyphens: auto;
-  border-radius: @border-radius;
+  border-radius: $border-radius;
   background-color: white;
 
-  .x-padding(desktop);
+  @include x-padding-desktop();
 
   *::selection {
     color: #fff;
-    background: @accent-color;
+    background: $accent-color;
   }
 
-  @media (max-width: @tablet) {
-    .x-padding(tablet);
+  @media (max-width: $tablet) {
+    @include x-padding-tablet();
   }
 
-  @media (max-width: @mobile) {
-    .x-padding(mobile);
+  @media (max-width: $mobile) {
+    @include x-padding-mobile();
   }
 
   &__header {
     margin-bottom: 50px;
 
-    @media (max-width: @mobile) {
+    @media (max-width: $mobile) {
       margin-bottom: 35px;
     }
   }
 
   &__h2 {
     position: relative;
-    margin: @margin 0;
-    font-size: @h2-size;
+    margin: $margin 0;
+    font-size: $h2-size;
     font-weight: 600;
 
-    @media (max-width: @mobile) {
-      font-size: @h2-size--mobile;
+    @media (max-width: $mobile) {
+      font-size: $h2-size--mobile;
     }
   }
 
   &__h3 {
-    margin: @margin 0;
-    font-size: @h3-size;
+    margin: $margin 0;
+    font-size: $h3-size;
     font-weight: 600;
 
-    @media (max-width: @mobile) {
-      font-size: @h3-size--mobile;
+    @media (max-width: $mobile) {
+      font-size: $h3-size--mobile;
     }
   }
 
@@ -54,36 +54,36 @@
     top: 13%;
     left: -4%;
 
-    @media (max-width: @mobile) {
+    @media (max-width: $mobile) {
       display: none;
     }
   }
 
   &__par {
-    margin: 0 0 @margin;
+    margin: 0 0 $margin;
 
     .article__ordered-list & {
-      margin-top: @margin;
+      margin-top: $margin;
     }
   }
 
   &__ordered-list {
-    margin-bottom: @margin;
+    margin-bottom: $margin;
     padding-left: 0;
     list-style: inside decimal;
 
     ol & {
-      margin-top: @margin;
+      margin-top: $margin;
       padding-left: 5%;
     }
   }
 
   &__marked-list {
-    margin-bottom: @margin;
+    margin-bottom: $margin;
     list-style: none;
 
     ol & {
-      margin-top: @margin;
+      margin-top: $margin;
     }
   }
 
@@ -104,7 +104,7 @@
         height: 6px;
         content: "";
         border-radius: 50%;
-        background: @grey-143;
+        background: $grey-143;
       }
     }
 
@@ -124,18 +124,18 @@
   &__code {
     padding: 3px 6px;
     hyphens: none;
-    border-radius: @border-radius--small;
-    background: @grey-235;
-    font-size: @font-size--small;
+    border-radius: $border-radius--small;
+    background: $grey-235;
+    font-size: $font-size--small;
   }
 
   &__note {
     position: relative;
-    margin: @margin auto @margin * 1.5;
+    margin: $margin auto $margin * 1.5;
   }
 
   &__figure {
-    margin: @margin*1.5 auto;
+    margin: $margin*1.5 auto;
     text-align: center;
   }
 
@@ -147,10 +147,10 @@
   &__img-wrapper {
     display: block;
     width: 630px;
-    margin: @margin*1.5 auto;
+    margin: $margin*1.5 auto;
     text-align: center;
 
-    @media (max-width: @desktop) {
+    @media (max-width: $desktop) {
       width: auto;
     }
 
@@ -161,7 +161,7 @@
 
   &__img {
     max-width: 100%;
-    color: @grey-128;
+    color: $grey-128;
   }
 
   //
@@ -172,7 +172,7 @@
   &__tooltip[title] {
     text-decoration: none;
     hyphens: none;
-    border-bottom: 2px dotted @grey-143;
+    border-bottom: 2px dotted $grey-143;
 
     &:hover {
       cursor: help;

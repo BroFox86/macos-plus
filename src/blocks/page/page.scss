@@ -6,10 +6,10 @@
 .page {
   margin: 0;
   word-wrap: break-word;
-  color: @font-color;
-  background: @grey-235;
-  font-family: @font-family;
-  font-size: @font-size;
+  color: $font-color;
+  background: $grey-235;
+  font-family: $font-family;
+  font-size: $font-size;
   font-weight: 400;
   line-height: 1.6;
 
@@ -36,9 +36,9 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    margin-bottom: @margin + 23px;
+    margin-bottom: $margin + 23px;
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       position: fixed;
       top: 0;
     }
@@ -47,30 +47,30 @@
   &__container {
     display: flex;
     justify-content: center;
-    width: @layout;
+    width: $layout;
     margin: auto;
 
-    @media (max-width: @desktop) {
+    @media (max-width: $desktop) {
       width: 960px;
     }
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       width: 100%;
     }
   }
 
   &__sidebar {
     position: sticky;
-    top: @margin + 63px;
+    top: $margin + 63px;
     width: 300px;
     height: 100%;
-    margin-left: @margin;
+    margin-left: $margin;
 
-    @media (max-width: @desktop) {
+    @media (max-width: $desktop) {
       width: 250px;
     }
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       display: none;
     }
   }
@@ -79,17 +79,17 @@
   &__error {
     width: 814px;
 
-    @media (max-width: @desktop) {
+    @media (max-width: $desktop) {
       width: 650px;
     }
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       width: 100%;
     }
   }
 
   &__error {
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       margin: 0;
     }
   }
@@ -97,7 +97,7 @@
   &__mobile-nav {
     display: none;
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       z-index: 1;
       display: block;
       margin-bottom: 40px;
@@ -107,7 +107,7 @@
   &__scroll-button {
     display: none;
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       position: fixed;
       z-index: 3;
       right: 6%;
@@ -115,7 +115,7 @@
       display: block;
     }
 
-    @media (max-width: @mobile) {
+    @media (max-width: $mobile) {
       right: 5%;
       bottom: 3%;
     }

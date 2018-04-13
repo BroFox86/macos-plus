@@ -4,7 +4,7 @@
     width: 100%;
     height: 2px;
     content: "";
-    background: @grey-235;
+    background: $grey-235;
   }
 
   &__inner {
@@ -14,8 +14,8 @@
 
   &__text {
     margin: 0 0 20px;
-    font-size: @font-size--large;
+    font-size: $font-size--large;
     font-style: italic;
-    color: @font-color--light;
+    color: $font-color--light;
   }
 }

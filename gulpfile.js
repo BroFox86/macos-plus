@@ -32,7 +32,7 @@ var // Common
   svgstore       = require("gulp-svgstore"),
   w3cjs          = require("gulp-w3cjs"),
   // Styles
-  less         = require("gulp-less"),
+  sass         = require('gulp-sass'),
   postcss      = require("gulp-postcss"),
   autoprefixer = require("autoprefixer"),
   cssnano      = require("cssnano"),
@@ -60,7 +60,7 @@ var paths = {
     blocks:           "src/blocks/",
     pug:              "src/pug/",
     css:              "src/css/",
-    less:             "src/less/",
+    scss:             "src/scss/",
     images:           "src/images/",
     imagesToSprite:   "src/images-to-sprite/",
     favicons:         "src/favicons/",
@@ -280,13 +280,13 @@ gulp.task("html:validate", function() {
 
 gulp.task("styles:main", function() {
   return gulp
-    .src([paths.src.less + "_*", paths.src.blocks + "*/*.less"])
+    .src([paths.src.scss + "_*", paths.src.blocks + "*/*.scss"])
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
     .pipe(flatten())
-    .pipe(concat("main.less"))
-    .pipe(less())
+    .pipe(concat("main.scss"))
+    .pipe(sass( { outputStyle: 'expanded' } ).on("error", sass.logError))
     .pipe(
       postcss([
         pxtorem({
@@ -303,14 +303,12 @@ gulp.task("styles:main", function() {
 
 gulp.task("styles:additions", function() {
   return gulp
-    .src(paths.src.less + "[^_]*")
+    .src(paths.src.scss + "[^_]*")
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
     .pipe(
-      less({
-        paths: [path.join(__dirname, "./")]
-      })
+      sass( { outputStyle: 'expanded' } ).on("error", sass.logError)
     )
     .pipe(gulp.dest(paths.tmp.css));
 });
@@ -608,7 +606,7 @@ gulp.task("watch:tasks", function() {
   );
 
   watch(
-    [paths.src.blocks + "*/*.less", paths.src.less + "*"],
+    [paths.src.blocks + "*/*.scss", paths.src.scss + "*"],
     { readDelay: 200 },
     function() {
       gulp.start("styles:main");

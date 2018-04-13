@@ -8,7 +8,7 @@
   font-size: 0;
 
   backdrop-filter: blur(15px);
-  .x-center(fixed);
+  @include x-center(fixed);
 
   &::before {
     display: inline-block;
@@ -35,10 +35,10 @@
     height: 40px;
     border-radius: 50%;
 
-    .x-button(@background-color: @accent-color);
+    @include x-button($background-color: $accent-color);
 
     &:active {
-      background-color: darken(@accent-color, 5);
+      background-color: darken($accent-color, 5);
     }
   }
 
@@ -47,7 +47,7 @@
     height: 18px;
     fill: white;
 
-    .x-center();
+    @include x-center();
 
     .lightbox__close:active & {
       width: 16px;

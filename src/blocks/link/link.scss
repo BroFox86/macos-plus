@@ -14,12 +14,12 @@
     padding-right: 10px;
     transition: opacity, color, .3s;
     opacity: 0;
-    color: lighten(@accent-color, 10);
+    color: lighten($accent-color, 10);
     font-size: .8em;
     font-weight: 600;
 
     &:hover {
-      color: @accent-color;
+      color: $accent-color;
     }
 
     .article__h2:hover & {
@@ -30,18 +30,18 @@
   &--article {
     padding-bottom: 7px;
     transition: border-bottom, padding .15s ease-in-out;
-    color: @accent-color;
+    color: $accent-color;
     border-bottom: 1px solid rgba(0, 0, 0, 0);
 
     &:hover {
       padding-bottom: 2px;
-      border-color: @link-border-color;
+      border-color: $link-border-color;
     }
 
     &:visited {
       padding: 2px;
-      color: @visited-link-color;
-      border-color: fade(lighten(@visited-link-color, 40), 99%);
+      color: $visited-link-color;
+      border-color: fade(lighten($visited-link-color, 40), 99%);
     }
   }
 

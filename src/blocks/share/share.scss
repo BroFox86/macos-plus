@@ -14,7 +14,7 @@
     transition: transform .1s ease-in;
     border-radius: 50%;
 
-    @media(min-width: @tablet) and (max-width: @desktop) {
+    @media(min-width: $tablet) and (max-width: $desktop) {
       width: 45px;
       height: 45px;
     }
@@ -45,9 +45,9 @@
     height: 25px;
     fill: white;
 
-    .x-center();
+    @include x-center();
 
-    @media(min-width: @tablet) and (max-width: @desktop) {
+    @media(min-width: $tablet) and (max-width: $desktop) {
       width: 20px;
       height: 20px;
     }

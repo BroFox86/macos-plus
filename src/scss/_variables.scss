@@ -1,0 +1,76 @@
+// ==========================================================================
+// Breakpoints
+// ==========================================================================
+
+$desktop:                 1200px;
+$tablet:                  960px;
+$mobile:                  600px;
+$nav-mobile-full-width:   352px;
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+
+$font-family:   "Open Sans", sans-serif;
+
+// ==========================================================================
+// Sizes
+// ==========================================================================
+
+$layout:   1140px;
+$margin:   26px;
+
+$border-radius--small:   4px;
+$border-radius:          12px;
+$border-radius--large:   15px;
+
+$font-size--tiny:      14px;
+$font-size--small:     15px;
+$font-size:            16px;
+$font-size--large:     18px;
+$font-size--x-large:   21px;
+
+$h1-size:   37px;
+$h2-size:   31px;
+$h3-size:   22px;
+
+$h1-size--mobile:   25px;
+$h2-size--mobile:   24px;
+$h3-size--mobile:   19px;
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+
+$font-color--x-light:   #666;
+$font-color--light:     #555;
+$font-color:            #333;
+
+$accent-color:         #4367d4;
+$link-border-color:    #abbbec;
+$visited-link-color:   darken(#8a39b6, 5);
+
+$inf:       lighten(#7F5F9F, 1);
+$tip:       #26a69a;
+$warning:   #ec407a;
+
+$vk:        #507299;
+$twitter:   #55acee;
+$email:     #ffab00;
+$gplus:     #dd4e42;
+
+$grey-82:    #525252;  // rgb(82, 82, 82)
+$grey-120:   #787878;  // rgb(120, 120, 120)
+$grey-128:   #808080;  // rgb(128, 128, 128)
+$grey-143:   #989797;  // rgb(152, 151, 151)
+$grey-235:   #ebebeb;  // rgb(235, 235, 235)
+$grey-240:   #f0f0f0;  // rgb(240, 240, 240)
+
+// ==========================================================================
+// Animations
+// ==========================================================================
+
+$start-delay:      .5s;
+$fall-duration:    .25s;
+$shake-duration:   .2s;
+$shake-delay:      $fall-duration + $start-delay;

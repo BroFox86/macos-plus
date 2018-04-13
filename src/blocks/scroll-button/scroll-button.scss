@@ -6,9 +6,9 @@
   border-radius: 50%;
   box-shadow: rgba(101, 119, 134, .74902) 1px 1px 4px 0;
 
-  .x-button(@background-color: @accent-color);
+  @include x-button($background-color: $accent-color);
 
-  @media (max-width: @mobile) {
+  @media (max-width: $mobile) {
     width: 55px;
     height: 55px;
   }
@@ -22,9 +22,9 @@
     height: 25px;
     fill: white;
 
-    .x-center();
+    @include x-center();
 
-    @media (max-width: @mobile) {
+    @media (max-width: $mobile) {
       width: 20px;
       height: 20px;
     }

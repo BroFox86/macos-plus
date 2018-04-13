@@ -1,7 +1,7 @@
 .page-nav {
-  @media (max-width: @tablet) {
+  @media (max-width: $tablet) {
     width: 100%;
-    border: 2px solid @grey-235;
+    border: 2px solid $grey-235;
     box-shadow: none;
   }
 
@@ -21,9 +21,9 @@
       height: 100%;
       content: "";
       transition: width .35s;
-      background: @accent-color;
+      background: $accent-color;
 
-      @media (max-width: @tablet) {
+      @media (max-width: $tablet) {
         left: -15%;
       }
     }
@@ -31,7 +31,7 @@
     &:hover::before {
       width: 100%;
 
-      @media (max-width: @tablet) {
+      @media (max-width: $tablet) {
         width: 115%;
       }
     }
@@ -44,7 +44,7 @@
     padding-left: 22px;
     transition: color .5s;
     text-decoration: none;
-    color: @font-color--x-light;
+    color: $font-color--x-light;
     line-height: 52px;
 
     .page-nav__item:hover & {
@@ -57,7 +57,7 @@
     width: 87%;
     word-break: break-all;
 
-    @media (max-width: @tablet) {
+    @media (max-width: $tablet) {
       width: 95%;
     }
   }
@@ -69,7 +69,7 @@
     text-align: center;
     vertical-align: middle;
     color: white;
-    background: @accent-color;
-    font-size: @font-size;
+    background: $accent-color;
+    font-size: $font-size;
   }
 }

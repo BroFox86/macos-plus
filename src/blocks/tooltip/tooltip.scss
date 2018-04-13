@@ -5,11 +5,11 @@
   width: 400px;
   padding: 20px;
   color: #fff;
-  border-radius: @border-radius--large;
-  background: lighten(@accent-color, 5);
+  border-radius: $border-radius--large;
+  background: lighten($accent-color, 5);
   box-shadow: rgb(102, 102, 102) 0 0 4.8px 0;
 
-  @media (max-width: @mobile) {
+  @media (max-width: $mobile) {
     width: 300px;
   }
 }
