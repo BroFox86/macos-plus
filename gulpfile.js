@@ -567,7 +567,7 @@ gulp.task("copy:favicons", function() {
 });
 
 gulp.task("copy:logo", function() {
-  return gulp.src(paths.src.images + "logo.jpg").pipe(gulp.dest(paths.dist.images));
+  return gulp.src(paths.src.images + "meta-logo.jpg").pipe(gulp.dest(paths.dist.images));
 });
 
 gulp.task("copy:prebuild", function(callback) {
