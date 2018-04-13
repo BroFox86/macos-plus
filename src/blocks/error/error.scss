@@ -43,7 +43,7 @@
 
   &__type {
     margin-bottom: 10px;
-    color: lighten( $accent-color, 0);
+    color: lighten($accent-color, 0);
     font-size: 7rem;
 
     @media (max-width: $mobile) {
