@@ -19,8 +19,8 @@
     font-size: $font-size--micro;
     color: $font-color;
     border-radius: $border-radius--small;
-    background: $grey-235;
-    box-shadow: 0 0 1px rgb(102, 102, 102);
+    background: transparent;
+    box-shadow: none;
     line-height: 1;
   }
 }

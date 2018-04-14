@@ -4,8 +4,7 @@ function setTooltip(element1, element2) {
   "use strict";
 
   var tooltip      = $('<p class="tooltip"></p>'),
-      tooltipSmall = $('<p class="tooltip tooltip--small"></p>'),
-      duration     = 200;
+      tooltipSmall = $('<p class="tooltip tooltip--small"></p>');
 
   function setMousemove(element) {
     $(element).mousemove(function(e) {
@@ -20,9 +19,10 @@ function setTooltip(element1, element2) {
     });
   }
 
-  function setHoverHandler(element, tooltipBody, delay) {
+  function setHoverHandler(element, tooltipBody, optns) {
 
-    delay == delay || 0;
+    var delay    = optns.delay    || 0;
+    var duration = optns.duration || 0;
     
     $(element).hover(
       function() {
@@ -46,7 +46,7 @@ function setTooltip(element1, element2) {
     setMousemove(element);
   }
 
-  setHoverHandler(element1, tooltip);
-  setHoverHandler(element2, tooltipSmall, 300);
+  setHoverHandler(element1, tooltip,      { duration: 200 });
+  setHoverHandler(element2, tooltipSmall, { delay:    300 });
 }
 
