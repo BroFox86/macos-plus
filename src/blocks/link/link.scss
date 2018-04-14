@@ -41,13 +41,13 @@
     &:visited {
       padding: 2px;
       color: $visited-link-color;
-      border-color: fade(lighten($visited-link-color, 40), 99%);
+      border-color: lighten($visited-link-color, 40);
     }
   }
 
   &--note {
     padding-bottom: 1px;
     color: inherit;
-    border-bottom: 1px solid fade(#fff, 60%);
+    border-bottom: 1px solid fade-out(#fff, 0.5);
   }
 }
