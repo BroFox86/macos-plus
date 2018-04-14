@@ -35,7 +35,7 @@
 
     &:hover {
       padding-bottom: 2px;
-      border-color: $link-border-color;
+      border-color: lighten($accent-color, 30);
     }
 
     &:visited {
