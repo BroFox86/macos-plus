@@ -32,7 +32,7 @@ var // Common
   svgstore       = require("gulp-svgstore"),
   w3cjs          = require("gulp-w3cjs"),
   // Styles
-  sass         = require('gulp-sass'),
+  sass         = require("gulp-sass"),
   postcss      = require("gulp-postcss"),
   autoprefixer = require("autoprefixer"),
   cssnano      = require("cssnano"),
