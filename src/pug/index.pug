@@ -200,7 +200,9 @@ block content
         +li
           +code('find . -mount | cpio -pvdm <wbr>/Applications<wbr>/Install\ macOS\ High\ Sierra.app<wbr>/Contents<wbr>/SharedSupport')
           +p
-            | Последняя команда начнет сборку образа из загруженных данных. Дождитесь ее окончания. На строку “Failed to set file flags” не обращайте внимания.
+            | Последняя команда начнет сборку образа из загруженных данных. Дождитесь ее окончания. На строку 
+            i “Failed to set file flags” 
+            | не обращайте внимания.
           - src = 'images/index/build-an-image.png'
           - alt = 'Сборка образа macOS High Sierra из AppStore'
           +img
@@ -270,7 +272,9 @@ block content
       | Проверьте параметры установки, затем нажмите Continue и Install.
 
       +note(tip)
-        | Если при создании загрузочного USB с помощью UniBeast появится окно c сообщением “Volumes are Mounted”, выберите в строке меню Go &gt; Go to Folder, затем введите /Volumes и извлеките том OSX Install ESD.
+        | Если при создании загрузочного USB с помощью UniBeast появится окно c сообщением 
+        i “Volumes are Mounted” 
+        | , выберите в строке меню Go &gt; Go to Folder, затем введите /Volumes и извлеките том OSX Install ESD.
 
       - src = "images/index/install-unibeast-6.png"
       - alt = "Этап Installation в UniBeast"

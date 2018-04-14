@@ -1,3 +1,6 @@
+//- Headings
+//- ==========================================================================
+
 - var j = 0
 
 mixin h2
@@ -9,6 +12,18 @@ mixin h3
   h3.article__h3
     if block
     block
+
+//- Links
+//- ==========================================================================
+
+mixin link(href, text)
+  a.link.link--article(href= href )!= text
+
+mixin noteLink(href, text)
+  a.link.link--note(href= href )!= text
+
+//- Misc
+//- ==========================================================================
 
 mixin p
   p.article__par
@@ -30,15 +45,15 @@ mixin li
     if block
     block
 
-mixin link(href, text)
-  a.link.link--article(href= href )!= text
-
-mixin noteLink(href, text)
-  a.link.link--note(href= href )!= text
+mixin code(string)
+  code.article__code!= string
 
 mixin svg(className, id)
   svg(class= className width= "30")
     use(xlink:href="#" + id)
+
+//- Tooltips
+//- ==========================================================================
 
 - var abbr = null
 
@@ -49,8 +64,8 @@ mixin tooltip(title, text, hasAbbr)
     when abbr
       abbr.article__tooltip.js-tooltip(title!= title)= text
 
-mixin code(string)
-  code.article__code!= string
+//- Images
+//- ==========================================================================
 
 - var small = null
 
@@ -59,7 +74,7 @@ mixin img(width)
 
   case width
     default
-      a.article__img-wrapper(href= original)
+      a.article__img-link.js-lightbox(href= original)
         div
           img.article__img(
             src = src
@@ -76,7 +91,7 @@ mixin figure(width)
   case width
     default
       figure.article__figure
-        a.article__img-wrapper(href= original)
+        a.article__img-wrapper.js-lightbox(href= original)
           img.article__img.article__img--figure(
             src = src
             alt = alt)
