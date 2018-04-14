@@ -1,4 +1,4 @@
-animateFox("img.error__img");
+animateFox(".js-animate");
 
 function animateFox(element) {
   "use strict";

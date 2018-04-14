@@ -1,4 +1,4 @@
-setLightbox("a.article__img-wrapper");
+setLightbox(".js-lightbox");
 
 function setLightbox(element) {
   "use strict";

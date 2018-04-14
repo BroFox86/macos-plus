@@ -8,7 +8,7 @@
   @include x-padding-desktop();
 
   *::selection {
-    color: #fff;
+    color: white;
     background: $accent-color;
   }
 
@@ -144,7 +144,7 @@
     font-style: italic;
   }
 
-  &__img-wrapper {
+  &__img-link {
     display: block;
     width: 630px;
     margin: $margin*1.5 auto;
