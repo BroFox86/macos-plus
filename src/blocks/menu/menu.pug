@@ -6,7 +6,7 @@ mixin menu
       +svg("menu__open-icon", "menu")
     a.menu__open-target(id="target")
     div.menu__inner
-      ul.menu__list
+      ul.menu__list.js-fixed
         li
           a(href="#0").menu__close-btn
             +svg("menu__close-icon", "arrow-down")
