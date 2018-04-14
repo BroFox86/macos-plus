@@ -80,7 +80,7 @@ mixin img(width)
             src = src
             alt = alt)
     when small
-      div.article__img-wrapper
+      div.article__img-link
         img.article__img(
           src = src
           alt = alt)
@@ -91,7 +91,7 @@ mixin figure(width)
   case width
     default
       figure.article__figure
-        a.article__img-wrapper.js-lightbox(href= original)
+        a.article__img-link.js-lightbox(href= original)
           img.article__img.article__img--figure(
             src = src
             alt = alt)
