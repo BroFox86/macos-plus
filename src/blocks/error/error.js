@@ -1,4 +1,4 @@
-animateFox(".js-animate");
+animateFox(".js-animate-fox");
 
 function animateFox(element) {
   "use strict";
