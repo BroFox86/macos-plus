@@ -1,3 +1,3 @@
-var element = $(".js-sticky");
+var element = $(".js-sticky-position");
 
 Stickyfill.addOne(element);

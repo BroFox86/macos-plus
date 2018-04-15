@@ -1,4 +1,4 @@
-toggleFixedNav(".js-fixed", "min-width: 960px");
+toggleFixedNav(".js-fixed-menu-toggle", "min-width: 960px");
 
 function toggleFixedNav(element, media) {
   "use strict";

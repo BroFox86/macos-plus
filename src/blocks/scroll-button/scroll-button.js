@@ -1,4 +1,4 @@
-toggleScrollBtn("button.scroll-button", "max-width: 960px");
+toggleScrollBtn(".js-scroll-btn", "max-width: 960px");
 
 function toggleScrollBtn(element, media) {
   "use strict";
