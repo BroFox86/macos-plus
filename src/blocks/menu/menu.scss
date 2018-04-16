@@ -121,11 +121,11 @@
       transform: translateX(-50%);
       border: none;
       box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
+    }
 
-      .menu__list {
-        top: 61px;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
-      }
+    &.is-fixed .menu__list {
+      top: 61px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
     }
   }
 
