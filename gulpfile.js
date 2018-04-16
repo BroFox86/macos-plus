@@ -158,32 +158,9 @@ gulp.task("html:generate-svg", function() {
     .pipe(gulp.dest(paths.tmp.root));
 });
 
-gulp.task("html:generate", function buildHTML() {
+gulp.task("html:generate", function() {
   return gulp
     .src(paths.src.pug + "[^_]*")
-    .pipe(
-      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
-    )
-    .pipe(
-      pug({
-        basedir: __dirname + "/src",
-        plugins: [pugIncludeGlob()]
-      })
-    )
-    .pipe(
-      inject(gulp.src(paths.tmp.root + "_sprite.svg"), {
-        transform: fileContents
-      })
-    )
-    .pipe(replace("../images/", "images/"))
-    .pipe(htmlbeautify({ indent_size: 2 }))
-    .pipe(gulp.dest(paths.tmp.root));
-});
-
-gulp.task("html:generate:watch", function buildHTML() {
-  return watch(paths.src.pug + "[^_]*", {
-    ignoreInitial: true
-  })
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
@@ -585,7 +562,7 @@ gulp.task("copy:build", function(callback) {
    Watch
    ========================================================================== */
 
-gulp.task("watch:tasks", function() {
+gulp.task("watch", function() {
   watch(
     [
       paths.src.images + "images-to-sprite/*.svg",
@@ -598,7 +575,7 @@ gulp.task("watch:tasks", function() {
   );
 
   watch(
-    [paths.src.blocks + "*/*.pug", paths.src.pug + "_*"],
+    [paths.src.blocks + "*/*.pug", paths.src.pug + "*"],
     { readDelay: 200 },
     function() {
       gulp.start("html:prebuild");
@@ -639,10 +616,6 @@ gulp.task("watch:tasks", function() {
       gulp.start("copy:fonts:prebuild");
     }
   );
-});
-
-gulp.task("watch", function(callback) {
-  gulpSequence(["html:generate:watch", "watch:tasks"])(callback);
 });
 
 /* ==========================================================================
