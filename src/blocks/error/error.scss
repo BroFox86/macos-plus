@@ -30,8 +30,8 @@
 
     &.is-animated {
       animation:
-      fall  $fall-duration  ease-out $start-delay,
-      shake $shake-duration          $shake-delay forwards;
+      fall  $fall-duration ease-out,
+      shake $shake-duration $shake-delay forwards;
     }
   }
 

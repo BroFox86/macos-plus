@@ -71,7 +71,6 @@ $grey-240:   #f0f0f0;  // rgb(240, 240, 240)
 // Animations
 // ==========================================================================
 
-$start-delay:      .5s;
 $fall-duration:    .25s;
 $shake-duration:   .2s;
-$shake-delay:      $fall-duration + $start-delay;
+$shake-delay:      $fall-duration;
