@@ -39,7 +39,7 @@
 
   &__header {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
 
     @media (max-width: $tablet) {
@@ -103,7 +103,6 @@
     display: none;
 
     @media (max-width: $tablet) {
-      z-index: 1;
       display: block;
       margin-bottom: 40px;
     }
@@ -114,7 +113,7 @@
 
     @media (max-width: $tablet) {
       position: fixed;
-      z-index: 3;
+      z-index: 10;
       right: 6%;
       bottom: 4%;
       display: block;
