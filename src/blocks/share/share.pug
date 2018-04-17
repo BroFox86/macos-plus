@@ -4,21 +4,21 @@ mixin share
   aside.aside.share(class= attributes.state)
     h2.aside__headline Поделиться
     div.share__container
-      a.share__item.share__item--vk(
+      a.share__item.share__item--vk.js-tooltip-small(
         title="Вконтакте" 
         onclick="window.open('http://vk.com/share.php?url=" + encodedUrl + "','','Width=640,Height=480');")
         +svg("share__icon", "vk")
-      a.share__item.share__item--gplus(
+      a.share__item.share__item--gplus.js-tooltip-small(
         title="Google+" 
         onclick="window.open('https://plus.google.com/share?url=" + encodedUrl + "','','Width=640,Height=480');")
         +svg("share__icon", "google-plus")
-      a.share__item.share__item--twitter(
+      a.share__item.share__item--twitter.js-tooltip-small(
         title="Twitter" 
         onclick="window.open('https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + pageTitle + "&via=Daur_G','','Width=640,Height=300');")
         +svg("share__icon", "twitter")
-      a.share__item.share__item--fb(
-        title="Facebook" 
-        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl + "','','Width=640,Height=480');")
-        +svg("share__icon", "facebook")
+      button.share__item.share__item--copy-btn.js-copy-url.js-tooltip-small(title="Скопировать ссылку")
+        +svg("share__icon", "link")
+    div.share__paste-wrapper
+      input.share__paste.js-paste-url(readonly)
 
   

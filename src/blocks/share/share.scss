@@ -11,32 +11,32 @@
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: transform .1s ease-in;
     border-radius: 50%;
-
+    
     @media(min-width: $tablet) and (max-width: $desktop) {
       width: 45px;
       height: 45px;
     }
 
-    &:hover {
-      transform: scale(1.1);
-    }
-
     &--vk {
-      background: #507299;
+      @include x-button-states(#507299);
     }
 
     &--gplus {
-      background: #dc4e42;
+      @include x-button-states(#dc4e42);
     }
 
     &--twitter {
-      background: #55acee;
+      @include x-button-states(#55acee);
     }
 
-    &--fb {
-      background: #3b5998;
+    &--copy-btn {
+      @include x-button();
+      @include x-button-states($grey-143);
+
+      @media (max-width: $tablet) {
+        display: none;
+      }
     }
   }
 
@@ -51,5 +51,19 @@
       width: 20px;
       height: 20px;
     }
+  }
+
+  &__paste-wrapper {
+    display: none;
+    text-align: center;
+    padding-bottom: 17px;
+  }
+
+  &__paste {
+    width: 80%;
+    height: 40px;
+    border: none; 
+    color: $font-color--light;
+    text-align: center;
   }
 }
