@@ -35,11 +35,8 @@
     height: 40px;
     border-radius: 50%;
 
-    @include x-button($background-color: $accent-color);
-
-    &:active {
-      background-color: darken($accent-color, 5);
-    }
+    @include x-button();
+    @include x-button-states($accent-color);
   }
 
   &__close-icon {
@@ -48,11 +45,6 @@
     fill: white;
 
     @include x-center();
-
-    .lightbox__close:active & {
-      width: 16px;
-      height: 16px;
-    }
   }
 
   &__img {

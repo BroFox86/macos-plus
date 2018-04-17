@@ -27,6 +27,20 @@
   background-color: $background-color;
 }
 
+@mixin x-button-states($background-color) {
+  background: $background-color;
+  transition: background-color, transform, .2s;
+
+  &:hover {
+    background: darken($background-color, 10);
+  }
+
+  &:active {
+    background: $background-color;
+    transform: translateY(1px);
+  }
+}
+
 @mixin x-padding-desktop {
   padding-right: 8%;
   padding-left: 8%;
@@ -41,3 +55,5 @@
   padding-right: 5%;
   padding-left: 5%;
 }
+
+
