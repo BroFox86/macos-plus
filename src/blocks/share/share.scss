@@ -19,15 +19,25 @@
     }
 
     &--vk {
-      @include x-button-states(#507299);
+      @include x-button-states($vk);
     }
 
     &--gplus {
-      @include x-button-states(#dc4e42);
+      @include x-button-states($gplus);
     }
 
     &--twitter {
-      @include x-button-states(#55acee);
+      @include x-button-states($twitter);
+    }
+
+    &--fb {
+      display: none;
+      
+      @media (max-width: $tablet) {
+        display: block;
+        
+        @include x-button-states($facebook);
+      }
     }
 
     &--copy-btn {

@@ -16,6 +16,10 @@ mixin share
         title="Twitter" 
         onclick="window.open('https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + pageTitle + "&via=Daur_G','','Width=640,Height=300');")
         +svg("share__icon", "twitter")
+      a.share__item.share__item--fb(
+        title="Facebook" 
+        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl + "','','Width=640,Height=480');")
+        +svg("share__icon", "facebook")
       button.share__item.share__item--copy-btn.js-copy-url.js-tooltip-small(title="Скопировать ссылку")
         +svg("share__icon", "link")
     div.share__paste-wrapper
