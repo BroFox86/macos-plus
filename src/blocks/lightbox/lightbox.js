@@ -1,12 +1,13 @@
-setLightbox(".js-lightbox");
+setLightbox(".js-lightbox", 300);
 
-function setLightbox(element) {
+function setLightbox(element, duration) {
   "use strict";
 
   var $element  = $(element),
-      $lightbox = $("div.lightbox"),
-      duration  = 300,
+      $lightbox = $(".lightbox"),
       $body     = $("body");
+
+  var duration = duration || 0;
 
   $element.on("click", function(event) {
     event.preventDefault();

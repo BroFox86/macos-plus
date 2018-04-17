@@ -1,10 +1,16 @@
-setTooltip(".js-tooltip", ".js-tooltip-small");
+setTooltip("min-width: 960px", {
+  element:   ".js-tooltip",
+  duration:  200
+},{
+  element:   ".js-tooltip-small",
+  delay:     700
+});
 
-function setTooltip(element1, element2) {
+function setTooltip(media, tooltipOptns, secondTooltipOptns) {
   "use strict";
 
-  var tooltip      = $('<p class="tooltip"></p>'),
-      tooltipSmall = $('<p class="tooltip tooltip--small"></p>');
+  var tooltipBody      = $('<p class="tooltip"></p>'),
+      smallTooltipBody = $('<p class="tooltip tooltip--small"></p>');
 
   function setMousemove(element) {
     $(element).mousemove(function(e) {
@@ -19,10 +25,11 @@ function setTooltip(element1, element2) {
     });
   }
 
-  function setHoverHandler(element, tooltipBody, optns) {
+  function setHoverHandler(optns, tooltipBody) {
 
-    var delay    = optns.delay    || 0;
-    var duration = optns.duration || 0;
+    var delay    = optns.delay    || 0,
+        duration = optns.duration || 0,
+        element  = optns.element;
     
     $(element).hover(
       function() {
@@ -46,7 +53,17 @@ function setTooltip(element1, element2) {
     setMousemove(element);
   }
 
-  setHoverHandler(element1, tooltip,      { duration: 200 });
-  setHoverHandler(element2, tooltipSmall, { delay:    300 });
-}
+  // This is to avoid the jsdom's error
+  window.matchMedia = window.matchMedia || function() {
+    return {
+        matches : false,
+        addListener : function() {},
+        removeListener: function() {}
+    };
+  };
 
+  if (window.matchMedia("(" + media + ")").matches) {
+    setHoverHandler(tooltipOptns, tooltipBody);
+    setHoverHandler(secondTooltipOptns, smallTooltipBody);
+  }
+}

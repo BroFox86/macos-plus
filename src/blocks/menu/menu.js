@@ -2,7 +2,7 @@ toggleFixedNav(".js-fixed-menu-toggle", "min-width: 960px");
 
 function toggleFixedNav(element, media) {
   "use strict";
-
+  
   var $nav    = $(element),
       $header = $(".header"),
       fixed   = "is-fixed",
