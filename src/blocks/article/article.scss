@@ -7,11 +7,6 @@
 
   @include x-padding-desktop();
 
-  *::selection {
-    color: white;
-    background: $accent-color;
-  }
-
   @media (max-width: $tablet) {
     @include x-padding-tablet();
   }

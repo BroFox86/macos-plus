@@ -24,7 +24,6 @@ $border-radius--small:   4px;
 $border-radius:          12px;
 $border-radius--large:   15px;
 
-$font-size--micro:     12px;
 $font-size--tiny:      14px;
 $font-size--small:     15px;
 $font-size:            16px;
@@ -49,6 +48,8 @@ $font-color:            #333;
 
 $accent-color:         #4367d4;
 $visited-link-color:   darken(#8a39b6, 5);
+
+$selection: #9575cd;
 
 $inf:       lighten(#7F5F9F, 1);
 $tip:       #26a69a;
