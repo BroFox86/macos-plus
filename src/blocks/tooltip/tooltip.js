@@ -1,4 +1,4 @@
-setTooltip("min-width: 960px", {
+setTooltip({
   element:   ".js-tooltip",
   duration:  200
 },{
@@ -6,7 +6,7 @@ setTooltip("min-width: 960px", {
   delay:     700
 });
 
-function setTooltip(media, tooltipOptns, secondTooltipOptns) {
+function setTooltip(tooltipOptns, secondTooltipOptns) {
   "use strict";
 
   var tooltipBody      = $('<p class="tooltip"></p>'),
@@ -62,8 +62,9 @@ function setTooltip(media, tooltipOptns, secondTooltipOptns) {
     };
   };
 
-  if (window.matchMedia("(" + media + ")").matches) {
-    setHoverHandler(tooltipOptns, tooltipBody);
+  if (window.matchMedia("(" + "min-width: 960px"  + ")").matches) {
     setHoverHandler(secondTooltipOptns, smallTooltipBody);
   }
+
+  setHoverHandler(tooltipOptns, tooltipBody);
 }
