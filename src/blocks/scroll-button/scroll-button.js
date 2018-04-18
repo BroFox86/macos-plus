@@ -18,6 +18,6 @@ function toggleScrollBtn(element, media) {
   });
 
   $element.on("click", function() {
-    $("body").stop().animate( { scrollTop: 0 }, 2000);
+    $("html").stop().animate( { scrollTop: 0 }, 2000);
   });
 }
