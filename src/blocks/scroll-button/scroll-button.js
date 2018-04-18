@@ -17,10 +17,7 @@ function toggleScrollBtn(element, media) {
     }
   });
 
-  $element.click(function() {
-    $("html, body").animate(
-      { scrollTop: 0 }, 2000
-    );
-    return false;
+  $element.on("click", function() {
+    $("body").stop().animate( { scrollTop: 0 }, 2000);
   });
 }
