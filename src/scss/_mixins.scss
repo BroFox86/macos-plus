@@ -29,7 +29,8 @@
 
 @mixin x-button-states($background-color) {
   background: $background-color;
-  transition: background-color, transform, .2s;
+  transition-timing-function: .2s;
+  transition-property: background-color, transform;
 
   &:hover {
     background: darken($background-color, 10);

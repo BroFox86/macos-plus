@@ -12,7 +12,8 @@
 
   &--anchor {
     padding-right: 10px;
-    transition: opacity, color, .3s;
+    transition-timing-function: .15s;
+    transition-property: opacity, color;
     opacity: 0;
     color: lighten($accent-color, 10);
     font-size: 1.1em;
@@ -29,7 +30,8 @@
 
   &--article {
     padding-bottom: 7px;
-    transition: border-bottom, padding-bottom .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    transition-property: border-bottom, padding-bottom;
     color: $accent-color;
     border-bottom: 1px solid rgba(0, 0, 0, 0);
 
