@@ -99,15 +99,6 @@
     }
   }
 
-  &__mobile-nav {
-    display: none;
-
-    @media (max-width: $tablet) {
-      display: block;
-      margin-bottom: 40px;
-    }
-  }
-
   &__scroll-button {
     display: none;
 
