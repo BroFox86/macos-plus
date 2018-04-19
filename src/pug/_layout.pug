@@ -71,6 +71,8 @@ block page
         article.page__article.article
           block articleHeader
             +articleHeader
+          
+          block content
 
           block pageNav
             case hasPageNav
@@ -79,8 +81,6 @@ block page
                 +pageNav
               when false
                 //- This comment mean empty block
-
-          block content
           +vote
 
       block sidebar

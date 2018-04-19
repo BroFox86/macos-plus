@@ -4,6 +4,8 @@
   hyphens: auto;
   border-radius: $border-radius;
   background-color: white;
+  display: flex;
+  flex-direction: column;
 
   @include x-padding-desktop();
 
@@ -18,8 +20,22 @@
   &__header {
     margin-bottom: 50px;
 
+    @media (max-width: $tablet) {
+      order: -2;
+    }
+
     @media (max-width: $mobile) {
       margin-bottom: 35px;
+    }
+  }
+
+  &__page-nav {
+    display: none;
+
+    @media (max-width: $tablet) {
+      display: block;
+      margin-bottom: 10px;
+      order: -1;
     }
   }
 
