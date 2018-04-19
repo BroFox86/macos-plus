@@ -23,3 +23,21 @@ function copy(options) {
     }, duration);
   });
 }
+
+share(".js-share");
+
+function share(element, width, height) {
+  "use strict";
+
+  $(element).on("click", function(e) {
+    e.preventDefault();
+
+    var pageUrl  = window.location.href.replace(/\#\d$/i, ""),
+        width  = width  || "width=500",
+        height = height || "height=600";
+
+    var url = $(this).attr("href").replace(/[^=]*$/, pageUrl);
+
+    window.open(url, "", width + "," + height)
+  })
+}
