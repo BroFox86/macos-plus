@@ -5,22 +5,22 @@ mixin share
     h2.aside__headline Поделиться
     div.share__container
       a.share__btn.share__btn--vk.js-share.js-tooltip-small( 
-        href="https://vk.com/share.php?url=https://brofox86.github.io/macos-plus/"
+        href="https://vk.com/share.php?url=" + domainName
         title="Вконтакте")
         +svg("share__icon", "vk")
 
       a.share__btn.share__btn--gplus.js-share.js-tooltip-small(
-        href="https://plus.google.com/share?url="
+        href="https://plus.google.com/share?url=" + domainName
         title="Google Plus")
         +svg("share__icon", "google-plus")
 
       a.share__btn.share__btn--twitter.js-share.js-tooltip-small(
-        href="https://twitter.com/intent/tweet?url="
+        href="https://twitter.com/intent/tweet?url=" + domainName
         title="Twitter")
         +svg("share__icon", "twitter")
 
       a.share__btn.share__btn--fb.js-share.js-tooltip-small(
-        href="https://www.facebook.com/sharer/sharer.php?u="
+        href="https://www.facebook.com/sharer/sharer.php?u=" + domainName
         title="Facebook")
         +svg("share__icon", "facebook")
 
