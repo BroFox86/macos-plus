@@ -1,0 +1,16 @@
+mixin pageHeader
+  header.page__header.page-header
+    a.page-header__logo(href= link.index)
+      picture
+        - src   = "images/page-header__logo--mobile.png"
+        - size  = 126
+        - media = "(max-width: 960px)"
+        +imgSourceTag
+
+        - imgClass = "page-header__img"
+        - src      = "images/page-header__logo.png"
+        - size     = 240
+        +respImg
+
+    if block
+    block
