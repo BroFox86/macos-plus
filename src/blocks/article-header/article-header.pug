@@ -3,7 +3,7 @@
 
 mixin articleHeader
 
-  mixin timeMixin
+  mixin time
     time(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
 
   header.article__header.article-header
@@ -14,10 +14,10 @@ mixin articleHeader
       case isDateModified
         default
           li.article-header__item
-            +timeMixin
+            +time
         when true
           li.article-header__item
-            +timeMixin
+            +time
           li.article-header__item
             time.js-modified-date(
               data-time= dateModified[2] + dateModified[1] + dateModified[0] 

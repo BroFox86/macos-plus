@@ -7,8 +7,8 @@ prepend page
         isDateModified = true
         datePublished  = ["02", "09", "2017"]
         dateModified   = ["09", "01", "2018"]
-        pageLink       = kextsLink
-        encodedUrl     = kextsLinkForShare
+        pageLink       = link.kexts
+        encodedUrl     = link.kextsForShare
         likeBtnId      = "Установка и удаление кекстов"
 
     var metaImage = {
@@ -28,8 +28,8 @@ prepend page
       title: "Установка и удаление&#32;<br>кекстов в macOS"
     };
 
-block menu
-  +site-nav(kexts = selected, pageA0 = selected)
+block nav
+  +siteNav(kexts = selected, pageA0 = selected)
 
 block articleHeader
   +articleHeader(theme = themeAccent)
@@ -121,7 +121,7 @@ block content
 
       +note(inf)
         | Системные разделы по умолчанию скрыты от пользователя. Инструкция по монтированию скрытых разделов приведена на отдельной 
-        a.link.link--note(href= efiLink) странице
+        a.link.link--note(href= link.efi) странице
         | .
 
   +h2

@@ -5,8 +5,8 @@ prepend page
     var pageTitle       = "Монтирование EFI в macOS"
         pageDesc        = "Подробная инструкция по подключению раздела EFI в macOS через утилиту EFI Mounter"
         datePublished   = ["02", "09", "2017"]
-        pageLink        = efiLink
-        encodedUrl      = efiLinkForShare
+        pageLink        = link.efi
+        encodedUrl      = link.efiForShare
         likeBtnId       = "Монтирование EFI"
 
     var metaImage = {
@@ -25,8 +25,8 @@ prepend page
       title: "Монтирование EFI в&nbsp;macOS"
     };
   
-block menu
-  +site-nav(efi = selected, pageA0 = selected)
+block nav
+  +siteNav(efi = selected, pageA0 = selected)
 
 block content
   +h2

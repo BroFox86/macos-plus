@@ -7,8 +7,8 @@ prepend page
         isDateModified = true
         datePublished  = ["02", "09", "2017"]
         dateModified   = ["09", "01", "2018"]
-        pageLink       = soundLink
-        encodedUrl     = soundLinkForShare
+        pageLink       = link.sound
+        encodedUrl     = link.soundForShare
         likeBtnId      = "Завод звука"
 
     var metaImage = {
@@ -28,8 +28,8 @@ prepend page
       title: pageTitle
     };
 
-block menu
-  +site-nav(sound = selected)
+block nav
+  +siteNav(sound = selected)
 
 block content
   +h2
@@ -69,7 +69,7 @@ block content
 
   +p 
     | Устанавливать Codec Commander надо в папку системы. Рекомендую 
-    +link(kextsLink, 'автоматическую')
+    +link(link.kexts, 'автоматическую')
     |  установку с помощью Kext Utility.
 
   +h2
@@ -114,7 +114,7 @@ block content
 
   +p
     | Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему «ванильный» — оригинальный, не затронутый вмешательствами — кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover — config.plist, которые мог 
-    +link(indexLink + "#5", 'произвести')
+    +link(link.index + "#5", 'произвести')
     | , например, MultiBeast.
 
   +h3
@@ -122,7 +122,7 @@ block content
   
   +p
     | На загрузочной флешке, 
-    +link(indexLink + "#2", 'созданной')
+    +link(link.index + "#2", 'созданной')
     |  UniBeast, помимо значка «Установка macOS High Sierra» есть множество скрытых системных файлов. Для того чтобы добраться до стандартных кекстов системы, необходимо сделать их видимыми.
 
   +note(inf)
@@ -156,7 +156,7 @@ block content
       | Найдите у удалите AppleHDA.kext.
     +li
       | Установите оригинальный AppleHDA с помощью 
-      +link(kextsLink, 'Kext Utility')
+      +link(link.kexts, 'Kext Utility')
       | .
 
   +h3
@@ -173,7 +173,7 @@ block content
       | .
     +li
       | Монтируйте раздел EFI с помощью 
-      +link(efiLink, 'EFI Mounter')
+      +link(link.efi, 'EFI Mounter')
       | .
     +li
       | Откройте файл конфигурации Clover —  config.plist через 

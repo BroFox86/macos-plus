@@ -7,8 +7,8 @@ prepend page
         isDateModified = true
         datePublished  = ["23", "05", "2017"]
         dateModified   = ["09", "01", "2018"]
-        pageLink       = servicesLink
-        encodedUrl     = servicesLinkForShare
+        pageLink       = link.services
+        encodedUrl     = link.servicesForShare
         likeBtnId      = "Запуск сервисов Apple"
 
     var metaImage = {
@@ -27,8 +27,8 @@ prepend page
       title: "Настройка iCloud и App&nbsp;Store&#32;<br>на хакинтоше"
     };
     
-block menu
-  +site-nav(services = selected)
+block nav
+  +siteNav(services = selected)
 
 block content	
   +h2
@@ -85,7 +85,7 @@ block content
 
       +note(inf)
         | Подходящий вариант и поля уже должны быть введены автоматически во время 
-        +noteLink(indexLink + "#6", 'пост-установки')
+        +noteLink(link.index + "#6", 'пост-установки')
         |  с MultiBeast. Поэтому, если страницы конфигуратора окажутся полупустыми, убедитесь, что config.plist открыт правильно.
 
     +li

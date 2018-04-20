@@ -7,8 +7,8 @@ prepend page
         isDateModified = true
         datePublished  = ["03", "05", "2017"]
         dateModified   = ["02", "04", "2018"]
-        pageLink       = indexLink
-        encodedUrl     = indexLinkForShare
+        pageLink       = link.index
+        encodedUrl     = link.indexForShare
         likeBtnId      = "Установка macOS на ПК"
 
     var metaImage = {
@@ -31,8 +31,8 @@ prepend page
       title: "Установка macOS High Sierra&#32;<br>на ПК на базе Intel"
     };
 
-block menu
-  +site-nav(index = selected)
+block nav
+  +siteNav(index = selected)
 
 block articleHeader
   +articleHeader(theme = themeAlt) 
@@ -80,7 +80,7 @@ block content
 
   +p
     | Для того чтобы установить официальный образ macOS High Sierra на ПК, потребуется для начала загрузить его через цифровой магазин App Store. Это можно сделать с помощью виртуальных машин, программ, которые эмулируют работу одной операционной системы внутри другой. На этом сайте будет приведена установка и настройка бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. Установка и настройка виртуальной машины VMWare подробно изложена на отдельной 
-    +link(vmLink, "странице")
+    +link(link.vmware, "странице")
     | .
 
   +note(tip)
