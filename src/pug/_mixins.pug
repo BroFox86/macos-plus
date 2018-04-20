@@ -59,19 +59,15 @@ mixin svg(className, id)
 //- Tooltips
 //- ==========================================================================
 
-- var abbr = null
-
 mixin tooltip(title, text, hasAbbr)
   case hasAbbr
     default
       span.article__tooltip.js-tooltip(title!= title)= text
-    when abbr
+    when "abbr"
       abbr.article__tooltip.js-tooltip(title!= title)= text
 
 //- Images
 //- ==========================================================================
-
-- var small = null
 
 mixin img(width)
   - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
@@ -83,7 +79,7 @@ mixin img(width)
           img.article__img(
             src = src
             alt = alt)
-    when small
+    when "small"
       div.article__img-link
         img.article__img(
           src = src
@@ -102,7 +98,7 @@ mixin figure(width)
         figcaption.article__figcaption
           if block
           block
-    when small
+    when "small"
       figure.article__figure
         img.article__img.article__img--figure(
           src = src
