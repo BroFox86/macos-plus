@@ -1,7 +1,5 @@
 .article {
   box-sizing: border-box;
-  word-wrap: break-word;
-  hyphens: auto;
   border-radius: $border-radius;
   background-color: white;
   display: flex;
@@ -21,7 +19,7 @@
     margin-bottom: 50px;
 
     @media (max-width: $tablet) {
-      order: -2;
+      order: 1;
     }
 
     @media (max-width: $mobile) {
@@ -35,7 +33,16 @@
     @media (max-width: $tablet) {
       display: block;
       margin-bottom: 10px;
-      order: -1;
+      order: 2;
+    }
+  }
+
+  &__content {
+    word-wrap: break-word;
+    hyphens: auto;
+
+    @media (max-width: $tablet) {
+      order: 3;
     }
   }
 
@@ -141,11 +148,11 @@
 
   &__note {
     position: relative;
-    margin: $margin auto $margin * 1.5;
+    margin: $margin auto;
   }
 
   &__figure {
-    margin: $margin*1.5 auto;
+    margin: $margin auto;
     text-align: center;
   }
 
@@ -156,13 +163,8 @@
 
   &__img-link {
     display: block;
-    width: 630px;
-    margin: $margin*1.5 auto;
+    margin: $margin auto;
     text-align: center;
-
-    @media (max-width: $desktop) {
-      width: auto;
-    }
 
     .article__figure & {
       margin: 0;
