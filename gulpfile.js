@@ -295,6 +295,7 @@ gulp.task("styles:prebuild", function(callback) {
 });
 
 gulp.task("styles:critical", function() {
+  del.sync(paths.tmp.css + "_critical.css");
   penthouse(
     {
       url: criticalOptns.url,
