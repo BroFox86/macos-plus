@@ -1,15 +1,15 @@
-toggleFixedNav(".js-fixed-menu-toggle", "min-width: 960px");
+toggleFixedNav(".js-fixed-menu", ".page-header", "min-width: 960px");
 
-function toggleFixedNav(element, media) {
+function toggleFixedNav(toggle, target, media) {
   "use strict";
   
-  var $nav    = $(element),
-      $header = $(".header"),
+  var $nav    = $(toggle),
+      $header = $(target),
       fixed   = "is-fixed",
       offset  = $nav.offset().top,
       margin  = $nav.outerHeight();
 
-  $(window).scroll(function() {
+  $(window).on("scroll resize", function() {
     
     var y = $(this).scrollTop();
 
