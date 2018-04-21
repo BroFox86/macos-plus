@@ -1,4 +1,9 @@
 .reference {
+
+  &.is-hidden {
+    display: none;
+  }
+
   &__container {
     position: relative;
     height: 170px;

@@ -375,7 +375,7 @@ gulp.task("images:responsive", function() {
               rename: { suffix: huge }
             }
           ],
-          "**/reference__img.*": [
+          "**/community.*": [
             { width: 240 },
             {
               width: 240 * 1.5,

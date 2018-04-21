@@ -1,10 +1,10 @@
 - var footerItem = "footer__item"
 
 mixin reference
-  aside.aside.reference(class= attributes.state)
+  aside.aside.reference.js-hide-target(class= attributes.state)
     h2.aside__headline Сообщество
     div.reference__container
-      - src      = "images/reference__img.png"
+      - src      = "images/community.png"
       - imgClass = "reference__img"
       - size     = 240
       +respImg
