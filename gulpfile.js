@@ -92,7 +92,7 @@ var paths = {
 
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-  forceInclude: [".article__img", ".note__icon", ".error__img"],
+  forceInclude: [".site-nav__inner", ".article__img", ".note__icon", ".error__img"],
   propertiesToRemove: ["backdrop-filter"]
 };
 
@@ -353,7 +353,7 @@ gulp.task("images:responsive", function() {
     .pipe(
       responsive(
         {
-          "**/page-header__logo.*": [ 
+          "**/site-logo.*": [ 
             { width: 240 },
             {
               width: 240 * 1.5,
@@ -364,7 +364,7 @@ gulp.task("images:responsive", function() {
               rename: { suffix: huge }
             }
           ],
-          "**/page-header__logo--mobile.*": [
+          "**/site-logo--mobile.*": [
             { width: 126 },
             {
               width: 126 * 1.5,
@@ -386,7 +386,7 @@ gulp.task("images:responsive", function() {
               rename: { suffix: huge }
             }
           ],
-          "**/error__img.*": [
+          "**/fox.*": [
             { width: 326 },
             {
               width: 326 * 1.5,
@@ -415,7 +415,7 @@ gulp.task("images:content:firstpass", function() {
     .pipe(
       responsive(
         {
-          "**/article-header__img.*": [
+          "**/article-logo.*": [
             { width: 192 }
           ],
           "**/*_small.*": [{}],
@@ -429,7 +429,7 @@ gulp.task("images:content:firstpass", function() {
 
 gulp.task("images:content", ["images:content:firstpass"], function() {
   return gulp
-    .src(["*/*", "!*/*{_small,article-header__img,meta}.*"], {
+    .src(["*/*", "!*/*{_small,article-logo,meta}.*"], {
       cwd: paths.src.images
     })
     .pipe(
