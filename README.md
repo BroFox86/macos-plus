@@ -26,7 +26,7 @@
 
 ### Дополнительно
 
-* Рейтинг Google Page Speed Inside (PSI): [84 балла](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus&tab=desktop)
+* Рейтинг Google Page Speed Inside (PSI): [82 балла](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus&tab=desktop)
 * Работоспособность сайта в случае отключения JavaScript, вплоть до работы мобильного меню
 * Критические стили (Critical CSS)
 * Структурированные данные JSON-LD на основе [schema.org](http://schema.org)
