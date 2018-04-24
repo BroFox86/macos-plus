@@ -1,7 +1,7 @@
 .article-header {
+  padding-top: 40px;
   text-align: center;
   hyphens: none;
-  padding-top: 40px;
 
   @media (max-width: $tablet) {
     padding-top: 30px;
@@ -21,19 +21,20 @@
     position: relative;
     width: 230px;
     height: 230px;
-    margin: auto;
+    margin: 0 auto 15px;
     border-radius: 50%;
     background: $grey-240;
 
     @media (max-width: $mobile) {
       width: 140px;
       height: 140px;
+      margin-bottom: 10px;
     }
 
     &--theme-alt {
-      background: white;
       width: 240px;
       height: 240px;
+      background: white;
     }
 
     &--theme-accent {
@@ -48,14 +49,15 @@
   }
 
   &__headline {
-    margin: 20px 0 15px;
+    font-family: $font-family--heading;
     font-size: $h1-size;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.5;
+    margin: 0 0 15px;
 
     @media (max-width: $mobile) {
-      margin: 12px 0 10px;
       font-size: $h1-size--mobile;
+      margin-bottom: 12px;
     }
 
     br {
@@ -66,14 +68,14 @@
   }
 
   &__list {
+    font-size: $font-size--tiny;
     margin: 0;
     padding: 0;
-    font-size: $font-size--tiny;
   }
 
   &__item {
     display: inline-block;
-    color: $grey-128;
+    color: $font-color--light;
 
     &::after {
       margin: 0 5px;

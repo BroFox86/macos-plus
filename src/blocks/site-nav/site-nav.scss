@@ -1,11 +1,16 @@
 .site-nav {
+  font-family: $font-family--system;
+  font-size: $font-size--small;
   text-transform: uppercase;
   color: $font-color--light;
-  font-size: $font-size--small;
+
+  font-weight: 500;
 
   @media (max-width: $tablet) {
-    text-transform: none;
+    font-family: $font-family;
     font-size: $font-size--large;
+    font-weight: 400;
+    text-transform: none;
   }
 
   @media (max-width: $mobile) {
@@ -43,15 +48,15 @@
       position: fixed;
       top: 0;
       overflow-y: scroll;
+      box-sizing: border-box;
       width: 400px;
       height: 100%;
+      padding-top: 60px;
       transition: transform .35s ease-out;
       transform: translateX(-130%);
       text-align: left;
       background: white;
       box-shadow: 0 0 75px 0 rgba(0, 0, 0, .3);
-      padding-top: 60px;
-      box-sizing: border-box;
     }
 
     @media (max-width: $mobile) {
@@ -78,6 +83,7 @@
     border: 1px solid $grey-235;
     border-radius: $border-radius;
     background: rgba(255, 255, 255, .9);
+
     backdrop-filter: blur(10px);
 
     @media (max-width: $tablet) {
@@ -144,7 +150,7 @@
     width: 23px;
     height: 23px;
     transform: rotate(90deg);
-    fill: $grey-120;
+    fill: $grey-128;
   }
 
   &__item {
@@ -159,18 +165,18 @@
   }
 
   &__link {
+    line-height: 1;
     display: block;
     padding: 23px;
     transition: color .3s ease;
     white-space: nowrap;
     text-decoration: none;
     color: inherit;
-    line-height: 1;
 
     @media (max-width: $tablet) {
+      line-height: inherit;
       padding: 9px 18px;
       white-space: normal;
-      line-height: inherit;
     }
 
     .site-nav__item:hover > &,
@@ -211,11 +217,15 @@
     vertical-align: middle;
     fill: $font-color--light;
 
+    @media (max-width: $tablet) {
+      fill: $font-color;
+    }
+
     .site-nav__item--selected & {
       fill: $accent-color;
 
       @media (max-width: $tablet) {
-        fill: $font-color--light;
+        fill: $font-color;
       }
     }
 
@@ -225,7 +235,7 @@
 
     .site-nav__item--popup:hover & {
       @media (max-width: $tablet) {
-        fill: $font-color--light;
+        fill: $font-color;
       }
     }
   }

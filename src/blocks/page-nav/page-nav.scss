@@ -5,6 +5,12 @@
     box-shadow: none;
   }
 
+  &__headline {
+    @media (max-width: $mobile) {
+      font-size: $font-size--x-large;
+    }
+  }
+
   &__list {
     margin: 0;
     padding: 0;
@@ -38,14 +44,17 @@
   }
 
   &__link {
+    font-family: $font-family--system;
+    font-weight: 500;
+    line-height: 52px;
     position: relative;
     z-index: 1;
     display: block;
-    padding-left: 22px;
+    display: flex;
+    justify-content: space-between;
     transition: color .5s;
     text-decoration: none;
     color: $font-color--x-light;
-    line-height: 52px;
 
     .page-nav__item:hover & {
       color: white;
@@ -54,22 +63,17 @@
 
   &__text {
     display: table-cell;
-    width: 87%;
+    padding-left: 22px;
     word-break: break-all;
-
-    @media (max-width: $tablet) {
-      width: 95%;
-    }
   }
 
   &__number {
     display: table-cell;
+    width: 37px;
     height: 100%;
-    padding: 0 15px;
     text-align: center;
     vertical-align: middle;
     color: white;
     background: $accent-color;
-    font-size: $font-size;
   }
 }

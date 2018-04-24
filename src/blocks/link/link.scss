@@ -11,13 +11,12 @@
   }
 
   &--anchor {
+    font-family: $font-family;
     padding-right: 10px;
     transition-duration: .15s;
     transition-property: opacity, color;
     opacity: 0;
     color: lighten($accent-color, 10);
-    font-size: 1.1em;
-    font-weight: 600;
 
     &:hover {
       color: $accent-color;
@@ -29,27 +28,18 @@
   }
 
   &--article {
-    padding-bottom: 7px;
-    transition: all .15s ease-in-out;
-    transition-property: border-bottom, padding-bottom;
+    font-weight: 700;
     color: $accent-color;
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
-
-    &:hover {
-      padding-bottom: 2px;
-      border-color: lighten($accent-color, 30);
-    }
 
     &:visited {
       padding: 2px;
       color: $visited-link-color;
-      border-color: lighten($visited-link-color, 40);
     }
   }
 
   &--note {
     padding-bottom: 1px;
     color: inherit;
-    border-bottom: 1px solid fade-out(white, 0.5);
+    border-bottom: 1px solid fade-out(white, .5);
   }
 }

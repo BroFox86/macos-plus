@@ -4,12 +4,17 @@
   background: white;
 
   &__headline {
+    font-family: $font-family--heading;
+    font-size: $font-size--x-large;
+    font-weight: 700;
+    line-height: 1;
     margin: 0;
-    padding: 18px;
+    padding: 19px 0 18px;
     text-align: center;
     border-bottom: 2px solid $grey-235;
-    font-size: $font-size--large;
-    font-weight: 600;
-    line-height: 1;
+
+    @media (max-width: $mobile) {
+      font-size: $font-size--large;
+    }
   }
 }

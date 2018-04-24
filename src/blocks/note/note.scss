@@ -1,12 +1,11 @@
 .note {
+  line-height: 1.5;
   width: 75%;
   padding: 14px;
   padding-left: 60px;
   color: white;
   border-radius: $border-radius--large;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
-  font-size: $font-size--small;
-  line-height: 1.45;
 
   @media (max-width: $mobile) {
     width: auto;
@@ -15,16 +14,16 @@
 
   &__icon {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 25px;
-    height: 25px;
+    top: 25px;
+    left: 18px;
+    width: 27px;
+    height: 27px;
     fill: white;
   }
 
   &__text {
-    margin: 0;
     font-weight: inherit;
+    margin: 0;
   }
 
   &--inf {

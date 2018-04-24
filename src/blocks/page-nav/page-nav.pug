@@ -3,7 +3,7 @@ mixin pageNav
   - var i = 0
 
   mixin pageNavInner
-    h2.aside__headline= "Оглавление"
+    h2.aside__headline.page-nav__headline= "Оглавление"
     ul.page-nav__list
       each item in itemList
         li.page-nav__item

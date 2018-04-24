@@ -1,5 +1,5 @@
 .reference {
-
+  
   &.is-hidden {
     display: none;
   }
@@ -23,6 +23,9 @@
   }
 
   &__link {
+    font-size: $font-size--x-large;
+    font-weight: 600;
+    line-height: 150px;
     position: absolute;
     z-index: 2;
     top: 0;
@@ -37,9 +40,6 @@
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: rgba(0, 0, 0, .6);
-    font-size: $font-size--x-large;
-    font-weight: 600;
-    line-height: 150px;
 
     .reference__container:hover & {
       opacity: 1;

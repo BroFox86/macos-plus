@@ -36,29 +36,29 @@
   }
 
   &__text-wrapper {
+    line-height: 1;
     margin: 10px 15px;
     text-align: center;
-    line-height: 1;
   }
 
   &__type {
+    font-size: 7rem;
     margin-bottom: 10px;
     color: lighten($accent-color, 0);
-    font-size: 7rem;
 
     @media (max-width: $mobile) {
-      margin-bottom: 15px;
       font-size: 4rem;
+      margin-bottom: 15px;
     }
   }
 
   &__desc {
+    font-size: $font-size--large;
+    font-weight: 600;
     position: relative;
     left: 4px;
     text-transform: uppercase;
-    color: $grey-82;
-    font-size: $font-size--large;
-    font-weight: 600;
+    color: $font-color--light;
 
     @media (max-width: $mobile) {
       font-size: $font-size;

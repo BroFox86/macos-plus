@@ -11,7 +11,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    
+
     @media(min-width: $tablet) and (max-width: $desktop) {
       width: 45px;
       height: 45px;
@@ -31,17 +31,17 @@
 
     &--fb {
       display: none;
-      
+
       @media (max-width: $tablet) {
         display: block;
-        
+
         @include x-button-states($facebook);
       }
     }
 
     &--copy-url {
       @include x-normalize-button();
-      @include x-button-states($grey-143);
+      @include x-button-states($grey-152);
 
       @media (max-width: $tablet) {
         display: none;
@@ -64,15 +64,14 @@
 
   &__paste-wrapper {
     display: none;
-    text-align: center;
     padding-bottom: 17px;
+    text-align: center;
   }
 
   &__paste {
     width: 80%;
     height: 40px;
-    border: none; 
-    color: $font-color--light;
     text-align: center;
+    border: none;
   }
 }

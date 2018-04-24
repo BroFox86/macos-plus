@@ -354,13 +354,13 @@ gulp.task("images:responsive", function() {
       responsive(
         {
           "**/site-logo.*": [ 
-            { width: 240 },
+            { width: 250 },
             {
-              width: 240 * 1.5,
+              width: 250 * 1.5,
               rename: { suffix: large }
             },
             {
-              width: 240 * 2,
+              width: 250 * 2,
               rename: { suffix: huge }
             }
           ],

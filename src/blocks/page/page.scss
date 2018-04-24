@@ -4,14 +4,14 @@
 //
 
 .page {
-  margin: 0;
-  word-wrap: break-word;
-  color: $font-color;
-  background: $grey-235;
   font-family: $font-family;
   font-size: $font-size;
   font-weight: 400;
   line-height: 1.6;
+  margin: 0;
+  word-wrap: break-word;
+  color: $font-color;
+  background: $grey-235;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@
   &__outdated {
     margin: 3px 0;
     padding: 3px 0;
-    background: $grey-143;
+    background: $grey-152;
   }
 
   &__header {
@@ -49,11 +49,11 @@
   }
 
   &__container {
-    padding-top: $margin + 23px;
     display: flex;
     justify-content: center;
     width: $layout;
     margin: auto;
+    padding-top: $margin + 23px;
 
     @media (max-width: $desktop) {
       width: 960px;
