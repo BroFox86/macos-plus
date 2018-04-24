@@ -6,7 +6,7 @@ function toggleScrollBtn(element, media) {
   var $element = $(element),
       visible  = "is-visible";
 
-  $(window).scroll(function() {
+  $(window).on("scroll resize", function() {
     if (window.matchMedia("(" + media + ")").matches) {
 
       if ($(window).scrollTop() > 800) {
