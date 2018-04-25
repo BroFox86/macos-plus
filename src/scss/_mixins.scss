@@ -30,15 +30,10 @@
 @mixin x-button-states($background-color) {
   background: $background-color;
   transition-duration: .2s;
-  transition-property: background-color, transform;
+  transition-property: background-color;
 
   &:hover {
     background: darken($background-color, 10);
-  }
-
-  &:active {
-    background: $background-color;
-    transform: translateY(2px);
   }
 }
 
