@@ -3,12 +3,9 @@
     order: 4;
   }
 
-  &::before {
-    display: block;
-    width: 100%;
-    height: 2px;
-    content: "";
-    background: $grey-235;
+  &__line {
+    border: none;
+    border-top: 2px solid $grey-235;
   }
 
   &__inner {

@@ -7,16 +7,6 @@
     padding-top: 30px;
   }
 
-  &::after {
-    position: relative;
-    display: block;
-    height: 2px;
-    margin-top: $margin;
-    content: "";
-    border-radius: $border-radius;
-    background: $grey-235;
-  }
-
   &__img-wrapper {
     position: relative;
     width: 230px;
@@ -69,7 +59,7 @@
 
   &__list {
     font-size: $font-size--tiny;
-    margin: 0;
+    margin: 0 0 $margin;
     padding: 0;
   }
 
@@ -85,5 +75,10 @@
     &:last-child::after {
       display: none;
     }
+  }
+
+  &__line {
+    border: none;
+    border-top: 2px solid $grey-235;
   }
 }
