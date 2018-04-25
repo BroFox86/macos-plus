@@ -1,7 +1,7 @@
 displayViewportSize();
 
 function displayViewportSize() {
-  "use strict;"
+  "use strict";
 
   var scrollbar = 15,
       viewportwidth, viewportheight;
