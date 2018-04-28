@@ -4,22 +4,18 @@
 mixin articleHeader
 
   mixin time
-    time(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
+    time.article-header__date(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
 
   header.article__header.article-header
     div.article-header__img-wrapper(class= attributes.theme)
       img.article-header__img(src= articleHeader.image alt="")
     h1.article-header__headline!= articleHeader.title
-    ul.article-header__list
-      case isDateModified
-        default
-          li.article-header__item
-            +time
-        when true
-          li.article-header__item
-            +time
-          li.article-header__item
-            time.js-modified-date(
-              data-time= dateModified[2] + dateModified[1] + dateModified[0] 
-              datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;
-    hr.article-header__line
+    case isDateModified
+      default
+        +time
+      when true
+        +time
+        time.article-header__date.js-modified-date(
+          data-time= dateModified[2] + dateModified[1] + dateModified[0] 
+          datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;
+    hr.line

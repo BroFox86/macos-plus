@@ -9,8 +9,8 @@
 
   &__img-wrapper {
     position: relative;
-    width: 230px;
-    height: 230px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto 15px;
     border-radius: 50%;
     background: $grey-240;
@@ -22,8 +22,8 @@
     }
 
     &--theme-alt {
-      width: 240px;
-      height: 240px;
+      width: 230px;
+      height: 230px;
       background: white;
     }
 
@@ -57,28 +57,23 @@
     }
   }
 
-  &__list {
-    font-size: $font-size--tiny;
-    margin: 0 0 $margin;
-    padding: 0;
-  }
-
-  &__item {
+  &__date {
     display: inline-block;
+    font-size: $font-size--tiny;
+    margin-bottom: 30px;
     color: $font-color--light;
+
+    @media (max-width: $tablet) {
+      margin-bottom: 25px;
+    }
 
     &::after {
       margin: 0 5px;
-      content: "\2022";
+      content: "•";
     }
 
-    &:last-child::after {
+    &:last-of-type::after {
       display: none;
     }
-  }
-
-  &__line {
-    border: none;
-    border-top: 2px solid $grey-235;
   }
 }

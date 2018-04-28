@@ -16,14 +16,10 @@
   }
 
   &__header {
-    margin-bottom: 50px;
+    margin-bottom: $margin;
 
     @media (max-width: $tablet) {
       order: 1;
-    }
-
-    @media (max-width: $mobile) {
-      margin-bottom: 35px;
     }
   }
 
@@ -62,7 +58,7 @@
     font-family: $font-family--heading;
     font-size: $h3-size;
     font-weight: 700;
-    margin: $margin 0;
+    margin: $margin/2 0;
 
     @media (max-width: $mobile) {
       font-size: $h3-size--mobile;
