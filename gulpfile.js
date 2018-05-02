@@ -295,7 +295,6 @@ gulp.task("styles:prebuild", function(callback) {
 });
 
 gulp.task("styles:critical", function() {
-  del.sync(paths.tmp.css + "_critical.css");
   penthouse(
     {
       url: criticalOptns.url,
@@ -469,7 +468,8 @@ gulp.task("images:unused", function() {
     .src([
       paths.tmp.root + "*.{html,xml}",
       paths.tmp.css + "*",
-      paths.tmp.images + "*/*[^_original, @*]"
+      paths.tmp.images + "**/*",
+      "!" + paths.tmp.images + "**/*{_original,@*}.*"
     ])
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
