@@ -118,10 +118,6 @@ gulp.task("clean:all", function(callback) {
    HTML
    ========================================================================== */
 
-function fileContents(filePath, file) {
-  return file.contents.toString("utf8");
-}
-
 gulp.task("html:generate-svg", function() {
   return gulp
     .src([
@@ -172,7 +168,9 @@ gulp.task("html:generate", function() {
     )
     .pipe(
       inject(gulp.src(paths.tmp.root + "_sprite.svg"), {
-        transform: fileContents
+        transform: function (filePath, file) {
+          return file.contents.toString('utf8')
+        }
       })
     )
     .pipe(replace("../images/", "images/"))
@@ -200,7 +198,9 @@ gulp.task("html:build", function() {
           .pipe(injectString.append("</style>")),
         {
           starttag: "<!-- inject:critical:{{ext}} -->",
-          transform: fileContents
+          transform: function (filePath, file) {
+            return file.contents.toString('utf8')
+          }
         }
       )
     )
@@ -213,7 +213,9 @@ gulp.task("html:build", function() {
           .pipe(injectString.append("</script>")),
         {
           starttag: "<!-- inject:fg-loadcss:{{ext}} -->",
-          transform: fileContents
+          transform: function (filePath, file) {
+            return file.contents.toString('utf8')
+          }
         }
       )
     )
@@ -353,13 +355,13 @@ gulp.task("images:responsive", function() {
       responsive(
         {
           "**/site-logo.*": [ 
-            { width: 250 },
+            { width: 240 },
             {
-              width: 250 * 1.5,
+              width: 240 * 1.5,
               rename: { suffix: large }
             },
             {
-              width: 250 * 2,
+              width: 240 * 2,
               rename: { suffix: huge }
             }
           ],
@@ -415,7 +417,7 @@ gulp.task("images:content:firstpass", function() {
       responsive(
         {
           "**/article-logo.*": [
-            { width: 192 }
+            { width: 160 }
           ],
           "**/*_small.*": [{}],
           "**/meta.*": [{}]
@@ -469,7 +471,8 @@ gulp.task("images:unused", function() {
       paths.tmp.root + "*.{html,xml}",
       paths.tmp.css + "*",
       paths.tmp.images + "**/*",
-      "!" + paths.tmp.images + "**/*{_original,@*}.*"
+      "!" + paths.tmp.images + "**/*{_original,@*}.*",
+      "!" + paths.tmp.images + "site-logo*.*"
     ])
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
