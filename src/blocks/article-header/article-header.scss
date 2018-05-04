@@ -1,5 +1,5 @@
 .article-header {
-  padding-top: 40px;
+  padding-top: 70px;
   text-align: center;
   hyphens: none;
 
@@ -11,7 +11,7 @@
     position: relative;
     width: 200px;
     height: 200px;
-    margin: 0 auto 15px;
+    margin: 0 auto 20px;
     border-radius: 50%;
     background: $grey-240;
 
@@ -60,7 +60,7 @@
   &__date {
     display: inline-block;
     font-size: $font-size--tiny;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     color: $font-color--light;
 
     @media (max-width: $tablet) {

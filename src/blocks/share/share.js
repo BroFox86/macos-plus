@@ -33,8 +33,8 @@ function share(element, width, height) {
     e.preventDefault();
 
     var pageUrl  = window.location.href.replace(/\#\d$/i, ""),
-        width  = width  || "width=500",
-        height = height || "height=600";
+        width    = width  || "width=500",
+        height   = height || "height=600";
 
     var url = $(this).attr("href").replace(/[^=]*$/, pageUrl);
 

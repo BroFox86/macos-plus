@@ -6,7 +6,7 @@
   border-radius: 50%;
   box-shadow: rgba(101, 119, 134, .75) 1px 1px 4px 0;
 
-  @include x-normalize-button($background-color: $accent-color);
+  @include x-button($background-color: $accent-color);
 
   @media (max-width: $mobile) {
     width: 55px;

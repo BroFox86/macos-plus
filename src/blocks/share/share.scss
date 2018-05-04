@@ -40,7 +40,7 @@
     }
 
     &--copy-url {
-      @include x-normalize-button();
+      @include x-button();
       @include x-button-states($grey-152);
 
       @media (max-width: $tablet) {
