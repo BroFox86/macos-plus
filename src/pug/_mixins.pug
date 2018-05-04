@@ -20,11 +20,12 @@ mixin h3
 //- Links
 //- ==========================================================================
 
-mixin link(href, text)
-  a.link.link--article(href= href )!= text
-
-mixin noteLink(href, text)
-  a.link.link--note(href= href )!= text
+mixin link(href, text, modifier)
+  case modifier
+    default
+      a.link.link--article(href= href )!= text
+    when "note"
+      a.link.link--note(href= href )!= text
 
 //- Misc
 //- ==========================================================================
