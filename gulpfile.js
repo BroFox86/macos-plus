@@ -634,8 +634,9 @@ gulp.task("connect:tmp", function() {
     reloadDebounce: 500
   });
   browserSync.watch(paths.tmp.root + "*.html").on("change", browserSync.reload);
-  browserSync.watch(paths.tmp.css + "*.css").on("change", browserSync.reload);
-  browserSync.watch(paths.tmp.js + "*.js").on("change", browserSync.reload);
+  browserSync.watch(paths.tmp.css + "*").on("change", browserSync.reload);
+  browserSync.watch(paths.tmp.js + "*").on("change", browserSync.reload);
+  browserSync.watch(paths.tmp.fonts + "*").on("change", browserSync.reload);
 });
 
 gulp.task("connect:dist", function() {
