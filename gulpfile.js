@@ -57,7 +57,7 @@ var // Common
 var paths = {
   src: {
     root:             "src/",
-    blocks:           "src/blocks/",
+    components:           "src/components/",
     pug:              "src/pug/",
     css:              "src/css/",
     scss:             "src/scss/",
@@ -122,7 +122,7 @@ gulp.task("html:generate-svg", function() {
   return gulp
     .src([
       paths.src.imagesToSprite + "*.svg",
-      paths.src.blocks + "*/images-to-sprite/*.svg"
+      paths.src.components + "*/images-to-sprite/*.svg"
     ])
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
@@ -259,7 +259,7 @@ gulp.task("html:validate", function() {
 
 gulp.task("styles:main", function() {
   return gulp
-    .src([paths.src.scss + "_*", paths.src.blocks + "*/*.scss"])
+    .src([paths.src.scss + "_*", paths.src.components + "*/*.scss"])
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
@@ -345,7 +345,7 @@ var respOptions = {
 
 gulp.task("images:responsive", function() {
   return gulp
-    .src(paths.src.blocks + "*/responsive-images/*")
+    .src(paths.src.components + "*/responsive-images/*")
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
@@ -501,7 +501,7 @@ gulp.task("js:common", function() {
 
 gulp.task("js:main", function() {
   return gulp
-    .src(paths.src.blocks + "*/*.js")
+    .src(paths.src.components + "*/*.js")
     .pipe(concat("scripts.js"))
     .pipe(gulp.dest(paths.tmp.js));
 });
@@ -570,7 +570,7 @@ gulp.task("watch", function() {
   watch(
     [
       paths.src.images + "images-to-sprite/*.svg",
-      paths.src.blocks + "*/images-to-sprite/*.svg"
+      paths.src.components + "*/images-to-sprite/*.svg"
     ],
     { readDelay: 200 },
     function() {
@@ -579,7 +579,7 @@ gulp.task("watch", function() {
   );
 
   watch(
-    [paths.src.blocks + "*/*.pug", paths.src.pug + "*"],
+    [paths.src.components + "*/*.pug", paths.src.pug + "*"],
     { readDelay: 200 },
     function() {
       gulp.start("html:prebuild");
@@ -587,7 +587,7 @@ gulp.task("watch", function() {
   );
 
   watch(
-    [paths.src.blocks + "*/*.scss", paths.src.scss + "*"],
+    [paths.src.components + "*/*.scss", paths.src.scss + "*"],
     { readDelay: 200 },
     function() {
       gulp.start("styles:prebuild");
@@ -595,7 +595,7 @@ gulp.task("watch", function() {
   );
 
   watch(
-    [paths.src.blocks + "*/*.js", paths.src.js + "*"],
+    [paths.src.components + "*/*.js", paths.src.js + "*"],
     { readDelay: 200 },
     function() {
       gulp.start("js:prebuild");
@@ -604,7 +604,7 @@ gulp.task("watch", function() {
 
   watch(
     [
-      paths.src.blocks + "**/*.{jpg,jpeg,png}",
+      paths.src.components + "**/*.{jpg,jpeg,png}",
       paths.src.images + "**"
     ],
     { readDelay: 200 },
