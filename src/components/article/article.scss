@@ -113,10 +113,10 @@
     ul & {
       &::before {
         position: absolute;
-        top: 9.5px;
-        left: -20px;
-        width: 6px;
-        height: 6px;
+        top: .6em;
+        left: -1.2em;
+        width: .4em;
+        height: .4em;
         content: "";
         border-radius: 50%;
         background: $grey-128;
