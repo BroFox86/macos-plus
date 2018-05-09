@@ -420,7 +420,7 @@ gulp.task("images:content:firstpass", function() {
             { width: 160 }
           ],
           "**/*_small.*": [{}],
-          "**/meta.*": [{}]
+          "**/thumbnail.*": [{}]
         },
         respOptions
       )
@@ -430,7 +430,7 @@ gulp.task("images:content:firstpass", function() {
 
 gulp.task("images:content", ["images:content:firstpass"], function() {
   return gulp
-    .src(["*/*", "!*/*{_small,article-logo,meta}.*"], {
+    .src(["*/*", "!*/*{_small,article-logo,thumbnail}.*"], {
       cwd: paths.src.images
     })
     .pipe(
@@ -546,7 +546,7 @@ gulp.task("copy:favicons", function() {
 });
 
 gulp.task("copy:logo", function() {
-  return gulp.src(paths.src.images + "meta-logo.jpg").pipe(gulp.dest(paths.dist.images));
+  return gulp.src(paths.src.images + "logo.jpg").pipe(gulp.dest(paths.dist.images));
 });
 
 gulp.task("copy:prebuild", function(callback) {
