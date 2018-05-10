@@ -2,7 +2,7 @@
   position: absolute;
   z-index: 2;
   display: none;
-  width: 400px;
+  max-width: 400px;
   padding: 20px;
   color: white;
   border-radius: $border-radius--large;
