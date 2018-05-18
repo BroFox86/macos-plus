@@ -34,7 +34,7 @@ $font-size--x-large:   20px;
 
 $h1-size:   37px;
 $h2-size:   32px;
-$h3-size:   24px;
+$h3-size:   23px;
 
 $h1-size--mobile:   27px;
 $h2-size--mobile:   25px;
@@ -43,11 +43,6 @@ $h3-size--mobile:   20px;
 // ==========================================================================
 // Colors
 // ==========================================================================
-
-// $font-color--x-light: ;
-$font-color--x-light:   #888;
-$font-color--light:     #666;
-$font-color:            #444;
 
 $accent-color:         #4367d4;
 $visited-link-color:   darken(#8a39b6, 8);
@@ -64,6 +59,9 @@ $gplus:      #dd4e42;
 $facebook:   #3b5998;
 $donate:     #689f38;
 
+$grey-68:    #444;     // rgb(68, 68, 68)
+$grey-102:   #666;     // rgb(102, 102, 102)
+$grey-119:   #777;     // rgb(119, 119, 119)
 $grey-128:   #808080;  // rgb(128, 128, 128)
 $grey-152:   #989797;  // rgb(152, 151, 151)
 $grey-235:   #ebebeb;  // rgb(235, 235, 235)
