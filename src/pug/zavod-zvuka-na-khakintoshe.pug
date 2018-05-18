@@ -17,7 +17,7 @@ prepend page
     };
 
     var itemList = [
-      "Кекст Codec Commander", 
+      "Codec Commander", 
       "Завод карт Creative", 
       "Метод AppleALC"
     ]
@@ -67,9 +67,9 @@ block content
     | Установка кекста
 
   +p 
-    | Устанавливать Codec Commander надо в папку системы. Рекомендую 
+    | Устанавливать Codec Commander надо в системную папку. Рекомендую сделать это через 
     +link(link.kexts, 'автоматическую')
-    |  установку с помощью Kext Utility.
+    | Kext Utility.
 
   +h2
   
@@ -109,7 +109,7 @@ block content
     +link('https://github.com/vit9696/AppleALC/wiki/Supported-codecs', 'wiki-странице')
     |  проекта. Там же есть и подробное 
     +link('https://github.com/vit9696/AppleALC/wiki/Установка-и-использование', 'руководство')
-    |  на русском языке по его установке. Здесь же я постараюсь изложить его в более кратких и последовательных чертах.
+    |  по его установке.
 
   +p
     | Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему «ванильный» — оригинальный, не затронутый вмешательствами — кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover — config.plist, которые мог 
@@ -192,7 +192,7 @@ block content
       - alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
       +img
     +li
-      | Укажите layout-id. Подробнее об этом тут: 
+      | Укажите layout-id. Подробнее об этом рассказано тут: 
       +link('https://github.com/vit9696/AppleALC/wiki/Supported-codecs', 'github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs')
       | . Обычно подходит стандартное значение «1».
 
@@ -220,7 +220,7 @@ block content
       +img 
 
     +li
-      | Скопируйте AppleALC.kext в кекстов Clover.
+      | Скопируйте AppleALC.kext в папку кекстов Clover (..EFI/CLOVER/kexts/Other/).
 
     +li
       | Сохраните изменения и перезагрузите компьютер. 
