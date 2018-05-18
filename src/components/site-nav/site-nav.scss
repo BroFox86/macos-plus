@@ -2,7 +2,7 @@
   font-family: $font-family--system;
   font-size: $font-size--small;
   text-transform: uppercase;
-  color: $font-color--light;
+  color: $grey-102;
 
   font-weight: 500;
 
@@ -188,13 +188,13 @@
       @media (max-width: $tablet) {
         padding-left: 0;
         cursor: default;
-        color: $font-color;
+        color: $grey-68;
       }
     }
 
     .site-nav__item--popup:hover > & {
       @media (max-width: $tablet) {
-        color: $font-color;
+        color: $grey-68;
       }
     }
 
@@ -215,17 +215,17 @@
     width: 8px;
     height: 8px;
     vertical-align: middle;
-    fill: $font-color--light;
+    fill: $grey-102;
 
     @media (max-width: $tablet) {
-      fill: $font-color;
+      fill: $grey-68;
     }
 
     .site-nav__item--selected & {
       fill: $accent-color;
 
       @media (max-width: $tablet) {
-        fill: $font-color;
+        fill: $grey-68;
       }
     }
 
@@ -235,7 +235,7 @@
 
     .site-nav__item--popup:hover & {
       @media (max-width: $tablet) {
-        fill: $font-color;
+        fill: $grey-68;
       }
     }
   }

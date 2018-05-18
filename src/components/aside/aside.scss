@@ -5,16 +5,13 @@
 
   &__headline {
     font-family: $font-family--heading;
-    font-size: $font-size--x-large;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1;
     margin: 0;
-    padding: 19px 0 18px;
+    padding: 17px 0;
     text-align: center;
     border-bottom: 2px solid $grey-235;
-
-    @media (max-width: $mobile) {
-      font-size: $font-size--large;
-    }
+    color: #555;
   }
 }

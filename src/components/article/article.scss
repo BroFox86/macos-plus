@@ -47,7 +47,7 @@
     font-size: $h2-size;
     font-weight: 700;
     position: relative;
-    margin: $margin 0;
+    margin: $margin*1.5 0 $margin;
 
     @media (max-width: $mobile) {
       font-size: $h2-size--mobile;
@@ -58,7 +58,7 @@
     font-family: $font-family--heading;
     font-size: $h3-size;
     font-weight: 700;
-    margin: $margin/2 0;
+    margin: $margin 0;
 
     @media (max-width: $mobile) {
       font-size: $h3-size--mobile;

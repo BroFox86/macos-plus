@@ -2,4 +2,10 @@
   margin: 0;
   border: none;
   border-top: 2px solid $grey-235;
+
+  .article__header & {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
 }
