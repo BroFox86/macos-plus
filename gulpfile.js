@@ -472,7 +472,7 @@ gulp.task("images:unused", function() {
       paths.tmp.css + "*",
       paths.tmp.images + "**/*",
       "!" + paths.tmp.images + "**/*{_original,@*}.*",
-      "!" + paths.tmp.images + "site-logo*.*"
+      "!" + paths.tmp.images + "**/{site-logo--mobile,thumbnail}.*"
     ])
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
