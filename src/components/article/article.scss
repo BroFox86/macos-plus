@@ -19,6 +19,7 @@
     margin-bottom: $margin;
 
     @media (max-width: $tablet) {
+      margin-bottom: 8px;
       order: 1;
     }
   }
@@ -29,7 +30,6 @@
     @media (max-width: $tablet) {
       display: block;
       order: 2;
-      margin-bottom: 10px;
     }
   }
 
@@ -47,7 +47,7 @@
     font-size: $h2-size;
     font-weight: 700;
     position: relative;
-    margin: $margin*1.5 0 $margin;
+    margin: ($margin * 1.5) 0 $margin;
 
     @media (max-width: $mobile) {
       font-size: $h2-size--mobile;

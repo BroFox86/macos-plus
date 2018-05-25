@@ -29,9 +29,8 @@
     transform: translateY(-400px);
 
     &.is-animated {
-      animation:
-      fall  $fall-duration ease-out,
-      shake $shake-duration $shake-delay forwards;
+      animation: fall  $fall-duration ease-out,
+                 shake $shake-duration $shake-delay forwards;
     }
   }
 

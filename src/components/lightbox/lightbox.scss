@@ -6,8 +6,8 @@
   height: 100%;
   text-align: center;
   background: rgba(0, 0, 0, .8);
-
   backdrop-filter: blur(15px);
+  
   @include x-center(fixed);
 
   &::before {
