@@ -5,13 +5,11 @@
 
   &__headline {
     font-family: $headings-font-family;
-    font-size: $base-font-size + 4px;
+    font-size: $base-font-size + 3px;
     font-weight: 700;
     line-height: 1;
-    margin: 0;
-    padding: 17px 0 16px;
+    margin: 0 0 5px;
+    padding-top: 22px;
     text-align: center;
-    border-bottom: 2px solid $grey-235;
-    color: $grey-85;
   }
 }
