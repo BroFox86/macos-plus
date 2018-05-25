@@ -7,7 +7,7 @@
 
   &__headline {
     @media (max-width: $mobile) {
-      font-size: $font-size--x-large;
+      font-size: $font-size + 4px;
     }
   }
 

@@ -1,6 +1,6 @@
 .site-nav {
   font-family: $font-family--system;
-  font-size: $font-size--small;
+  font-size: $font-size - 1px;
   text-transform: uppercase;
   color: $grey-102;
 
@@ -8,7 +8,7 @@
 
   @media (max-width: $tablet) {
     font-family: $font-family;
-    font-size: $font-size--large;
+    font-size: $font-size + 2px;
     font-weight: 400;
     text-transform: none;
   }

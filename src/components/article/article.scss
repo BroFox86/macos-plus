@@ -137,7 +137,7 @@
   }
 
   &__code {
-    font-size: $font-size--small;
+    font-size: $font-size - 1px;
     padding: 3px 6px;
     hyphens: none;
     border-radius: $border-radius--small;

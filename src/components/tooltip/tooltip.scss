@@ -14,7 +14,7 @@
   }
 
   &--small {
-    font-size: $font-size--small;
+    font-size: $font-size - 1px;
     line-height: 1;
     width: auto;
     padding: 5px;
