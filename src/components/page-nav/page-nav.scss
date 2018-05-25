@@ -7,7 +7,7 @@
 
   &__headline {
     @media (max-width: $mobile) {
-      font-size: $font-size + 4px;
+      font-size: $base-font-size + 4px;
     }
   }
 
@@ -22,7 +22,7 @@
   }
 
   &__link {
-    font-family: $font-family--system;
+    font-family: $websafe-font-family;
     font-weight: 500;
     line-height: 52px;
     display: flex;
@@ -36,8 +36,8 @@
 
     .page-nav__item:hover &,
     .page-nav__item.is-active & {
-      color: $accent-color;
-      font-size: $font-size + 1px;
+      color: $accent;
+      font-size: $base-font-size + 1px;
     }
   }
 
@@ -51,7 +51,7 @@
                 
     .page-nav__item:hover &,
     .page-nav__item.is-active & {
-      fill: $accent-color;
+      fill: $accent;
     }
   }
 }

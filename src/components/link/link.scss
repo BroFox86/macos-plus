@@ -11,15 +11,15 @@
   }
 
   &--anchor {
-    font-family: $font-family;
+    font-family: $base-font-family;
     padding-right: 10px;
     transition-duration: .15s;
     transition-property: opacity, color;
     opacity: 0;
-    color: lighten($accent-color, 10);
+    color: lighten($accent, 10);
 
     &:hover {
-      color: $accent-color;
+      color: $accent;
     }
 
     .article__h2:hover & {
@@ -29,11 +29,11 @@
 
   &--article {
     font-weight: 700;
-    color: $accent-color;
+    color: $accent;
 
     &:visited {
       padding: 2px;
-      color: $visited-link-color;
+      color: $visited;
     }
   }
 

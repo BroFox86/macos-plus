@@ -1,11 +1,11 @@
 .note {
-  font-size: $font-size - 1px;
+  font-size: $base-font-size - 1px;
   line-height: 1.5;
   width: 75%;
   padding: 14px;
   padding-left: 60px;
   color: white;
-  border-radius: $border-radius--large;
+  border-radius: $border-radius--lg;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
 
   @media (max-width: $mobile) {
@@ -28,7 +28,7 @@
   }
 
   &--inf {
-    background: $inf;
+    background: $info;
   }
 
   &--tip {

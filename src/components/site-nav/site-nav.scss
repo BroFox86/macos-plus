@@ -1,20 +1,20 @@
 .site-nav {
-  font-family: $font-family--system;
-  font-size: $font-size - 1px;
+  font-family: $websafe-font-family;
+  font-size: $base-font-size - 1px;
   text-transform: uppercase;
   color: $grey-102;
 
   font-weight: 500;
 
   @media (max-width: $tablet) {
-    font-family: $font-family;
-    font-size: $font-size + 2px;
+    font-family: $base-font-family;
+    font-size: $base-font-size + 2px;
     font-weight: 400;
     text-transform: none;
   }
 
   @media (max-width: $mobile) {
-    font-size: $font-size;
+    font-size: $base-font-size;
   }
 
   &__open-btn {
@@ -63,7 +63,7 @@
       width: 275px;
     }
 
-    @media (max-width: $nav-mobile-full-width) {
+    @media (max-width: $mobile-sm) {
       width: 100%;
     }
 
@@ -159,7 +159,7 @@
 
     &--selected:not(.site-nav__item--popup) {
       @media (max-width: $tablet) {
-        background: $accent-color;
+        background: $accent;
       }
     }
   }
@@ -181,7 +181,7 @@
 
     .site-nav__item:hover > &,
     .site-nav__nested-item:hover > & {
-      color: $accent-color;
+      color: $accent;
     }
 
     .site-nav__item--popup > & {
@@ -199,7 +199,7 @@
     }
 
     .site-nav__item--selected > & {
-      color: $accent-color;
+      color: $accent;
     }
 
     .site-nav__item--selected:not(.site-nav__item--popup) > & {
@@ -222,7 +222,7 @@
     }
 
     .site-nav__item--selected & {
-      fill: $accent-color;
+      fill: $accent;
 
       @media (max-width: $tablet) {
         fill: $grey-68;
@@ -230,7 +230,7 @@
     }
 
     .site-nav__item:hover & {
-      fill: $accent-color;
+      fill: $accent;
     }
 
     .site-nav__item--popup:hover & {

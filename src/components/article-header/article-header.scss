@@ -28,7 +28,7 @@
     }
 
     &--theme-accent {
-      background: $accent-color;
+      background: $accent;
     }
   }
 
@@ -39,14 +39,14 @@
   }
 
   &__headline {
-    font-family: $font-family--heading;
-    font-size: $h1-size;
+    font-family: $headings-font-family;
+    font-size: $h1-font-size;
     font-weight: 700;
     line-height: 1.5;
     margin: 0 0 15px;
 
     @media (max-width: $mobile) {
-      font-size: $h1-size--mobile;
+      font-size: $h1-font-size--mobile;
       margin-bottom: 12px;
     }
 
@@ -59,7 +59,7 @@
 
   &__date {
     display: inline-block;
-    font-size: $font-size - 2px;
+    font-size: $base-font-size - 2px;
     margin-bottom: 60px;
     color: $grey-102;
 

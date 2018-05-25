@@ -43,7 +43,7 @@
   &__type {
     font-size: 7rem;
     margin-bottom: 10px;
-    color: lighten($accent-color, 0);
+    color: lighten($accent, 0);
 
     @media (max-width: $mobile) {
       font-size: 4rem;
@@ -52,7 +52,7 @@
   }
 
   &__desc {
-    font-size: $font-size + 2px;
+    font-size: $base-font-size + 2px;
     font-weight: 600;
     position: relative;
     left: 4px;
@@ -60,7 +60,7 @@
     color: $grey-102;
 
     @media (max-width: $mobile) {
-      font-size: $font-size;
+      font-size: $base-font-size;
     }
   }
 }

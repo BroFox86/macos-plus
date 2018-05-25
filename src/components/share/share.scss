@@ -22,7 +22,7 @@
     }
 
     &--gplus {
-      @include x-button-states($gplus);
+      @include x-button-states($googleplus);
     }
 
     &--twitter {

@@ -43,25 +43,25 @@
   }
 
   &__h2 {
-    font-family: $font-family--heading;
-    font-size: $h2-size;
+    font-family: $headings-font-family;
+    font-size: $h2-font-size;
     font-weight: 700;
     position: relative;
     margin: ($margin * 1.5) 0 $margin;
 
     @media (max-width: $mobile) {
-      font-size: $h2-size--mobile;
+      font-size: $h2-font-size--mobile;
     }
   }
 
   &__h3 {
-    font-family: $font-family--heading;
-    font-size: $h3-size;
+    font-family: $headings-font-family;
+    font-size: $h3-font-size;
     font-weight: 700;
     margin: $margin 0;
 
     @media (max-width: $mobile) {
-      font-size: $h3-size--mobile;
+      font-size: $h3-font-size--mobile;
     }
   }
 
@@ -137,10 +137,10 @@
   }
 
   &__code {
-    font-size: $font-size - 1px;
+    font-size: $base-font-size - 1px;
     padding: 3px 6px;
     hyphens: none;
-    border-radius: $border-radius--small;
+    border-radius: $border-radius--sm;
     background: $grey-235;
   }
 
