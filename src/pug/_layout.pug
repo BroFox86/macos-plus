@@ -1,7 +1,7 @@
 doctype html
 include /pug/_mixins
 include /pug/_variables
-include /components/**/*
+include /blocks/**/*
 
 block page
   head
@@ -62,9 +62,9 @@ block page
     // inject:svg 
     // endinject
 
-    +pageHeader
+    +header
       block nav
-        +siteNav
+        +mainNav
 
     div.page__container
       block containerInner

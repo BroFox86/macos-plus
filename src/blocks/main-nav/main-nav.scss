@@ -1,4 +1,4 @@
-.site-nav {
+.main-nav {
   text-transform: uppercase;
   color: $grey-102;
   font-family: $websafe-font-family;
@@ -92,7 +92,7 @@
       border: none;
     }
 
-    .site-nav__list & {
+    .main-nav__list & {
       display: none;
       margin: 0;
       padding: 0;
@@ -102,7 +102,7 @@
       }
     }
 
-    .site-nav__item--popup:hover & {
+    .main-nav__item--popup:hover & {
       position: absolute;
       top: 60px;
       right: -100px;
@@ -127,7 +127,7 @@
       box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
     }
 
-    &.is-fixed .site-nav__list {
+    &.is-fixed .main-nav__list {
       top: 61px;
       box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
     }
@@ -156,7 +156,7 @@
     border-radius: $border-radius;
     background: transparent;
 
-    &--selected:not(.site-nav__item--popup) {
+    &--selected:not(.main-nav__item--popup) {
       @media (max-width: $tablet) {
         background: $accent;
       }
@@ -178,12 +178,12 @@
       line-height: inherit;
     }
 
-    .site-nav__item:hover > &,
-.site-nav__nested-item:hover > & {
+    .main-nav__item:hover > &,
+.main-nav__nested-item:hover > & {
       color: $accent;
     }
 
-    .site-nav__item--popup > & {
+    .main-nav__item--popup > & {
       @media (max-width: $tablet) {
         padding-left: 0;
         cursor: default;
@@ -191,17 +191,17 @@
       }
     }
 
-    .site-nav__item--popup:hover > & {
+    .main-nav__item--popup:hover > & {
       @media (max-width: $tablet) {
         color: $grey-68;
       }
     }
 
-    .site-nav__item--selected > & {
+    .main-nav__item--selected > & {
       color: $accent;
     }
 
-    .site-nav__item--selected:not(.site-nav__item--popup) > & {
+    .main-nav__item--selected:not(.main-nav__item--popup) > & {
       @media (max-width: $tablet) {
         color: white;
       }
@@ -221,7 +221,7 @@
       fill: $grey-68;
     }
 
-    .site-nav__item--selected & {
+    .main-nav__item--selected & {
       fill: $accent;
 
       @media (max-width: $tablet) {
@@ -229,11 +229,11 @@
       }
     }
 
-    .site-nav__item:hover & {
+    .main-nav__item:hover & {
       fill: $accent;
     }
 
-    .site-nav__item--popup:hover & {
+    .main-nav__item--popup:hover & {
       @media (max-width: $tablet) {
         fill: $grey-68;
       }

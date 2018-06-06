@@ -57,7 +57,7 @@ var // Common
 var paths = {
   src: {
     root:             "src/",
-    components:           "src/components/",
+    components:       "src/blocks/",
     pug:              "src/pug/",
     css:              "src/css/",
     scss:             "src/scss/",
@@ -92,7 +92,7 @@ var paths = {
 
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-  forceInclude: [".site-nav__inner", ".article__img", ".note__icon", ".error__img"],
+  forceInclude: [".main-nav__inner", ".article__img", ".note__icon", ".error__img"],
   propertiesToRemove: ["backdrop-filter"]
 };
 
