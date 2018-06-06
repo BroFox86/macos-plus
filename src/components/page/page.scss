@@ -4,17 +4,17 @@
 //
 
 .page {
-  font-family: $base-font-family;
-  font-size: $base-font-size;
-  font-weight: 400;
-  line-height: 1.6;
   margin: 0;
   word-wrap: break-word;
   color: $grey-68;
   background: $grey-235;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: 400;
+  line-height: 1.6;
 
-  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transpent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
@@ -81,7 +81,7 @@
   }
 
   &__article,
-  &__error {
+&__error {
     width: 814px;
 
     @media (max-width: $desktop) {

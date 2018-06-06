@@ -39,15 +39,15 @@
   }
 
   &__headline {
+    margin: 0 0 15px;
     font-family: $headings-font-family;
     font-size: $h1-font-size;
     font-weight: 700;
     line-height: 1.5;
-    margin: 0 0 15px;
 
     @media (max-width: $mobile) {
-      font-size: $h1-font-size--mobile;
       margin-bottom: 12px;
+      font-size: $h1-font-size--mobile;
     }
 
     br {
@@ -59,9 +59,9 @@
 
   &__date {
     display: inline-block;
-    font-size: $base-font-size - 2px;
     margin-bottom: 60px;
     color: $grey-102;
+    font-size: $base-font-size - 2px;
 
     @media (max-width: $tablet) {
       margin-bottom: 25px;

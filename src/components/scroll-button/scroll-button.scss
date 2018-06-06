@@ -20,8 +20,8 @@
   &__icon {
     width: 25px;
     height: 25px;
-    fill: white;
 
+    fill: white;
     @include x-center();
 
     @media (max-width: $mobile) {

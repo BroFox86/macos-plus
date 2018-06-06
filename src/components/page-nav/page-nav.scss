@@ -7,7 +7,8 @@
 
   &__headline {
     @media (max-width: $mobile) {
-      font-size: $base-font-size + 4px;
+      margin-bottom: 10px;
+      font-size: $base-font-size + 6px;
     }
   }
 
@@ -22,20 +23,20 @@
   }
 
   &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 22px;
+    transition: color .5s;
+    transition: font-size .1s;
+    text-decoration: none;
+    color: $grey-119;
     font-family: $websafe-font-family;
     font-weight: 500;
     line-height: 52px;
-    display: flex;
-    padding-left: 22px;
-    justify-content: space-between;
-    align-items: center;
-    transition: color .5s;
-    text-decoration: none;
-    color: $grey-119;
-    transition: font-size .1s;
 
     .page-nav__item:hover &,
-    .page-nav__item.is-active & {
+.page-nav__item.is-active & {
       color: $accent;
       font-size: $base-font-size + 1px;
     }
@@ -46,11 +47,12 @@
     right: 20px;
     width: 23px;
     height: 23px;
-    fill: $grey-119;
     transition: fill .1s;
-                
+
+    fill: $grey-119;
+
     .page-nav__item:hover &,
-    .page-nav__item.is-active & {
+.page-nav__item.is-active & {
       fill: $accent;
     }
   }

@@ -52,8 +52,8 @@
   &__icon {
     width: 25px;
     height: 25px;
-    fill: white;
 
+    fill: white;
     @include x-center();
 
     @media(min-width: $tablet) and (max-width: $desktop) {

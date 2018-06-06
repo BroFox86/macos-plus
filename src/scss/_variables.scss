@@ -2,72 +2,72 @@
 // Breakpoints
 // ==========================================================================
 
-$desktop:     1200px;
-$tablet:      960px;
-$mobile:      600px;
-$mobile-sm:   352px;
+$desktop: 1200px;
+$tablet: 960px;
+$mobile: 600px;
+$mobile-sm: 352px;
 
 // ==========================================================================
 // Font families
 // ==========================================================================
 
-$base-font-family:       "Open Sans",   sans-serif;
-$headings-font-family:   "PT Sans",     sans-serif;
-$websafe-font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$base-font-family: "Open Sans",   sans-serif;
+$headings-font-family: "PT Sans",     sans-serif;
+$websafe-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
 // ==========================================================================
 // Sizes
 // ==========================================================================
 
-$layout:   1140px;
-$margin:   26px;
+$layout: 1140px;
+$margin: 26px;
 
-$border-radius--sm:   4px;
-$border-radius:       12px;
-$border-radius--lg:   15px;
+$border-radius--sm: 4px;
+$border-radius: 12px;
+$border-radius--lg: 15px;
 
-$base-font-size:   16px;
+$base-font-size: 16px;
 
-$h1-font-size:   37px;
-$h2-font-size:   32px;
-$h3-font-size:   23px;
+$h1-font-size: 37px;
+$h2-font-size: 32px;
+$h3-font-size: 23px;
 
-$h1-font-size--mobile:   27px;
-$h2-font-size--mobile:   25px;
-$h3-font-size--mobile:   20px;
+$h1-font-size--mobile: 27px;
+$h2-font-size--mobile: 25px;
+$h3-font-size--mobile: 20px;
 
 // ==========================================================================
 // Colours
 // ==========================================================================
 
-$accent:      #4367d4;
-$visited:     darken(#8a39b6, 8);
-$selection:   #9575cd;
+$accent: #4367d4;
+$visited: darken(#8a39b6, 8);
+$selection: #9575cd;
 
-$info:      lighten(#7f5f9f, 1);
-$tip:       #26a69a;
-$warning:   #ec407a;
+$info: lighten(#7f5f9f, 1);
+$tip: #26a69a;
+$warning: #ec407a;
 
-$vk:           #507299;
-$twitter:      #55acee;
-$email:        #ffbb1d;
-$googleplus:   #dd4e42;
-$facebook:     #3b5998;
-$donate:       #689f38;
+$vk: #507299;
+$twitter: #55acee;
+$email: #ffbb1d;
+$googleplus: #dd4e42;
+$facebook: #3b5998;
+$donate: #689f38;
 
-$grey-68:    #444;     // rgb(68, 68, 68)
-$grey-85:    #555;     // rgb(85, 85, 85)
-$grey-102:   #666;     // rgb(102, 102, 102)
-$grey-119:   #777;     // rgb(119, 119, 119)
-$grey-128:   #808080;  // rgb(128, 128, 128)
-$grey-152:   #989797;  // rgb(152, 151, 151)
-$grey-235:   #ebebeb;  // rgb(235, 235, 235)
-$grey-240:   #f0f0f0;  // rgb(240, 240, 240)
+$grey-68: #444;     // rgb(68, 68, 68)
+$grey-85: #555;     // rgb(85, 85, 85)
+$grey-102: #666;     // rgb(102, 102, 102)
+$grey-119: #777;     // rgb(119, 119, 119)
+$grey-128: #808080;  // rgb(128, 128, 128)
+$grey-152: #989797;  // rgb(152, 151, 151)
+$grey-235: #ebebeb;  // rgb(235, 235, 235)
+$grey-240: #f0f0f0;  // rgb(240, 240, 240)
 
 // ==========================================================================
 // Animations
 // ==========================================================================
 
-$fall-duration:    .25s;
-$shake-duration:   .2s;
-$shake-delay:      $fall-duration;
+$fall-duration: .25s;
+$shake-duration: .2s;
+$shake-delay: $fall-duration;

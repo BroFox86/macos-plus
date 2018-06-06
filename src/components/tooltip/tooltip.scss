@@ -14,13 +14,13 @@
   }
 
   &--small {
-    font-size: $base-font-size - 1px;
-    line-height: 1;
     width: auto;
     padding: 5px;
     color: $grey-68;
     border-radius: $border-radius--sm;
     background: transparent;
     box-shadow: none;
+    font-size: $base-font-size - 1px;
+    line-height: 1;
   }
 }
