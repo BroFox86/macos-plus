@@ -1,7 +1,6 @@
 .page-header {
   display: flex;
   flex-direction: column;
-  padding-top: 25px;
   background: white;
 
   @media (max-width: $tablet) {
@@ -19,7 +18,7 @@
   &__logo {
     display: block;
     width: 240px;
-    margin: auto;
+    margin: 25px auto 0;
 
     @media (max-width: $tablet) {
       width: 126px;
