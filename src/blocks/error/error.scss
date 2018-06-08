@@ -26,7 +26,7 @@
     display: block;
     width: 40%;
     margin: 10px 15px;
-    transform: translateY(-400px);
+    transform: translate(0, -400px);
 
     &.is-animated {
       animation: fall  $fall-duration ease-out,
@@ -67,26 +67,26 @@
 
 @keyframes fall {
   from {
-    transform: translateY(-400px);
+    transform: translate(0, -400px);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translate(0);
     opacity: 1;
   }
 }
 
 @keyframes shake {
   0% {
-    transform: translateY(10px);
+    transform: translate(0, 10px);
   }
   33% {
-    transform: translateY(0);
+    transform: translate(0);
   }
   66% {
-    transform: translateY(5px);
+    transform: translate(0, 5px);
   }
   100% {
-    transform: translateY(0);
+    transform: translate(0);
   }
 }
