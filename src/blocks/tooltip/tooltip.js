@@ -1,70 +1,38 @@
-setTooltip({
-  element:   ".js-tooltip",
-  duration:  200
-},{
-  element:   ".js-tooltip-small",
-  delay:     700
-});
+setTooltip(".js-tooltip");
 
-function setTooltip(tooltipOptns, secondTooltipOptns) {
+function setTooltip(element) {
   "use strict";
 
-  var tooltipBody      = $('<p class="tooltip"></p>'),
-      smallTooltipBody = $('<p class="tooltip tooltip--small"></p>');
+  var duration = 300;
 
-  function setMousemove(element) {
-    $(element).mousemove(function(e) {
+  $(element).hover(
+    function() {
 
-      var mousex = e.pageX + 20;
-      var mousey = e.pageY + 10;
+      var title = $(this).attr("title");
 
-      $(".tooltip").css({
-        top: mousey,
-        left: mousex
-      });
-    });
-  }
+      $(this)
+        .data("tipText", title)
+        .attr("title", "");
 
-  function setHoverHandler(optns, tooltipBody) {
-
-    var delay    = optns.delay    || 0,
-        duration = optns.duration || 0,
-        element  = optns.element;
+      $('<p class="tooltip"></p>')
+        .text(title)
+        .appendTo("body")
+        .fadeIn(duration);
+    },
     
-    $(element).hover(
-      function() {
-        var title = $(this).attr("title");
+    function() {
+      $(this).attr("title", $(this).data("tipText"));
+      $(".tooltip").fadeOut(duration);
+    }
+  );
 
-        $(this)
-          .data("tipText", title)
-          .attr("title", "");
+  $(element).mousemove(function(e) {
+    var mousex = e.pageX + 20,
+        mousey = e.pageY + 10;
 
-        tooltipBody
-          .text(title)
-          .appendTo("body")
-          .delay(delay)
-          .fadeIn(duration);
-      },
-      function() {
-        $(this).attr("title", $(this).data("tipText"));
-        $(".tooltip").fadeOut(duration);
-      }
-    );
-    setMousemove(element);
-  }
-
-  // This is to avoid the jsdom's error
-  window.matchMedia = window.matchMedia || function() {
-    return {
-        matches : false,
-        addListener : function() {},
-        removeListener: function() {}
-    };
-  };
-
-  if (window.matchMedia("(" + "min-width: 960px"  + ")").matches) {
-    setHoverHandler(secondTooltipOptns, smallTooltipBody);
-  }
-
-  setHoverHandler(tooltipOptns, tooltipBody);
+    $(".tooltip").css({
+      top: mousey,
+      left: mousex
+    });
+  });
 }

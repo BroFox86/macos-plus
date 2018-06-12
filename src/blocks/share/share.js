@@ -1,20 +1,28 @@
+/* ==========================================================================
+   Share button
+   ========================================================================== */
+
 share(".js-share");
 
-function share(element, width, height) {
+function share(element) {
   "use strict";
 
   $(element).on("click", function(e) {
     e.preventDefault();
 
     var pageUrl  = window.location.href.replace(/\#\d$/i, ""),
-        width    = width  || "width=500",
-        height   = height || "height=600";
+        width    = "width=500",
+        height   = "height=600";
 
-    var url = $(this).attr("href").replace(/[^=]*$/, pageUrl);
+    var shareUrl = $(this).attr("href").replace(/[^=]*$/, pageUrl);
 
-    window.open(url, "", width + "," + height)
+    window.open(shareUrl, "", width + "," + height)
   })
 }
+
+/* ==========================================================================
+   Copy URL button
+   ========================================================================== */
 
 copy({ 
   btn:        ".js-copy-url", 
@@ -25,18 +33,16 @@ copy({
 function copy(options) {
   "use strict";
 
-  var duration = options.duration || 0;
-
   $(options.btn).on("click", function() {
-
-    $(options.outputArea).parent().slideDown(duration);
+    $(options.outputArea).parent().slideDown(options.duration);
 
     setTimeout(function() {
       var output = $(options.outputArea)[0];
+
       output.value = window.location.href.replace(/\#\d$/i, "");
       output.focus();
       output.select();
       document.execCommand("Copy");
-    }, duration);
+    }, options.duration);
   });
 }

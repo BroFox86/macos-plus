@@ -5,7 +5,6 @@ function setLightbox(element, duration) {
 
   var $element  = $(element),
       $lightbox = $(".lightbox"),
-      $body     = $("body"),
       duration  = duration || 0;
 
   $element.on("click", function(event) {

@@ -1,23 +1,23 @@
-hideSidebarItem(".js-hide-container", ".js-hide-target", "max-height: 950px", 700);
+hideSidebarItem(
+  ".js-hide-container",
+  ".js-hide-target",
+  "max-height: 950px",
+  700
+);
 
 function hideSidebarItem(container, target, media, maxHeight) {
   "use strict";
 
-  var containerHeight = $(container).outerHeight();
+  $(window).on("DOMContentLoaded resize", function() {
+    var containerHeight = $(container).outerHeight();
 
-  function handleSidebarItem() {
-    if ( containerHeight >= maxHeight ) {
+    if (containerHeight >= maxHeight) {
+      
       if (window.matchMedia("(" + media + ")").matches) {
         $(target).addClass("is-hidden");
       } else {
         $(target).removeClass("is-hidden");
       }
     }
-  }
-
-  handleSidebarItem();
-
-  $(window).on("resize", function() {
-    handleSidebarItem();
-  }
-)};
+  });
+}

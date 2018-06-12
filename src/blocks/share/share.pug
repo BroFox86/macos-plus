@@ -4,27 +4,27 @@ mixin share
   aside.aside.share(class= attributes.state)
     h2.aside__headline Поделиться
     div.share__container
-      a.share__btn.share__btn--vk.js-share.js-tooltip-small( 
+      a.share__btn.share__btn--vk.js-share( 
         href="https://vk.com/share.php?url=" + domainName
         title="Вконтакте")
         +svg("share__icon", "vk")
 
-      a.share__btn.share__btn--gplus.js-share.js-tooltip-small(
+      a.share__btn.share__btn--gplus.js-share(
         href="https://plus.google.com/share?url=" + domainName
         title="Google Plus")
         +svg("share__icon", "google-plus")
 
-      a.share__btn.share__btn--twitter.js-share.js-tooltip-small(
+      a.share__btn.share__btn--twitter.js-share(
         href="https://twitter.com/intent/tweet?url=" + domainName
         title="Twitter")
         +svg("share__icon", "twitter")
 
-      a.share__btn.share__btn--fb.js-share.js-tooltip-small(
+      a.share__btn.share__btn--fb.js-share(
         href="https://www.facebook.com/sharer/sharer.php?u=" + domainName
         title="Facebook")
         +svg("share__icon", "facebook")
 
-      button.share__btn.share__btn--copy-url.js-tooltip-small.js-copy-url(title="Скопировать ссылку")
+      button.share__btn.share__btn--copy-url.js-copy-url(title="Скопировать ссылку")
         +svg("share__icon", "link")
 
     div.share__paste-wrapper
