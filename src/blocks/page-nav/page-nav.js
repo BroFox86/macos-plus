@@ -12,10 +12,9 @@ function setScrollspyNav() {
     return elementTop < viewportTop + offset;
   }
 
-  $(window).on("resize scroll", function() {
+  $(window).on("DOMContentLoaded resize scroll", function() {
     if (window.matchMedia("(min-width: 960px)").matches) {
       $(".article__h2").each(function() {
-
         if (isInViewport(this, 300)) {
           var id = $(this).attr("id");
 

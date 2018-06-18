@@ -7,8 +7,10 @@ mixin pageNav
     ul.page-nav__list
       each item in itemList
         li.page-nav__item
-          a.page-nav__link(href="#" + (i+1))!= itemList[i++] + " "
-            +svg("page-nav__icon", "link")
+          a.page-nav__link(href="#" + (i+1))
+            span!= itemList[i++] + " "
+            span.page-nav__icon-wrapper
+              +svg("page-nav__icon", "link")
 
   case isMobile
     when false

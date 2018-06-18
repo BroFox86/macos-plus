@@ -7,7 +7,8 @@
 
   &__headline {
     @media (max-width: $mobile) {
-      margin-bottom: 10px;
+      padding-top: 17px;
+      margin-bottom: 15px;
       font-size: $base-font-size + 6px;
     }
   }
@@ -23,37 +24,50 @@
   }
 
   &__link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
     padding-left: 22px;
+    padding-right: 37px;
     transition: color .5s;
     transition: font-size .1s;
     text-decoration: none;
-    color: $grey-119;
+    color: $grey-102;
     font-family: $websafe-font-family;
     font-weight: 500;
     line-height: 52px;
 
     .page-nav__item:hover &,
-.page-nav__item.is-active & {
+    .page-nav__item.is-active & {
       color: $accent;
-      font-size: $base-font-size + 1px;
+
+      @media (max-width: $desktop) {
+        color: inherit;
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 37px;
+    height: 52px;
+    background: $accent;
+
+    .page-nav__item:first-child & {
+      border-top-left-radius: $border-radius;
     }
   }
 
   &__icon {
-    position: relative;
-    right: 20px;
-    width: 23px;
-    height: 23px;
-    transition: fill .1s;
+    width: 19px;
+    height: 19px;
+    transition: fill .1s, transform .1s;
+    fill: white;
 
-    fill: $grey-119;
-
-    .page-nav__item:hover &,
-.page-nav__item.is-active & {
-      fill: $accent;
+    @include x-center();
+    
+    .page-nav__item.is-active & {
+      transform: scale(1.2);
     }
   }
 }
