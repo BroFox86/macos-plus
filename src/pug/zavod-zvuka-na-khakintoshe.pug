@@ -11,7 +11,7 @@ prepend page
         likeBtnId      = "Завод звука"
 
     var metaImage = {
-      src: "images/zavod-zvuka-na-khakintoshe/thumbnail.jpg",
+      src: "images/setup-sound/thumbnail.jpg",
       width: 1334,
       height: 772
     };
@@ -23,7 +23,7 @@ prepend page
     ]
 
     var articleHeader = {
-      image: "images/zavod-zvuka-na-khakintoshe/article-logo.png",
+      image: "images/setup-sound/article-logo.png",
       title: pageTitle
     };
 
@@ -135,7 +135,7 @@ block content
     +li
       | Скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
 
-      - src = "images/zavod-zvuka-na-khakintoshe/native-applehda-in-boot-usb.jpg"
+      - src = "images/setup-sound/native-applehda-in-boot-usb.jpg"
       - alt = "Расположение кекста AppleHDA на загрузочном USB-диске"
       +img
 
@@ -146,7 +146,7 @@ block content
     +li
       | Выберите в строке меню пункт «Переход к папке».
 
-      - src = "images/zavod-zvuka-na-khakintoshe/go-to-folder_small.jpg"
+      - src = "images/setup-sound/go-to-folder_small.jpg"
       - alt = "Переход к папке в macOS"
       +img("small")
     +li
@@ -179,7 +179,7 @@ block content
       +link('http://mackie100projects.altervista.org/download-clover-configurator/', 'Clover Configurator')
       | .
 
-      - src = "images/zavod-zvuka-na-khakintoshe/plist-location.jpg"
+      - src = "images/setup-sound/plist-location.jpg"
       - alt = "Расположение config.plist"
       +img
 
@@ -188,7 +188,7 @@ block content
       i AppleHDA/HDA
       | .
 
-      - src = "images/zavod-zvuka-na-khakintoshe/remove-applehda-string.png"
+      - src = "images/setup-sound/remove-applehda-string.png"
       - alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
       +img
     +li
@@ -196,7 +196,7 @@ block content
       +link('https://github.com/vit9696/AppleALC/wiki/Supported-codecs', 'github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs')
       | . Обычно подходит стандартное значение «1».
 
-      - src = "images/zavod-zvuka-na-khakintoshe/enter-layout-id.png"
+      - src = "images/setup-sound/enter-layout-id.png"
       - alt = "Вкладка Devices программы Clover Configurator"
       +img 
     +li
@@ -215,7 +215,7 @@ block content
           i 48444546 
           | в Replace [HEX].
 
-      - src = "images/zavod-zvuka-na-khakintoshe/rename-hdas.png"
+      - src = "images/setup-sound/rename-hdas.png"
       - alt = "Вкладка ACPI программы Clover Configurator"
       +img 
 
@@ -225,6 +225,6 @@ block content
     +li
       | Сохраните изменения и перезагрузите компьютер. 
 
-      - src = "images/zavod-zvuka-na-khakintoshe/save-config_small.jpg"
+      - src = "images/setup-sound/save-config_small.jpg"
       - alt = "Сохранение изменений Clover Configurator"
       +img("small")
