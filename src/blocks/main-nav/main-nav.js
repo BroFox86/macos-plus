@@ -1,19 +1,21 @@
-toggleFixedNav(".js-fixed-menu", ".page__header", "min-width: 960px");
+/* ==========================================================================
+   Set the sticky navigation bar
+   ========================================================================== */
 
-function toggleFixedNav(toggle, target, media) {
+(function() {
   "use strict";
-  
-  var $nav    = $(toggle),
-      $header = $(target),
+
+  var $nav    = $(".js-fixed-menu"),
+      $header = $(".page__header"),
       fixed   = "is-fixed",
       offset  = $nav.offset().top,
       margin  = $nav.outerHeight();
 
-  $(window).on("scroll resize", function() {
-    
+  $(window).on("DOMContentLoaded scroll resize", function() {
+
     var y = $(this).scrollTop();
 
-    if (y >= offset && window.matchMedia("(" + media + ")").matches) {
+    if (y >= offset && window.matchMedia("(min-width: 960px)").matches) {
       $nav.addClass(fixed);
       $header.css("margin-bottom", margin);
     } else {
@@ -21,4 +23,4 @@ function toggleFixedNav(toggle, target, media) {
       $header.css("margin-bottom", "");
     }
   });
-}
+}) ();

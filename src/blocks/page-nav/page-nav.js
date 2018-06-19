@@ -1,7 +1,8 @@
-setScrollspyNav();
+/* ==========================================================================
+   Set scrollspy navigation
+   ========================================================================== */
 
-function setScrollspyNav() {
-
+(function() {
   var $scrollspy = $(".js-scrollspy");
 
   function isInViewport(element, offset) {
@@ -29,4 +30,4 @@ function setScrollspyNav() {
       $scrollspy.find("li").removeClass("is-active");
     }
   });
-}
+}) (); 

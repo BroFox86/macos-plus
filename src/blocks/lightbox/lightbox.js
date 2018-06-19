@@ -1,21 +1,21 @@
-setLightbox(".js-lightbox", 300);
-
-function setLightbox(element, duration) {
+(function() {
   "use strict";
 
-  var $element  = $(element),
+  var $element  = $(".js-lightbox"),
       $lightbox = $(".lightbox"),
-      duration  = duration || 0;
+      duration  = 300;
 
-  $element.on("click", function(event) {
-    event.preventDefault();
+  $element.on("click", function(e) {
+    e.preventDefault();
+
     $lightbox.on("touchmove mousewheel", false);
-    
+
     var originalImage = $(this).attr("href");
 
     $lightbox
       .children()
-      .append('<img class="lightbox__img" src="' + originalImage + '" />');
+      .append('<img class="lightbox__img" src="' + originalImage + '" />')
+
     $lightbox.fadeIn(duration);
   });
 
@@ -40,6 +40,4 @@ function setLightbox(element, duration) {
     $lightbox.fadeOut(duration);
     unloadImg();
   });
-}
-
-
+})();

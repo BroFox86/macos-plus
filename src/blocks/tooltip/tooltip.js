@@ -1,13 +1,11 @@
-setTooltip(".js-tooltip");
-
-function setTooltip(element) {
+(function() {
   "use strict";
 
-  var duration = 300;
+  var element = ".js-tooltip", 
+      duration = 300;
 
   $(element).hover(
     function() {
-
       var title = $(this).attr("title");
 
       $(this)
@@ -19,7 +17,6 @@ function setTooltip(element) {
         .appendTo("body")
         .fadeIn(duration);
     },
-    
     function() {
       $(this).attr("title", $(this).data("tipText"));
       $(".tooltip").fadeOut(duration);
@@ -35,4 +32,4 @@ function setTooltip(element) {
       left: mousex
     });
   });
-}
+}) (); 

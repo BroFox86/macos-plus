@@ -1,7 +1,7 @@
 moment.locale("ru");
 
-var $modDate = $(".js-modified-date"),
-    date     = $modDate.data("time"),
-    moment   = moment(date, "YYYYMMDD").fromNow();
+var $element  = $(".js-modified-date"),
+    date      = $element.data("time"),
+    moment    = moment(date, "YYYYMMDD").fromNow();
 
-$modDate.append(moment);
+$element.append(moment);

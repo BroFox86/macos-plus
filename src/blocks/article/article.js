@@ -1,11 +1,10 @@
-addCyrillicOrder("ol ol");
-
-function addCyrillicOrder(element) {
+(function() {
   "use strict";
 
-  var style = document.createElement("style");
-  document.head.appendChild(style);
+  var style   = document.createElement("style"),
+      element = "ol ol";
 
+  document.head.appendChild(style);
   $(element).addClass("has-cyrillic-order");
 
   "абвгдежзиклмнопрстуфхцчшщэюя".split("").forEach(function(c, i) {
@@ -13,6 +12,6 @@ function addCyrillicOrder(element) {
       element +
         "> li:nth-child(" + (i + 1) + ')::before { content: "' + c + ')"}',
       0
-    );
+    )
   });
-}
+}) ();
