@@ -25,7 +25,7 @@
 
   var $btn     = $(".js-copy-url"),
       $output  = $(".js-paste-url"),
-      duration = 500;
+      duration = 400;
 
   $btn.on("click", function() {
     $output.parent().slideDown(duration);
@@ -43,6 +43,6 @@
         .css({"font-style": "italic", "color": "#777", "opacity": 0})
         .animate({opacity: "1"})
         .val("Ссылка скопирована!");
-    }, duration + 700);
+    }, duration + 600);
   });
 }) (); 

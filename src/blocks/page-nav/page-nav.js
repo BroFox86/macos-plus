@@ -6,7 +6,6 @@
   var $scrollspy = $(".js-scrollspy");
 
   function isInViewport(element, offset) {
-
     var elementTop  = $(element).offset().top,
         viewportTop = $(window).scrollTop();
 
