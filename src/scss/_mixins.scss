@@ -12,7 +12,7 @@
   margin: auto;
 }
 
-@mixin x-button(
+@mixin x-btn(
   $border: border, 
   $border-value: none, 
   $background-color: transparent, 
@@ -27,7 +27,7 @@
   background-color: $background-color;
 }
 
-@mixin x-button-states($background-color) {
+@mixin x-btn-states($background-color) {
   background: $background-color;
   transition-duration: .2s;
   transition-property: background-color;

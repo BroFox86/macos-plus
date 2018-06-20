@@ -18,15 +18,15 @@
     }
 
     &--vk {
-      @include x-button-states($vk);
+      @include x-btn-states($vk);
     }
 
     &--gplus {
-      @include x-button-states($googleplus);
+      @include x-btn-states($googleplus);
     }
 
     &--twitter {
-      @include x-button-states($twitter);
+      @include x-btn-states($twitter);
     }
 
     &--fb {
@@ -35,13 +35,13 @@
       @media (max-width: $tablet) {
         display: block;
 
-        @include x-button-states($facebook);
+        @include x-btn-states($facebook);
       }
     }
 
     &--copy-url {
-      @include x-button();
-      @include x-button-states($grey-152);
+      @include x-btn();
+      @include x-btn-states($grey-152);
 
       @media (max-width: $tablet) {
         display: none;

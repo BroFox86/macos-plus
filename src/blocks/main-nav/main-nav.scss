@@ -7,9 +7,9 @@
 
   @media (max-width: $tablet) {
     text-transform: none;
-    font-family: $base-font-family;
+    color: $grey-119;
     font-size: $base-font-size + 2px;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   @media (max-width: $mobile) {

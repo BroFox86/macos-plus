@@ -35,8 +35,8 @@
     height: 40px;
     border-radius: 50%;
 
-    @include x-button();
-    @include x-button-states($accent);
+    @include x-btn();
+    @include x-btn-states($accent);
   }
 
   &__close-icon {

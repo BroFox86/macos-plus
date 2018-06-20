@@ -37,7 +37,7 @@
 
     .page-nav__item:hover &,
     .page-nav__item.is-active & {
-      color: $accent;
+      color: darken($accent, 5);
 
       @media (max-width: $desktop) {
         color: inherit;
@@ -52,6 +52,10 @@
     width: 37px;
     height: 52px;
     background: $accent;
+
+    @media (max-width: $desktop) {
+      width: 41px;
+    }
 
     .page-nav__item:first-child & {
       border-top-left-radius: $border-radius;
