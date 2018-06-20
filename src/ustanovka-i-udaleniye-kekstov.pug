@@ -1,4 +1,4 @@
-extends /pug/_layout
+extends /layouts/layout
 
 prepend page
   -
@@ -11,9 +11,14 @@ prepend page
         likeBtnId      = "Установка и удаление кекстов"
 
     var metaImage = {
-      src: "images/install-kexts/kext-dragging_original.jpg",
+      src: "images/content/install-kexts/kext-dragging_original.jpg",
       width: 797,
       height: 534
+    };
+
+    var articleHeader = {
+      image: "images/content/install-kexts/icon.png",
+      title: "Установка и удаление&#32;<br>кекстов в macOS"
     };
 
     var itemList = [
@@ -21,11 +26,6 @@ prepend page
       "Установка кекстов", 
       "Удаление кекстов"
     ]
-
-    var articleHeader = {
-      image: "images/install-kexts/article-logo.png",
-      title: "Установка и удаление&#32;<br>кекстов в macOS"
-    };
 
 block nav
   +mainNav(kexts = selected, pageA0 = selected)
@@ -78,21 +78,21 @@ block content
       +link('http://cvad-mac.narod.ru/index/0-4', 'cvad-mac.narod.ru')
       |  и установите, переместив приложение в папку «Программы».
 
-      - src = "images/install-kexts/install-location.png"
+      - src = "images/content/install-kexts/install-location.png"
       - alt = "Папка c программами в macOS"
       +img
 
     +li
       | При каждом открытии программы начинается служебная процедура. Пока она выполняются, крутится индикатор и выводится лог событий.
 
-      - src = "images/install-kexts/kext-utility-window.png"
+      - src = "images/content/install-kexts/kext-utility-window.png"
       - alt = "Окно программы Kext Utility"
       +img
 
     +li
       | Переместите кекст(ы) в окно программы методом drag-and-drop и дождитесь выполнения установки.
 
-      - src = "images/install-kexts/kext-dragging.jpg"
+      - src = "images/content/install-kexts/kext-dragging.jpg"
       - alt = "Установка кекста через Kext Utility"
       +img
 
@@ -111,7 +111,7 @@ block content
     +li
       | Откройте папку кекстов в Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other. 
 
-      - src = "images/install-kexts/kexts-location-in-clover.png"
+      - src = "images/content/install-kexts/kexts-location-in-clover.png"
       - alt = "Папка с кекстами в Clover"
       +img
 
@@ -135,7 +135,7 @@ block content
     +li
       | Выберите в строке меню пункт «Переход к папке» и введите путь к системной папке: /System/Library/Extensions
 
-      - src = "images/install-kexts/go-to-folder_small.jpg"
+      - src = "images/content/install-kexts/go-to-folder_small.jpg"
       - alt = "Переход в системную папку macOS"
       +img("small")
 
@@ -145,7 +145,7 @@ block content
     +li
       | Затем найдите кекст у удалите.
 
-      - src = "images/install-kexts/extensions-folder.png"
+      - src = "images/content/install-kexts/extensions-folder.png"
       - alt = "Папка с кекстами в системном разделе macOS"
       +img
 

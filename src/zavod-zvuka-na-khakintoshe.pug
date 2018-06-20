@@ -1,4 +1,4 @@
-extends /pug/_layout
+extends /layouts/layout
 
 prepend page
   -
@@ -11,9 +11,14 @@ prepend page
         likeBtnId      = "Завод звука"
 
     var metaImage = {
-      src: "images/setup-sound/thumbnail.jpg",
+      src: "images/content/setup-sound/thumbnail.jpg",
       width: 1334,
       height: 772
+    };
+
+    var articleHeader = {
+      image: "images/content/setup-sound/icon.png",
+      title: pageTitle
     };
 
     var itemList = [
@@ -22,13 +27,11 @@ prepend page
       "Метод AppleALC"
     ]
 
-    var articleHeader = {
-      image: "images/setup-sound/article-logo.png",
-      title: pageTitle
-    };
-
 block nav
   +mainNav(sound = selected)
+
+block articleHeader
+  +articleHeader(theme = themeAccent)
 
 block content
   +h2
@@ -135,7 +138,7 @@ block content
     +li
       | Скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
 
-      - src = "images/setup-sound/native-applehda-in-boot-usb.jpg"
+      - src = "images/content/setup-sound/native-applehda-in-boot-usb.jpg"
       - alt = "Расположение кекста AppleHDA на загрузочном USB-диске"
       +img
 
@@ -146,7 +149,7 @@ block content
     +li
       | Выберите в строке меню пункт «Переход к папке».
 
-      - src = "images/setup-sound/go-to-folder_small.jpg"
+      - src = "images/content/setup-sound/go-to-folder_small.jpg"
       - alt = "Переход к папке в macOS"
       +img("small")
     +li
@@ -179,7 +182,7 @@ block content
       +link('http://mackie100projects.altervista.org/download-clover-configurator/', 'Clover Configurator')
       | .
 
-      - src = "images/setup-sound/plist-location.jpg"
+      - src = "images/content/setup-sound/plist-location.jpg"
       - alt = "Расположение config.plist"
       +img
 
@@ -188,7 +191,7 @@ block content
       i AppleHDA/HDA
       | .
 
-      - src = "images/setup-sound/remove-applehda-string.png"
+      - src = "images/content/setup-sound/remove-applehda-string.png"
       - alt = "Вкладка Kernel and Kext Patches программы Clover Configurator"
       +img
     +li
@@ -196,7 +199,7 @@ block content
       +link('https://github.com/vit9696/AppleALC/wiki/Supported-codecs', 'github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs')
       | . Обычно подходит стандартное значение «1».
 
-      - src = "images/setup-sound/enter-layout-id.png"
+      - src = "images/content/setup-sound/enter-layout-id.png"
       - alt = "Вкладка Devices программы Clover Configurator"
       +img 
     +li
@@ -215,7 +218,7 @@ block content
           i 48444546 
           | в Replace [HEX].
 
-      - src = "images/setup-sound/rename-hdas.png"
+      - src = "images/content/setup-sound/rename-hdas.png"
       - alt = "Вкладка ACPI программы Clover Configurator"
       +img 
 
@@ -225,6 +228,6 @@ block content
     +li
       | Сохраните изменения и перезагрузите компьютер. 
 
-      - src = "images/setup-sound/save-config_small.jpg"
+      - src = "images/content/setup-sound/save-config_small.jpg"
       - alt = "Сохранение изменений Clover Configurator"
       +img("small")

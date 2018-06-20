@@ -111,8 +111,8 @@ mixin figure(width)
 
 mixin respImg
   - var src1 = src + " " + size + "w"
-  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
-  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + size * 1.5 + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + size * 2   + "w"
 
   img(class  = imgClass
     srcset = src1 + ", " + src2 + ", " + src3
@@ -122,8 +122,8 @@ mixin respImg
 
 mixin respImgSource
   - var src1 = src + " " + size + "w"
-  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@large$1") + " " + size * 1.5 + "w"
-  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@huge$1") + " " + size * 2 + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + size * 1.5 + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + size * 2   + "w"
 
   source(
     media  = media
