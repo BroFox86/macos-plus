@@ -1,7 +1,7 @@
 .line {
   margin: 0;
   border: none;
-  border-top: 2px solid $grey-235;
+  border-top: 2px solid #ebebeb;
 
   .article__header & {
     @media (max-width: $tablet) {

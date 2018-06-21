@@ -3,11 +3,10 @@
 // due to bug with REM in IE10.
 //
 
-.page {
-  margin: 0;
+:root {
   word-wrap: break-word;
-  color: $grey-68;
-  background: $grey-235;
+  color: $base-font-color;
+  background: #ebebeb;
   font-family: $base-font-family;
   font-size: $base-font-size;
   font-weight: 400;
@@ -17,24 +16,29 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transpent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
-  ::-moz-focus-inner {
-    border: 0;
-  }
+::-moz-focus-inner {
+  border: 0;
+}
 
-  :focus {
-    outline: none;
-  }
+:focus {
+  outline: none;
+}
 
-  *::selection {
-    color: white;
-    background: $selection;
-  }
+::selection {
+  color: white;
+  background: $selection;
+}
 
+.page {
+  margin: 0;
+
+  
   &__outdated {
     margin: 3px 0;
     padding: 3px 0;
-    background: $grey-152;
+    background: #989797;
   }
 
   &__header {

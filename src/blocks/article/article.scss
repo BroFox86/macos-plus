@@ -4,15 +4,14 @@
   box-sizing: border-box;
   border-radius: $border-radius;
   background-color: white;
-
-  @include x-padding-desktop();
+  padding: 0 8% 0;
 
   @media (max-width: $tablet) {
-    @include x-padding-tablet();
+    padding: 0 10% 0;
   }
 
   @media (max-width: $mobile) {
-    @include x-padding-mobile();
+    padding: 0 5% 0;
   }
 
   &__header {
@@ -119,7 +118,7 @@
         height: .4em;
         content: "";
         border-radius: 50%;
-        background: $grey-128;
+        background: #808080;
       }
     }
 
@@ -140,8 +139,8 @@
     padding: 3px 6px;
     hyphens: none;
     border-radius: $border-radius--sm;
-    background: $grey-235;
-    font-size: $base-font-size - 1px;
+    background: #ebebeb;
+    font-size: 15px;
   }
 
   &__note {
@@ -171,7 +170,7 @@
 
   &__img {
     max-width: 100%;
-    color: $grey-128;
+    color: #808080;
   }
 
   //
@@ -182,7 +181,7 @@
   &__tooltip[title] {
     text-decoration: none;
     hyphens: none;
-    border-bottom: 1px dashed $grey-128;
+    border-bottom: 1px dashed #808080;
 
     &:hover {
       cursor: help;

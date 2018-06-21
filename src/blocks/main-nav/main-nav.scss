@@ -1,14 +1,14 @@
 .main-nav {
   text-transform: uppercase;
-  color: $grey-102;
+  color: #666;
   font-family: $websafe-font-family;
-  font-size: $base-font-size - 1px;
+  font-size: 15px;
   font-weight: 500;
 
   @media (max-width: $tablet) {
     text-transform: none;
-    color: $grey-119;
-    font-size: $base-font-size + 2px;
+    color: #777;
+    font-size: 18px;
     font-weight: 500;
   }
 
@@ -63,7 +63,7 @@
       width: 275px;
     }
 
-    @media (max-width: $mobile-sm) {
+    @media (max-width: 352px) {
       width: 100%;
     }
 
@@ -80,7 +80,7 @@
     padding: 0;
     list-style: none;
     cursor: pointer;
-    border: 1px solid $grey-235;
+    border: 1px solid #ebebeb;
     border-radius: $border-radius;
     background: white;
 
@@ -149,7 +149,7 @@
     height: 23px;
     transform: rotate(90deg);
 
-    fill: $grey-128;
+    fill: #808080;
   }
 
   &__item {
@@ -187,13 +187,13 @@
       @media (max-width: $tablet) {
         padding-left: 0;
         cursor: default;
-        color: $grey-68;
+        color: $base-font-color;
       }
     }
 
     .main-nav__item--popup:hover > & {
       @media (max-width: $tablet) {
-        color: $grey-68;
+        color: $base-font-color;
       }
     }
 
@@ -215,17 +215,17 @@
     height: 8px;
     vertical-align: middle;
 
-    fill: $grey-102;
+    fill: #666;
 
     @media (max-width: $tablet) {
-      fill: $grey-68;
+      fill: $base-font-color;
     }
 
     .main-nav__item--selected & {
       fill: $accent;
 
       @media (max-width: $tablet) {
-        fill: $grey-68;
+        fill: $base-font-color;
       }
     }
 
@@ -235,7 +235,7 @@
 
     .main-nav__item--popup:hover & {
       @media (max-width: $tablet) {
-        fill: $grey-68;
+        fill: $base-font-color;
       }
     }
   }

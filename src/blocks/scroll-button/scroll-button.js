@@ -16,6 +16,6 @@
   });
 
   $element.on("click", function() {
-    $("html").stop().animate( { scrollTop: 0 }, 2000);
+    $("html, body").stop().animate( { scrollTop: 0 }, 2000);
   });
 }) (); 

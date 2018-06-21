@@ -13,7 +13,7 @@
     height: 200px;
     margin: 0 auto 20px;
     border-radius: 50%;
-    background: $grey-240;
+    background: #f0f0f0;
 
     @media (max-width: $mobile) {
       width: 140px;
@@ -60,8 +60,8 @@
   &__date {
     display: inline-block;
     margin-bottom: 60px;
-    color: $grey-102;
-    font-size: $base-font-size - 2px;
+    color: #666;
+    font-size: 14px;
 
     @media (max-width: $tablet) {
       margin-bottom: 25px;

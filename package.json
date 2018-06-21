@@ -1,16 +1,11 @@
 {
   "name": "macos-plus",
-  "version": "6.0.0",
-  "description": "Install macos sierra on intel-based PC",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Сайт с инструкциями по установке macOS на ПК",
   "author": "Daur Gamisonia",
   "repository": {
     "type": "git",
     "url": "https://github.com/BroFox86/macos-plus"
   },
-  "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.6.3",
     "browser-sync": "^2.24.4",

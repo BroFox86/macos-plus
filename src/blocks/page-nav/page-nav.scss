@@ -1,7 +1,7 @@
 .page-nav {
   @media (max-width: $tablet) {
     width: 100%;
-    border: 2px solid $grey-235;
+    border: 2px solid #ebebeb;
     box-shadow: none;
   }
 
@@ -9,7 +9,7 @@
     @media (max-width: $mobile) {
       padding-top: 17px;
       margin-bottom: 15px;
-      font-size: $base-font-size + 6px;
+      font-size: 22px;
     }
   }
 
@@ -30,7 +30,7 @@
     transition: color .5s;
     transition: font-size .1s;
     text-decoration: none;
-    color: $grey-102;
+    color: #666;
     font-family: $websafe-font-family;
     font-weight: 500;
     line-height: 52px;
@@ -63,15 +63,15 @@
   }
 
   &__icon {
-    width: 19px;
-    height: 19px;
+    width: 18px;
+    height: 18px;
     transition: fill .1s, transform .1s;
     fill: white;
 
     @include x-center();
     
     .page-nav__item.is-active & {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
   }
 }

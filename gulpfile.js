@@ -1,7 +1,7 @@
 "use strict";
 
 /* ==========================================================================
-  Vars
+  Variables
   ========================================================================== */
 
 var // Common
@@ -85,6 +85,9 @@ var paths = {
       "node_modules/moment/min/moment.min.js",
       "node_modules/moment/locale/ru.js",
       "node_modules/stickyfilljs/dist/stickyfill.js"
+    ],
+    css: [
+      "node_modules/normalize.css/normalize.css"
     ]
   }
 };
@@ -96,7 +99,7 @@ var criticalOptns = {
 };
 
 /* ==========================================================================
-   Cleaning
+   Clean
    ========================================================================== */
 
 gulp.task("clean:tmp", function() {
@@ -225,7 +228,6 @@ gulp.task("styles:main", function() {
   return gulp
     .src([
       paths.src.scss + "_*",
-      paths.src.scss + "[^_]*",
       paths.src.blocks + "**/*.scss"
     ])
     .pipe(
@@ -248,9 +250,9 @@ gulp.task("styles:main", function() {
     .pipe(gulp.dest(paths.tmp.css));
 });
 
-gulp.task("styles:plugins", function() {
+gulp.task("styles:plugins", function () {
   return gulp
-    .src(paths.src.scss + "[^_]*")
+    .src(paths.plugins.css)
     .pipe(
       plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
     )
@@ -261,9 +263,7 @@ gulp.task("styles:plugins", function() {
           propList: ["*", "!box-shadow"]
         }),
         // autoprefixer(),
-        // mqpacker({
-        //   sort: sortCSSmq.desktopFirst
-        // })
+        // mqpacker()
       ])
     )
     .pipe(gulp.dest(paths.tmp.css));
@@ -510,7 +510,7 @@ gulp.task("images:unused", function() {
     .src([
       paths.tmp.root + "*.{html,xml}",
       paths.tmp.css + "*",
-      paths.tmp.images + "**/!(*_original|*@1.5|*@2|meta|logo-mobile)*"
+      paths.tmp.images + "**/!(*_original|*@1.5|*@2|thumbnail|logo-mobile)*"
     ])
     .pipe(
       plumber({
@@ -563,8 +563,7 @@ gulp.task("metadata", function() {
 gulp.task("watch", function() {
   watch(
     [
-      paths.src.imagesToSprite + "**/*.svg",
-      paths.src.blocks + "*/images-to-sprite/*.svg"
+      paths.src.imagesToSprite + "**/*.svg"
     ],
     { readDelay: 200 },
     function() {

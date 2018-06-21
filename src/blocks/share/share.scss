@@ -41,7 +41,7 @@
 
     &--copy-url {
       @include x-btn();
-      @include x-btn-states($grey-152);
+      @include x-btn-states(#989797);
 
       @media (max-width: $tablet) {
         display: none;

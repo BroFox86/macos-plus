@@ -36,14 +36,14 @@
   &__copyrights {
     display: inline-block;
     margin-right: 5px;
-    color: $grey-102;
+    color: #666;
   }
 
   &__author {
     display: inline-block;
     margin-right: 5px;
     text-decoration: none;
-    color: $grey-68;
+    color: $base-font-color;
   }
 
   &__year {

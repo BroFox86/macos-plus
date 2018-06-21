@@ -13,18 +13,17 @@
 }
 
 @mixin x-btn(
-  $border: border, 
-  $border-value: none, 
-  $background-color: transparent, 
-  $padding: padding, 
-  $padding-value: 0, 
+  $padding: 0, 
+  $border: none, 
   $outline: none, 
-  $cursor: pointer) {
-  $padding: $padding-value;
+  $background: transparent, 
+  $cursor: pointer) 
+{
+  padding: $padding;
   outline: $outline;
-  #{$border}: $border-value;
+  border: $border;
   cursor: $cursor;
-  background-color: $background-color;
+  background: $background;
 }
 
 @mixin x-btn-states($background-color) {
@@ -35,21 +34,6 @@
   &:hover {
     background: darken($background-color, 10);
   }
-}
-
-@mixin x-padding-desktop {
-  padding-right: 8%;
-  padding-left: 8%;
-}
-
-@mixin x-padding-tablet {
-  padding-right: 10%;
-  padding-left: 10%;
-}
-
-@mixin x-padding-mobile {
-  padding-right: 5%;
-  padding-left: 5%;
 }
 
 

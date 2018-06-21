@@ -16,11 +16,11 @@
   &--small {
     width: auto;
     padding: 5px;
-    color: $grey-68;
+    color: $base-font-color;
     border-radius: $border-radius--sm;
     background: transparent;
     box-shadow: none;
-    font-size: $base-font-size - 1px;
+    font-size: 15px;
     line-height: 1;
   }
 }
