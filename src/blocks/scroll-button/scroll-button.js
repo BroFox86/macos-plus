@@ -2,13 +2,11 @@
   "use strict";
 
   var $element = $(".js-scroll-btn"),
-      visible  = "is-visible";
+      visible = "is-visible",
+      media = window.matchMedia("(max-width: 960px)");
 
   $(window).on("scroll resize", function() {
-    if (
-      window.matchMedia("(max-width: 960px)").matches && 
-      $(window).scrollTop() > 800
-    ) {
+    if ( $(window).scrollTop() > 800 && media.matches) {
       $element.addClass(visible);
     } else {
       $element.removeClass(visible);

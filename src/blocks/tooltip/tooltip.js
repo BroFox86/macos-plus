@@ -19,7 +19,9 @@
     },
     function() {
       $(this).attr("title", $(this).data("tipText"));
-      $(".tooltip").fadeOut(duration);
+      $(".tooltip").fadeOut(duration, function() {
+        $(this).remove();
+      });
     }
   );
 

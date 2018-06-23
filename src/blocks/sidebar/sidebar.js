@@ -14,14 +14,13 @@
 (function() {
   "use strict";
 
-  var containerHeight = $(".js-hide-container").outerHeight(),
-      $target         = $(".js-hide-target");
+  var height = $(".js-hide-container").outerHeight(),
+      $target = $(".js-hide-target"),
+      maxH = window.matchMedia("(max-height: 950px)"),
+      minW = window.matchMedia("(min-width: 960px)");
 
   $(window).on("DOMContentLoaded resize", function() {
-    if ( 
-      containerHeight >= 700 &&
-      window.matchMedia("(max-height: 950px)").matches
-    ) {
+    if (height >= 700 && maxH.matches && minW.matches) {
       $target.hide();
     } else {
       $target.show();
