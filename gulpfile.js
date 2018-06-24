@@ -140,7 +140,6 @@ gulp.task("html", ["images:sprites:svg"], function() {
     .pipe(rename(function (path) {
       if (path.basename == "ustanovka-macos-na-pc") {
         path.basename = "index";
-        path.extname = ".html";
       }
       return path;
     }))
@@ -227,7 +226,7 @@ gulp.task("html:validate", function() {
 gulp.task("styles:main", function() {
   return gulp
     .src([
-      paths.src.scss + "_*",
+      paths.src.scss + "**/*.scss",
       paths.src.blocks + "**/*.scss"
     ])
     .pipe(
@@ -633,7 +632,7 @@ gulp.task("connect:tmp", function() {
     reloadDebounce: 500
   });
   browserSync.watch(paths.tmp.root + "*.html").on("change", browserSync.reload);
-  browserSync.watch(paths.tmp.css + "[^_]*").on("change", browserSync.reload);
+  browserSync.watch(paths.tmp.css + "main.css").on("change", browserSync.reload);
   browserSync.watch(paths.tmp.js + "*").on("change", browserSync.reload);
   browserSync.watch(paths.tmp.fonts + "*").on("change", browserSync.reload);
 });
@@ -653,14 +652,14 @@ gulp.task("connect:dist", function() {
 gulp.task("prebuild", function(callback) {
   gulpSequence(
     ["images", "scripts", "fonts"],
-    ["html", "styles"],
-    ["styles:critical"]
+    ["html", "styles"]
   )(callback);
 });
 
 gulp.task("build:fast", function(callback) {
   gulpSequence(
     ["prebuild"],
+    ["styles:critical"],
     ["html:dist"],
     ["html:minify", "styles:dist", "scripts:minify"],
     ["images:dist", "fonts:dist", "metadata"],
