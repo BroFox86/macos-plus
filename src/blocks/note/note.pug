@@ -7,7 +7,7 @@ mixin note(type)
 
     when inf
       aside.article__note.note(class= inf)
-        +svg("note__icon", "info")
+        +svg("note__icon", "info-circle")
         p.note__text
           if block
           block
@@ -21,7 +21,7 @@ mixin note(type)
 
     when warning
       aside.article__note.note(class= warning)
-        +svg("note__icon", "warning")
+        +svg("note__icon", "exclamation-triangle")
         strong.note__text
           if block
           block

@@ -11,5 +11,10 @@
     font-size: 19px;
     font-weight: 700;
     line-height: 1;
+
+    @media (max-width: $tablet) {
+      font-size: 20px;
+    }
+
   }
 }

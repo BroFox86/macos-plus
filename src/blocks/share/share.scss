@@ -11,22 +11,27 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    transition: transform .1s ease-out;
 
     @media(min-width: $tablet) and (max-width: $desktop) {
       width: 45px;
       height: 45px;
     }
 
+    &:hover {
+      transform: scale(1.05);
+    }
+
     &--vk {
-      @include x-btn-states($vk);
+      background: $vk;
     }
 
     &--gplus {
-      @include x-btn-states($googleplus);
+      background: $googleplus;
     }
 
     &--twitter {
-      @include x-btn-states($twitter);
+      background: $twitter;
     }
 
     &--fb {
@@ -34,14 +39,12 @@
 
       @media (max-width: $tablet) {
         display: block;
-
-        @include x-btn-states($facebook);
+        background: $facebook;
       }
     }
 
     &--copy-url {
-      @include x-btn();
-      @include x-btn-states(#989797);
+      background: #989797;
 
       @media (max-width: $tablet) {
         display: none;
@@ -52,8 +55,8 @@
   &__icon {
     width: 25px;
     height: 25px;
-
     fill: white;
+
     @include x-center();
 
     @media(min-width: $tablet) and (max-width: $desktop) {

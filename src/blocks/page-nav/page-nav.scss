@@ -6,10 +6,16 @@
   }
 
   &__headline {
-    @media (max-width: $mobile) {
-      padding-top: 17px;
+    margin-bottom: 10px;
+
+    @media (max-width: $tablet) {
+      padding-top: 20px;
       margin-bottom: 15px;
       font-size: 22px;
+    }
+
+    @media (max-width: $mobile) {
+      padding-top: 15px;
     }
   }
 
@@ -24,33 +30,36 @@
   }
 
   &__link {
+    position: relative;
     display: block;
     padding-left: 22px;
     padding-right: 37px;
-    transition: color .5s;
-    transition: font-size .1s;
+    transition: color .1s ease-out;
     text-decoration: none;
     color: #666;
     font-family: $websafe-font-family;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 52px;
 
     .page-nav__item:hover &,
     .page-nav__item.is-active & {
-      color: darken($accent, 5);
+      color: $accent;
 
-      @media (max-width: $desktop) {
+      @media (max-width: $tablet) {
         color: inherit;
       }
     }
   }
+
+  // Specify height 101% to avoid white seam 
+  // between items
 
   &__icon-wrapper {
     display: inline-block;
     position: absolute;
     right: 0;
     width: 37px;
-    height: 52px;
+    height: 101%;
     background: $accent;
 
     @media (max-width: $desktop) {
@@ -63,15 +72,17 @@
   }
 
   &__icon {
-    width: 18px;
-    height: 18px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transform: rotate(44deg);
     transition: fill .1s, transform .1s;
     fill: white;
 
     @include x-center();
     
-    .page-nav__item.is-active & {
-      transform: scale(1.15);
-    }
+    // .page-nav__item.is-active & {
+    //   transform: rotate(44deg);
+    // }
   }
 }

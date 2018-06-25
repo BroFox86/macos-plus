@@ -5,7 +5,7 @@
   max-width: 400px;
   padding: 20px;
   color: white;
-  border-radius: $border-radius--lg;
+  border-radius: $border-radius--large;
   background: lighten($accent, 5);
   box-shadow: 0 0 4.8px rgb(102, 102, 102);
 
@@ -17,7 +17,7 @@
     width: auto;
     padding: 5px;
     color: $base-font-color;
-    border-radius: $border-radius--sm;
+    border-radius: $border-radius--tiny;
     background: transparent;
     box-shadow: none;
     font-size: 15px;

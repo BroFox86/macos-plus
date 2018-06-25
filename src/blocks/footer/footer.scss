@@ -29,11 +29,11 @@
     }
   }
 
-  &__copyrights-wrapper {
-    margin: 0 0 15px;
+  &__copyrights {
+    margin-bottom: 15px;
   }
 
-  &__copyrights {
+  &__content {
     display: inline-block;
     margin-right: 5px;
     color: #666;
@@ -48,5 +48,17 @@
 
   &__year {
     display: inline-block;
+  }
+
+  &__my-links {
+    margin-bottom: 15px;
+  }
+
+  &__fontawesome {
+    font-size: 14px;
+  }
+
+  &__link {
+    color: inherit;
   }
 }

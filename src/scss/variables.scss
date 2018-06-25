@@ -15,7 +15,6 @@ $headings-font-family:   "PT Sans",     sans-serif;
 $websafe-font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
 $base-font-color:   #444;
-
 $base-font-size:   16px;
 
 $h1-font-size:   37px;
@@ -36,9 +35,10 @@ $margin: 26px;
 // Borders
 // ==========================================================================
 
-$border-radius--sm:   4px;
+$border-radius--tiny:   4px;
+$border-radius--small:   10px;
 $border-radius:       12px;
-$border-radius--lg:   15px;
+$border-radius--large:   15px;
 
 // ==========================================================================
 // Theme colours

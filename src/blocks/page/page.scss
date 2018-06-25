@@ -1,5 +1,5 @@
 //
-// Font Shorthands are not used  
+// Font shorthands are not used  
 // due to bug with REM in IE10.
 //
 
@@ -33,7 +33,6 @@
 
 .page {
   margin: 0;
-
   
   &__outdated {
     margin: 3px 0;
@@ -103,15 +102,20 @@
     }
   }
 
-  &__scroll-button {
+  &__scroll-btn {
     display: none;
+    background: transparent;
 
+    // Padding is workaround to
+    // fix the bug in mobile Chrome when the
+    // page is scrolled up
     @media (max-width: $tablet) {
       position: fixed;
-      z-index: 10;
+      z-index: 99;
       right: 6%;
       bottom: 4%;
       display: block;
+      padding-top: 20px;
     }
 
     @media (max-width: $mobile) {

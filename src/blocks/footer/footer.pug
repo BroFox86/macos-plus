@@ -1,12 +1,15 @@
 mixin footer
   footer.footer
-    div.footer__top
+    .footer__top
       +reference(state = footerItem)
       +share(state = footerItem)
-    div.footer__bottom
-        p.footer__copyrights-wrapper
-          span.footer__copyrights © Дизайн, движок и тексты. 
+    .footer__bottom
+        p.footer__copyrights
+          span.footer__content © Дизайн, движок и тексты. 
           span.footer__author Daur “Bro Fox” Gamisonia, 
           span.footer__year 2018
+        
         +myLinks
-          
+        p.footer__fontawesome
+          | Icons by 
+          a.footer__link(href="https://fontawesome.com/license") © Font Awesome

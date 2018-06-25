@@ -12,15 +12,12 @@
 
   &--anchor {
     padding-right: 10px;
-    transition-duration: .15s;
+    transition-duration: .25s;
     transition-property: opacity, color;
+    transition-timing-function: ease-out; 
     opacity: 0;
-    color: lighten($accent, 10);
+    color: $accent;
     font-family: $base-font-family;
-
-    &:hover {
-      color: $accent;
-    }
 
     .article__h2:hover & {
       opacity: 1;
@@ -32,7 +29,6 @@
     font-weight: 700;
 
     &:visited {
-      padding: 2px;
       color: $visited;
     }
   }

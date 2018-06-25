@@ -16,14 +16,14 @@
     background: #f0f0f0;
 
     @media (max-width: $mobile) {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       margin-bottom: 10px;
     }
 
     &--theme-alt {
-      width: 230px;
-      height: 230px;
+      width: 210px;
+      height: 210px;
       background: white;
     }
 
@@ -51,7 +51,9 @@
     }
 
     br {
-      @media (max-width: $mobile) {
+      display: block;
+
+      @media (max-width: $tablet) {
         display: none;
       }
     }

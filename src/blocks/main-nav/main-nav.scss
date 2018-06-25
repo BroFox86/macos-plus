@@ -3,13 +3,12 @@
   color: #666;
   font-family: $websafe-font-family;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
 
   @media (max-width: $tablet) {
     text-transform: none;
     color: #777;
     font-size: 18px;
-    font-weight: 500;
   }
 
   @media (max-width: $mobile) {
@@ -32,7 +31,6 @@
     @media (max-width: $tablet) {
       width: 100%;
       height: 100%;
-
       fill: white;
     }
   }
@@ -49,7 +47,7 @@
       top: 0;
       overflow-y: scroll;
       box-sizing: border-box;
-      width: 400px;
+      width: 350px;
       height: 100%;
       padding-top: 60px;
       transition: transform .35s ease-out;
@@ -60,10 +58,10 @@
     }
 
     @media (max-width: $mobile) {
-      width: 275px;
+      width: 290px;
     }
 
-    @media (max-width: 352px) {
+    @media (max-width: 300px) {
       width: 100%;
     }
 
@@ -147,13 +145,11 @@
   &__close-icon {
     width: 23px;
     height: 23px;
-    transform: rotate(90deg);
-
     fill: #808080;
   }
 
   &__item {
-    border-radius: $border-radius;
+    border-radius: $border-radius--small;
     background: transparent;
 
     &--selected:not(.main-nav__item--popup) {
@@ -210,11 +206,10 @@
 
   &__popup-icon {
     position: relative;
-    left: 5px;
-    width: 8px;
-    height: 8px;
+    left: 8px;
+    width: 10px;
+    height: 10px;
     vertical-align: middle;
-
     fill: #666;
 
     @media (max-width: $tablet) {

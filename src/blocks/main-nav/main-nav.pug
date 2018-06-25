@@ -3,13 +3,13 @@
 mixin mainNav
   nav.main-nav
     a(href="#target").main-nav__open-btn
-      +svg("main-nav__open-icon", "menu")
+      +svg("main-nav__open-icon", "bars")
     a.main-nav__open-target(id="target")
-    div.main-nav__inner
+    .main-nav__inner
       ul.main-nav__list.js-fixed-menu
         li
           a(href="#0").main-nav__close-btn
-            +svg("main-nav__close-icon", "arrow-down")
+            +svg("main-nav__close-icon", "angle-left")
         li.main-nav__item(class= attributes.index)
           a.main-nav__link(href= link.index) macOS на ПК 
         li.main-nav__item(class= attributes.vmware)
