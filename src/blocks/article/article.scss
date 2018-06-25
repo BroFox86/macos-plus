@@ -74,7 +74,7 @@
   }
 
   &__par {
-    margin: 0 0 $margin;
+    margin-bottom: $margin;
 
     .article__ordered-list & {
       margin-top: $margin;
