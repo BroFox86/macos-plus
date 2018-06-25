@@ -12,9 +12,7 @@
 
   &--anchor {
     padding-right: 10px;
-    transition-duration: .25s;
-    transition-property: opacity, color;
-    transition-timing-function: ease-out; 
+    transition: all .25s ease-out;
     opacity: 0;
     color: $accent;
     font-family: $base-font-family;
