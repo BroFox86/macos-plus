@@ -1,12 +1,14 @@
-.scroll-button {
+.scroll-btn {
   width: 70px;
   height: 70px;
+  border-radius: 50%;
+  background: $accent;
+  box-shadow: 1px 1px 4px 0 rgba(101, 119, 134, .75);
   transition: transform .30s;
   transform: scale(0);
-  border-radius: 50%;
-  box-shadow: 1px 1px 4px 0 rgba(101, 119, 134, .75);
 
-  @include x-btn($background: $accent);
+  // Workaround
+  display: block;
 
   @media (max-width: $mobile) {
     width: 55px;
