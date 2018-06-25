@@ -7,7 +7,7 @@ mixin articleHeader
     time.article-header__date(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
 
   header.article__header.article-header
-    div.article-header__img-wrapper(class= attributes.theme)
+    .article-header__img-wrapper(class= attributes.theme)
       img.article-header__img(src= articleHeader.image alt="")
     h1.article-header__headline!= articleHeader.title
     case isDateModified
