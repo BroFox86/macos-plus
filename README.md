@@ -2,11 +2,11 @@
 
 ## Описание
 
-Сайт macOS+ состоит из переведенных и адаптированных на русский язык англоязычных инструкций и описывает установку на ПК чистого официального образа macOS Sierra с цифрового магазина Apple AppStore.
+Сайт macOS+ состоит из переведенных и адаптированных на русский язык англоязычных инструкций и описывает установку на ПК чистого официального образа macOS High Sierra с цифрового магазина AppStore.
 
 ## О технической части
 
-Верстка, дизайн (за исключением графики) и материалы сайта разработаны мною с нуля. Скрипты на jQuery – тоже, за исключением тех, что указаны в «Дополнительно». Дизайн отзывчивый к размеру экрана и рассчитан на работу в браузерах IE10+/Edge, Firefox, Chrome, Opera и Safari.
+Дизайн отзывчивый к размеру экрана и рассчитан на работу в браузерах IE10+/Edge, Firefox, Chrome, Opera и Safari.
 
 ### Инструменты
 
@@ -29,15 +29,8 @@
 ### Дополнительно
 
 * Работоспособность сайта в случае отключения JavaScript, вплоть до работы мобильного меню
-* Рейтинг Google Page Speed Inside (PSI): [84 балла](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus&tab=desktop)
+* Рейтинг Google PSI: [84 балла](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrofox86.github.io%2Fmacos-plus&tab=desktop)
 * Использованы критические стили (Critical CSS)
-
-#### Ресурсы
-
-* Плагин [moment.js](https://momentjs.com) для отображения относительных дат
-* Полифил [Stickyfill](https://github.com/BroFox86/stickyfill) для работы свойства Sticky на IE
-* SVG-графика взята c [material.io](http://material.io/icons/) и [iconmonstr.com](https://iconmonstr.com)
-* Шрифты c [google-webfonts-helper.herokuapp.com](https://google-webfonts-helper.herokuapp.com)
 
 ____________________
 
