@@ -106,16 +106,12 @@
     display: none;
     background: transparent;
 
-    // Padding is workaround to
-    // fix the bug in mobile Chrome when the
-    // page is scrolled up
     @media (max-width: $tablet) {
       position: fixed;
       z-index: 99;
       right: 6%;
       bottom: 4%;
       display: block;
-      padding-top: 20px;
     }
 
     @media (max-width: $mobile) {
