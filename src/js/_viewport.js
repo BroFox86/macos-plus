@@ -1,6 +1,4 @@
-displayViewportSize();
-
-function displayViewportSize() {
+(function(){
   "use strict";
 
   var scrollbar = 15,
@@ -11,9 +9,8 @@ function displayViewportSize() {
     viewportheight = window.innerHeight;
   }
 
-  $("body").append('<p id="viewport">' + 
-    (viewportwidth - scrollbar) + "x" + viewportheight 
-    + "</p>"
+  $("body").append(
+    '<p id="viewport">' + (viewportwidth - scrollbar) + "x" + viewportheight + "</p>"
   );
 
   $(window).resize(function() {
@@ -28,8 +25,7 @@ function displayViewportSize() {
     position: "fixed",
     bottom: "0",
     left: "1%",
-    "z-index": "999",
+    "z-index": "9999",
     color: "blue"
   });
-}
-
+})()
