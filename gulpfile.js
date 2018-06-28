@@ -42,6 +42,7 @@ var // Common
   penthouse    = require("penthouse"),
   // Scripts
   uglify = require("gulp-uglify"),
+  lec    = require('gulp-line-ending-corrector'),
   // Images
   responsive             = require("gulp-responsive"),
   imagemin               = require("gulp-imagemin"),
@@ -292,11 +293,16 @@ gulp.task("styles:dist", function() {
 gulp.task("scripts:plugins", function() {
   return gulp
     .src(paths.plugins.js)
-    .pipe(changed(".tmp/js/"))
-    .pipe(gulp.dest(".tmp/js/"));
+    .pipe(changed("src/js/"))
+    .pipe(lec({ 
+      verbose: true, 
+      eolc: "LF", 
+      encoding: "utf8" 
+    }))
+    .pipe(gulp.dest("src/js/"));
 });
 
-gulp.task("scripts:main", function() {
+gulp.task("scripts:common", function() {
   return gulp
     .src("src/js/**")
     .pipe(changed(".tmp/js/"))
@@ -311,11 +317,10 @@ gulp.task("scripts:blocks", function() {
 });
 
 gulp.task("scripts", function(callback) {
-  gulpSequence([
-    "scripts:plugins",
-    "scripts:main",
-    "scripts:blocks"
-  ])(callback);
+  gulpSequence(
+    ["scripts:plugins"],
+    ["scripts:common", "scripts:blocks"]
+  )(callback);
 });
 
 gulp.task("scripts:minify", function() {
