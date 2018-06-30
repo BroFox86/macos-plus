@@ -646,6 +646,7 @@ gulp.task("build", function(callback) {
   gulpSequence(
     ["clean"],
     ["prebuild"],
+    ["styles:critical"],
     ["html:dist"],
     ["html:minify", "styles:dist", "scripts:minify"],
     ["images:dist", "fonts:dist", "favicons", "metadata"],
