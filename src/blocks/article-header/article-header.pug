@@ -1,21 +1,26 @@
-- var themeAlt    = "article-header__img-wrapper--theme-alt"
-- var themeAccent = "article-header__img-wrapper--theme-accent"
+- var accent = "article-header__img-wrapper--theme-accent"
 
 mixin articleHeader
 
-  mixin time
-    time.article-header__date(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
+  mixin datePublished
+    time.article-header__data-item(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
+  
+  mixin dateModified
+    time.article-header__data-item.js-modified-date(
+      data-time= dateModified[2] + dateModified[1] + dateModified[0] 
+      datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;
 
   header.article__header.article-header
     .article-header__img-wrapper(class= attributes.theme)
       img.article-header__img(src= articleHeader.image alt="")
     h1.article-header__headline!= articleHeader.title
-    case isDateModified
-      default
-        +time
-      when true
-        +time
-        time.article-header__date.js-modified-date(
-          data-time= dateModified[2] + dateModified[1] + dateModified[0] 
-          datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;
+    .article-header__data
+      case isDateModified
+        default
+          +datePublished
+        when true
+          +datePublished
+          +dateModified
+      if block
+        block
     hr.line

@@ -63,6 +63,10 @@
       width: 20px;
       height: 20px;
     }
+
+    .share__btn--copy-url & {
+      transform: rotate(-45deg) scale(1.1);
+    }
   }
 
   &__paste-wrapper {

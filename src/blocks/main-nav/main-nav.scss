@@ -7,8 +7,9 @@
 
   @media (max-width: $tablet) {
     text-transform: none;
-    color: #777;
+    color: #666;
     font-size: 18px;
+    font-weight: 500;
   }
 
   @media (max-width: $mobile) {
@@ -143,8 +144,8 @@
   }
 
   &__close-icon {
-    width: 23px;
-    height: 23px;
+    width: 20px;
+    height: 20px;
     fill: #808080;
   }
 

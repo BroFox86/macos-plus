@@ -15,11 +15,8 @@
   }
 
   &__header {
-    margin-bottom: $margin;
-
     @media (max-width: $tablet) {
       order: 1;
-      margin-bottom: 8px;
     }
   }
 
@@ -43,7 +40,8 @@
 
   &__h2 {
     position: relative;
-    margin: ($margin * 1.5) 0 $margin;
+    margin: ($margin * 2) 0 $margin;
+    color: $headings-font-color;
     font-family: $headings-font-family;
     font-size: $h2-font-size;
     font-weight: 700;
@@ -55,6 +53,7 @@
 
   &__h3 {
     margin: $margin 0;
+    color: $headings-font-color;
     font-family: $headings-font-family;
     font-size: $h3-font-size;
     font-weight: 700;

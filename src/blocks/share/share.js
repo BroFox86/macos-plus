@@ -43,6 +43,6 @@
         .css({"font-style": "italic", "color": "#777", "opacity": 0})
         .animate({opacity: "1"})
         .val("Ссылка скопирована!");
-    }, duration + 600);
+    }, duration + 500);
   });
 }) (); 

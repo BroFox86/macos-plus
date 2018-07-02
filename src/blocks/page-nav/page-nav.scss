@@ -34,7 +34,6 @@
     display: block;
     padding-left: 22px;
     padding-right: 37px;
-    transition: color .1s ease-out;
     text-decoration: none;
     color: #666;
     font-family: $websafe-font-family;
@@ -51,9 +50,10 @@
     }
   }
 
+  //
   // Specify height 101% to avoid white seam 
   // between items
-
+  //
   &__icon-wrapper {
     display: inline-block;
     position: absolute;
@@ -73,16 +73,14 @@
 
   &__icon {
     display: inline-block;
-    width: 16px;
-    height: 16px;
-    transform: rotate(44deg);
-    transition: fill .1s, transform .1s;
+    width: 18px;
+    height: 18px;
     fill: white;
 
     @include x-center();
     
-    // .page-nav__item.is-active & {
-    //   transform: rotate(44deg);
-    // }
+    .page-nav__item.is-active & {
+      transform: scale(1.15);
+    }
   }
 }

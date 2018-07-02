@@ -16,7 +16,7 @@
 
   var height = $(".js-hide-container").outerHeight(),
       $target = $(".js-hide-target"),
-      maxH = window.matchMedia("(max-height: 950px)"),
+      maxH = window.matchMedia("(max-height: 930px)"),
       minW = window.matchMedia("(min-width: 960px)");
 
   $(window).on("DOMContentLoaded resize", function() {
