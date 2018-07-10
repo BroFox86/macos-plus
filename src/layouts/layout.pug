@@ -3,6 +3,11 @@ include /layouts/mixins
 include /layouts/variables
 include /blocks/**/*
 
+//-
+//- <html> tag is deliberately omitted.
+//- Info here: google.github.io/styleguide/htmlcssguide.html#Optional_Tags
+//-
+
 block page
   head
     block head
@@ -59,6 +64,9 @@ block page
     <p class="page__outdated">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите свой браузер</a>, чтобы улучшить отображение сайта.</p>
     <![endif]-->
 
+    noscript
+      span.page__noscript У вас выключен JavaScript!
+
     // inject:svg 
     // endinject
 
@@ -95,7 +103,7 @@ block page
     block scripts
       script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer)
 
-      // build:js js/main.min.js defer
+      // build:js js/global.min.js defer
       script(src="js/stickyfill.js")
       script(src="js/moment.min.js")
       script(src="js/ru.js")

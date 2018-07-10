@@ -17,6 +17,7 @@
     if (media.matches) {
       $(".article__h2").each(function() {
         if (isInViewport(this, 300)) {
+
           var id = $(this).attr("id");
 
           $scrollspy

@@ -1,11 +1,10 @@
 (function() {
   "use strict";
 
-  var $element  = $(".js-lightbox"),
-      $lightbox = $(".lightbox"),
+  var $lightbox = $(".lightbox"),
       duration  = 300;
 
-  $element.on("click", function(e) {
+  $(document).on("click", ".js-lightbox", function(e) {
     e.preventDefault();
 
     $lightbox.on("touchmove mousewheel", false);

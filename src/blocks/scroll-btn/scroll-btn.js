@@ -6,13 +6,13 @@
       media = window.matchMedia("(max-width: 960px)");
 
   var userAgent = window.navigator.userAgent,
-      chrome    = userAgent.indexOf("Chrome"),
-      mobile    = userAgent.match("Android|iPhone|iPad|iPod");
+      chrome    = userAgent.match("Chrome"),
+      devices   = userAgent.match("Android|iPhone|iPad|iPod");
 
   $(window).on("scroll resize", function () {
     if ($(window).scrollTop() > 800 && media.matches) {
       // Turn off the scroll button due to bug in last versions of mobile Chrome
-      if (chrome != -1 && mobile == null || chrome == -1) {
+      if (chrome != null && devices == null || chrome == null) {
         $element.addClass(visible);
       }
     } else {

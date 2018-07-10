@@ -2,6 +2,19 @@
 // Global styles
 // ==========================================================================
 
+::-moz-focus-inner {
+  border: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+::selection {
+  color: white;
+  background: $selection;
+}
+
 p {
   margin-top: 0; 
 }
