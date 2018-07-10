@@ -2,28 +2,34 @@ mixin share
   aside.aside.share(class= attributes.state)
     h2.aside__headline Поделиться
     .share__container
-      a.share__btn.share__btn--vk.js-share( 
-        href="https://vk.com/share.php?url=" + domainName
+      a.share__btn.share__btn--vk( 
+        href="https://vk.com/share.php?url=" + domainName,
+        data-toggle="shareBtn",
         title="Вконтакте")
         +svg("share__icon", "vk")
 
-      a.share__btn.share__btn--gplus.js-share(
-        href="https://plus.google.com/share?url=" + domainName
+      a.share__btn.share__btn--gplus(
+        href="https://plus.google.com/share?url=" + domainName,
+        data-toggle="shareBtn",
         title="Google Plus")
         +svg("share__icon", "google-plus")
 
-      a.share__btn.share__btn--twitter.js-share(
-        href="https://twitter.com/intent/tweet?url=" + domainName
+      a.share__btn.share__btn--twitter(
+        href="https://twitter.com/intent/tweet?url=" + domainName,
+        data-toggle="shareBtn",
         title="Twitter")
         +svg("share__icon", "twitter")
 
-      a.share__btn.share__btn--fb.js-share(
-        href="https://www.facebook.com/sharer/sharer.php?u=" + domainName
+      a.share__btn.share__btn--fb(
+        href="https://www.facebook.com/sharer/sharer.php?u=" + domainName,
+        data-toggle="shareBtn",
         title="Facebook")
         +svg("share__icon", "facebook")
 
-      button.share__btn.share__btn--copy-url.js-copy-url(title="Скопировать ссылку")
+      button.share__btn.share__btn--copy-url(
+        data-toggle="copyBtn", 
+        title="Скопировать ссылку")
         +svg("share__icon", "awesome-link-rotated")
 
     .share__paste-wrapper
-      input.share__paste.js-paste-url
+      input.share__paste(data-target="copyBtn")

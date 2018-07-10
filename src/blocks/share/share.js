@@ -3,7 +3,7 @@
    ========================================================================== */
 
 (function() {
-  $(".js-share").on("click", function(e) {
+  $("[data-toggle='shareBtn']").on("click", function(e) {
     "use strict";
     e.preventDefault();
 
@@ -23,8 +23,8 @@
 (function() {
   "use strict";
 
-  var $btn     = $(".js-copy-url"),
-      $output  = $(".js-paste-url"),
+  var $btn     = $("[data-toggle='copyBtn']"),
+      $output  = $("[data-target='copyBtn']"),
       duration = 400;
 
   $btn.on("click", function() {

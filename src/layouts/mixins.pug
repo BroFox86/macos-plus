@@ -5,7 +5,7 @@
 - var j = 0
 
 mixin h2
-  h2.article__h2(id = (j + 1))
+  h2.article__h2(id = (j + 1), data-target="scrollspy")
     a.article__anchor.link.link--anchor(href= "#" + (j + 1)) §
     | #{itemList[j++]}
 
@@ -63,9 +63,9 @@ mixin svg(className, id)
 mixin tooltip(title, text, hasAbbr)
   case hasAbbr
     default
-      span.article__tooltip.js-tooltip(title!= title)= text
+      span.article__tooltip(data-toggle="tooltip", title!= title)= text
     when "abbr"
-      abbr.article__tooltip.js-tooltip(title!= title)= text
+      abbr.article__tooltip(data-toggle="tooltip", title!= title)= text
 
 //- ==========================================================================
 //- Images
@@ -76,7 +76,7 @@ mixin img(width)
 
   case width
     default
-      a.article__img-link.js-lightbox(href= original)
+      a.article__img-link(href= original, data-toggle="lightbox")
         div
           img.article__img(
             src = src
@@ -93,7 +93,7 @@ mixin figure(width)
   case width
     default
       figure.article__figure
-        a.article__img-link.js-lightbox(href= original)
+        a.article__img-link(href= original, data-toggle="lightbox")
           img.article__img.article__img--figure(
             src = src
             alt = alt)

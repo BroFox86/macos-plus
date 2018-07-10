@@ -1,3 +1,3 @@
 $(window).on("load", function() {
-  $(".js-animate-fox").addClass("is-animated");
+  $("[data-toggle='fox'] img").addClass("is-animated");
 });

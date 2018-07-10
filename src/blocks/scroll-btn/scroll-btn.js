@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  var $element = $(".js-scroll-btn"),
+  var $element = $("[data-toggle='scrollBtn']"),
       visible = "is-visible",
       media = window.matchMedia("(max-width: 960px)");
 

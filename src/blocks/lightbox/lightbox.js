@@ -4,7 +4,7 @@
   var $lightbox = $(".lightbox"),
       duration  = 300;
 
-  $(document).on("click", ".js-lightbox", function(e) {
+  $(document).on("click", "[data-toggle='lightbox']", function(e) {
     e.preventDefault();
 
     $lightbox.on("touchmove mousewheel", false);

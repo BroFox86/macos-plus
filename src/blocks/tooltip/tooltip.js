@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  var element = ".js-tooltip", 
+  var element = "[data-toggle='tooltip']", 
       duration = 300;
 
   $(element).hover(

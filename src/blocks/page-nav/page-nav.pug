@@ -14,7 +14,7 @@ mixin pageNav
 
   case isMobile
     when false
-      nav.aside.page-nav.sidebar__item.js-scrollspy
+      nav.aside.page-nav.sidebar__item(data-toggle="scrollspy")
         +pageNavInner
     when true
       nav.aside.page-nav.article__page-nav

@@ -3,7 +3,7 @@
    ========================================================================== */
 
 (function() {
-  var element = $(".js-sticky");
+  var element = $("[data-toggle='sidebar']");
   Stickyfill.addOne(element);
 }) (); 
 
@@ -14,8 +14,8 @@
 (function() {
   "use strict";
 
-  var height = $(".js-hide-container").outerHeight(),
-      $target = $(".js-hide-target"),
+  var height = $("[data-toggle='sidebar']").outerHeight(),
+      $target = $("[data-target='sidebar']"),
       maxH = window.matchMedia("(max-height: 930px)"),
       minW = window.matchMedia("(min-width: 960px)");
 

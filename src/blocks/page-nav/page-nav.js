@@ -3,7 +3,7 @@
    ========================================================================== */
 
 (function() {
-  var $scrollspy = $(".js-scrollspy"),
+  var $scrollspy = $("[data-toggle='scrollspy']"),
       media = window.matchMedia("(min-width: 960px)");
 
   function isInViewport(element, offset) {
@@ -15,7 +15,7 @@
 
   $(window).on("DOMContentLoaded resize scroll", function() {
     if (media.matches) {
-      $(".article__h2").each(function() {
+      $("[data-target='scrollspy']").each(function() {
         if (isInViewport(this, 300)) {
 
           var id = $(this).attr("id");

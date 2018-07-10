@@ -5,8 +5,8 @@
 (function() {
   "use strict";
 
-  var $nav    = $(".js-fixed-menu"),
-      $header = $(".page__header"),
+  var $nav    = $("[data-toggle='mainNav']"),
+      $header = $("[data-target='mainNav']"),
       fixed   = "is-fixed",
       offset  = $nav.offset(),
       margin  = $nav.outerHeight(),
