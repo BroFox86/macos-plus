@@ -46,7 +46,7 @@ var // Common
   // Images
   responsive             = require("gulp-responsive"),
   imagemin               = require("gulp-imagemin"),
-  responsive             = require("gulp-responsive"),
+  imageminPngquant       = require("imagemin-pngquant"),
   imageminSvgo           = require("imagemin-svgo"),
   unusedImages           = require("gulp-unused-images");
 
@@ -342,8 +342,7 @@ var respOptions = {
     errorOnUnusedConfig: false,
     errorOnEnlargement: false,
     silent: true,
-    quality: 80,
-    compressionLevel: 9
+    quality: 80
   },
   large = "@1.5x",
   huge = "@2x";
@@ -434,6 +433,23 @@ gulp.task("images:content", function() {
       )
     )
     .pipe(gulp.dest(".tmp/images/"));
+});
+
+gulp.task("images:png:minify", function() {
+  return gulp
+    .src(".tmp/images/*content/**")
+    .pipe(
+      plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })
+    )
+    .pipe(changed("dist/images/"))
+    .pipe(
+      imagemin([
+        imageminPngquant({
+          quality: 90
+        })
+      ])
+    )
+    .pipe(gulp.dest("dist/images/"));
 });
 
 /* SVG sprites
@@ -637,7 +653,7 @@ gulp.task("build:fast", function(callback) {
     ["styles:critical"],
     ["html:dist"],
     ["html:minify", "styles:dist", "scripts:minify"],
-    ["images:dist", "fonts:dist", "metadata"],
+    ["images:png:minify", "images:dist", "fonts:dist", "metadata"],
     ["html:validate"]
   )(callback);
 });
@@ -649,7 +665,7 @@ gulp.task("build", function(callback) {
     ["styles:critical"],
     ["html:dist"],
     ["html:minify", "styles:dist", "scripts:minify"],
-    ["images:dist", "fonts:dist", "favicons", "metadata"],
+    ["images:png:minify", "images:dist", "fonts:dist", "favicons", "metadata"],
     ["images:unused", "html:validate"]
   )(callback);
 });
