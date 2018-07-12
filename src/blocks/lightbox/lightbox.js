@@ -2,6 +2,7 @@
   "use strict";
 
   var $lightbox = $(".lightbox"),
+      $close    = $(".lightbox__close"),
       duration  = 300;
 
   $(document).on("click", "[data-toggle='lightbox']", function(e) {
@@ -35,7 +36,7 @@
     });
   });
 
-  $(".lightbox__close").click(function() {
+  $close.click(function() {
     $lightbox.fadeOut(duration);
     unloadImg();
   });

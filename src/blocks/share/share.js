@@ -3,8 +3,9 @@
    ========================================================================== */
 
 (function() {
-  $("[data-toggle='shareBtn']").on("click", function(e) {
+  $("[data-toggle='share']").on("click", function(e) {
     "use strict";
+
     e.preventDefault();
 
     var pageUrl  = window.location.href.replace(/\#\d$/i, ""),
@@ -23,8 +24,8 @@
 (function() {
   "use strict";
 
-  var $btn     = $("[data-toggle='copyBtn']"),
-      $output  = $("[data-target='copyBtn']"),
+  var $btn     = $("[data-toggle='copyUrl']"),
+      $output  = $("[data-target='copyUrl']"),
       duration = 400;
 
   $btn.on("click", function() {

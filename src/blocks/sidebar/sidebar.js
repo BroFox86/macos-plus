@@ -5,7 +5,7 @@
 (function() {
   var element = $("[data-toggle='sidebar']");
   Stickyfill.addOne(element);
-}) (); 
+})(); 
 
 /* ==========================================================================
    Hide the sidebar item for narrow screens
@@ -26,4 +26,4 @@
       $target.show();
     }
   })
-}) (); 
+})(); 
