@@ -2,43 +2,23 @@
 // Breakpoints
 // ==========================================================================
 
-$desktop:   1200px;
+$desktop:   1230px;
 $tablet:    960px;
 $mobile:    600px;
-
-// ==========================================================================
-// Fonts
-// ==========================================================================
-
-$base-font-family:       "Open Sans",   sans-serif;
-$headings-font-family:   "PT Sans",     sans-serif;
-$websafe-font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-
-$base-font-color:       #444;
-$headings-font-color:   #464646;
-$base-font-size:        16px;
-
-$h1-font-size:   37px;
-$h2-font-size:   32px;
-$h3-font-size:   23px;
-$h1-font-size--mobile:   27px;
-$h2-font-size--mobile:   25px;
-$h3-font-size--mobile:   20px;
 
 // ==========================================================================
 // Sizes
 // ==========================================================================
 
-$layout: 1140px;
 $margin: 26px;
 
 // ==========================================================================
 // Borders
 // ==========================================================================
 
-$border-radius--tiny:   4px;
+$border-radius--tiny:    4px;
 $border-radius--small:   10px;
-$border-radius:       12px;
+$border-radius:          12px;
 $border-radius--large:   15px;
 
 // ==========================================================================
@@ -69,3 +49,22 @@ $donate:       #689f38;
 $fall-duration:    .25s;
 $shake-duration:   .2s;
 $shake-delay:      $fall-duration;
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+
+$base-font-family:       "Open Sans",   sans-serif;
+$headings-font-family:   "PT Sans",     sans-serif;
+$websafe-font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+$base-font-color:       #333;
+$headings-font-color:   #464646;
+$base-font-size:        17px;
+
+$h1-font-size:   37px;
+$h2-font-size:   32px;
+$h3-font-size:   23px;
+$h1-font-size--mobile:   27px;
+$h2-font-size--mobile:   25px;
+$h3-font-size--mobile:   20px;

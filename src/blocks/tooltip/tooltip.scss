@@ -12,15 +12,4 @@
   @media (max-width: $mobile) {
     width: 300px;
   }
-
-  &--small {
-    width: auto;
-    padding: 5px;
-    color: $base-font-color;
-    border-radius: $border-radius--tiny;
-    background: transparent;
-    box-shadow: none;
-    font-size: 15px;
-    line-height: 1;
-  }
 }

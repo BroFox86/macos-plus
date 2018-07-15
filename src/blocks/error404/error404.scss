@@ -1,6 +1,7 @@
 .error404 {
   position: relative;
   display: flex;
+  flex-grow: 1;
   overflow: hidden;
   align-items: center;
   flex-wrap: wrap;

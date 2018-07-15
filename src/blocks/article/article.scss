@@ -1,17 +1,23 @@
 .article {
   display: flex;
   flex-direction: column;
+
+  // Compatibility with IE
+  flex-shrink: 99; 
+  width: 100%; 
+
   box-sizing: border-box;
   border-radius: $border-radius;
   background-color: white;
-  padding: 0 8% 0;
+  padding: 0 8%;
+  font-size: $base-font-size;
 
   @media (max-width: $tablet) {
-    padding: 0 10% 0;
+    padding: 0 10%;
   }
 
   @media (max-width: $mobile) {
-    padding: 0 5% 0;
+    padding: 0 5%;
   }
 
   &__header {
@@ -139,7 +145,6 @@
     hyphens: none;
     border-radius: $border-radius--tiny;
     background: #ebebeb;
-    font-size: 15px;
   }
 
   &__note {

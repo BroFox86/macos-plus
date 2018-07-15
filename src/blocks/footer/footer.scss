@@ -26,17 +26,19 @@
 
     @media (max-width: $mobile) {
       margin-top: 20px;
+      padding: 0 50px;
     }
   }
 
   &__copyrights {
     margin-bottom: 15px;
+    font-size: 0.941em;
   }
 
   &__content {
     display: inline-block;
     margin-right: 5px;
-    color: #666;
+    color: #555;
   }
 
   &__author {

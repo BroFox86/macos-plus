@@ -8,7 +8,6 @@
   color: $base-font-color;
   background: #ebebeb;
   font-family: $base-font-family;
-  font-size: $base-font-size;
   font-weight: 400;
   line-height: 1.6;
 
@@ -49,8 +48,8 @@
 
   &__container {
     display: flex;
-    justify-content: center;
-    width: $layout;
+    justify-content: space-between;
+    width: 1200px;
     margin: auto;
     padding-top: $margin + 23px;
 
@@ -66,6 +65,7 @@
   &__sidebar {
     position: sticky;
     top: $margin + 63px;
+    flex-shrink: 0;
     width: 300px;
     height: 100%;
     margin-left: $margin;
@@ -76,25 +76,6 @@
 
     @media (max-width: $tablet) {
       display: none;
-    }
-  }
-
-  &__article,
-&__error {
-    width: 814px;
-
-    @media (max-width: $desktop) {
-      width: 650px;
-    }
-
-    @media (max-width: $tablet) {
-      width: 100%;
-    }
-  }
-
-  &__error {
-    @media (max-width: $tablet) {
-      margin: 0;
     }
   }
 

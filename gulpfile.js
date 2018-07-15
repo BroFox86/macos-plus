@@ -419,7 +419,7 @@ gulp.task("images:content", function() {
       responsive(
         {
           "**/!(icon|*_small|thumbnail)*": [
-            {  width: 630 },
+            {  width: 682 },
             {
               rename: { suffix: "_original" }
             }

@@ -7,13 +7,12 @@
 
   @media (max-width: $tablet) {
     text-transform: none;
-    color: #666;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 500;
   }
 
   @media (max-width: $mobile) {
-    font-size: $base-font-size;
+    font-size: 16px;
   }
 
   &__open-btn {

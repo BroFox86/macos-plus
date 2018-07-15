@@ -1,6 +1,7 @@
 .link {
   text-decoration: none;
   hyphens: none;
+  transition: color .1s;
 
   &--entry {
     color: inherit;
@@ -12,10 +13,10 @@
 
   &--anchor {
     padding-right: 10px;
-    transition: all .25s ease-out;
     opacity: 0;
     color: $accent;
     font-family: $base-font-family;
+    transition: all .25s ease-out;
 
     .article__h2:hover & {
       opacity: 1;
@@ -25,6 +26,10 @@
   &--article {
     color: $accent;
     font-weight: 700;
+
+    &:hover {
+      color: darken($accent, 15);
+    }
 
     &:visited {
       color: $visited;
