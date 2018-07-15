@@ -1,4 +1,4 @@
-mixin pageNav
+mixin pageNav(state)
 
   - var i = 0
 
@@ -12,11 +12,11 @@ mixin pageNav
             span.page-nav__icon-wrapper
               +svg("page-nav__icon", "awesome-link-rotated")
 
-  case isMobile
-    when false
+  case state
+    when "desktop"
       nav.aside.page-nav.sidebar__item(data-toggle="pageNav")
         +pageNavInner
-    when true
+    when "mobile"
       nav.aside.page-nav.article__page-nav
         +pageNavInner
         

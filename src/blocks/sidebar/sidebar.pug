@@ -1,13 +1,9 @@
-- var sidebarItem = "sidebar__item"
-
 mixin sidebar
-  case hasPageNav
-    default
-      aside.page__sidebar.sidebar(data-toggle="sidebar")
-        +pageNav
-        +reference(state = sidebarItem)
-        +share(state = sidebarItem)
-    when false
-      aside.page__sidebar.sidebar
-        +reference(state = sidebarItem)
-        +share(state = sidebarItem)
+  aside.page__sidebar.sidebar(data-toggle="sidebar")
+    case hasPageNav
+      default
+        +pageNav("desktop")
+      when false
+        // Empty
+    +reference(appendClass = "sidebar__item")
+    +share(appendClass = "sidebar__item")
