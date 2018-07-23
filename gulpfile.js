@@ -4,7 +4,7 @@
   Variables
   ========================================================================== */
 
-var // Common
+var
   gulp         = require("gulp"),
   gulpSequence = require("gulp-sequence"),
   plumber      = require("gulp-plumber"),
@@ -292,13 +292,13 @@ gulp.task("styles:build", function() {
 gulp.task("scripts:plugins", function() {
   return gulp
     .src(paths.plugins.js)
-    .pipe(changed("src/js/"))
     .pipe(lec({ 
       verbose: true, 
       eolc: "LF", 
       encoding: "utf8" 
     }))
-    .pipe(gulp.dest("src/js/"));
+    .pipe(changed(".tmp/js/"))
+    .pipe(gulp.dest(".tmp/js/"));
 });
 
 gulp.task("scripts:common", function() {
