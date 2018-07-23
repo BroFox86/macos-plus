@@ -31,32 +31,26 @@
     position: absolute;
     top: 10%;
     right: 18%;
+    width: 30px;
+    height: 30px;
+    background: transparent;
 
-    // Padding is workaround to
-    // fix the bug in mobile Chrome when the
-    // page is scrolled up
     @media (max-width: $mobile) {
-      top: 10%;
-      right: 4%;
-
-      background: transparent;
-      padding: 40px;
+      top: 15%;
+      right: 8%;
+      width: 23px;
+      height: 23px;
     }
   }
 
   &__close-icon {
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
     fill: #fff;
 
     @include x-center();
 
-    @media (max-width: $mobile) {
-      width: 25px;
-      height: 25px;
-    }
-
-    &:hover {
+    .lightbox__close:hover & {
       fill: $accent;
     }
   }
