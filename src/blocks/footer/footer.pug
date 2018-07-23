@@ -1,17 +1,17 @@
 mixin footer
   footer.footer
     .footer__top
-      +reference(state = "footer__item")
-      +share(state = "footer__item")
+      +reference(appendClass = "footer__item")
+      +share(appendClass = "footer__item")
     .footer__bottom
         p.footer__copyrights
           span.footer__content © Дизайн, движок и тексты. 
           span.footer__author Daur “Bro Fox” Gamisonia, 
           span.footer__year 2018
-        
+
         +myLinks
-        p.footer__fontawesome
+        p.footer__iconpacks
           | Icons by 
           a.footer__link(href="https://fontawesome.com/license") Font Awesome
           |   / 
-          a.footer__link(href="http://www.freepik.com") Vectortwins & Freepik
+          a.footer__link(href="http://www.freepik.com") Vectortwins&nbsp;&&nbsp;Freepik
