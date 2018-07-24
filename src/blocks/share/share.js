@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Share buttons
+   Share to socials buttons
    ========================================================================== */
 
 (function() {
@@ -18,7 +18,7 @@
 }) (); 
 
 /* ==========================================================================
-   Copy URL
+   Copy URL button
    ========================================================================== */
 
 (function() {
@@ -32,6 +32,7 @@
     $output.parent().slideDown(duration);
 
     setTimeout(function() {
+      // Copy page url without an anchor link
       $output[0].value = window.location.href.replace(/\#\d$/i, "");
       $output.focus();
       $output[0].select();

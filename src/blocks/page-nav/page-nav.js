@@ -4,7 +4,7 @@
 
 (function() {
   var $scrollspy = $("[data-toggle='pageNav']"),
-      media = window.matchMedia("(min-width: 960px)");
+      media      = window.matchMedia("(min-width: 960px)");
 
   function isInViewport(element, offset) {
     var elementTop  = $(element).offset().top,
@@ -15,6 +15,7 @@
 
   $(window).on("DOMContentLoaded resize scroll", function() {
     if (media.matches) {
+
       $("[data-spy='pageNav']").each(function() {
         if (isInViewport(this, 300)) {
 

@@ -1,15 +1,18 @@
 (function() {
   "use strict";
 
-  var element = "[data-toggle='tooltip']", 
+  var element  = "[data-toggle='tooltip']", 
       duration = 300;
 
   $(element).hover(
     function() {
+
       var title = $(this).attr("title");
 
       $(this)
+        // Save title text in data attribute
         .data("tipText", title)
+        // Clear title attribute
         .attr("title", "");
 
       $('<p class="tooltip"></p>')
@@ -19,6 +22,7 @@
     },
 
     function() {
+      // Restore title value
       $(this).attr("title", $(this).data("tipText"));
       $(".tooltip").fadeOut(duration, function() {
         $(this).remove();
@@ -26,6 +30,7 @@
     }
   );
 
+  // Track the cursor movement
   $(element).mousemove(function(e) {
     var mousex = e.pageX + 20,
         mousey = e.pageY + 10;
