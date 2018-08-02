@@ -400,13 +400,13 @@ gulp.task("images:content", function() {
       plugins.responsive(
         {
           "**/!(icon|*_small|thumbnail)*": [
-            {  width: 682 },
+            {  width: 650 },
             {
               rename: { suffix: "_original" }
             }
           ],
           "**/icon*": [
-            {  width: 160 }
+            {  width: 130 }
           ],
           "**/*_small*": [{}],
           "**/thumbnail*": [{}]

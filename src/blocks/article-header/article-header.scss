@@ -13,11 +13,11 @@
 
   &__img-wrapper {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto 20px;
     border-radius: 50%;
-    background: #eceff1;
+    background: #ebebeb;
 
     @media (max-width: $mobile) {
       width: 120px;
@@ -59,12 +59,8 @@
   }
 
   &__data {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     font-size: 0.882em;
-
-    @media (max-width: $tablet) {
-      margin-bottom: 25px;
-    }
   }
 
   &__data-item {
