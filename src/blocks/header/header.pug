@@ -3,6 +3,6 @@ mixin header
     a.header__logo(href= link.index)
       picture
         +imgSource("(max-width: 960px)", "images/logo-mobile.png", 126)
-        +respImg("header__img", "images/logo.png", 240)
+        +respImg("images/logo.png", 240)(class="header__img")
     if block
     block

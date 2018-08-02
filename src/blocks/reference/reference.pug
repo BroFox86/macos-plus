@@ -2,6 +2,5 @@ mixin reference
   aside.aside.reference(class= attributes.appendClass, data-target="sidebar")
     h2.aside__headline Сообщество
     .reference__container
-      +respImg("reference__img", "images/community.png", 240)
-
+      +respImg("images/community.png", 240)(class="reference__img")
       a.reference__link(href="https://plus.google.com/u/0/communities/103318624432661992867") macOS+ на Google Plus
