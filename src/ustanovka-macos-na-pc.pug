@@ -40,13 +40,13 @@ block content
   +h2
   +p
     | Данное руководство является переведенной и адаптированной версией инструкции по установке официального чистого образа macOS High Sierra на ПК портала 
-    +link("https://www.tonymacx86.com","www.tonymacx86.com")
+    +link("https://www.tonymacx86.com", "www.tonymacx86.com")
     | . Руководство содержит советы и ссылки на полезную информацию, то есть то, что как правило не приводится в других статьях на эту тему, и то, что новичкам приходится долго и порой мучительно искать самостоятельно.
   +h3
     | О сборках
   +p 
     | В сети есть так называемые готовые «сборки хакинтоша» с кучей 
-    +tooltip("«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©&nbsp;Wikipedia.","кекстов")
+    +tooltip("«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©&nbsp;Wikipedia.", "кекстов")
     |  для разных конфигураций, «рекомендованных» программ и другим содержимым порой неизвестного происхождения. Автор этого сайта не доверяет сборкам и полагается на собственные силы и навыки для того, чтобы потратив время на понимание дела, создать чистую систему с кекстами и программами из доверенных источников, которые подобраны именно под конкретный ПК. При таком способе установки появляется большой шанс получить такую macOS, которая будет работать на компьютере как родная и без проблем обновляться с App Store.
   +h3
     | О сложностях установки
@@ -54,20 +54,20 @@ block content
     | С помощью этого руководства получится установить macOS — хотя бы как-то — на большинство 
     em настольных компьютеров 
     | на базе процессоров intel. Однако стоит иметь ввиду, что это часто сопряжено со множеством проблем, решение всех из которых ни одно руководство охватить не в состоянии: macOS рассчитана на фирменное оборудование Apple, тогда как у пользователей, настраивающих хакинтош, большой разброс конфигураций компьютеров. Поэтому проблемы возникают у всех разные. Исходя из этого искать решения придется в сети, желательно на зарубежных ресурсах, таких как упомянутый 
-    +link("https://www.tonymacx86.com/","www.tonymackx86.com")
+    +link("https://www.tonymacx86.com/", "www.tonymackx86.com")
     | . Либо пытать счастья на 
-    +link("https://applelife.ru","applelife.ru")
+    +link("https://applelife.ru", "applelife.ru")
     | , если уж совсем не владеете английским. Весьма вероятно, что человек с аналогичной проблемой уже обращался за помощью и решил ее определенным образом.
   +note(inf)
     | Если знаете английский, вам может быть удобнее оригинальное руководство: 
-    +link("https://www.tonymacx86.com/threads/unibeast-install-macos-high-sierra-on-any-supported-intel-based-pc.235474/","www.tonymacx86.com/&shy;install-macos-high-sierra-on-intel-pc","note")
+    +link("https://www.tonymacx86.com/threads/unibeast-install-macos-high-sierra-on-any-supported-intel-based-pc.235474/", "www.tonymacx86.com/&shy;install-macos-high-sierra-on-intel-pc", "note")
     | .
   +h2
   +h3
     | а) Настройка VMWare
   +p
     | Для того чтобы установить официальный образ macOS High Sierra на ПК, потребуется для начала загрузить его через цифровой магазин App Store. Это можно сделать с помощью виртуальных машин, программ, которые эмулируют работу одной операционной системы внутри другой. На этом сайте будет приведена установка и настройка бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. Установка и настройка виртуальной машины VMWare подробно изложена на отдельной 
-    +link(link.vmware,"странице")
+    +link(link.vmware, "странице")
     | .
   +note(tip)
     | Загрузка официального образа macOS с App Store возможна также и на любом компьютере Apple Mac, работающем на OS X Lion 10.7.5 или более поздней версии. При наличии такой возможности пропустите главу настройки VMWare.
@@ -75,7 +75,7 @@ block content
     | macOS рекомендуется устанавливать на 
     em отдельный 
     | жесткий диск, на котором нет основной ОС. Жесткий диск при этом будет полностью отформатирован в файловую систему 
-    +tooltip("Apple File System – это новая, современная файловая система, разработанная компанией Apple для использования в iOS, macOS, tvOS и watchOS. APFS оптимизирована для работы с Flash/SSD накопителями и включает в себя функциональность сильного шифрования, copy-on-write, space sharing, клонирования файлов и папок, создания снимков (snapshots). ©&nbsp;Wikipedia.","APFS","abbr")
+    +tooltip("Apple File System – это новая, современная файловая система, разработанная компанией Apple для использования в iOS, macOS, tvOS и watchOS. APFS оптимизирована для работы с Flash/SSD накопителями и включает в себя функциональность сильного шифрования, copy-on-write, space sharing, клонирования файлов и папок, создания снимков (snapshots). ©&nbsp;Wikipedia.", "APFS", "abbr")
     | . 
   +h3
     | б) Сбор информации о системе
@@ -93,26 +93,26 @@ block content
   +ol
     +li
       | Скачайте диагностическую утилиту 
-      +link("https://www.aida64.com/downloads","AIDA64")
+      +link("https://www.aida64.com/downloads", "AIDA64")
       | .
     +li
       | В разделе «Суммарная информация» узнайте чипсет своей МП.
-      +figure("images/content/install-on-pc/сhipset.jpg","Информация о чипсете в AIDA64")
+      +figure("images/content/install-on-pc/сhipset.jpg", "Информация о чипсете в AIDA64")
         | Чипсет моей МП — H170 (100-я серия чипсетов Intel).
     +li
       | И «тип BIOS» — AMI UEFI или AWARD BIOS. 
-      +img("images/content/install-on-pc/bios-type.jpg","«Тип BIOS» в AIDA64")
+      +img("images/content/install-on-pc/bios-type.jpg", "«Тип BIOS» в AIDA64")
 
       +note(inf)
         | Об основных отличиях UEFI от BIOS подробно рассказано в статье на сайте  
-        +link("http://vindavoz.ru/poleznoe/128-chem-uefi-luchshe-obychnogo-bios-i-kakovy-otlichiya.html","vindavoz.ru","note")
+        +link("http://vindavoz.ru/poleznoe/128-chem-uefi-luchshe-obychnogo-bios-i-kakovy-otlichiya.html", "vindavoz.ru", "note")
         | .
     +li
       | На той же вкладке указан аудиокодек.
-      +img("images/content/install-on-pc/audio-codec.jpg","Аудиокодек в AIDA64")
+      +img("images/content/install-on-pc/audio-codec.jpg", "Аудиокодек в AIDA64")
     +li
       | Название сетевой карты в разделе «Сеть PCI/PnP».
-      +figure("images/content/install-on-pc/ethernet-card.jpg","Раздел сетевого оборудования в AIDA64")
+      +figure("images/content/install-on-pc/ethernet-card.jpg", "Раздел сетевого оборудования в AIDA64")
         | Моя встроенная сетевая карта — Killer E2400 (Atheros).
   +h3
     | в) Перед тем, как начать
@@ -124,10 +124,10 @@ block content
       | ) объемом от 16 Гб.
     +li
       | Зарегистрируйтесь на 
-      +link("https://tonymacx86.com/login/login","www.tonymacx86.com")
+      +link("https://tonymacx86.com/login/login", "www.tonymacx86.com")
     +li
       | Загрузите последние версии UniBeast и MultiBeast из раздела 
-      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/","Downloads")
+      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/", "Downloads")
     +li
       | Сделайте резервную копию всех важных данных!
   +h2
@@ -139,7 +139,7 @@ block content
       +ol
         +li
           | запустите Install macOS High Sierra и загрузите данные полноценного образа; 
-          +img("images/content/install-on-pc/install-image-from-appstore.png","Загрузка образа macOS High Sierra")
+          +img("images/content/install-on-pc/install-image-from-appstore.png", "Загрузка образа macOS High Sierra")
           +note(warning)
            | Если загрузка образа macOS происходит через виртуальную машину, советую проследить момент ее окончания. Иначе может произойти автоматическое обновление VMWare, что крайне не желательно.
         +li
@@ -162,13 +162,13 @@ block content
             | Последняя команда начнет сборку образа из загруженных данных. Дождитесь ее окончания. На строку 
             i “Failed to set file flags” 
             | не обращайте внимания.
-          +img("images/content/install-on-pc/build-an-image.png","Сборка образа macOS High Sierra")
+          +img("images/content/install-on-pc/build-an-image.png", "Сборка образа macOS High Sierra")
   +ol
     +li
       | Вставьте флешку.
     +li
       | Откройте Finder &gt; «Программы» &gt; «Утилиты» &gt; «Дисковая утилита» и выберите ее в левой колонке.
-      +img("images/content/install-on-pc/install-unibeast-1.png","Окно дисковой утилиты macOS")
+      +img("images/content/install-on-pc/install-unibeast-1.png", "Окно дисковой утилиты macOS")
     +li
       | Нажмите «Стереть».
     +li
@@ -179,17 +179,17 @@ block content
       | Выберите формат OS X Extended (Журналируемый).
     +li
       | Выберите схему GUID partition Map (GPT).
-      +img("images/content/install-on-pc/install-unibeast-2.png","Форматирование диска в macOS")
+      +img("images/content/install-on-pc/install-unibeast-2.png", "Форматирование диска в macOS")
     +li
       | Нажмите «Стереть», а затем «Готово».
     +li
       | Запустите 
-      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/","UniBeast")
+      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/", "UniBeast")
     +li
       | Нажимайте Continue, Continue, Continue, Agree, пока не дойдете до Destination Select.
     +li
       | На этапе Destination Select выберите флешку и нажмите Continue.
-      +img("images/content/install-on-pc/install-unibeast-4.png","Destination select в UniBeast")
+      +img("images/content/install-on-pc/install-unibeast-4.png", "Destination select в UniBeast")
       +note(tip)
         | У UniBeast могут быть проблемы обнаружением внешних HDD. Для того чтобы обойти это ограничение, я создал 16 Гб раздел с файловой системой HFS с помощью Paragon Hard Disk Manager, а остальное пространство оставил нераз&shy;меченным.
     +li
@@ -203,7 +203,7 @@ block content
         |  рекомендуется для 5/6 серий чипсетов, а также для всех систем на базе традиционного BIOS.
       +note(inf)
         | Чипсеты Intel для МП 100-й серии — это такие модели как h370, B150 и т.п. Чипсеты 9-й серии — H97, Z97 и т.п.
-      +img("images/content/install-on-pc/install-unibeast-5.png","Bootloader Configuration в UniBeast")
+      +img("images/content/install-on-pc/install-unibeast-5.png", "Bootloader Configuration в UniBeast")
     +li
       | (Необязательно) В Graphics Configuration представлен список опций для старых видеокарт и встроенных решений. Ознакомьтесь с их описанием.
     +li
@@ -212,13 +212,13 @@ block content
         | Если при создании загрузочного USB с помощью UniBeast появится окно c сообщением 
         i “Volumes are Mounted” 
         | , выберите в строке меню Go &gt; Go to Folder, затем введите /Volumes и извлеките том OSX Install ESD.
-      +img("images/content/install-on-pc/install-unibeast-6.png","Installation в UniBeast")
+      +img("images/content/install-on-pc/install-unibeast-6.png", "Installation в UniBeast")
   +p
     | Для того чтобы macOS запустилась на обычном ПК, ей нужен сторонний загрузчик. То есть загрузчик необходим, чтобы запустить macOS на не-Apple оборудовании. UniBeast создаст загрузочную флешку, используя самый актуальный на данное время загрузчик Clover. Процесс может занять до 10 минут в зависимости от системы и скорости накопителя. Не рекомендую выходить из виртуальной машины, в случае, если создание флешки происходит через нее.
   +ol(start= "16")
     +li
       | Переместите архив с 
-      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/","MultiBeast")
+      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/", "MultiBeast")
       |  на созданный накопитель.
   +note(tip)
     | При желании вернуть флешку в прежнее состояние, необходимо будет не только полностью ее отформатировать в NTFS/FAT32, но возможно, изменить и схему ее разделов на MBR. Если не будет изменен тип схемы, флешку могут не распознать некоторые старые устройства.
@@ -234,23 +234,23 @@ block content
       | Сбросьте параметры BIOS (Load Optimized Defaults).
     +li
       | Выключите 
-      +tooltip("Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©&nbsp;Wikipedia.","VT-d","abbr")
+      +tooltip("Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©&nbsp;Wikipedia.", "VT-d", "abbr")
       | .
     +li
       | Выключите CFG-Lock.
     +li
       | Выключите 
-      +tooltip("Опция Secure Boot разрешает/запрещает возможность установки  других ОС на данном устройстве.","Secure Boot Mode")
+      +tooltip("Опция Secure Boot разрешает/запрещает возможность установки  других ОС на данном устройстве.", "Secure Boot Mode")
       | .
     +li
       | Измените опцию OS Type на Other OS.
     +li
       | Выключите 
-      +tooltip("После́довательный порт (англ. serial port, COM-порт, англ. communications port) — сленговое название интерфейса стандарта RS-232, которым массово оснащались персональные компьютеры. ©&nbsp;Wikipedia.","IO SerialPort")
+      +tooltip("После́довательный порт (англ. serial port, COM-порт, англ. communications port) — сленговое название интерфейса стандарта RS-232, которым массово оснащались персональные компьютеры. ©&nbsp;Wikipedia.", "IO SerialPort")
       | .
     +li
       em Включите 
-      +tooltip("XHCI Handoff запрещает передачу управления от BIOS к OC, что исключает конфликты, которые могут возникнуть при работе устройств USB. Данная проблема были исправлена с выходом обновления Windows XP – Service Pack 2 и последующие версии Windows.","XHCI Handoff")
+      +tooltip("XHCI Handoff запрещает передачу управления от BIOS к OC, что исключает конфликты, которые могут возникнуть при работе устройств USB. Данная проблема были исправлена с выходом обновления Windows XP – Service Pack 2 и последующие версии Windows.", "XHCI Handoff")
       | .
     +li
       | Если в системе набор логики (чипсет) Intel 6-й серии или Intel x58 с AWARD BIOS, выключите порты USB 3.0
@@ -260,7 +260,7 @@ block content
     | Инструкция для Gigabyte
   +p
     | Для 
-    +link("https://www.tonymacx86.com/threads/recommended-bios-uefi-settings-for-beginners.130920/","UEFI")
+    +link("https://www.tonymacx86.com/threads/recommended-bios-uefi-settings-for-beginners.130920/", "UEFI")
     | :
   +ol
     +li
@@ -271,13 +271,13 @@ block content
       | (Необязательно) Измените X.M.P. Memory Profile на Profile1.
     +li
       | Выключите 
-      +tooltip("Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©&nbsp;Wikipedia.","VT-d","abbr")
+      +tooltip("Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©&nbsp;Wikipedia.", "VT-d", "abbr")
       | .
     +li
       | Сохраните изменения и перезагрузите компьютер.
   +p
     | Для 
-    +link("http://tonymacx86.blogspot.ru/2010/04/iboot-multibeast-install-mac-os-x-on.html","BIOS")
+    +link("http://tonymacx86.blogspot.ru/2010/04/iboot-multibeast-install-mac-os-x-on.html", "BIOS")
     | :
   +ul
     +li
@@ -302,13 +302,13 @@ block content
       | (Необязательно) Измените X.M.P. Memory Profile на Profile1.
     +li
       | Измените режим 
-      +tooltip("HPET (англ. High Precision Event Timer, таймер событий высокой точности) — тип таймера, используемый в персональных компьютерах. ©&nbsp;Wikipedia.","HPET","abbr")
+      +tooltip("HPET (англ. High Precision Event Timer, таймер событий высокой точности) — тип таймера, используемый в персональных компьютерах. ©&nbsp;Wikipedia.", "HPET", "abbr")
       |  на 64-bit mode.
   +h3 
     | Инструкция для ASUS на UEFI
   +p
     | Для ASUS Z97-A 
-    +link("https://www.tonymacx86.com/threads/tonymacx86s-asus-test-build-z97-a-i3-4340-hd4600-thunderbolt-ex-ii.136796/","рекомендуется")
+    +link("https://www.tonymacx86.com/threads/tonymacx86s-asus-test-build-z97-a-i3-4340-hd4600-thunderbolt-ex-ii.136796/", "рекомендуется")
     |  версия прошивки v1204 или новее. В настройках проверить, отключена ли CFG lock.
   +h3 
     | Инструкция для MSI на UEFI
@@ -317,19 +317,19 @@ block content
       | Сбросьте настройки UEFI на стандартные (Load Optimized Defaults).
     +li
       | Включите 
-      +tooltip("XHCI Handoff запрещает передачу управления от BIOS к OC, что исключает конфликты, которые могут возникнуть при работе устройств USB. Данная проблема были исправлена с выходом обновления Windows XP – Service Pack 2 и последующие версии Windows.","XHCI Handoff")
+      +tooltip("XHCI Handoff запрещает передачу управления от BIOS к OC, что исключает конфликты, которые могут возникнуть при работе устройств USB. Данная проблема были исправлена с выходом обновления Windows XP – Service Pack 2 и последующие версии Windows.", "XHCI Handoff")
       | .
     +li
       | Выключите CFG-Lock.
     +li
       | Выключите 
-      +tooltip("Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©&nbsp;Wikipedia.","VT-d","abbr")
+      +tooltip("Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©&nbsp;Wikipedia.", "VT-d", "abbr")
       | .
     +li
       | Сохраните изменения и перезагрузите компьютер.
   +p
     | В более наглядном виде это показано по ссылке: 
-    +link("https://www.tonymacx86.com/threads/msi-9-series-motherboards-os-x-setup-and-configuration.143167/","www.tonymacx86.com/threads/msi-9-series-motherboards-os-x-setup-and-configuration")
+    +link("https://www.tonymacx86.com/threads/msi-9-series-motherboards-os-x-setup-and-configuration.143167/", "www.tonymacx86.com/threads/msi-9-series-motherboards-os-x-setup-and-configuration")
   +h2
   +p
     | Вы почти закончили! Все, что осталось для установки — загрузиться с флешки, отформатировать жесткий диск и установить macOS. Для лучших результатов рекомендуется вставить накопитель в разъем USB 2.0
@@ -338,7 +338,7 @@ block content
       | Включите компьютер и загрузитесь с USB, выбрав соответствующий пункт в меню загрузки UEFI. Или предварительно настройте для этого загрузку с USB/CD-ROM в BIOS.
     +li
       | Когда появится интерфейс Clover, запустите установку macOS High Sierra с загрузочной флешки.
-      +img("images/content/install-on-pc/unibeast-clover-screen.jpg","Загрузочный экран Clover")
+      +img("images/content/install-on-pc/unibeast-clover-screen.jpg", "Загрузочный экран Clover")
     +li
       | (Необязательно). Для первичной установки macOS на ПК необходимо отформатировать целевой жесткий диск.
       +ol
@@ -371,7 +371,7 @@ block content
     | a) Настройка устройств с помощью MultiBeast
   +p
     | MultiBeast — пакет программ «все в одном», который разработан упростить настройку macOS на ПК. В состав программы входит загрузчик Clover, набор 
-    +tooltip("«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©&nbsp;Wikipedia.","кекстов")
+    +tooltip("«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©&nbsp;Wikipedia.", "кекстов")
     |  для настройки оборудования и скрипты для настройки загрузчика. MultiBeast настроит загрузку macOS с жесткого диска, заместо того, чтобы всякий раз делать это с загрузочного USB. Кроме этого, MultiBeast поможет настроить встроенное аудио, сетевую карту, видеокарту и другое внутренние устройства компьютера. То есть основное отличие MultiBeast от UniBeast состоит в том, что UniBeast создает загрузочную флешку для первичной установки macOS, тогда как MultiBeast создает загрузчик на жестком диске и настраивает как его, так и macOS под внутренние устройства компьютера.
   +p 
     | Каким образом работает MultiBeast:
@@ -382,7 +382,7 @@ block content
       | По аналогии с созданным UniBeast загрузочным USB, MultiBeast создает на нем директорию с загрузчиком Clover.
     +li
       | Устанавливает необходимые 
-      +tooltip("«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©&nbsp;Wikipedia.","кексты")
+      +tooltip("«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©&nbsp;Wikipedia.", "кексты")
       |  в системную папку macOS (System/Library/<wbr>Extensions) или в папку загрузчика (/EFI/EFI/Clover/<wbr>Kexts).
     +li
       | Добавляет параметры в файл конфигурации Clover — config.plist.
@@ -390,37 +390,37 @@ block content
     | Выбирайте опции MultiBeast с уверенностью, что они соответствуют вашей системе. В случае сомнений оставляйте пункты неотмеченными, так как искать и удалять кексты и параметры Clover придется вручную.
   +p
     | MultiBeast предназначен в основном для настройки под macOS внутренних устройств. Для многих внешних устройств USB, таких как внешние звуковые карты, клавиатуры, мыши и адаптеры Wi-Fi, искать кексты в первую очередь надо на официальных сайтах производителей. Если в MultiBeast не найдется кекстов для внутренних устройств, придется также искать их в сети. Таким образом я нашел кекст для своей сетевой карты 
-    +link("https://drive.google.com/file/d/1UrNqJn2IGRkqoKnkBFU5YQLsfJfZCOtY/view?usp=sharing","Atheros (Killer) E2400")
+    +link("https://drive.google.com/file/d/1UrNqJn2IGRkqoKnkBFU5YQLsfJfZCOtY/view?usp=sharing", "Atheros (Killer) E2400")
     | .
   +ol
     +li
       | Запустите 
-      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/","MultiBeast")
+      +link("https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/", "MultiBeast")
       +p
         i UEFI Boot Mode
         |  рекомендуется для систем на базе 7/8/9/100/200 серии чипсетов Intel и всех систем с UEFI. 
         i Legacy Boot Mode 
         | рекомендуем для 5/6 серий и всех систем на базе BIOS.
-      +img("images/content/install-on-pc/quick-start.png","Вкладка Quick Start в MultiBeast")
+      +img("images/content/install-on-pc/quick-start.png", "Вкладка Quick Start в MultiBeast")
     +li
       | На вкладке Audio представлен список опций для аудиокодеков Realtek ALC. Ниже представлены опции для звука, реализуемого посредством HDMI. Выберите подходящий вариант для своей системы, отметив только один пункт. Если в системе чипсет Intel 100-серии, то дополнительно отметьте и соответствующую опцию. Если так и не смогли определить встроенный аудио-кодек своей системы, вероятно, подойдет один из вариантов VoodooHDA.
-      +img("images/content/install-on-pc/drivers_audio.png","Раздел Audio в MultiBeast")
+      +img("images/content/install-on-pc/drivers_audio.png", "Раздел Audio в MultiBeast")
     +li
       | В Disc представлены опции для сторонних (3rd pty) SATA-контроллеров жестких дисков, а также Intel Generic AHCI SATA, которые предназначены только для определенных чипсетов (см. описание).
-      +img("images/content/install-on-pc/drivers_disk.png","Раздел Disk в MultiBeast")
+      +img("images/content/install-on-pc/drivers_disk.png", "Раздел Disk в MultiBeast")
     +li
       | Вкладка Misc содержит важный для работы хакинтоша кекст FakeSMC, эмулирующий фирменную микросхему 
-      +tooltip("Контроллер управления системой (SMC) является подсистемой компьютеров Macintosh на базе процессоров Intel. SMC учавствует в управлении теплом и питанием, зарядкой аккумулятора, переключением видеорежима, ждущим режимом и гибернацией, светодиодными индикаторами. Он также блокирует использование macOS, когда она работает на оборудовании, отличном от Apple. ©&nbsp;Wikipedia.","SMC")
+      +tooltip("Контроллер управления системой (SMC) является подсистемой компьютеров Macintosh на базе процессоров Intel. SMC учавствует в управлении теплом и питанием, зарядкой аккумулятора, переключением видеорежима, ждущим режимом и гибернацией, светодиодными индикаторами. Он также блокирует использование macOS, когда она работает на оборудовании, отличном от Apple. ©&nbsp;Wikipedia.", "SMC")
       | , установленную на МП компьютеров Apple. Подходящая опция должна быть отмеченной по умолчанию.
       +ul
         +li
           | Кексты VoodooTSCSync предназначены только для процессоров c разъемом LGA2011.
         +li
           | FakeSMC HWMonitor используется для получения данных о температурах и скоростях вращения систем охлаждения. 
-      +img("images/content/install-on-pc/drivers_misc.png","Раздел Misc в MultiBeast")
+      +img("images/content/install-on-pc/drivers_misc.png", "Раздел Misc в MultiBeast")
     +li
       | В Network выберите подходящую сетевую карту.
-      +img("images/content/install-on-pc/drivers_network.png","Раздел Network в MultiBeast")
+      +img("images/content/install-on-pc/drivers_network.png", "Раздел Network в MultiBeast")
     +li
       | Вкладка USB содержит несколько опций:
       +ul
@@ -430,10 +430,10 @@ block content
           | 7/8/9 Series USB Support для USB 2.0/3.0 чипсетов Intel 7/8/9 серии.
         +li
           | Increase Max Port Limit для USB 2.0/3.0 чипсетов Intel 9 и 100-й серии.
-      +img("images/content/install-on-pc/drivers_usb.png","Раздел USB в MultiBeast")
+      +img("images/content/install-on-pc/drivers_usb.png", "Раздел USB в MultiBeast")
     +li
       | Переходим ко вкладке Bootloaders. Подходящий пункт должен быть отмеченным по умолчанию.
-      +img("images/content/install-on-pc/bootloaders.png","Вкладка Bootloaders в MultiBeast")
+      +img("images/content/install-on-pc/bootloaders.png", "Вкладка Bootloaders в MultiBeast")
     +li
       | Customize разделена на 3 раздела. Первый раздел — Graphics Configuration.
       +ul
@@ -441,18 +441,18 @@ block content
           | Inject NVIDIA — опция для старых видеокарт NVIDIA GeForce серии 8xxx, 9xxx, 2xx, 4xx, 610 и 630.
         +li
           | Inject ATI нужна для старых видеокарт ATI, таких как 4xxx серия.
-      +img("images/content/install-on-pc/customize_graphics.png","Раздел Graphics Configuration в MultiBeast")
+      +img("images/content/install-on-pc/customize_graphics.png", "Раздел Graphics Configuration в MultiBeast")
     +li
       | Раздел SSDT содержит только опции для процессоров семейства Sandy Bridge.
-      +img("images/content/install-on-pc/customize_ssdt.png","Раздел SSDT Options в MultiBeast")
+      +img("images/content/install-on-pc/customize_ssdt.png", "Раздел SSDT Options в MultiBeast")
     +li
       | Раздел System Definitions содержит ряд опций, которые маскируют ПК под настоящий компьютер Mac, тем самым открывая доступ к сервисам Apple, а также нужны для нормальной работы macOS в целом. Выбирать подходящий вариант не придется, так как он уже должен быть отмечен. Раскройте списки и убедитесь в этом сами.
-      +img("images/content/install-on-pc/customize_sys-definitions.png","System Definitions в MultiBeast")
+      +img("images/content/install-on-pc/customize_sys-definitions.png", "System Definitions в MultiBeast")
     +li
       | Нажмите Print или Save для сохранения данных об установленных пакетах.
     +li
       | В Build нажмите на Install.
-      +img("images/content/install-on-pc/build.png","Вкладка Build в MultiBeast")
+      +img("images/content/install-on-pc/build.png", "Вкладка Build в MultiBeast")
   +h3
     | б) Установка драйверов видеокарты
   +p
@@ -460,30 +460,30 @@ block content
   +ol
     +li
       | Установите последнюю версию 
-      +link("https://www.tonymacx86.com/nvidia-drivers/","Alternate NVIDIA Graphics Drivers")
+      +link("https://www.tonymacx86.com/nvidia-drivers/", "Alternate NVIDIA Graphics Drivers")
       |  для своей версии macOS. Пока не перезагружайтесь.
     +li
       | Установите 
-      +link("http://mackie100projects.altervista.org/download-clover-configurator/","Clover Configurator")
+      +link("http://mackie100projects.altervista.org/download-clover-configurator/", "Clover Configurator")
       | .
     +li
       | Найдите папку Clover, созданную MultiBeast на жестком диске. Она должна находится в разделе EFI. Подключенные разделы видны в левой колонке Finder или на Рабочем столе.
       +note(inf)
         | Вы можете не обнаружить EFI-раздел подключенным, поскольку по умолчанию системные разделы скрыты от пользователя. Для монтирования скрытых разделов в macOS я рекомендую утилиту 
-        +link("montirovaniye-efl-v-macos.html","EFI&nbsp;Mounter","note")
+        +link("montirovaniye-efl-v-macos.html", "EFI&nbsp;Mounter", "note")
         | .
     +li
       | Откройте config.plist через Clover Configurator.
-      +img("images/content/install-on-pc/plist-location.jpg","Расположение config.plist")
+      +img("images/content/install-on-pc/plist-location.jpg", "Расположение config.plist")
     +li
       | Перейдите на вкладку System pameters и поставьте галочку на NvidiaWeb.
-      +img("images/content/install-on-pc/clover-settings.png","NvidiaWeb в Clover Configurator")
+      +img("images/content/install-on-pc/clover-settings.png", "NvidiaWeb в Clover Configurator")
     +li
       | Сохраните изменения и выйдите из программы.
-      +img("images/content/install-on-pc/save-config_small.jpg","Сохранение изменений Clover Configurator","disableModal")
+      +img("images/content/install-on-pc/save-config_small.jpg", "Сохранение изменений Clover Configurator", "disableModal")
     +li
       | По окончании безопасно извлеките загрузочный USB и перезагрузите компьютер. Теперь можно загружаться в macOS без USB.  
-      +img("images/content/install-on-pc/high-sierra-desktop.jpg","Рабочий стол macOS High Sierra")
+      +img("images/content/install-on-pc/high-sierra-desktop.jpg", "Рабочий стол macOS High Sierra")
       +note(inf)
           | Обновления macOS как правило делают текущие драйвера Nvidia несовместимыми. Поэтому желательно сперва дождаться новых драйверов, совместимых с актуальной версией ОС, и только потом обновлять систему.
       +note(tip)

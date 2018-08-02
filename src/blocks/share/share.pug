@@ -6,30 +6,30 @@ mixin share
         href="https://vk.com/share.php?url=" + domainName,
         data-toggle="share",
         title="Вконтакте")
-        +svg("share__icon","vk")
+        +svg("share__icon", "vk")
 
       a.share__btn.share__btn--gplus(
         href="https://plus.google.com/share?url=" + domainName,
         data-toggle="share",
         title="Google Plus")
-        +svg("share__icon","google-plus")
+        +svg("share__icon", "google-plus")
 
       a.share__btn.share__btn--twitter(
         href="https://twitter.com/intent/tweet?url=" + domainName,
         data-toggle="share",
         title="Twitter")
-        +svg("share__icon","twitter")
+        +svg("share__icon", "twitter")
 
       a.share__btn.share__btn--fb(
         href="https://www.facebook.com/sharer/sharer.php?u=" + domainName,
         data-toggle="share",
         title="Facebook")
-        +svg("share__icon","facebook")
+        +svg("share__icon", "facebook")
 
       button.btn.share__btn.share__btn--url(
         data-toggle="copyUrl", 
         title="Скопировать ссылку")
-        +svg("share__icon","awesome-link-rotated")
+        +svg("share__icon", "awesome-link-rotated")
 
     .share__paste-wrapper
       input.share__paste(data-target="copyUrl")

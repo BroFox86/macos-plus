@@ -35,16 +35,12 @@ block articleHeader
 
 block content
   +h2
-
   +p 
     | Слово «Кекст» — транскрипция английского сокращения Kext от Kernel extension, т.е. расширение ядра. В виде кекстов реализованы все драйверы для macOS. Большинство самих же кекстов реализовано в виде специальных установочных пакетов, при запуске которых потребуется лишь ввести пароль, а всё остальное сделают за вас скрипты. Почти так же, как и с привычной установкой драйверов на ОС Windows. 
-    
   +p 
     | Но не всегда всё так легко. Порой достается просто файл с расширением .kext. А в случае с хакинтошем, следует и вовсе готовиться к тому, что, возможно, придётся перепробовать несколько разных кекстов, прежде чем определенная аппаратная часть ПК заработает правильно. 
-
   +p 
     | Установка кекстов в macOS состоит из трёх этапов: 
-
   +ol
     +li
       | Копировании в папку System/Library/Extensions.
@@ -67,15 +63,15 @@ block content
   +ol
     +li
       | Скачайте Kext Utility с 
-      +link("http://cvad-mac.narod.ru/index/0-4","cvad-mac.narod.ru")
+      +link("http://cvad-mac.narod.ru/index/0-4", "cvad-mac.narod.ru")
       |  и установите, переместив приложение в папку «Программы».
-      +img("images/content/install-kexts/install-location.png","Папка c программами в macOS")
+      +img("images/content/install-kexts/install-location.png", "Папка c программами в macOS")
     +li
       | При каждом открытии программы начинается служебная процедура. Пока она выполняются, крутится индикатор и выводится лог событий.
-      +img("images/content/install-kexts/kext-utility-window.png","Окно программы Kext Utility")
+      +img("images/content/install-kexts/kext-utility-window.png", "Окно программы Kext Utility")
     +li
       | Переместите кекст(ы) в окно программы методом drag-and-drop и дождитесь выполнения установки.
-      +img("images/content/install-kexts/kext-dragging.jpg","Установка кекста через Kext Utility")
+      +img("images/content/install-kexts/kext-dragging.jpg", "Установка кекста через Kext Utility")
     +li
       | Как только появится кнопка Quit, кекст(ы) будут установлены.
     +li
@@ -87,7 +83,7 @@ block content
   +ol
     +li
       | Откройте папку кекстов в Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other. 
-      +img("images/content/install-kexts/kexts-location-in-clover.png","Папка с кекстами в Clover")
+      +img("images/content/install-kexts/kexts-location-in-clover.png", "Папка с кекстами в Clover")
     +li
       | Скопируйте туда необходимые кексты и перезагрузите компьютер. 
       +note(tip)
@@ -102,15 +98,15 @@ block content
   +ol
     +li
       | Выберите в строке меню пункт «Переход к папке» и введите путь к системной папке: /System/Library/Extensions
-      +img("images/content/install-kexts/go-to-folder_small.jpg","Переход в системную папку macOS","disableModal")
+      +img("images/content/install-kexts/go-to-folder_small.jpg", "Переход в системную папку macOS", "disableModal")
       +note(inf)
         | С помощью сочетания ⌘ + Shift + . (точка) можно отображать скрытые файлы в macOS и таким же способом их скрывать.
     +li
       | Затем найдите кекст у удалите.
-      +img("images/content/install-kexts/extensions-folder.png","Папка с кекстами в системном разделе macOS")
+      +img("images/content/install-kexts/extensions-folder.png", "Папка с кекстами в системном разделе macOS")
     +li
       | После запустите 
-      +link("http://cvad-mac.narod.ru/index/0-4","Kext Utility")
+      +link("http://cvad-mac.narod.ru/index/0-4", "Kext Utility")
       |  и подождите окончания процедуры по пересозданию кеша.
     +li
       | Перезагрузите компьютер.
