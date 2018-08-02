@@ -1,0 +1,65 @@
+//- Image
+mixin img(src, alt, modal)
+  - original = src.replace(/(\.[\w\d_-]+)$/i,"_original$1")
+
+  case modal
+    default
+      a.article__img-link(href= original, data-toggle="lightbox")
+        div
+          img.article__img(
+            src = src
+            alt = alt)
+
+    when "disableModal"
+      .article__img-link
+        img.article__img(
+          src = src
+          alt = alt)
+
+//- Figure
+mixin figure(src, alt, modal)
+  - original = src.replace(/(\.[\w\d_-]+)$/i,"_original$1")
+
+  case modal
+    default
+      figure.article__figure
+        a.article__img-link(href= original, data-toggle="lightbox")
+          img.article__img.article__img--figure(
+            src = src
+            alt = alt)
+        figcaption.article__figcaption
+          if block
+          block
+
+    when "disableModal"
+      figure.article__figure
+        img.article__img.article__img--figure(
+          src = src
+          alt = alt)
+        figcaption.article__figcaption
+          if block
+          block
+
+//- Responsive image
+mixin respImg(className, src, width)
+  - var src1 = src + " " + width + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i,"@1\.5x$1") + " " + width * 1.5 + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i,"@2x$1")  + " " + width * 2   + "w"
+
+  img(
+    class  = className
+    srcset = src1 + "," + src2 + "," + src3
+    sizes  = width / 16 + "rem"
+    src	   = src
+    alt	   = "")
+
+//- Source of picture element
+mixin imgSource(media, src, width)
+  - var src1 = src + " " + width + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i,"@1\.5x$1") + " " + width * 1.5 + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i,"@2x$1")  + " " + width * 2   + "w"
+
+  source(
+    media  = media
+    srcset = src1 + "," + src2 + "," + src3
+    sizes  = width / 16 + "rem")

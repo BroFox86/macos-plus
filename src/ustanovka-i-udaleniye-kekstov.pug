@@ -52,115 +52,71 @@ block content
       | Настройке прав доступа.
     +li
       | Удалении и пересоздании кэша кекстов для загрузки системы.
-
   +h2
-
   +h3
     | Kext Utility
-
   +p 
-    | Есть два способа установки кекстов — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает отличная программа Kext Utility (
-    +link("https://www.insanelymac.com/forum/topic/140647-latest-kext-utility-macos-sierra-super-speed-edition/", "обсуждение")
-    |  на insanelymac.com). Она делает за меня все три описанных выше этапа установки кекстов.
-
+    | Есть два способа установки кекстов — ручной и автоматический. Я рекомендую автоматический, поскольку он гораздо проще. В этом мне помогает отличная программа Kext Utility. Она делает за меня все три описанных выше этапа установки кекстов.
   +p 
     | Есть несколько способов работы с Kext Utility:
-
   +ul
     +li
       | Перетаскивание одного или нескольких кекстов в окно программы.
     +li
       | Запуск «вхолостую». В этом случае будет запущена проверка прав доступа к уже установленным кекстам и пересоздание их кэша.
-
   +ol
     +li
       | Скачайте Kext Utility с 
-      +link('http://cvad-mac.narod.ru/index/0-4', 'cvad-mac.narod.ru')
+      +link("http://cvad-mac.narod.ru/index/0-4","cvad-mac.narod.ru")
       |  и установите, переместив приложение в папку «Программы».
-
-      - src = "images/content/install-kexts/install-location.png"
-      - alt = "Папка c программами в macOS"
-      +img
-
+      +img("images/content/install-kexts/install-location.png","Папка c программами в macOS")
     +li
       | При каждом открытии программы начинается служебная процедура. Пока она выполняются, крутится индикатор и выводится лог событий.
-
-      - src = "images/content/install-kexts/kext-utility-window.png"
-      - alt = "Окно программы Kext Utility"
-      +img
-
+      +img("images/content/install-kexts/kext-utility-window.png","Окно программы Kext Utility")
     +li
       | Переместите кекст(ы) в окно программы методом drag-and-drop и дождитесь выполнения установки.
-
-      - src = "images/content/install-kexts/kext-dragging.jpg"
-      - alt = "Установка кекста через Kext Utility"
-      +img
-
+      +img("images/content/install-kexts/kext-dragging.jpg","Установка кекста через Kext Utility")
     +li
       | Как только появится кнопка Quit, кекст(ы) будут установлены.
     +li
       | Выйдите из программы и перезагрузите компьютер. После перезагрузки все устройства, для которых были установлены кексты, должны опознаться системой.
-
   +h3
     | Установка в папку Clover
-
   +p 
     | Не всегда требуется устанавливать кексты в системную папку macOS: на хакинтоше есть еще одно место с кекстами — в папке Clover. Обычно там располагаются кексты, необходимые для работы хакинтоша. Выбор места для установки следует делать исходя из документации к кексту. Большое количество кекстов, загружаемых через Clover, может замедлить загрузку системы.
-
   +ol
     +li
       | Откройте папку кекстов в Clover: EFI &gt; CLOVER &gt; Kexts &gt; Other. 
-
-      - src = "images/content/install-kexts/kexts-location-in-clover.png"
-      - alt = "Папка с кекстами в Clover"
-      +img
-
+      +img("images/content/install-kexts/kexts-location-in-clover.png","Папка с кекстами в Clover")
     +li
       | Скопируйте туда необходимые кексты и перезагрузите компьютер. 
-      
       +note(tip)
         | В папке Clover/Kexts/Other располагаются кексты для всех версий macOS. Рекомендуется копировать кексты именно в эту папку.
-
       +note(inf)
         | Системные разделы по умолчанию скрыты от пользователя. Инструкция по монтированию скрытых разделов приведена на отдельной 
         a.link.link--note(href= link.efi) странице
         | .
-
   +h2
-
   +h3
     | Удаление из системной папки
-
   +ol
     +li
       | Выберите в строке меню пункт «Переход к папке» и введите путь к системной папке: /System/Library/Extensions
-
-      - src = "images/content/install-kexts/go-to-folder_small.jpg"
-      - alt = "Переход в системную папку macOS"
-      +img("small")
-
+      +img("images/content/install-kexts/go-to-folder_small.jpg","Переход в системную папку macOS","disableModal")
       +note(inf)
         | С помощью сочетания ⌘ + Shift + . (точка) можно отображать скрытые файлы в macOS и таким же способом их скрывать.
-
     +li
       | Затем найдите кекст у удалите.
-
-      - src = "images/content/install-kexts/extensions-folder.png"
-      - alt = "Папка с кекстами в системном разделе macOS"
-      +img
-
+      +img("images/content/install-kexts/extensions-folder.png","Папка с кекстами в системном разделе macOS")
     +li
       | После запустите 
-      +link('http://cvad-mac.narod.ru/index/0-4', 'Kext Utility')
+      +link("http://cvad-mac.narod.ru/index/0-4","Kext Utility")
       |  и подождите окончания процедуры по пересозданию кеша.
     +li
       | Перезагрузите компьютер.
-
       +note(inf)
         | Помимо основной папки с кекстами в macOS, которая располагается в папке System/, есть еще одно место, где хранятся кексты — /Library/Extensions. Но оно используется гораздо реже и кекстов там немного.
-
   +h3
     | Удаление из папки Clover
-
   +p 
     | В случае, если целевой кекст располагается в папке Clover, просто удалите его оттуда и перезагрузите компьютер.

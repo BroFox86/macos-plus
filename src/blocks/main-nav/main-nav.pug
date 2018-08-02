@@ -3,13 +3,13 @@
 mixin mainNav
   nav.main-nav
     a(href="#target").main-nav__open-btn
-      +svg("main-nav__open-icon", "bars")
+      +svg("main-nav__open-icon","bars")
     a.main-nav__open-target(id="target")
     .main-nav__inner
       ul.main-nav__list(data-toggle="mainNav", data-target="lightbox")
         li
           a(href="#0").main-nav__close-btn
-            +svg("main-nav__close-icon", "angle-left")
+            +svg("main-nav__close-icon","angle-left")
         li.main-nav__item(class= attributes.index)
           a.main-nav__link(href= link.index) macOS на ПК 
         li.main-nav__item(class= attributes.vmware)
@@ -20,7 +20,7 @@ mixin mainNav
           a.main-nav__link(href= link.sound) Завод звука
         li.main-nav__item.main-nav__item--popup(class= attributes.pageA0)
           a.main-nav__link Разное
-            +svg("main-nav__popup-icon", "arrow-down")
+            +svg("main-nav__popup-icon","arrow-down")
 
           ul.main-nav__list
             li.main-nav__item(class= attributes.kexts)

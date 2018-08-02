@@ -34,142 +34,77 @@ block content
     
   +h3
     | а) Сброс данных
-
   +ol
     +li
       | Выйдите из App Store , iCloud и других сервисов Apple.
-
-      - src = "images/content/setup-services/logout-from-appstore.jpg"
-      - alt = "Выход из App Store"
-      +img
-
-      - src = "images/content/setup-services/logout-from-icloud.png"
-      - alt = "Выход из iCloud"
-      +img
-
+      +img("images/content/setup-services/logout-from-appstore.jpg","Выход из App Store")
+      +img("images/content/setup-services/logout-from-icloud.png","Выход из iCloud")
     +li
       | Войдите в свою 
-      +link('https://appleid.apple.com/#!&page=signin', 'учетную запись')
+      +link("https://appleid.apple.com/#!&page=signin","учетную запись")
       |  Apple и удалите все устройства из списка, с которых был произведен вход. Можно оставить 
       i подлинные 
       | устройства Apple — iPhone, iPod и т.д...
-
-      - src = "images/content/setup-services/remove-devices.jpg"
-      - alt = "Стереть историю входов учетной записи Apple"
-      +img
-
+      +img("images/content/setup-services/remove-devices.jpg","Стереть историю входов учетной записи Apple")
     +li
       | Перезагрузите компьютер.
-
   +h3
     | б) Настройка Clover
-
   +note(warning)
     | Не используйте значения, приведенные в инструкции в качестве примеров: они не подойдут вашей конфигурации, либо уже забанены.
-
   +ol
     +li
       | Откройте файл настройки Clover — config.plist через Clover Configurator.
-
-      - src = "images/content/setup-services/open-clover-config.jpg"
-      - alt = "Местонахождение Config.plist"
-      +img
-
+      +img("images/content/setup-services/open-clover-config.jpg","Местонахождение Config.plist")
     +li
       | В разделе SMBIOS выберите компьютер Mac, который наиболее схож с вашей конфигурацией.
-
-      - src = "images/content/setup-services/pick-mac-model.png"
-      - alt = "Вкладка SMBIOS"
-      +img
-
+      +img("images/content/setup-services/pick-mac-model.png","Вкладка SMBIOS")
       +note(inf)
         | Подходящий вариант и поля уже должны быть введены автоматически во время 
-        +link(link.index + "#6", 'пост-установки', "note")
+        +link(link.index + "#6","пост-установки","note")
         |  с MultiBeast. Поэтому, если страницы конфигуратора окажутся полупустыми, убедитесь, что config.plist открыт правильно.
-
     +li
       | Нажмите на Generate New и сгенерируйте серийный номер.
-
-      - src = "images/content/setup-services/generate-serial.png"
-      - alt = "Вкладка SMBIOS"
-      +img
-
+      +img("images/content/setup-services/generate-serial.png","Вкладка SMBIOS")
     +li
       | Скопируйте полученный код из поля Serial Number и введите его в форму на странице 
-      +link('https://checkcoverage.apple.com', 'checkcoverage.apple.com')
+      +link("https://checkcoverage.apple.com","checkcoverage.apple.com")
       | .
-
       +p
         | Проверьте этот серийный номер. Если появится 
         em ошибка
         | , как на приведенном ниже скриншоте — значит это то, что надо и можно продолжать дальше. В противном случае, если серийный номер окажется «валидным», необходимо будет сгенерировать его по-новому. Иначе возникнут проблемы с дубликатом уже зарегистрированного серийного номера Mac.
-
-      - src = "images/content/setup-services/check-serial_small.jpg"
-      - alt = "Проверка серийного номера Mac"
-      +img("small")
-
+      +img("images/content/setup-services/check-serial_small.jpg","Проверка серийного номера Mac","disableModal")
     +li
       | Откройте Terminal и введите 
       +code("uuidgen")
       | , затем нажмите Enter.
-
-      - src = "images/content/setup-services/get-uuidgen.png"
-      - alt = "Вставка uuidgen в терминал"
-      +img("small")
-
+      +img("images/content/setup-services/get-uuidgen.png","Вставка uuidgen в терминал","disableModal")
     +li
       | Скопируйте выданное терминалом значение в буфер обмена и вставьте в поле SmUUID.
-
-      - src = "images/content/setup-services/smuuid-field.png"
-      - alt = "Вкладка SMBIOS"
-      +img
+      +img("images/content/setup-services/smuuid-field.png","Вкладка SMBIOS")
     +li
       | Сохраните изменения.
-
-      - src = "images/content/setup-services/config-6_small.jpg"
-      - alt = "Сохранение изменений Clover Configurator"
-      +img("small")
-
+      +img("images/content/setup-services/config-6_small.jpg","Сохранение изменений Clover Configurator","disableModal")
     +li
       | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и App Store.
-
   +h2
-
   +p
     | Запуск App Store не требует каких-либо дополнительных инструкций, если при попытке входа нет ошибок. Проблемы с App Store обычно возникают при использовании внешних Wi-Fi USB-адаптеров, когда сетевое устройство не назначено как основное, то есть обозначено как en1 вместо en0. Далее следует инструкция, которая помогла мне решить эту проблему.
-    
   +ol
     +li
       | Откройте поиск Spotlight и введите System Profiler. Откроется окно информации о системе.
-
-      - src = "images/content/setup-services/find-system-information.png"
-      - alt = "Пункт информации о системе в Spotlight"
-      +img
-
+      +img("images/content/setup-services/find-system-information.png","Пункт информации о системе в Spotlight")
     +li
       | Найдите свой Wi-Fi  адаптер. Если Wi-Fi назначено значение en0, то делать ничего не надо и проблема со входом в App Store, скорее всего, связана с отсутствием кекста для сетевого устройства. Если назначено другое значение, например, en1 или en2 то продолжайте читать далее.
 
-      - src = "images/content/setup-services/wifi-information.png"
-      - alt = "Раздел Wi-Fi в информации о системе"
-      +img
-      
+      +img("images/content/setup-services/wifi-information.png","Раздел Wi-Fi в информации о системе")
     +li
       | Откройте Finder и выберите в строке меню «Переход к папке».
-
-      - src = "images/content/setup-services/go-to-folder_small.jpg"
-      - alt = "Переход к папке в macOS"
-      +img("small")
-
+      +img("images/content/setup-services/go-to-folder_small.jpg","Переход к папке в macOS","disableModal")
     +li
       | И введите /Library/Preferences/<wbr>SystemConfiguration.
-
-      - src = "images/content/setup-services/go-to-preferences-folder.png"
-      - alt = "Переход в папку SystemConfiguration"
-      +img
-
+      +img("images/content/setup-services/go-to-preferences-folder.png","Переход в папку SystemConfiguration")
     +li
       | Удалите файлы NetworkInterfaces.plist, preferences.plist и перезагрузите компьютер.
-
-      - src = "images/content/setup-services/delete-files.png"
-      - alt = "Удаление файлов в SystemConfiguration"
-      +img
+      +img("images/content/setup-services/delete-files.png","Удаление файлов в SystemConfiguration")

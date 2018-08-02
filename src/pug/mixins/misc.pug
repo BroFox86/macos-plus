@@ -1,0 +1,33 @@
+mixin link(href, text, modifier)
+  case modifier
+    default
+      a.link.link--article(href= href )!= text
+    when "note"
+      a.link.link--note(href= href )!= text
+
+mixin p
+  p.article__par
+    if block
+    block
+
+mixin ol
+  ol.article__ordered-list(start= attributes.start)
+    if block
+    block
+
+mixin ul
+  ul.article__marked-list
+    if block
+    block
+
+mixin li
+  li.article__list-item
+    if block
+    block
+
+mixin code(string)
+  code.article__code!= string
+
+mixin svg(className, id)
+  svg(class= className width= "30")
+    use(xlink:href="#" + id)

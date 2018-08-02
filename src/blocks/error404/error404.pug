@@ -1,9 +1,6 @@
 mixin error404
   .error404(data-animate="error404")
-    - className = "error404__img"
-    - src       = "images/fox.jpg"
-    - width     = 326
-    +respImg
+    +respImg("error404__img","images/fox.jpg", 326)
 
     .error404__text-wrapper
       .error404__type 404
