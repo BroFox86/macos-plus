@@ -10,6 +10,7 @@ var
   fs             = require("fs"),
   run            = require("gulp-run"),
   browserSync    = require("browser-sync"),
+  watch          = require("gulp-watch"),
   pugIncludeGlob = require("pug-include-glob"),
   penthouse      = require("penthouse"),
 
@@ -49,7 +50,7 @@ var paths = {
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
   forceInclude: [".main-nav__inner", ".article__img", ".note__icon", ".error__img", ".vote"],
-  propertiesToRemove: ["backdrop-filter"]
+  //propertiesToRemove: [""]
 };
 
 /* ==========================================================================
@@ -111,6 +112,7 @@ gulp.task("html:build", function() {
           gulp
           .src(".tmp/css/_critical.css")
           .pipe(plugins.replace("../", ""))
+          .pipe(plugins.replace("@charset \"UTF-8\";", ""))
           .pipe(plugins.postcss([cssnano()]))
           .pipe(plugins.injectString.prepend("<style>"))
           .pipe(plugins.injectString.append("</style>")), {
@@ -538,14 +540,14 @@ gulp.task("metadata", function() {
    ========================================================================== */
 
 gulp.task("watch", function() {
-  plugins.watch("src/images/_images-to-svg-sprite/**/*.svg",
+  watch("src/images/_images-to-svg-sprite/**/*.svg",
     { readDelay: 200 },
     function() {
       gulp.start("html:prebuild");
     }
   );
 
-  plugins.watch(
+  watch(
     [
       "src/blocks/*/*.pug", 
       "src/layouts/*",
@@ -558,7 +560,7 @@ gulp.task("watch", function() {
     }
   );
 
-  plugins.watch(
+  watch(
     [
       "src/blocks/**/*.scss", 
       "src/scss/**"
@@ -569,7 +571,7 @@ gulp.task("watch", function() {
     }
   );
 
-  plugins.watch(
+  watch(
     [
       "src/blocks/**/*.{jpg,jpeg,png}", 
       "src/images/**"
@@ -580,7 +582,7 @@ gulp.task("watch", function() {
     }
   );
 
-  plugins.watch(
+  watch(
     [
       "src/blocks/**/*.js", 
       "src/js/**"
@@ -591,7 +593,7 @@ gulp.task("watch", function() {
     }
   );
 
-  plugins.watch("src/fonts/*", { readDelay: 200 }, function() {
+  watch("src/fonts/*", { readDelay: 200 }, function() {
     gulp.start("fonts:prebuild");
   });
 });
