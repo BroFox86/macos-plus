@@ -12,7 +12,7 @@
   }
 
   @media (max-width: $mobile) {
-    font-size: 16px;
+    font-size: $base-font-size;
   }
 
   &__open-btn {
