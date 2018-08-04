@@ -14,7 +14,7 @@
 
 * Редактор кода MS Visual Studio Code
 * Графический редактор Affinity Designer
-* Редактор векторной графики Incscape
+* Редактор векторной графики Inkscape
 * Препроцессор Sass
 * Постпроцессор PostCSS
 * Шаблонизатор Pug
