@@ -3,13 +3,13 @@
 mixin nav
   nav.nav
     a(href="#target").nav__open-btn
-      +svg("nav__open-icon", "bars")
+      +svg("bars")(class="nav__open-icon")
     a.nav__open-target(id="target")
     .nav__inner
       ul.nav__list(data-toggle="nav", data-target="lightbox")
         li
           a(href="#0").nav__close-btn
-            +svg("nav__close-icon", "angle-left")
+            +svg("angle-left")(class="nav__close-icon")
         li.nav__item(class= attributes.index)
           a.nav__link(href= link.index) macOS на ПК 
         li.nav__item(class= attributes.vmware)
@@ -20,7 +20,7 @@ mixin nav
           a.nav__link(href= link.sound) Завод звука
         li.nav__item.nav__item--popup(class= attributes.pageA0)
           a.nav__link Разное
-            +svg("nav__popup-icon", "arrow-down")
+            +svg("arrow-down")(class="nav__popup-icon")
 
           ul.nav__list
             li.nav__item(class= attributes.kexts)

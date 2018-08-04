@@ -1,0 +1,10 @@
+mixin a(modifier)
+  case modifier
+    default
+      a.link.link--article(href= attributes.href)
+        if block
+        block
+    when "note"
+      a.link.link--note(href= attributes.href)
+        if block
+        block

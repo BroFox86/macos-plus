@@ -1,10 +1,3 @@
-mixin link(href, text, modifier)
-  case modifier
-    default
-      a.link.link--article(href= href )!= text
-    when "note"
-      a.link.link--note(href= href )!= text
-
 mixin p
   p.article__par
     if block
@@ -25,9 +18,5 @@ mixin li
     if block
     block
 
-mixin code(string)
-  code.article__code!= string
-
-mixin svg(className, id)
-  svg(class= className width= "30")
-    use(xlink:href="#" + id)
+mixin code(text)
+  code.article__code= text

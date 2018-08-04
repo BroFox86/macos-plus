@@ -1,6 +1,0 @@
-mixin tooltip(title, text, hasAbbr)
-  case hasAbbr
-    default
-      span.article__tooltip(data-toggle="tooltip", title!= title)= text
-    when "abbr"
-      abbr.article__tooltip(data-toggle="tooltip", title!= title)= text

@@ -2,7 +2,7 @@ mixin header
   header.page__header.header(data-target="nav")
     a.header__logo(href= link.index)
       picture
-        +imgSource("(max-width: 960px)", "images/logo-mobile.png", 126)
+        +imgSource("images/logo-mobile.png", 126)(media="(max-width: 960px)")
         +respImg("images/logo.png", 240)(class="header__img")
     if block
     block

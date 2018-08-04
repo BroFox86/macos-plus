@@ -1,6 +1,6 @@
 //- Image
-mixin img(src, alt, modal)
-  - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
+mixin img(src, modal)
+  - var original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
 
   case modal
     default
@@ -8,17 +8,17 @@ mixin img(src, alt, modal)
         div
           img.article__img(
             src = src
-            alt = alt)
+            alt = attributes.alt)
 
-    when "disableModal"
+    when false
       .article__img-link
         img.article__img(
           src = src
-          alt = alt)
+          alt = attributes.alt)
 
 //- Figure
-mixin figure(src, alt, modal)
-  - original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
+mixin figure(src, modal)
+  - var original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
 
   case modal
     default
@@ -26,16 +26,16 @@ mixin figure(src, alt, modal)
         a.article__img-link(href= original, data-toggle="lightbox")
           img.article__img.article__img--figure(
             src = src
-            alt = alt)
+            alt = attributes.alt)
         figcaption.article__figcaption
           if block
           block
 
-    when "disableModal"
+    when false
       figure.article__figure
         img.article__img.article__img--figure(
           src = src
-          alt = alt)
+          alt = attributes.alt)
         figcaption.article__figcaption
           if block
           block
@@ -54,12 +54,12 @@ mixin respImg(src, width)
     alt	   = "")
 
 //- Source of picture element
-mixin imgSource(media, src, width)
+mixin imgSource(src, width)
   - var src1 = src + " " + width + "w"
   - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + width * 1.5 + "w"
   - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + width * 2   + "w"
 
   source(
-    media  = media
+    media  = attributes.media
     srcset = src1 + ", " + src2 + ", " + src3
     sizes  = width / 16 + "rem")
