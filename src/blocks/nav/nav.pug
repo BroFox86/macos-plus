@@ -1,0 +1,29 @@
+- var selected = "nav__item--selected"
+
+mixin nav
+  nav.nav
+    a(href="#target").nav__open-btn
+      +svg("nav__open-icon", "bars")
+    a.nav__open-target(id="target")
+    .nav__inner
+      ul.nav__list(data-toggle="nav", data-target="lightbox")
+        li
+          a(href="#0").nav__close-btn
+            +svg("nav__close-icon", "angle-left")
+        li.nav__item(class= attributes.index)
+          a.nav__link(href= link.index) macOS на ПК 
+        li.nav__item(class= attributes.vmware)
+          a.nav__link(href= link.vmware ) macOS на VMWare
+        li.nav__item(class= attributes.services)
+          a.nav__link(href= link.services) Запуск iCloud &amp; App Store
+        li.nav__item(class= attributes.sound)
+          a.nav__link(href= link.sound) Завод звука
+        li.nav__item.nav__item--popup(class= attributes.pageA0)
+          a.nav__link Разное
+            +svg("nav__popup-icon", "arrow-down")
+
+          ul.nav__list
+            li.nav__item(class= attributes.kexts)
+              a.nav__link(href= link.kexts) Установка кекстов
+            li.nav__item(class= attributes.efi)
+              a.nav__link(href= link.efi) Монтирование EFI

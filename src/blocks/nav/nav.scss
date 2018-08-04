@@ -1,4 +1,4 @@
-.main-nav {
+.nav {
   text-transform: uppercase;
   color: #666;
   font-family: $websafe-font-family;
@@ -103,12 +103,12 @@
       box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
     }
 
-    &.is-fixed .main-nav__list {
+    &.is-fixed .nav__list {
       top: 61px;
       box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
     }
 
-    .main-nav__list & {
+    .nav__list & {
       display: none;
       margin: 0;
       padding: 0;
@@ -118,7 +118,7 @@
       }
     }
 
-    .main-nav__item--popup:hover & {
+    .nav__item--popup:hover & {
       position: absolute;
       top: 60px;
       right: -100px;
@@ -156,7 +156,7 @@
     border-radius: $border-radius--small;
     background: transparent;
 
-    &--selected:not(.main-nav__item--popup) {
+    &--selected:not(.nav__item--popup) {
       @media (max-width: $tablet) {
         background: $accent;
       }
@@ -178,12 +178,12 @@
       line-height: inherit;
     }
 
-    .main-nav__item:hover > &,
-    .main-nav__nested-item:hover > & {
+    .nav__item:hover > &,
+    .nav__nested-item:hover > & {
       color: $accent;
     }
 
-    .main-nav__item--popup > & {
+    .nav__item--popup > & {
       @media (max-width: $tablet) {
         padding-left: 0;
         cursor: default;
@@ -191,17 +191,17 @@
       }
     }
 
-    .main-nav__item--popup:hover > & {
+    .nav__item--popup:hover > & {
       @media (max-width: $tablet) {
         color: $base-font-color;
       }
     }
 
-    .main-nav__item--selected > & {
+    .nav__item--selected > & {
       color: $accent;
     }
 
-    .main-nav__item--selected:not(.main-nav__item--popup) > & {
+    .nav__item--selected:not(.nav__item--popup) > & {
       @media (max-width: $tablet) {
         color: white;
       }
@@ -220,7 +220,7 @@
       fill: $base-font-color;
     }
 
-    .main-nav__item--selected & {
+    .nav__item--selected & {
       fill: $accent;
 
       @media (max-width: $tablet) {
@@ -228,11 +228,11 @@
       }
     }
 
-    .main-nav__item:hover & {
+    .nav__item:hover & {
       fill: $accent;
     }
 
-    .main-nav__item--popup:hover & {
+    .nav__item--popup:hover & {
       @media (max-width: $tablet) {
         fill: $base-font-color;
       }

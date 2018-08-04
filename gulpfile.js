@@ -49,7 +49,7 @@ var paths = {
 
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-  forceInclude: [".main-nav__inner", ".article__img", ".note__icon", ".error__img", ".vote"],
+  forceInclude: [".nav__inner", ".article__img", ".note__icon", ".error__img", ".vote"],
   //propertiesToRemove: [""]
 };
 

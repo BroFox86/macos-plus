@@ -5,8 +5,8 @@
 (function() {
   "use strict";
 
-  var $nav    = $("[data-toggle='mainNav']"),
-      $header = $("[data-target='mainNav']"),
+  var $nav    = $("[data-toggle='nav']"),
+      $header = $("[data-target='nav']"),
       fixed   = "is-fixed",
       offset  = $nav.offset(),
       margin  = $nav.outerHeight(),
