@@ -1,26 +1,31 @@
 .note {
-  width: 75%;
-  padding: 14px;
-  padding-left: 60px;
-  color: white;
+  width: 70%;
+  padding: 20px 20px 20px 65px;
   border-radius: $border-radius--large;
+  color: white;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
-  font-size: 0.941em;
-  line-height: 1.5;
+  font-family: $second-font;
+  font-size: 0.842em;
 
   @media (max-width: $mobile) {
+    padding: 17px 17px 17px 55px;
     width: auto;
-    padding-right: 15px;
+    font-size: 0.895em;
   }
 
   &__icon {
     position: absolute;
-    top: 23px;
-    left: 19px;
-    width: 25px;
-    height: 25px;
-
+    top: 30px;
+    left: 21px;
+    width: 28px;
+    height: 28px;
     fill: white;
+
+    @media (max-width: $mobile) {
+      width: 25px;
+      height: 25px;
+      left: 16px;
+    }
   }
 
   &__text {
@@ -28,15 +33,7 @@
     font-weight: inherit;
   }
 
-  &--inf {
-    background: $info;
-  }
-
-  &--tip {
-    background: $tip;
-  }
-
-  &--warning {
-    background: $warning;
-  }
+  &--inf     { background: $info; }
+  &--tip     { background: $tip; }
+  &--warning { background: $warning; }
 }

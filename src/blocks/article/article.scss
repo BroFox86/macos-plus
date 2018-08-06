@@ -1,28 +1,29 @@
 .article {
   display: flex;
   flex-direction: column;
-
-  // Compatibility with IE
-  flex-shrink: 99; 
-  width: 100%; 
-
   box-sizing: border-box;
-  border-radius: $border-radius;
-  background-color: white;
-  padding: 0 8%;
-  font-size: $base-font-size;
+  width: 700px;
 
-  @media (max-width: $tablet) {
-    padding: 0 10%;
+  @media (max-width: $desktop) {
+    width: 550px;
   }
 
-  @media (max-width: $mobile) {
-    padding: 0 5%;
+  @media (max-width: $tablet) {
+    width: 100%;
   }
 
   &__header {
+    margin: 125px 0 20px;
+
     @media (max-width: $tablet) {
       order: 1;
+      margin-top: 65px + ($margin * 2);
+      margin-bottom: $margin * 2;
+    }
+
+    @media (max-width: $mobile) {
+      margin-top: 55px + $margin;
+      margin-bottom: $margin;
     }
   }
 
@@ -47,31 +48,32 @@
   &__h2 {
     position: relative;
     margin: $margin*1.5 0 $margin;
-    color: $headings-font-color;
-    font-family: $headings-font-family;
-    font-size: $h2-font-size;
+    color: $headings;
+    font-family: $headings-font;
+    font-size: $h2;
     font-weight: 700;
 
     @media (max-width: $mobile) {
-      font-size: $h2-font-size--mobile;
+      font-size: $h2--mobile;
     }
   }
 
   &__h3 {
     margin: $margin 0;
-    color: $headings-font-color;
-    font-family: $headings-font-family;
-    font-size: $h3-font-size;
+    color: $headings;
+    font-family: $headings-font;
+    font-size: $h3;
     font-weight: 700;
 
     @media (max-width: $mobile) {
-      font-size: $h3-font-size--mobile;
+      font-size: $h3--mobile;
     }
   }
 
   &__anchor {
     position: absolute;
-    left: -4%;
+    top: -.1em;
+    left: -.9em;
 
     @media (max-width: $mobile) {
       display: none;
@@ -117,13 +119,13 @@
     ul & {
       &::before {
         position: absolute;
-        top: .6em;
+        top: .579em;
         left: -1.2em;
-        width: .4em;
-        height: .4em;
+        width: .368em;
+        height: .368em;
         content: "";
         border-radius: 50%;
-        background: #808080;
+        background: $grey;
       }
     }
 
@@ -140,16 +142,24 @@
     }
   }
 
-  &__code {
-    padding: 3px 6px;
-    hyphens: none;
-    border-radius: $border-radius--tiny;
-    background: #ebebeb;
-  }
-
   &__note {
     position: relative;
     margin: $margin auto;
+  }
+
+  &__img-wrapper {
+    display: block;
+    margin: $margin auto;
+    text-align: center;
+
+    .article__figure & {
+      margin: 0;
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    color: $grey;
   }
 
   &__figure {
@@ -162,21 +172,6 @@
     font-style: italic;
   }
 
-  &__img-link {
-    display: block;
-    margin: $margin auto;
-    text-align: center;
-
-    .article__figure & {
-      margin: 0;
-    }
-  }
-
-  &__img {
-    max-width: 100%;
-    color: #808080;
-  }
-
   //
   // Tooltip selector priority is increased 
   // to override normalize.css values for <abbr>
@@ -185,10 +180,19 @@
   &__tooltip[title] {
     text-decoration: none;
     hyphens: none;
-    border-bottom: 1px dashed #808080;
+    border-bottom: 1px dashed $grey;
+    cursor: help;
+  }
 
-    &:hover {
-      cursor: help;
+  &__code {
+    padding: 3px 6px;
+    hyphens: none;
+    border-radius: $border-radius--tiny;
+    background: $code;
+    font-size: 0.947em;
+
+    @media (max-width: $mobile) {
+      font-size: 0.889em;
     }
   }
 }

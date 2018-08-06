@@ -1,21 +1,20 @@
 .aside {
   overflow: hidden;
-  border-radius: $border-radius;
-  background: white;
+  border: 2px solid $border;
+  border-radius: $border-radius--large;
 
   &__headline {
-    margin: 0 0 5px;
-    padding-top: 22px;
-    color: $headings-font-color;
+    margin: 0;
+    padding-top: 20px;
+    color: $headings;
     text-align: center;
-    font-family: $headings-font-family;
+    font-family: $headings-font;
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
 
     @media (max-width: $tablet) {
-      font-size: 20px;
+      padding: 0;
     }
-
   }
 }

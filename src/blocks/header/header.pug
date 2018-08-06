@@ -1,8 +1,6 @@
 mixin header
   header.page__header.header(data-target="nav")
     a.header__logo(href= link.index)
-      picture
-        +imgSource("images/logo-mobile.png", 126)(media="(max-width: 960px)")
-        +respImg("images/logo.png", 240)(class="header__img")
+      +respImg("images/logo.png", 175)(class="header__img", alt="Логотип")
     if block
     block

@@ -17,7 +17,7 @@ prepend page
     };
 
     var articleHeader = {
-      image: "images/content/install-kexts/icon.png",
+      icon: "puzzle",
       title: "Установка и удаление<br>&#32;кекстов в macOS"
     };
 
@@ -28,7 +28,7 @@ prepend page
     ]
 
 block nav
-  +nav(kexts = selected, pageA0 = selected)
+  +nav()(popup = selected, kexts = selected)
 
 block articleHeader
   +articleHeader(theme = accent)

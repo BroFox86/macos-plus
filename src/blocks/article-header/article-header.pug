@@ -1,4 +1,4 @@
-- var accent = "article-header__img-wrapper--theme-accent"
+- var accent = "article-header--theme-accent"
 
 mixin articleHeader
 
@@ -10,9 +10,9 @@ mixin articleHeader
       data-modified= dateModified[2] + dateModified[1] + dateModified[0] 
       datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0]) Обновлено&nbsp;
 
-  header.article__header.article-header
-    .article-header__img-wrapper(class= attributes.theme)
-      img.article-header__img(src= articleHeader.image alt="")
+  header.article__header.article-header(class= attributes.theme)
+    .article-header__img-wrapper
+      +svg(articleHeader.icon)(class="article-header__img")
     h1.article-header__headline!= articleHeader.title
     .article-header__data
       case isDateModified
@@ -23,4 +23,3 @@ mixin articleHeader
           +dateModified
       if block
         block
-    hr.line

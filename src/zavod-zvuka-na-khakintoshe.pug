@@ -17,8 +17,8 @@ prepend page
     };
 
     var articleHeader = {
-      image: "images/content/setup-sound/icon.png",
-      title: pageTitle
+      icon: "music",
+      title: "Настройка звука на хакинтоше"
     };
 
     var itemList = [
@@ -28,7 +28,7 @@ prepend page
     ]
 
 block nav
-  +nav(sound = selected)
+  +nav()(popup = selected, sound = selected)
 
 block articleHeader
   +articleHeader(theme = accent)

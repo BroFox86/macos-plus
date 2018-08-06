@@ -3,7 +3,6 @@
 
   var $lightbox = $(".lightbox"),
       $close    = $(".lightbox__close"),
-      $nav      = $("[data-target='lightbox']"),
       duration  = 200;
 
   // Add padding to body on Android browsers
@@ -23,9 +22,6 @@
     $("body").toggleClass("is-fixed");
     addPadding("15px");
 
-    // Hide main navigation (for avoid shift on IE)
-    $nav.css("visibility", "hidden");
-
     var originalImage = $(this).attr("href");
 
     $lightbox
@@ -43,7 +39,6 @@
       // Restore initial state and unload image
       $("body").toggleClass("is-fixed");
       addPadding(0);
-      $nav.css("visibility", "visible");
       $lightbox.find("img").remove();
     }, duration);
   });

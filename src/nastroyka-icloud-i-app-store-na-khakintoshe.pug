@@ -17,8 +17,8 @@ prepend page
     };
 
     var articleHeader = {
-      image: "images/content/setup-services/icon.png",
-      title: "Настройка iCloud и App&nbsp;Store на хакинтоше"
+      icon: "icloud",
+      title: "Настройка iCloud и App&nbsp;Store<br> на хакинтоше"
     };
 
     var itemList = [
@@ -27,7 +27,7 @@ prepend page
     ]
 
 block nav
-  +nav(services = selected)
+  +nav()(popup = selected, services = selected)
 
 block content	
   +h2

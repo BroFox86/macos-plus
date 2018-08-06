@@ -6,24 +6,24 @@ mixin nav
       +svg("bars")(class="nav__open-icon")
     a.nav__open-target(id="target")
     .nav__inner
-      ul.nav__list(data-toggle="nav", data-target="lightbox")
+      ul.nav__list
         li
           a(href="#0").nav__close-btn
             +svg("angle-left")(class="nav__close-icon")
         li.nav__item(class= attributes.index)
-          a.nav__link(href= link.index) macOS на ПК 
+          a.nav__link(href= link.index) macOS на ПК
         li.nav__item(class= attributes.vmware)
           a.nav__link(href= link.vmware ) macOS на VMWare
-        li.nav__item(class= attributes.services)
-          a.nav__link(href= link.services) Запуск iCloud &amp; App Store
-        li.nav__item(class= attributes.sound)
-          a.nav__link(href= link.sound) Завод звука
-        li.nav__item.nav__item--popup(class= attributes.pageA0)
-          a.nav__link Разное
-            +svg("arrow-down")(class="nav__popup-icon")
 
-          ul.nav__list
+        li.nav__item.nav__item--popup(class= attributes.popup)
+          span.nav__link Разное
+            +svg("arrow-down")(class="nav__popup-icon")
+          ul.nav__nested-list
             li.nav__item(class= attributes.kexts)
               a.nav__link(href= link.kexts) Установка кекстов
+            li.nav__item(class= attributes.services)
+              a.nav__link(href= link.services) iCloud &amp; AppStore
+            li.nav__item(class= attributes.sound)
+              a.nav__link(href= link.sound) Настройка звука
             li.nav__item(class= attributes.efi)
               a.nav__link(href= link.efi) Монтирование EFI

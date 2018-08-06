@@ -17,7 +17,7 @@ prepend page
     };
 
     var articleHeader = {
-      image: "images/content/install-on-pc/icon.png",
+      icon: "mountains",
       title: "Установка macOS High Sierra<br>&#32;на ПК на базе Intel"
     };
 
@@ -34,7 +34,7 @@ block articleHeader
   +articleHeader(theme = accent)
 
 block nav
-  +nav(index = selected)
+  +nav()(index = selected)
 
 block content
   +h2

@@ -49,7 +49,7 @@ var paths = {
 
 var criticalOptns = {
   url: "file:///Users/daurgamisonia/GitHub/macos-plus/.tmp/index.html",
-  forceInclude: [".nav__inner", ".article__img", ".note__icon", ".error__img", ".vote"],
+  forceInclude: [".nav__inner", ".article__img", ".note__icon", ".error404__img", ".vote"],
   //propertiesToRemove: [""]
 };
 
@@ -338,47 +338,25 @@ gulp.task("images:responsive", function() {
     .pipe(
       plugins.responsive(
         {
-          "**/logo.*": [ 
-            { width: 240 },
+          "**/logo.png": [ 
+            { width: 175 },
             {
-              width: 240 * 1.5,
+              width: 175 * 1.5,
               rename: { suffix: large }
             },
             {
-              width: 240 * 2,
-              rename: { suffix: huge }
-            }
-          ],
-          "**/logo-mobile.*": [
-            { width: 126 },
-            {
-              width: 126 * 1.5,
-              rename: { suffix: large }
-            },
-            {
-              width: 126 * 2,
-              rename: { suffix: huge }
-            }
-          ],
-          "**/community.*": [
-            { width: 240 },
-            {
-              width: 240 * 1.5,
-              rename: { suffix: large }
-            },
-            {
-              width: 240 * 2,
+              width: 175 * 2,
               rename: { suffix: huge }
             }
           ],
           "**/fox.*": [
-            { width: 326 },
+            { width: 424 },
             {
-              width: 326 * 1.5,
+              width: 424 * 1.5,
               rename: { suffix: large }
             },
             {
-              width: 326 * 2,
+              width: 424 * 2,
               rename: { suffix: huge }
             }
           ]
@@ -400,13 +378,13 @@ gulp.task("images:content", function() {
       plugins.responsive(
         {
           "**/!(icon|*_small|thumbnail)*": [
-            {  width: 650 },
+            {  width: 700 },
             {
               rename: { suffix: "_original" }
             }
           ],
           "**/icon*": [
-            {  width: 130 }
+            {  width: 133 }
           ],
           "**/*_small*": [{}],
           "**/thumbnail*": [{}]

@@ -1,70 +1,67 @@
+// Fonts
 // ==========================================================================
+$base-font:       "PT Sans", sans-serif;
+$second-font:     "PT Sans Caption", sans-serif;
+$websafe-font:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$headings-font:   $base-font;
+
 // Breakpoints
 // ==========================================================================
-
-$desktop:   1230px;
+$desktop:   1160px;
 $tablet:    960px;
 $mobile:    600px;
 
-// ==========================================================================
 // Sizes
 // ==========================================================================
-
 $margin: 26px;
 
-// ==========================================================================
+// Font sizes
+$h1:           37px;
+$h2:           32px;
+$h3:           24px;
+$h1--mobile:   26px;
+$h2--mobile:   25px;
+$h3--mobile:   21px;
+
 // Borders
 // ==========================================================================
-
 $border-radius--tiny:    4px;
 $border-radius--small:   10px;
 $border-radius:          12px;
-$border-radius--large:   15px;
+$border-radius--large:   23px;
+$border-radius--huge:    40px;
 
+// Colors
 // ==========================================================================
-// Theme colours
-// ==========================================================================
-
 $accent:      #4367d4;
-$visited:     darken(#8a39b6, 8);
+$footer:      #230e2d;;
+$light:       #f4f4f4;
+$grey:        #858585;
+$border:      #ebebeb;
+$code:        #ebebeb;
+$visited:     #512da8;
 $selection:   #9575cd;
-$info:        lighten(#7f5f9f, 1);
-$tip:         #26a69a;
+$info:        #26a69a;
+$tip:         #00acc1;
+$tooltip:     #7E57C2;
 $warning:     #ec407a;
 
-// Social
-// ==========================================================================
+// Font colors
+$base:       #464646;
+$headings:   #464646;
+$nav:        #6c757d;
+$dimmed:     transparentize(white, .1);
 
+// Social
 $vk:           #507299;
 $twitter:      #55acee;
-$email:        #ffbb1d;
 $googleplus:   #dd4e42;
 $facebook:     #3b5998;
-$donate:       #689f38;
 
-// ==========================================================================
 // Animations
 // ==========================================================================
-
 $fall-duration:    .25s;
 $shake-duration:   .2s;
 $shake-delay:      $fall-duration;
 
-// ==========================================================================
-// Fonts
-// ==========================================================================
-
-$base-font-family:       "Open Sans",   sans-serif;
-$headings-font-family:   "PT Sans",     sans-serif;
-$websafe-font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-
-$base-font-color:       #444;
-$headings-font-color:   #464646;
-$base-font-size:        17px;
-
-$h1-font-size:   36px;
-$h2-font-size:   32px;
-$h3-font-size:   23px;
-$h1-font-size--mobile:   27px;
-$h2-font-size--mobile:   25px;
-$h3-font-size--mobile:   20px;
+$transition: all .15s ease-out;

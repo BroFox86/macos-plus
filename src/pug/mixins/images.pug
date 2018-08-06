@@ -4,14 +4,14 @@ mixin img(src, modal)
 
   case modal
     default
-      a.article__img-link(href= original, data-toggle="lightbox")
+      a.article__img-wrapper(href= original, data-toggle="lightbox")
         div
           img.article__img(
             src = src
             alt = attributes.alt)
 
     when false
-      .article__img-link
+      .article__img-wrapper
         img.article__img(
           src = src
           alt = attributes.alt)
@@ -23,7 +23,7 @@ mixin figure(src, modal)
   case modal
     default
       figure.article__figure
-        a.article__img-link(href= original, data-toggle="lightbox")
+        a.article__img-wrapper(href= original, data-toggle="lightbox")
           img.article__img.article__img--figure(
             src = src
             alt = attributes.alt)
@@ -43,23 +43,12 @@ mixin figure(src, modal)
 //- Responsive image
 mixin respImg(src, width)
   - var src1 = src + " " + width + "w"
-  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + width * 1.5 + "w"
-  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + width * 2   + "w"
+  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + Math.round(width * 1.5) + "w"
+  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + Math.round(width * 2) + "w"
 
   img(
     class  = attributes.class
     srcset = src1 + ", " + src2 + ", " + src3
     sizes  = width / 16 + "rem"
     src	   = src
-    alt	   = "")
-
-//- Source of picture element
-mixin imgSource(src, width)
-  - var src1 = src + " " + width + "w"
-  - var src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + width * 1.5 + "w"
-  - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + width * 2   + "w"
-
-  source(
-    media  = attributes.media
-    srcset = src1 + ", " + src2 + ", " + src3
-    sizes  = width / 16 + "rem")
+    alt	   = attributes.alt)

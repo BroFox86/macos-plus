@@ -5,9 +5,9 @@
 
 :root {
   word-wrap: break-word;
-  color: $base-font-color;
-  background: #ebebeb;
-  font-family: $base-font-family;
+  color: $base;
+  background: white;
+  font-family: $base-font;
   font-weight: 400;
   line-height: 1.6;
 
@@ -19,6 +19,11 @@
 
 .page {
   margin: 0;
+  font-size: 19px;
+
+  @media (max-width: $mobile) {
+    font-size: 18px;
+  }
 
   &.is-fixed {
     overflow: hidden;
@@ -27,67 +32,55 @@
   &__outdated {
     margin: 3px 0;
     padding: 3px 0;
-    background: #989797;
+    background: gray;
   }
 
   &__header {
-    position: relative;
+    position: fixed;
     z-index: 10;
-    width: 100%;
-
-    @media (max-width: $tablet) {
-      position: fixed;
-      top: 0;
-    }
+    top: 0;
   }
 
   &__container {
     display: flex;
     justify-content: space-between;
-    width: 1160px;
-    margin: auto;
-    padding-top: $margin + 23px;
+    width: 1060px;
+    margin: 0 auto 150px;
 
     @media (max-width: $desktop) {
-      width: 960px;
+      width: 880px;
     }
 
     @media (max-width: $tablet) {
-      width: 100%;
+      width: 80%;
+      margin-bottom: 70px;
+    }
+
+    @media (max-width: $tablet) {
+      width: 90%;
+      margin-bottom: 50px;
     }
   }
 
   &__sidebar {
     position: sticky;
-    top: $margin + 63px;
-    width: 300px;
-    height: 100%;
-    margin-left: $margin;
-
-    @media (max-width: $desktop) {
-      width: 250px;
-    }
-
-    @media (max-width: $tablet) {
-      display: none;
-    }
+    top: 125px;
   }
 
   &__scroll-btn {
     display: none;
-    background: transparent;
 
     @media (max-width: $tablet) {
       position: fixed;
       z-index: 99;
-      right: 6%;
-      bottom: 4%;
+      right: 40px;
+      bottom: 40px;
       display: block;
     }
 
     @media (max-width: $mobile) {
-      right: 5%;
-      bottom: 3%;
+      right: 20px;
+      bottom: 20px;
     }
   }
 }

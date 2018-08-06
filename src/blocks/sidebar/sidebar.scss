@@ -1,6 +1,17 @@
 .sidebar {
+  width: 300px;
+  height: 100%;
+
+  @media (max-width: $desktop) {
+    width: 270px;
+  }
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+
   &__item {
-    margin-bottom: $margin;
+    margin-bottom: 40px;
 
     &:last-child {
       margin: 0;

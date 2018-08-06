@@ -1,8 +1,30 @@
 .share {
+  @media (max-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  &__headline {
+    @media (max-width: $tablet) {
+      color: $dimmed;
+      font-size: 20px;
+    }
+  }
+
   &__container {
     display: flex;
     justify-content: space-around;
-    padding: 17px;
+    padding: 20px;
+
+    @media (max-width: $tablet) {
+      width: 270px;
+    }
   }
 
   &__btn {
@@ -11,28 +33,15 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    transition: transform .1s ease-out;
+    transition: $transition;
 
-    @media(min-width: $tablet) and (max-width: $desktop) {
-      width: 45px;
-      height: 45px;
+    &:hover { 
+      transform: scale(1.05); 
     }
 
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    &--vk {
-      background: $vk;
-    }
-
-    &--gplus {
-      background: $googleplus;
-    }
-
-    &--twitter {
-      background: $twitter;
-    }
+    &--vk      { background: $vk; }
+    &--gplus   { background: $googleplus; }
+    &--twitter { background: $twitter; }
 
     &--fb {
       display: none;
@@ -44,7 +53,7 @@
     }
 
     &--url {
-      background: #989797;
+      background: $grey;
 
       @media (max-width: $tablet) {
         display: none;
@@ -53,10 +62,9 @@
   }
 
   &__icon {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     fill: white;
-
     @include x-center();
 
     @media(min-width: $tablet) and (max-width: $desktop) {
@@ -69,13 +77,13 @@
     }
   }
 
-  &__paste-wrapper {
+  &__output-wrapper {
     display: none;
     padding-bottom: 17px;
     text-align: center;
   }
 
-  &__paste {
+  &__output-field {
     width: 80%;
     height: 40px;
     text-align: center;

@@ -1,35 +1,40 @@
 mixin share
-  aside.aside.share(class= attributes.appendClass)
-    h2.aside__headline Поделиться
+  aside.aside.share(class= attributes.appendClass, data-target="sidebar")
+    h2.aside__headline.share__headline Поделиться
     .share__container
       a.share__btn.share__btn--vk( 
         href="https://vk.com/share.php?url=" + domainName,
         data-toggle="share",
-        title="Вконтакте")
+        title="Вконтакте"
+      )
         +svg("vk")(class="share__icon")
 
       a.share__btn.share__btn--gplus(
         href="https://plus.google.com/share?url=" + domainName,
         data-toggle="share",
-        title="Google Plus")
+        title="Google Plus"
+      )
         +svg("google-plus")(class="share__icon")
 
       a.share__btn.share__btn--twitter(
         href="https://twitter.com/intent/tweet?url=" + domainName,
         data-toggle="share",
-        title="Twitter")
+        title="Twitter"
+      )
         +svg("twitter")(class="share__icon")
 
       a.share__btn.share__btn--fb(
         href="https://www.facebook.com/sharer/sharer.php?u=" + domainName,
         data-toggle="share",
-        title="Facebook")
+        title="Facebook"
+      )
         +svg("facebook")(class="share__icon")
 
       button.btn.share__btn.share__btn--url(
         data-toggle="copyUrl", 
-        title="Скопировать ссылку")
+        title="Скопировать ссылку"
+      )
         +svg("awesome-link-rotated")(class="share__icon")
 
-    .share__paste-wrapper
-      input.share__paste(data-target="copyUrl")
+    .share__output-wrapper
+      input.share__output-field(data-target="copyUrl")

@@ -1,61 +1,40 @@
 .nav {
-  text-transform: uppercase;
-  color: #666;
-  font-family: $websafe-font-family;
-  font-size: 15px;
+  color: $nav;
+  font-size: 18px;
   font-weight: 700;
 
   @media (max-width: $tablet) {
-    text-transform: none;
-    font-size: 19px;
-    font-weight: 500;
-  }
-
-  @media (max-width: $mobile) {
-    font-size: $base-font-size;
-  }
-
-  &__open-btn {
-    display: none;
-
-    @media (max-width: $tablet) {
-      display: block;
-      width: 21px;
-      height: 21px;
-
-      @include x-center($left: 20px, $right: auto);
-    }
-  }
-
-  &__open-icon {
-    @media (max-width: $tablet) {
-      width: 100%;
-      height: 100%;
-      fill: white;
-    }
-  }
-
-  &__open-target:target ~ div {
-    transform: none;
+    color: darken($nav, 5);
+    font-weight: 400;
   }
 
   &__inner {
-    text-align: center;
+    height: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @media (max-width: $tablet) {
       position: fixed;
       top: 0;
+      display: block;
       overflow-y: scroll;
       box-sizing: border-box;
       width: 350px;
-      height: 100%;
       padding-top: 60px;
-      transition: transform .35s ease-out;
-      transform: translate(-130%);
-      text-align: left;
       background: white;
       box-shadow: 0 0 75px 0 rgba(0, 0, 0, .3);
+      transition: transform .35s ease-out;
+      transform: translate(-130%);
     }
+
+    @supports (-webkit-backdrop-filter: blur(0)) {
+      @media (max-width: $tablet) {
+        background: $dimmed;
+        -webkit-backdrop-filter: blur(15px);
+      }
+    } 
 
     @media (max-width: $mobile) {
       width: 290px;
@@ -64,136 +43,109 @@
     @media (max-width: 300px) {
       width: 100%;
     }
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 
   &__list {
-    position: relative;
-    top: 28px;
-    display: inline-flex;
+    display: flex;
+    height: 100%;
     margin: 0;
-    padding: 0 23px;
+    padding: 0;
     list-style: none;
-    cursor: pointer;
-    border: 1px solid #ebebeb;
-    border-radius: $border-radius;
-    background: white;
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      height: auto;
+      padding: 20px 25px;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 20px 20px;
+    }
+  }
+
+  &__nested-list {
+    position: absolute;
+    top: 40px;
+    left: 15px;
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 2px solid $border;
+    border-radius: $border-radius--small;
+    background: transparentize(white, .06);
+    white-space: nowrap;
+
+    @supports (-webkit-backdrop-filter: blur(0)) {
+      background: transparentize(white, .15);
+      -webkit-backdrop-filter: blur(15px);
+    } 
 
     @media (max-width: $tablet) {
       position: static;
-      display: flex;
-      flex-direction: column;
-      padding: 20px 16px;
+      display: block;
       border: none;
-    }
-
-    &.is-fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      justify-content: center;
-      width: 980px; // For IE compatibility
-      margin: auto;
-      padding: 0;
-      border: none;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
-    }
-
-    &.is-fixed .nav__list {
-      top: 61px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, .3);
-    }
-
-    .nav__list & {
-      display: none;
-      margin: 0;
-      padding: 0;
-
-      @media (max-width: $tablet) {
-        display: block;
-      }
+      background: transparent;
     }
 
     .nav__item--popup:hover & {
-      position: absolute;
-      top: 60px;
-      right: -100px;
-      display: block;
-
-      @media (max-width: $desktop) {
-        right: 0;
-      }
-
-      @media (max-width: $tablet) {
-        position: static;
-        border: none;
-      }
-    }
-  }
-
-  &__close-btn {
-    display: none;
-
-    @media (max-width: $tablet) {
-      position: absolute;
-      top: 20px;
-      right: 15px;
       display: block;
     }
-  }
-
-  &__close-icon {
-    width: 20px;
-    height: 20px;
-    fill: #808080;
   }
 
   &__item {
-    border-radius: $border-radius--small;
-    background: transparent;
+    position: relative;
+    margin: 0 17px;
+
+    @media (max-width: $tablet) {
+      margin: 0;
+      border-radius: $border-radius--small;
+    }
 
     &--selected:not(.nav__item--popup) {
       @media (max-width: $tablet) {
         background: $accent;
       }
     }
+
+    .nav__nested-list & {
+      margin: 0;
+    }
   }
 
   &__link {
     display: block;
-    padding: 23px;
-    transition: color .3s ease;
-    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 12px 0; 
     text-decoration: none;
     color: inherit;
     line-height: 1;
+    cursor: pointer;
+    transition: $transition;
 
     @media (max-width: $tablet) {
+      height: auto; // Compatibility with FF
       padding: 9px 18px;
-      white-space: normal;
       line-height: inherit;
     }
 
-    .nav__item:hover > &,
-    .nav__nested-item:hover > & {
+    .nav__item:hover > & {
       color: $accent;
+    }
+
+    .nav__item--popup:hover > & {
+      @media (max-width: $tablet) {
+        color: $base;
+      }
     }
 
     .nav__item--popup > & {
       @media (max-width: $tablet) {
         padding-left: 0;
         cursor: default;
-        color: $base-font-color;
-      }
-    }
-
-    .nav__item--popup:hover > & {
-      @media (max-width: $tablet) {
-        color: $base-font-color;
+        color: $base;
       }
     }
 
@@ -206,36 +158,91 @@
         color: white;
       }
     }
+
+    .nav__nested-list li:hover > & {
+      @media (min-width: $tablet) {
+        background: lighten($light, .5);
+      }
+    }
+
+    .nav__nested-list li:hover:not(.nav__item--selected) > & {
+      color: $accent;
+    }
+
+    .nav__nested-list & {
+      padding: 18px 27px;
+
+      @media (max-width: $tablet) {
+        padding: 9px 18px;
+      }
+    }
   }
 
   &__popup-icon {
     position: relative;
     left: 8px;
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
     vertical-align: middle;
-    fill: #666;
+    fill: $nav;
 
     @media (max-width: $tablet) {
-      fill: $base-font-color;
+      fill: $base;
     }
 
+    .nav__item:hover &,
     .nav__item--selected & {
-      fill: $accent;
-
-      @media (max-width: $tablet) {
-        fill: $base-font-color;
+      @media (min-width: $tablet) {
+        fill: $accent;
       }
     }
+  }
 
-    .nav__item:hover & {
-      fill: $accent;
+  &__open-btn {
+    display: none;
+
+    @media (max-width: $tablet) {
+      display: block;
+      width: 21px;
+      height: 21px;
+      @include x-center($left: 20px, $right: auto);
+    }
+  }
+
+  &__open-icon {
+    @media (max-width: $tablet) {
+      width: 100%;
+      height: 100%;
+      fill: $grey;
+    }
+  }
+
+  &__open-target:target ~ div {
+    transform: none;
+  }
+
+  &__close-btn {
+    display: none;
+
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: 20px;
+      right: 23px;
+      display: block;
+      width: 25px;
+      height: 25px;
     }
 
-    .nav__item--popup:hover & {
-      @media (max-width: $tablet) {
-        fill: $base-font-color;
-      }
+    @media (max-width: $mobile) {
+      right: 20px;
+      width: 20px;
+      height: 20px;
     }
+  }
+
+  &__close-icon {
+    width: 100%;
+    height: 100%;
+    fill: $grey;
   }
 }

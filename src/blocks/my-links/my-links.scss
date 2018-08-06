@@ -1,7 +1,5 @@
 .my-links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: inline-flex;
 
   &__item {
     position: relative;
@@ -9,32 +7,24 @@
     width: 30px;
     height: 30px;
     margin-right: 8px;
-    transition: background-color .4s ease;
     border-radius: 50%;
-    background: #808080;
+    background: $dimmed;
+    transition: $transition;
 
-    &--vk:hover {
-      background: $vk;
-    }
-
-    &--gplus:hover {
-      background: $googleplus;
-    }
-
-    &--email:hover {
-      background: $email;
-    }
-
-    &--donate:hover {
-      background: $donate;
+    &:hover {
+      background: white;
     }
   }
 
   &__icon {
-    width: 14px;
-    height: 14px;
-
-    fill: white;
+    width: 17px;
+    height: 17px;
+    fill: $footer;
+    transition: $transition;
     @include x-center();
+
+    .my-links__item:hover & {
+      fill: black;
+    }
   }
 }

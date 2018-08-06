@@ -1,7 +1,7 @@
 .link {
   text-decoration: none;
   hyphens: none;
-  transition: color .1s;
+  transition: $transition;
 
   &--entry {
     color: inherit;
@@ -12,11 +12,12 @@
   }
 
   &--anchor {
-    padding-right: 10px;
+    padding-right: 15px;
     opacity: 0;
     color: $accent;
-    font-family: $base-font-family;
-    transition: all .25s ease-out;
+    font-family: $base-font;
+    font-size: 1.2em;
+    transition: $transition;
 
     .article__h2:hover & {
       opacity: 1;

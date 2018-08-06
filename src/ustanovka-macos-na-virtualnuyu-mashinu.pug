@@ -17,8 +17,8 @@ prepend page
     };
 
     var articleHeader = {
-      image: "images/content/install-on-vmware/icon.png",
-      title: "Установка macOS<br>&#32;с помощью VMWare"
+      icon: "vmware",
+      title: "Установка macOS на компьютер<br> с помощью VMWare"
     };
 
     var itemList = [
@@ -27,7 +27,7 @@ prepend page
     ]
 
 block nav
-  +nav(vmware = selected)
+  +nav()(vmware = selected)
 
 block content
   +h2

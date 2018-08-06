@@ -1,24 +1,21 @@
 .error404 {
-  position: relative;
   display: flex;
-  flex-grow: 1;
   overflow: hidden;
+  flex-grow: 1;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
-  box-sizing: border-box;
-  height: 530px;
-  border-radius: $border-radius;
-  background-color: white;
+  height: 100vh;
 
   @media (max-width: $tablet) {
     flex-direction: column;
     height: 600px;
+    padding-top: 120px;
   }
 
   @media (max-width: $mobile) {
     align-content: center;
-    height: 97vh;
+    height: 59vh;
   }
 
   &__img {
@@ -43,25 +40,25 @@
 
   &__type {
     margin-bottom: 10px;
-    color: lighten($accent, 0);
-    font-size: 7rem;
+    color: $accent;
+    font-size: 112px;
 
     @media (max-width: $mobile) {
       margin-bottom: 15px;
-      font-size: 4rem;
+      font-size: 64px;
     }
   }
 
   &__desc {
     position: relative;
     left: 4px;
+    color: $grey;
     text-transform: uppercase;
-    color: #666;
     font-size: 18px;
     font-weight: 600;
 
     @media (max-width: $mobile) {
-      font-size: $base-font-size;
+      font-size: 17px;
     }
   }
 }

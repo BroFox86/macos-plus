@@ -15,7 +15,7 @@ prepend page
     };
 
     var articleHeader = {
-      image: "images/content/mount-efi/icon.png",
+      icon: "folder",
       title: "Монтирование EFI в macOS"
     };
 
@@ -25,7 +25,7 @@ prepend page
     ]
 
 block nav
-  +nav(efi = selected, pageA0 = selected)
+  +nav()(popup = selected, efi = selected)
 
 block content
   +h2
