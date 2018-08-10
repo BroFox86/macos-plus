@@ -514,7 +514,7 @@ gulp.task("metadata", function() {
    ========================================================================== */
 
 gulp.task("watch", function() {
-  watch("src/images/_images-to-svg-sprite/**/*.svg",
+  watch("src/images/icons/*.svg",
     { readDelay: 200 },
     function() {
       gulp.start("html:prebuild");
@@ -525,7 +525,7 @@ gulp.task("watch", function() {
     [
       "src/blocks/*/*.pug", 
       "src/layouts/*",
-      "src/pug/*", 
+      "src/pug/**", 
       "src/*.pug"
     ],
     { readDelay: 200 },
