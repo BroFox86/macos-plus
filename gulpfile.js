@@ -501,6 +501,11 @@ gulp.task("favicons", function() {
 gulp.task("metadata", function() {
   return gulp
     .src("src/metadata/*")
+    .pipe(plugins.lineEndingCorrector({ 
+      verbose: true, 
+      eolc: "LF", 
+      encoding: "utf8" 
+    }))
     .pipe(gulp.dest("dist/"));
 });
 
