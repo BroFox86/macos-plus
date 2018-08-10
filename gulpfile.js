@@ -339,13 +339,13 @@ gulp.task("images:responsive", function() {
       plugins.responsive(
         {
           "**/logo.png": [ 
-            { width: 175 },
+            { width: 170 },
             {
-              width: 175 * 1.5,
+              width: 170 * 1.5,
               rename: { suffix: large }
             },
             {
-              width: 175 * 2,
+              width: 170 * 2,
               rename: { suffix: huge }
             }
           ],

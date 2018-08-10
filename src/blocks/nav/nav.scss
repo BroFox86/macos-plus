@@ -1,10 +1,17 @@
 .nav {
-  color: $nav;
+  color: $dimmed;
   font-size: 18px;
   font-weight: 700;
 
   @media (max-width: $tablet) {
-    color: darken($nav, 5);
+    color: $nav;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  @media (max-width: $mobile) {
+    color: $nav;
+    font-size: 18px;
     font-weight: 400;
   }
 
@@ -67,25 +74,26 @@
     position: absolute;
     top: 40px;
     left: 15px;
+    overflow: hidden;
     display: none;
     margin: 0;
     padding: 0;
     list-style: none;
-    border: 2px solid $border;
-    border-radius: $border-radius--small;
-    background: transparentize(white, .06);
+    border-radius: $border-radius;
+    background: lighten($header, 4);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
     white-space: nowrap;
 
     @supports (-webkit-backdrop-filter: blur(0)) {
-      background: transparentize(white, .15);
+      background: transparentize($header, .15);
       -webkit-backdrop-filter: blur(15px);
     } 
 
     @media (max-width: $tablet) {
       position: static;
       display: block;
-      border: none;
       background: transparent;
+      box-shadow: none;
     }
 
     .nav__item--popup:hover & {
@@ -99,7 +107,7 @@
 
     @media (max-width: $tablet) {
       margin: 0;
-      border-radius: $border-radius--small;
+      border-radius: $border-radius;
     }
 
     &--selected:not(.nav__item--popup) {
@@ -128,11 +136,14 @@
     @media (max-width: $tablet) {
       height: auto; // Compatibility with FF
       padding: 9px 18px;
+      color: $nav;
       line-height: inherit;
     }
 
     .nav__item:hover > & {
-      color: $accent;
+      @media (min-width: $desktop) {  
+        color: transparentize(white, .3);
+      }
     }
 
     .nav__item--popup:hover > & {
@@ -144,13 +155,9 @@
     .nav__item--popup > & {
       @media (max-width: $tablet) {
         padding-left: 0;
-        cursor: default;
         color: $base;
+        cursor: default;
       }
-    }
-
-    .nav__item--selected > & {
-      color: $accent;
     }
 
     .nav__item--selected:not(.nav__item--popup) > & {
@@ -159,14 +166,11 @@
       }
     }
 
-    .nav__nested-list li:hover > & {
+    .nav__nested-list li:hover & {
       @media (min-width: $tablet) {
-        background: lighten($light, .5);
+        background: $header;
+        color: $dimmed;
       }
-    }
-
-    .nav__nested-list li:hover:not(.nav__item--selected) > & {
-      color: $accent;
     }
 
     .nav__nested-list & {
@@ -179,21 +183,19 @@
   }
 
   &__popup-icon {
-    position: relative;
-    left: 8px;
     width: 11px;
     height: 11px;
+    margin-left: 8px;
     vertical-align: middle;
-    fill: $nav;
+    fill: $dimmed;
 
     @media (max-width: $tablet) {
       fill: $base;
     }
 
-    .nav__item:hover &,
-    .nav__item--selected & {
+    .nav__item:hover & {
       @media (min-width: $tablet) {
-        fill: $accent;
+        fill: transparentize(white, .3);
       }
     }
   }
@@ -213,7 +215,7 @@
     @media (max-width: $tablet) {
       width: 100%;
       height: 100%;
-      fill: $grey;
+      fill: $dimmed;
     }
   }
 

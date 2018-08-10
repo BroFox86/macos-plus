@@ -2,7 +2,6 @@
 // ==========================================================================
 $base-font:       "PT Sans", sans-serif;
 $second-font:     "PT Sans Caption", sans-serif;
-$websafe-font:    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $headings-font:   $base-font;
 
 // Breakpoints
@@ -26,30 +25,30 @@ $h3--mobile:   21px;
 // Borders
 // ==========================================================================
 $border-radius--tiny:    4px;
-$border-radius--small:   10px;
-$border-radius:          12px;
+$border-radius:          10px;
 $border-radius--large:   23px;
 $border-radius--huge:    40px;
 
 // Colors
 // ==========================================================================
 $accent:      #4367d4;
-$footer:      #230e2d;;
+$header:      #455a64;
+$footer:      #230e2d;
 $light:       #f4f4f4;
 $grey:        #858585;
-$border:      #ebebeb;
+$border:      darken(#ebebeb, 0);
 $code:        #ebebeb;
 $visited:     #512da8;
 $selection:   #9575cd;
 $info:        #26a69a;
 $tip:         #00acc1;
-$tooltip:     #7E57C2;
+$tooltip:     #26a69a;
 $warning:     #ec407a;
 
 // Font colors
 $base:       #464646;
 $headings:   #464646;
-$nav:        #6c757d;
+$nav:        darken(#6c757d, 5);
 $dimmed:     transparentize(white, .1);
 
 // Social
@@ -58,7 +57,7 @@ $twitter:      #55acee;
 $googleplus:   #dd4e42;
 $facebook:     #3b5998;
 
-// Animations
+// Animations & transitions
 // ==========================================================================
 $fall-duration:    .25s;
 $shake-duration:   .2s;
