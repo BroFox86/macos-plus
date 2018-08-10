@@ -402,18 +402,9 @@ gulp.task("images:prebuild", function(cb) {
   ])(cb);
 });
 
-// Copy responsive images to dist folder
 gulp.task("images:build", function() {
   return gulp
-    .src(".tmp/images/*.*")
-    .pipe(plugins.changed("dist/images/"))
-    .pipe(gulp.dest("dist/images/"));
-});
-
-// Compress PNG images 
-gulp.task("images:png:build", function() {
-  return gulp
-    .src(".tmp/images/*content/**")
+    .src(".tmp/images/**")
     .pipe(
       plugins.plumber({ errorHandler: plugins.notify.onError("Error: <%= error.message %>") })
     )
@@ -617,7 +608,7 @@ gulp.task("build:fast", function(cb) {
     ["styles:critical"],
     ["html:build"],
     ["html:minify", "styles:build", "scripts:build"],
-    ["images:png:build", "images:build", "fonts:build", "metadata"],
+    ["metadata"],
     ["html:validate"]
   )(cb);
 });
@@ -629,7 +620,7 @@ gulp.task("build", function(cb) {
     ["styles:critical"],
     ["html:build"],
     ["html:minify", "styles:build", "scripts:build"],
-    ["images:png:build", "images:build", "fonts:build", "favicons", "metadata"],
+    ["images:build", "fonts:build", "favicons", "metadata"],
     ["images:unused", "html:validate"]
   )(cb);
 });
