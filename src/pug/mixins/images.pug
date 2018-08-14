@@ -52,3 +52,20 @@ mixin respImg(src, width)
     sizes  = width / 16 + "rem"
     src	   = src
     alt	   = attributes.alt)
+
+//- Source of picture element
+mixin imgSource(src, width)
+  -
+    var src1 = src + " " + width + "w"
+        src2 = src.replace(/(\.[\w\d_-]+)$/i, "@1\.5x$1") + " " + Math.round(width * 1.5) + "w"
+        src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + Math.round(width * 2) + "w"
+
+  source(
+    media  = attributes.media
+    srcset = src1 + ", " + src2 + ", " + src3
+    sizes  = attributes.sizes)
+
+//- Vector image
+mixin svg(id)
+  svg(class= attributes.class, width= "30")
+    use(xlink:href="#" + id)
