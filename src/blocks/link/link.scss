@@ -12,7 +12,7 @@
   }
 
   &--anchor {
-    padding-right: 15px;
+    padding-right: 12px;
     opacity: 0;
     color: $accent;
     font-family: $base-font;
@@ -41,5 +41,9 @@
     padding-bottom: 1px;
     color: inherit;
     border-bottom: 1px solid fade-out(white, .3);
+
+    &:hover {
+      border-color: transparent;
+    }
   }
 }
