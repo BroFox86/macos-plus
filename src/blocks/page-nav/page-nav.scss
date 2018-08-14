@@ -1,17 +1,19 @@
 .page-nav {
-  color: darken($nav, 5);
-  font-family: $websafe-font;
-  font-size: 17px;
-  font-weight: 600;
+  color: lighten($base, 12);
+  font-size: .895em;
+  font-weight: 700;
   line-height: 52px;
 
   @media (max-width: $tablet) {
     width: 100%;
-    border: 2px solid $border;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: .947em;
   }
 
   &__headline {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     @media (max-width: $tablet) {
       padding-top: 20px;
@@ -41,6 +43,7 @@
     padding-right: 37px;
     text-decoration: none;
     color: inherit;
+    transition: $transition;
 
     .page-nav__item:hover &,
     .page-nav__item.is-active & {
@@ -60,7 +63,7 @@
     display: inline-block;
     position: absolute;
     right: 0;
-    width: 37px;
+    width: 35px;
     height: 101%;
     background: $accent;
 
@@ -69,19 +72,15 @@
     }
 
     .page-nav__item:first-child & {
-      border-top-left-radius: $border-radius;
+      border-top-left-radius: $border-radius--large;
     }
   }
 
   &__icon {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
     fill: white;
     @include x-center();
-    
-    .page-nav__item.is-active & {
-      transform: scale(1.15);
-    }
   }
 }
