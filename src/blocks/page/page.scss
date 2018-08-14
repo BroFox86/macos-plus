@@ -52,11 +52,11 @@
     }
 
     @media (max-width: $tablet) {
-      width: 80%;
+      width: 85%;
       margin-bottom: 70px;
     }
 
-    @media (max-width: $tablet) {
+    @media (max-width: $mobile) {
       width: 90%;
       margin-bottom: 50px;
     }
