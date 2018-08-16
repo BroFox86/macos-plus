@@ -6,10 +6,7 @@
 
   @media (max-width: $tablet) {
     width: 100%;
-  }
-
-  @media (max-width: $mobile) {
-    font-size: .947em;
+    font-size: 1em;
   }
 
   &__headline {
