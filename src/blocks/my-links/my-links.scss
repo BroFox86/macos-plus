@@ -24,7 +24,7 @@
     @include x-center();
 
     .my-links__item:hover & {
-      fill: black;
+      fill: transparentize($footer, .2);
     }
   }
 }

@@ -1,11 +1,9 @@
 mixin footer
   footer.footer
-    .footer__top
-      +share(appendClass = "footer__share")
-    .footer__bottom
-        p.footer__copyrights
-          | © Дизайн,&nbsp;движок&nbsp;и&nbsp;тексты. Daur&nbsp;“Bro&nbsp;Fox”&nbsp;Gamisonia, 2018
-        +myLinks
-        p.footer__iconpack
-          | Icons by 
-          a.footer__link(href="https://fontawesome.com/license") Font Awesome
+    +share(appendClass = "footer__share")
+    p.footer__copyrights
+      | © Дизайн,&nbsp;движок&nbsp;и&nbsp;тексты. Daur&nbsp;“Bro&nbsp;Fox”&nbsp;Gamisonia, 2018
+    +myLinks
+    p.footer__iconpack
+      | Icons by 
+      a.footer__link(href="https://fontawesome.com/license") Font Awesome

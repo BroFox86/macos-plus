@@ -1,9 +1,23 @@
 .footer {
   position: relative;
   height: 100%;
+  padding: 10px 0 40px;
   color: $dimmed;
-  background: linear-gradient(to right, lighten($footer, 3) 0%, $footer 100%);
+  background: $footer;
+  text-align: center;
   font-size: 0.895em;
+
+  @media (max-width: $desktop) {
+    padding: 30px 0 40px;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 10px 0 40px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 30px 30px 35px;
+  }
 
   &::before {
     content: "";
@@ -19,42 +33,29 @@
     transform-origin: 0 0;
   }
 
-  &__top {
+  &__share {
     display: none;
 
     @media (max-width: $tablet) {
-      display: block; 
-      padding-top: 30px;
+      display: block;
+      margin-bottom: 20px;
     }
 
     @media (max-width: $mobile) {
-      padding-top: 5px;
-    }
-  }
-
-  &__share {
-    margin-bottom: 20px;
-  }
-
-  &__bottom {
-    padding: 5px 0 30px;
-    text-align: center;
-
-    @media (max-width: $mobile) {
-      padding: 15px 50px 25px;
+      display: none;
     }
   }
 
   &__copyrights {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
   }
 
   &__my-links {
-    margin-bottom: 22px;
+    margin-bottom: 15px;
   }
 
   &__iconpack {
-    margin-top: 0;
+    margin: 0;
     font-size: .9em;
   }
 
