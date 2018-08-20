@@ -129,10 +129,12 @@ block content
       | зарегистрируйтесь на 
       +a()(href="https://tonymacx86.com/login/login")
         | www.tonymacx86.com
+      | ;
     +li
       | загрузите последние версии UniBeast и MultiBeast из раздела 
       +a()(href="https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/")
         | Downloads
+      | ;
     +li
       | сделайте резервную копию всех важных данных!
   +h2
@@ -395,12 +397,12 @@ block content
     +li
       | монтирует раздел EFI жесткого диска;
     +li
-      | по аналогии с созданным UniBeast загрузочным USB, MultiBeast создает на нем директорию с загрузчиком Clover.
+      | по аналогии с созданным UniBeast загрузочным USB, MultiBeast создает на нем директорию с загрузчиком Clover;
     +li
-      | Устанавливает необходимые 
+      | устанавливает 
       +tooltip()(title="«Кекст» — транскрипция английского сокращения kext от «kernel extension», т.е. расширение ядра. В виде кекстов реализованы практически все драйверы для macOS. ©Wikipedia")
         | кексты
-      |  в системную папку macOS (System/Library/<wbr>Extensions) или в папку загрузчика (/EFI/EFI/Clover/<wbr>Kexts).
+      |  в системную папку macOS (System/Library/<wbr>Extensions) или в папку загрузчика (/EFI/EFI/Clover/<wbr>Kexts);
     +li
       | Добавляет параметры в файл конфигурации Clover — config.plist.
   +note(tip)
@@ -445,9 +447,9 @@ block content
       | Вкладка USB содержит несколько опций:
       +ul
         +li
-          | 3rd pty USB 3.0 для сторонних контроллеров USB 3.0.
+          | 3rd Party USB 3.0 для сторонних контроллеров USB 3.0,
         +li
-          | 7/8/9 Series USB Support для USB 2.0/3.0 чипсетов Intel 7/8/9 серии.
+          | 7/8/9 Series USB Support для USB 2.0/3.0 чипсетов Intel 7/8/9 серии,
         +li
           | Increase Max Port Limit для USB 2.0/3.0 чипсетов Intel 9 и 100-й серии.
       +img("images/content/install-on-pc/drivers_usb.png")(alt="Раздел USB в MultiBeast")
@@ -458,7 +460,7 @@ block content
       | Customize разделена на 3 раздела. Первый раздел — Graphics Configuration.
       +ul
         +li
-          | Inject NVIDIA — опция для старых видеокарт NVIDIA GeForce серии 8xxx, 9xxx, 2xx, 4xx, 610 и 630.
+          | Inject NVIDIA — опция для старых видеокарт NVIDIA GeForce серии 8xxx, 9xxx, 2xx, 4xx, 610 и 630;
         +li
           | Inject ATI нужна для старых видеокарт ATI, таких как 4xxx серия.
       +img("images/content/install-on-pc/customize_graphics.png")(alt="Раздел Graphics Configuration в MultiBeast")
