@@ -173,7 +173,7 @@
 
     .nav__nested-list li:hover & {
       @media (min-width: $tablet) {
-        background: darken($header, 5);
+        background: darken($header, 3);
         color: $dimmed;
       }
     }
