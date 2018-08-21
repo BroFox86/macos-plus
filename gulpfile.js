@@ -38,8 +38,7 @@ var paths = {
   plugins: {
     js: [
       "node_modules/moment/min/moment.min.js",
-      "node_modules/moment/locale/ru.js",
-      "node_modules/stickyfilljs/dist/stickyfill.js"
+      "node_modules/moment/locale/ru.js"
     ],
     css: [
       "node_modules/normalize.css/normalize.css"

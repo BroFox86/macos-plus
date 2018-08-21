@@ -43,17 +43,16 @@
 
   &__container {
     display: flex;
-    justify-content: space-between;
-    width: 1060px;
-    margin: 0 auto 150px;
+    justify-content: center;
+    margin-bottom: 130px;
 
     @media (max-width: $desktop) {
-      width: 880px;
+      margin-bottom: 70px;
     }
 
     @media (max-width: $tablet) {
       width: 85%;
-      margin-bottom: 70px;
+      margin: 0 auto 70px;
     }
 
     @media (max-width: $mobile) {
@@ -63,8 +62,12 @@
   }
 
   &__sidebar {
-    position: sticky;
-    top: 130px;
+    width: $sidebar-width;
+    margin-left: $margin--large;
+
+    @media (max-width: $desktop) {
+      width: $sidebar-width--mobile;
+    }
   }
 
   &__scroll-btn {

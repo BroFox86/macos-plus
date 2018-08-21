@@ -58,7 +58,6 @@
   "dependencies": {
     "fg-loadcss": "^2.0.1",
     "moment": "^2.22.2",
-    "normalize.css": "^8.0.0",
-    "stickyfilljs": "^2.0.5"
+    "normalize.css": "^8.0.0"
   }
 }
