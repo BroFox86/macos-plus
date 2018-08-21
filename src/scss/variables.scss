@@ -12,7 +12,11 @@ $mobile:    600px;
 
 // Sizes
 // ==========================================================================
-$margin: 26px;
+$margin:                  26px;
+$margin--large:           40px;
+$header-width:            80px;
+$sidebar-width:           300px;
+$sidebar-width--mobile:   270px;
 
 // Font sizes
 $h1:           37px;
@@ -32,8 +36,9 @@ $border-radius--huge:    40px;
 // Colors
 // ==========================================================================
 $accent:      #4367d4;
-$header:      #455a64;
-$footer:      #230e2d;
+$header-bg:   #455a64;
+$footer-bg:   #230e2d;
+
 $light:       #f4f4f4;
 $grey:        #858585;
 $border:      darken(#ebebeb, 0);

@@ -80,7 +80,7 @@
     padding: 0;
     list-style: none;
     border-radius: $border-radius;
-    background: lighten($header, 4);
+    background: lighten($header-bg, 4);
     box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
     white-space: nowrap;
 
@@ -90,7 +90,7 @@
     //
 
     // @supports (-webkit-backdrop-filter: blur(0)) {
-    //   background: transparentize($header, .15);
+    //   background: transparentize($header-bg, .15);
     //   -webkit-backdrop-filter: blur(15px);
     // } 
 
@@ -173,7 +173,7 @@
 
     .nav__nested-list li:hover & {
       @media (min-width: $tablet) {
-        background: darken($header, 3);
+        background: darken($header-bg, 3);
         color: $dimmed;
       }
     }

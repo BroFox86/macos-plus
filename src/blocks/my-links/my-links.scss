@@ -19,12 +19,12 @@
   &__icon {
     width: 17px;
     height: 17px;
-    fill: $footer;
+    fill: $footer-bg;
     transition: $transition;
     @include x-center();
 
     .my-links__item:hover & {
-      fill: transparentize($footer, .2);
+      fill: transparentize($footer-bg, .2);
     }
   }
 }
