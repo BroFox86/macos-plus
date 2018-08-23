@@ -349,13 +349,13 @@ gulp.task("images:responsive", function() {
             }
           ],
           "**/fox.*": [
-            { width: 424 },
+            { width: 400 },
             {
-              width: 424 * 1.5,
+              width: 400 * 1.5,
               rename: { suffix: large }
             },
             {
-              width: 424 * 2,
+              width: 400 * 2,
               rename: { suffix: huge }
             }
           ]
