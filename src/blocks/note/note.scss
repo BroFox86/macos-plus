@@ -1,6 +1,6 @@
 .note {
   width: 70%;
-  padding: 20px 20px 20px 65px;
+  padding: 15px 15px 15px 65px;
   border-radius: $border-radius--large;
   color: white;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
@@ -8,7 +8,7 @@
   font-size: 0.842em;
 
   @media (max-width: $mobile) {
-    padding: 15px 15px 15px 55px;
+    padding-left: 55px;
     width: auto;
     font-size: 0.895em;
   }
