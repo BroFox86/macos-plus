@@ -9,13 +9,6 @@ mixin share
       )
         +svg("vk")(class="share__icon")
 
-      a.share__btn.share__btn--gplus(
-        href="https://plus.google.com/share?url=" + domainName,
-        data-toggle="share",
-        title="Google Plus"
-      )
-        +svg("google-plus")(class="share__icon")
-
       a.share__btn.share__btn--twitter(
         href="https://twitter.com/intent/tweet?url=" + domainName,
         data-toggle="share",
@@ -34,7 +27,7 @@ mixin share
         data-toggle="copyUrl", 
         title="Скопировать ссылку"
       )
-        +svg("link-solid-rotated")(class="share__icon")
+        +svg("link-solid")(class="share__icon")
 
     .share__output-wrapper
       input.share__output-field(data-target="copyUrl")
