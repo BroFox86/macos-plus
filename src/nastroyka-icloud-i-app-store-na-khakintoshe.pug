@@ -7,7 +7,7 @@ prepend page
         isDateModified = true
         datePublished  = ["23", "05", "2017"]
         dateModified   = ["09", "01", "2018"]
-        pageLink       = link.services
+        pageLink       = pages.services
         likeBtnId      = "Запуск сервисов Apple"
 
     var metaImage = {
@@ -61,7 +61,7 @@ block content
       +img("images/content/setup-services/pick-mac-model.png")(alt="Вкладка SMBIOS")
       +note(inf)
         | Подходящий вариант и поля уже должны быть введены автоматически во время 
-        +a("note")(href= link.index + "#6")
+        +a("note")(href= pages.index + "#6")
          | пост-установки
         |  с MultiBeast. Поэтому, если страницы конфигуратора окажутся полупустыми, убедитесь, что config.plist открыт правильно.
     +li
