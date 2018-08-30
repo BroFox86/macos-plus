@@ -1,11 +1,11 @@
+"use strict";
+
 /* ==========================================================================
    Share to socials buttons
    ========================================================================== */
 
 (function() {
   $("[data-toggle='share']").on("click", function(e) {
-    "use strict";
-
     e.preventDefault();
 
     var pageUrl  = window.location.href.replace(/\#\d$/i, ""),
@@ -22,8 +22,6 @@
    ========================================================================== */
 
 (function() {
-  "use strict";
-
   var $btn     = $("[data-toggle='copyUrl']"),
       $output  = $("[data-target='copyUrl']"),
       duration = 400;

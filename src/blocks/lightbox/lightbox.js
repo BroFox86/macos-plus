@@ -1,13 +1,13 @@
-(function() {
-  "use strict";
+"use strict";
 
+(function() {
   var $lightbox = $(".lightbox"),
       $close    = $(".lightbox__close"),
       duration  = 200;
 
   // Add padding to body on Android browsers
   function addPadding(padding) {
-    if (window.navigator.userAgent.match("Android") != null) {
+    if (window.navigator.userAgent.match("Android")) {
       $("body").css("padding-right", "0");
     } else {
       $("body").css("padding-right", padding);

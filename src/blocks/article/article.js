@@ -1,6 +1,6 @@
-(function() {
-  "use strict";
+"use strict";
 
+(function() {
   var style   = document.createElement("style"),
       element = "ol ol";
 

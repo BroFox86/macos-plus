@@ -1,6 +1,6 @@
-(function() {
-  "use strict";
+"use strict";
 
+(function() {
   var element  = "[data-toggle='tooltip']", 
       duration = 300;
 
