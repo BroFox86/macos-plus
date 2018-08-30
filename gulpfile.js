@@ -36,10 +36,7 @@ var
 
 var paths = {
   plugins: {
-    js: [
-      "node_modules/moment/min/moment.min.js",
-      "node_modules/moment/locale/ru.js"
-    ],
+    // js: [],
     css: [
       "node_modules/normalize.css/normalize.css"
     ]
@@ -269,17 +266,17 @@ gulp.task("styles:build", function() {
    Scripts
    ========================================================================== */
 
-gulp.task("scripts:plugins", function() {
-  return gulp
-    .src(paths.plugins.js)
-    .pipe(plugins.lineEndingCorrector({ 
-      verbose: true, 
-      eolc: "LF", 
-      encoding: "utf8" 
-    }))
-    .pipe(plugins.changed(".tmp/js/"))
-    .pipe(gulp.dest(".tmp/js/"));
-});
+// gulp.task("scripts:plugins", function() {
+//   return gulp
+//     .src(paths.plugins.js)
+//     .pipe(plugins.lineEndingCorrector({ 
+//       verbose: true, 
+//       eolc: "LF", 
+//       encoding: "utf8" 
+//     }))
+//     .pipe(plugins.changed(".tmp/js/"))
+//     .pipe(gulp.dest(".tmp/js/"));
+// });
 
 gulp.task("scripts:common", function() {
   return gulp
@@ -297,7 +294,7 @@ gulp.task("scripts:blocks", function() {
 
 gulp.task("scripts:prebuild", function(cb) {
   plugins.sequence(
-    ["scripts:plugins"],
+    // ["scripts:plugins"],
     ["scripts:common", "scripts:blocks"]
   )(cb);
 });
