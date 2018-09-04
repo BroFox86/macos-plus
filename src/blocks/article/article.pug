@@ -1,0 +1,86 @@
+- var j = 0
+
+mixin h2
+  h2.article__h2(id = (j + 1), data-spy="pageNav")
+    a.article__anchor.link.link--anchor(href= "#" + (j + 1)) §
+    | #{itemList[j++]}
+
+mixin h3
+  h3.article__h3
+    if block
+    block
+
+mixin p
+  p.article__par
+    if block
+    block
+
+mixin ol
+  ol.article__ordered-list(start= attributes.start)
+    if block
+    block
+
+mixin ul
+  ul.article__marked-list
+    if block
+    block
+
+mixin li
+  li.article__list-item
+    if block
+    block
+
+mixin img(src, modal)
+  - var original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
+
+  case modal
+    default
+      a.article__img-wrapper(href= original, data-toggle="lightbox")
+        div
+          img.article__img(
+            src = src
+            alt = attributes.alt)
+
+    when false
+      .article__img-wrapper
+        img.article__img(
+          src = src
+          alt = attributes.alt)
+
+mixin figure(src, modal)
+  - var original = src.replace(/(\.[\w\d_-]+)$/i, "_original$1")
+
+  case modal
+    default
+      figure.article__figure
+        a.article__img-wrapper(href= original, data-toggle="lightbox")
+          img.article__img.article__img--figure(
+            src = src
+            alt = attributes.alt)
+        figcaption.article__figcaption
+          if block
+          block
+
+    when false
+      figure.article__figure
+        img.article__img.article__img--figure(
+          src = src
+          alt = attributes.alt)
+        figcaption.article__figcaption
+          if block
+          block
+
+mixin tooltip(abbr)
+  case abbr
+    default
+      span.article__tooltip(title= attributes.title, data-toggle="tooltip",)
+        if block
+        block
+
+    when "abbr"
+      abbr.article__tooltip(title= attributes.title, data-toggle="tooltip")
+        if block
+        block
+
+mixin code(text)
+  code.article__code= text
