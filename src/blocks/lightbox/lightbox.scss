@@ -20,8 +20,8 @@
 
   &__inner {
     display: inline-block;
-    max-width: 60vw;
-    max-height: 80vh;
+    max-width: 100%;
+    max-height: 100%;
     vertical-align: middle;
 
     @media (orientation: portrait) {
@@ -31,14 +31,14 @@
 
   &__close {
     position: absolute;
-    top: 10%;
-    right: 18%;
+    top: 8%;
+    right: 5%;
     width: 30px;
     height: 30px;
     background: transparent;
 
     @media (max-width: $mobile) {
-      top: 15%;
+      top: 10%;
       right: 8%;
       width: 25px;
       height: 25px;
@@ -58,7 +58,11 @@
   }
 
   &__img {
-    display: block;
-    max-width: 100%;
+    max-width: 70vw;
+    max-height: 90vh;
+
+    @media (max-width: $tablet) {
+      max-width: 100%;
+    }
   }
 }
