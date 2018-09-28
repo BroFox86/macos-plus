@@ -23,7 +23,8 @@ prepend page
 
     var itemList = [
       "Введение", 
-      "Инструкция"
+      "Инструкция",
+      "Советы"
     ]
 
 block nav
@@ -137,7 +138,9 @@ block content
       +p 
         | Готово, теперь macOS High Sierra должна работать на Windows как виртуальная ОС!&nbsp;😊
       +img("images/content/install-on-vmware/vmware-macos-desktop.jpg")(alt="Рабочий стол macOS High Sierra на VMWare")
-      +note(tip)
-        | Если интерфейс macOS High Sierra будет слишком крупным, в режиме работающей ВМ зайдите в настройки VMWare: Player > Manage > Virtual Machine Settings > Display и уберите галку с Display Scaling. 
-      +note(inf)
-        | Локализовать интерфейс macOS High Sierra можно в настройках ОС. Для этого откройте System Preferences > Language & Region. Затем добавьте язык в Prefered Languages и сделайте его первым в списке.
+  +h2
+  +ul
+    +li
+      | если интерфейс macOS High Sierra будет слишком крупным, в режиме работающей ВМ зайдите в настройки VMWare: Player > Manage > Virtual Machine Settings > Display и уберите галку с Display Scaling. 
+    +li
+      | для локализации интерфейса откройте System Preferences > Language & Region. Затем добавьте язык в Prefered Languages и сделайте его первым в списке.
