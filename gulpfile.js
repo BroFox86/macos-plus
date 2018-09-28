@@ -190,7 +190,7 @@ gulp.task("styles:main", function() {
     .pipe(
       plugins.postcss([
         pxtorem({
-          propList: ["*", "!box-shadow"]
+          propList: ["*", "!box-shadow", "!border*"]
         }),
         autoprefixer(),
         mqpacker({
@@ -210,7 +210,7 @@ gulp.task("styles:plugins", function () {
     .pipe(
       plugins.postcss([
         pxtorem({
-          propList: ["*", "!box-shadow"]
+          propList: ["*", "!box-shadow", "!border*"]
         }),
         // autoprefixer(),
         // mqpacker()
