@@ -1,3 +1,20 @@
+// ==========================================================================
+// Global
+// ==========================================================================
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+::selection {
+  color: white;
+  background: $selection;
+}
+
 //
 // Font shorthands are not used  
 // due to bug with REM in IE10.
