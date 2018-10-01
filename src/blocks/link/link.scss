@@ -11,19 +11,6 @@
     }
   }
 
-  &--anchor {
-    padding-right: 12px;
-    opacity: 0;
-    color: $accent;
-    font-family: $base-font;
-    font-size: 1.2em;
-    transition: $transition;
-
-    .article__h2:hover & {
-      opacity: 1;
-    }
-  }
-
   &--article {
     color: $accent;
     font-weight: 700;
