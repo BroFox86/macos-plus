@@ -73,11 +73,11 @@
   }
 
   &__sidebar {
-    width: $sidebar-width;
-    margin-left: $margin--large;
+    width: 270px;
+    margin-left: $margin--large * 1.5;
 
     @media (max-width: $desktop) {
-      width: $sidebar-width--mobile;
+      margin-left: $margin--large;
     }
   }
 

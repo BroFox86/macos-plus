@@ -12,11 +12,9 @@ $mobile:    600px;
 
 // Sizes
 // ==========================================================================
-$margin:                  26px;
-$margin--large:           40px;
-$header-width:            80px;
-$sidebar-width:           300px;
-$sidebar-width--mobile:   270px;
+$margin:          26px;
+$margin--large:   40px;
+$header-width:    70px;
 
 // Font sizes
 $h1:           37px;
@@ -41,7 +39,7 @@ $footer-bg:   #230e2d;
 
 $light:       #f4f4f4;
 $grey:        #858585;
-$border:      darken(#ebebeb, 0);
+$border:      darken(#ebebeb, 3);
 $code:        #ebebeb;
 $visited:     #512da8;
 $selection:   #9575cd;
