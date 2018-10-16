@@ -4,34 +4,76 @@
    Set scrollspy navigation
    ========================================================================== */
 
-(function() {
-  var $scrollspy = $("[data-toggle='pageNav']"),
-      media      = window.matchMedia("(min-width: 960px)");
+var pageNav = new PageNav({
+  contents:   "[data-toggle='pageNav']",
+  headings:   "[data-spy='pageNav']",
+  offset:     300
+})
 
-  function isInViewport(element, offset) {
-    var elementTop  = $(element).offset().top,
-        viewportTop = $(window).scrollTop();
+function PageNav(options) {
+  var contents = query(options.contents)[0],
+    headings = query(options.headings),
+    offset = options.offset || 0,
+    navItems = query("li", contents),
+    previousItem;
 
-    return elementTop < viewportTop + offset;
+  function query(selector, elem) {
+    if (!elem) {
+      return document.querySelectorAll(selector);
+    } else {
+      return elem.querySelectorAll(selector);
+    }
   }
 
-  $(window).on("DOMContentLoaded resize scroll", function() {
-    if (media.matches) {
+  ["scroll", "DOMContentLoaded"].forEach(function(item) {
+    window.addEventListener(item, function() {
+      handleItemSelection();
+    })
+  })
 
-      $("[data-spy='pageNav']").each(function() {
-        if (isInViewport(this, 300)) {
+  function handleItemSelection() {
+    var item = isItemActive();
 
-          var id = $(this).attr("id");
+    if (!item) return;
 
-          $scrollspy
-            .find("li").removeClass("is-active");
-          $scrollspy
-            .find("li" + ":nth-child(" + id + ")")
-            .addClass("is-active");
-        }
-      });
-    } else {
-      $scrollspy.find("li").removeClass("is-active");
+    var id = item.getAttribute("id"),
+      li = query("li:nth-child(" + id + ")", contents)[0];
+
+    clearSelection();
+
+    li.classList.add("is-active");
+  }
+
+  function isItemActive() {
+    var idx = headings.length,
+      currentItem;
+
+    // Reverse loop to optimize getting a current item
+    while(idx--) {
+      if (isInViewportArea(headings[idx])) {
+        currentItem = headings[idx];
+        break;
+      }
     }
-  });
-}) (); 
+
+    if (currentItem == previousItem) return;
+
+    previousItem = currentItem;
+    return currentItem;
+  }
+
+  function isInViewportArea(elem) {
+    var viewportTop = pageYOffset,
+      elementTop = elem.getBoundingClientRect().top + pageYOffset;
+
+    if (viewportTop > elementTop - offset) {
+      return true;
+    }
+  };
+
+  function clearSelection() {
+    for (var i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove("is-active");
+    }
+  }
+}

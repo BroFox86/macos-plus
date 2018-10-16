@@ -1,5 +1,5 @@
 mixin lightbox
-  .lightbox
+  .lightbox(data-show="lightbox")
     .lightbox__inner
-      button.btn.lightbox__close
+      button.btn.lightbox__close(data-dismiss="lightbox")
         +svg("times")(class="lightbox__close-icon")

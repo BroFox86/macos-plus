@@ -1,18 +1,23 @@
 "use strict";
 
-(function() {
-  var $element = $("[data-toggle='scrollBtn']"),
-      media    = window.matchMedia("(max-width: 960px)");
+var scrollButton = new ScrollButton({
+  button:      "[data-toggle='scrollBtn']",
+  threshold:   document.documentElement.clientHeight * 1.5
+});
 
-  $(window).on("scroll resize", function () {
-    if ($(window).scrollTop() > 800 && media.matches) {
-      $element.addClass("is-visible");
+function ScrollButton(options) {
+  var btn = document.querySelector(options.button),
+    threshold = options.threshold;
+
+  window.addEventListener("scroll", function() {
+    if (pageYOffset > threshold) {
+      btn.classList.add("is-visible");
     } else {
-      $element.removeClass("is-visible");
+      btn.classList.remove("is-visible");
     }
   });
 
-  $element.on("click", function() {
-    $("html, body").stop().animate( { scrollTop: 0 }, 2000);
-  });
-})(); 
+  btn.onclick = function() {
+    scrollTo(0, 0);
+  }
+}

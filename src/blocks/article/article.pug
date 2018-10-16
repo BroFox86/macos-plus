@@ -36,7 +36,7 @@ mixin img(src, modal)
 
   case modal
     default
-      a.article__img-wrapper(href= original, data-toggle="lightbox")
+      a.article__img-wrapper(href= original, data-target="lightbox")
         div
           img.article__img(
             src = src
@@ -54,7 +54,7 @@ mixin figure(src, modal)
   case modal
     default
       figure.article__figure
-        a.article__img-wrapper(href= original, data-toggle="lightbox")
+        a.article__img-wrapper(href= original, data-target="lightbox")
           img.article__img.article__img--figure(
             src = src
             alt = attributes.alt)
@@ -74,12 +74,12 @@ mixin figure(src, modal)
 mixin tooltip(abbr)
   case abbr
     default
-      span.article__tooltip(title= attributes.title, data-toggle="tooltip",)
+      span.article__tooltip(title= attributes.title, data-target="tooltip")
         if block
         block
 
     when "abbr"
-      abbr.article__tooltip(title= attributes.title, data-toggle="tooltip")
+      abbr.article__tooltip(title= attributes.title, data-target="tooltip")
         if block
         block
 

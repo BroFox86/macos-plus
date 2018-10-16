@@ -3,9 +3,11 @@
   display: none;
   width: 100%;
   height: 100%;
-  text-align: center;
+  opacity: 0;
   background: transparentize(black, .2);
+  text-align: center;
   font-size: 0;
+  transition: opacity .3s;
   @include x-center(fixed);
 
   @supports (-webkit-backdrop-filter: blur(0)) {
@@ -16,6 +18,10 @@
     display: inline-block;
     height: 50%;
     content: "";
+  }
+
+  &.is-visible {
+    opacity: 1;
   }
 
   &__inner {

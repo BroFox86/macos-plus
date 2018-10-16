@@ -288,7 +288,7 @@ gulp.task("scripts:common", function() {
 gulp.task("scripts:blocks", function() {
   return gulp
     .src("src/blocks/**/*.js")
-    .pipe(plugins.concat("main.js"))
+    .pipe(plugins.concat("blocks.js"))
     .pipe(gulp.dest(".tmp/js/"));
 });
 

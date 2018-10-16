@@ -1,45 +1,71 @@
 "use strict";
 
-(function() {
-  var $lightbox = $(".lightbox"),
-      $close    = $(".lightbox__close"),
-      duration  = 200;
+var lightbox = new Lightbox({
+  container:   "[data-toggle='content']",
+  modal:       "[data-show='lightbox']",
+  close:       "[data-dismiss='lightbox']"
+});
 
-  // Add padding to body on Android browsers
-  function addPadding(padding) {
-    if (window.navigator.userAgent.match("Android")) {
-      $("body").css("padding-right", "0");
-    } else {
-      $("body").css("padding-right", padding);
+function Lightbox(options) {
+  var container = query(options.container)[0],
+    modal = query(options.modal)[0],
+    closeBtn = query(options.close)[0],
+    display = animateDisplayProperty,
+    img;
+
+  function query(selector) {
+    return document.querySelectorAll(selector);
+  }
+
+  container.addEventListener("click", function(e) {
+    var target = e.target;
+
+    while(true) {
+
+      if (target == container) break;
+
+      if (target.getAttribute("data-target") != "lightbox") {
+        target = target.parentElement;
+        continue;
+      }
+
+      e.preventDefault();
+      openModal(target);
+      break;
     }
-  };
+  })
 
-  // Open modal
-  $(document).on("click", "[data-toggle='lightbox']", function(e) {
-    e.preventDefault();
+  function openModal(elem) {
+    var original = elem.getAttribute("href");
 
-    // Add styles for properly display modal window
-    $("body").toggleClass("is-fixed");
-    addPadding("15px");
+    img = document.createElement("img");
+    img.className = "lightbox__img";
+    img.src = original;
+    modal.children[0].appendChild(img);
 
-    var originalImage = $(this).attr("href");
+    toggleScroll();
+    display(modal, "block");
+  }
 
-    $lightbox
-      .find(".lightbox__inner")
-      .append('<img class="lightbox__img" src="' + originalImage + '" />');
+  function toggleScroll() {
+    if (!document.body.classList.contains("is-fixed")) {
+      var scrollbar = window.innerWidth - document.documentElement.clientWidth;
 
-    $lightbox.fadeIn(duration);
-  });
+      document.body.style.paddingRight = scrollbar + "px";
+      document.body.classList.add("is-fixed");
+    } else {
+      document.body.style.paddingRight = "";
+      document.body.classList.remove("is-fixed");
+    }
+  }
 
-  // Close modal
-  $close.click(function() {
-    $lightbox.fadeOut(duration);
+  closeBtn.onclick = function() {
+    closeModal();
+  }
 
-    setTimeout(function() {
-      // Restore initial state and unload image
-      $("body").toggleClass("is-fixed");
-      addPadding(0);
-      $lightbox.find("img").remove();
-    }, duration);
-  });
-})();
+  function closeModal() {
+    display(modal, "none");
+    toggleScroll();
+    modal.children[0].removeChild(img);
+  }
+}

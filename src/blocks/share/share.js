@@ -1,48 +1,77 @@
 "use strict";
 
 /* ==========================================================================
-   Share to socials buttons
+   Share buttons
    ========================================================================== */
 
-(function() {
-  $("[data-toggle='share']").on("click", function(e) {
+var shareButtons = new ShareButtons({
+  button:   "[data-toggle='share']",
+  width:    500,
+  height:   600
+})
+
+function ShareButtons(options) {
+  var btn = document.querySelector(options.button),
+    width = options.width,
+    height = options.height;
+
+  btn.onclick = function(e) {
     e.preventDefault();
+    openWindow();
+  }
 
-    var pageUrl  = window.location.href.replace(/\#\d$/i, ""),
-        shareUrl = $(this).attr("href").replace(/[^=]*$/, pageUrl),
-        width    = "width=500",
-        height   = "height=600";
+  function openWindow() {
+    width = "width=" + width,
+    height = "height=" + height;
+    window.open(getUrl(), "", width + "," + height);
+  }
 
-    window.open(shareUrl, "", width + "," + height);
-  })
-}) (); 
+  function getUrl() {
+    var url = window.location.href.replace(/\#\d$/i, "");
+
+    return btn.getAttribute("href").replace(/[^=]*$/, url);
+  }
+};
 
 /* ==========================================================================
    Copy URL button
    ========================================================================== */
 
-(function() {
-  var $btn     = $("[data-toggle='copyUrl']"),
-      $output  = $("[data-target='copyUrl']"),
-      duration = 400;
+var copyUrl = new CopyUrl({
+  button: "[data-toggle='copyUrl']",
+  output: "[data-target='copyUrl']",
+  duration: 600
+});
 
-  $btn.on("click", function() {
-    $output.parent().slideDown(duration);
+function CopyUrl(options) {
+  var btn = document.querySelector(options.button),
+    output = document.querySelector(options.output),
+    duration = options.duration || 0,
+    wrapper = output.parentElement,
+    display = animateDisplayProperty;
+
+  btn.onclick = function() {
+    display(wrapper, "block");
 
     setTimeout(function() {
-      // Copy page url without an anchor link
-      $output[0].value = window.location.href.replace(/\#\d$/i, "");
-      $output.focus();
-      $output[0].select();
-      document.execCommand("Copy");
+      copyUrl();
     }, duration);
 
     setTimeout(function() {
-      $output
-        .blur()
-        .css({"font-style": "italic", "color": "#858585", "opacity": 0})
-        .animate({opacity: "1"})
-        .val("Ссылка скопирована!");
-    }, duration + 500);
-  });
-}) (); 
+      showMessage();
+    }, duration * 2);
+  }
+
+  // Copy URL without an anchor link
+  function copyUrl() {
+    output.value = window.location.href.replace(/\#\d$/i, "");
+    output.focus();
+    output.select();
+    document.execCommand("Copy");
+  }
+
+  function showMessage() {
+    output.blur();
+    output.value = "Ссылка скопирована!";
+  }
+};
