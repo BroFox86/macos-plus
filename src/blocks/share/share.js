@@ -5,31 +5,50 @@
    ========================================================================== */
 
 var shareButtons = new ShareButtons({
-  button:   "[data-toggle='share']",
-  width:    500,
-  height:   600
+  width: 500,
+  height: 600
 })
 
-function ShareButtons(options) {
-  var btn = document.querySelector(options.button),
-    width = options.width,
+function ShareButtons( options ) {
+  var width = options.width,
     height = options.height;
 
-  btn.onclick = function(e) {
-    e.preventDefault();
-    openWindow();
-  }
+  document.body.addEventListener("click", function( event ) {
+    var target = event.target;
 
-  function openWindow() {
+    while( true ) {
+
+      if ( target == document.body ) {
+        break;
+      }
+
+      if ( target.getAttribute( "data-toggle" ) != "share" ) {
+
+        target = target.parentElement;
+
+        continue;
+      }
+
+      event.preventDefault();
+
+      openWindow( target );
+
+      break;
+    }
+  })
+
+  function openWindow( elem ) {
+
     width = "width=" + width,
     height = "height=" + height;
-    window.open(getUrl(), "", width + "," + height);
+
+    window.open( getUrl( elem ), "", width + "," + height );
   }
 
-  function getUrl() {
-    var url = window.location.href.replace(/\#\d$/i, "");
+  function getUrl( elem ) {
+    var url = window.location.href.replace( /\#\d$/i, "" );
 
-    return btn.getAttribute("href").replace(/[^=]*$/, url);
+    return elem.href.replace( /[^=]*$/, url );
   }
 };
 
@@ -39,39 +58,51 @@ function ShareButtons(options) {
 
 var copyUrl = new CopyUrl({
   button: "[data-toggle='copyUrl']",
-  output: "[data-target='copyUrl']",
-  duration: 600
+  output: "[data-target='copyUrl']"
 });
 
-function CopyUrl(options) {
-  var btn = document.querySelector(options.button),
-    output = document.querySelector(options.output),
-    duration = options.duration || 0,
-    wrapper = output.parentElement,
-    display = animateDisplayProperty;
+function CopyUrl( options ) {
+  var btn = document.querySelector( options.button ),
+    output = document.querySelector( options.output ),
+    duration = 600,
+    wrapper = output.parentElement;
+
+  Transition.call( this );
 
   btn.onclick = function() {
-    display(wrapper, "block");
+
+    this.slideDown( wrapper, "block" );
 
     setTimeout(function() {
+
       copyUrl();
-    }, duration);
+
+    }, duration );
 
     setTimeout(function() {
+
       showMessage();
-    }, duration * 2);
-  }
+
+    }, duration * 2 );
+
+  }.bind( this );
 
   // Copy URL without an anchor link
   function copyUrl() {
-    output.value = window.location.href.replace(/\#\d$/i, "");
+
+    output.value = window.location.href.replace( /\#\d$/i, "" );
+
     output.focus();
+
     output.select();
+
     document.execCommand("Copy");
   }
 
   function showMessage() {
+
     output.blur();
+
     output.value = "Ссылка скопирована!";
   }
 };
