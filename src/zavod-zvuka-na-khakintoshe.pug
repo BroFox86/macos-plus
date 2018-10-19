@@ -17,7 +17,7 @@ prepend page
     };
 
     var articleHeader = {
-      icon: "music",
+      iconId: "music",
       title: "Настройка звука на хакинтоше"
     };
 
@@ -31,7 +31,7 @@ block nav
   +nav()(popup = selected, sound = selected)
 
 block articleHeader
-  +articleHeader(theme = accent)
+  +articleHeader
 
 block content
   +h2

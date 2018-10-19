@@ -17,7 +17,7 @@ prepend page
     };
 
     var articleHeader = {
-      icon: "mountains",
+      iconId: "apple",
       title: "Установка macOS High Sierra<br>&#32;на ПК на базе Intel"
     };
 
@@ -32,7 +32,7 @@ prepend page
     ]
 
 block articleHeader
-  +articleHeader(theme = accent)
+  +articleHeader
 
 block nav
   +nav()(index = selected)

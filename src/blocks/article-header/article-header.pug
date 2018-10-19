@@ -12,7 +12,7 @@ mixin articleHeader
 
   header.article__header.article-header(class= attributes.theme)
     .article-header__img-wrapper
-      +svg(articleHeader.icon)(class="article-header__img")
+      +svg(articleHeader.iconId)(class="article-header__img")
     h1.article-header__headline!= articleHeader.title
     .article-header__data
       case isDateModified

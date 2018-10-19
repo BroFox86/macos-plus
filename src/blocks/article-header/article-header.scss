@@ -17,17 +17,13 @@
     height: 160px;
     margin: 0 auto 25px;
     border-radius: 50%;
-    background: white;
+    background: $accent;
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
 
     @media (max-width: $mobile) {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       margin-bottom: 15px;
-    }
-
-    .article-header--theme-accent & {
-      background: $accent;
     }
   }
 

@@ -17,8 +17,8 @@ prepend page
     };
 
     var articleHeader = {
-      icon: "vmware",
-      title: "Установка macOS на компьютер<br>&#32;с помощью VMWare"
+      iconId: "vmware",
+      title: "Установка macOS High&nbsp;Sierra на&nbsp;компьютер через VMWare"
     };
 
     var itemList = [
@@ -31,7 +31,7 @@ block nav
   +nav()(vmware = selected)
 
 block articleHeader
-  +articleHeader(theme = accent)
+  +articleHeader
 
 block content
   +h2
