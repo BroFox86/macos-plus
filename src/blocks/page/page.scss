@@ -16,7 +16,7 @@
 }
 
 //
-// Font shorthands are not used  
+// Font shorthands are not used
 // due to bug with REM in IE10.
 //
 
@@ -73,7 +73,7 @@
   }
 
   &__sidebar {
-    width: 270px;
+    width: 250px;
     margin-left: $margin--large * 1.5;
 
     @media (max-width: $desktop) {

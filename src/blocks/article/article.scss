@@ -5,7 +5,7 @@
   width: 700px;
 
   @media (max-width: $desktop) {
-    width: 550px;
+    width: 600px;
   }
 
   @media (max-width: $tablet) {
@@ -37,7 +37,7 @@
   }
 
   &__content {
-    padding: 0 10px;
+    padding: 0 20px;
     word-wrap: break-word;
     hyphens: auto;
 
@@ -198,7 +198,7 @@
   }
 
   //
-  // Tooltip selector priority is increased 
+  // Tooltip selector priority is increased
   // to override normalize.css values for <abbr>
   //
 

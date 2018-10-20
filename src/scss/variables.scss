@@ -39,13 +39,13 @@ $footer-bg:   #230e2d;
 
 $light:       #f4f4f4;
 $grey:        #858585;
-$border:      darken(#ebebeb, 3);
+$border:      darken(#ebebeb, 5);
 $code:        #ebebeb;
 $visited:     #512da8;
-$selection:   #9575cd;
-$info:        #26a69a;
+$selection:   #BA68C8;
 $tip:         #00acc1;
-$tooltip:     #26a69a;
+$info:        #7e57c2;
+$tooltip:     $info;
 $warning:     #ec407a;
 
 // Font colors

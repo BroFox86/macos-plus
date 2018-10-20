@@ -40,7 +40,6 @@
     padding-right: 37px;
     text-decoration: none;
     color: inherit;
-    transition: $transition;
 
     .page-nav__item:hover &,
     .page-nav__item.is-active & {
@@ -53,14 +52,14 @@
   }
 
   //
-  // Specify height 101% to fix white gap 
+  // Specify height 101% to fix white gap
   // between items in some cases
   //
   &__icon-wrapper {
     display: inline-block;
     position: absolute;
     right: 0;
-    width: 35px;
+    width: 33px;
     height: 101%;
     background: $accent;
 
@@ -79,5 +78,10 @@
     height: 17px;
     fill: white;
     @include x-center();
+
+    .page-nav__item:hover &,
+    .page-nav__item.is-active & {
+      fill: transparentize(white, .2);
+    }
   }
 }
