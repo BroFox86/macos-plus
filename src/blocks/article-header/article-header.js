@@ -20,15 +20,24 @@ function setDate( calcDiff, localize ) {
       units;
 
     if ( days == 0 ) {
-      return "Обновлено сегодня.";
+
+      elem.innerHTML = "Обновлено сегодня.";
+
+      return;
     }
 
     else if ( days == 1 ) {
-      return "Обновлено вчера.";
+
+      elem.innerHTML = "Обновлено вчера.";
+
+      return;
     }
 
     else if ( days == 2 ) {
-      return "Обновлено позавчера.";
+
+      elem.innerHTML = "Обновлено позавчера.";
+
+      return;
     }
 
     else if ( days <= 6 ) {
