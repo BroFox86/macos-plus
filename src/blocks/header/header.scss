@@ -4,8 +4,13 @@
   width: 100%;
   height: $header-width;
   padding-left: 24vw;
-  background: $header-bg;
+  background: transparentize($header-bg, .02);
   box-shadow: 0 1px 8px rgba(0 ,0 ,0 , .3);
+
+  @supports (-webkit-backdrop-filter: blur(0)) {
+    background: transparentize($header-bg, .05);
+    -webkit-backdrop-filter: blur(10px);
+  }
 
   @media (max-width: $desktop) {
     padding-left: 10vw;
@@ -15,6 +20,7 @@
     flex-direction: row-reverse;
     height: auto;
     padding: 15px 0;
+    background: $header-bg;
   }
 
   @media (max-width: $mobile) {
