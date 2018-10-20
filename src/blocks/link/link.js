@@ -3,6 +3,6 @@
     links = document.querySelectorAll( SELECTOR );
 
   for ( var i = 0; i < links.length; i++ ) {
-    links[i].setAttribute.target = "_blank";
+    links[i].target = "_blank";
   }
 })();
