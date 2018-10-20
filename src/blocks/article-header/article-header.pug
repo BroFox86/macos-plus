@@ -7,7 +7,7 @@ mixin articleHeader
   
   mixin dateModified
     time.article-header__data-item(
-      data-modified
+      data-modified,
       datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0])
 
   header.article__header.article-header(class= attributes.theme)

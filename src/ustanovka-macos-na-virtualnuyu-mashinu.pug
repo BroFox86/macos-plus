@@ -6,7 +6,7 @@ prepend page
         pageDesc       = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
         isDateModified = true
         datePublished  = ["17", "08", "2017"]
-        dateModified   = ["21", "08", "2018"]
+        dateModified   = ["01", "10", "2018"]
         pageLink       = pages.vmware
         likeBtnId      = "Установка через VMWare"
 
@@ -23,6 +23,7 @@ prepend page
 
     var itemList = [
       "Введение", 
+      "Требования",
       "Инструкция",
       "Советы"
     ]
@@ -42,16 +43,18 @@ block content
   +p
     | MacOS High Sierra в качестве виртуальной ОС не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы. Но для поверхностного ознакомления с ОС от Apple такой способ установки вполне сгодится.
   +h2
-  +note(warning)
-    | Инструкция рассчитана на работу с компьютерами на базе intel. С процессорами AMD могут возникнуть проблемы.
-  +p
-    | Что потребуется перед установкой:
   +ul
+    +li
+      | процессор Intel;
+    +li
+      | более 40 Гб свободного места на жестком диске;
     +li
       | программа Workstation Player Free: 
       +a()(href="http://www.vmware.com/products/player/playerpro-evaluation.html")
         | www.vmware.com/products
       | ;
+    +li
+      | архиватор WinRAR, желательно нестарый;
     +li
       | образ macOS High Sierra 10.13.6 для ВМ:<br>
       +a()(href="https://drive.google.com/open?id=1jmjnMgN0cRydhBYhDr7NV_C485CmAaiz")
@@ -62,16 +65,12 @@ block content
       | ;
     +li
       | патч VMWare Unlocker: 
-      +a()(href="https://github.com/DrDonk/unlocker")
-        | GitHub
-      |  / 
-      +a()(href="https://drive.google.com/file/d/1_TfY6lgApgOPm0A56s43RGULt3TfSzUX/view?usp=sharing")
-        | Google Drive
+      +a()(href="https://github.com/DrDonk/unlocker/releases")
+        | github.com/DrDonk/unlocker
       | ;
     +li
-      | около 40 Гб свободного места на жестком диске.
-  +note(tip)
-    | Если загруженный архив с образом окажется «битым», обновите свой архиватор.
+      | базовый уровень английского языка и владения компьютером.
+  +h2
   +ol
     +li
       | Установите VMWare Workstation Player 
@@ -118,10 +117,11 @@ block content
       +img("images/content/install-on-vmware/open-vm-file.jpg")(alt="Файлы VMWare")
       +img("images/content/install-on-vmware/edit-vm-file.jpg")(alt="Редактирование файла VMWare")
     +li
-      | Все, теперь можно запустить VMWare и начать установку macOS High Sierra!  
-      +p
-        | В процессе установки будет предложено создать нового пользователя, придумать пароль и войти в учетную запись Apple.
+      | Все, теперь можно запустить VMWare и начать установку macOS High Sierra!
       +img("images/content/install-on-vmware/start-vm.jpg")(alt="Запуск VMWare")
+    +li
+      | Для того чтобы отказаться от входа в учетную запись Apple, нажмите на Set Up Later.
+      +img("images/content/install-on-vmware/sign-in-to-account.jpg")(alt="Вход в учетную запись Apple")
     +li
       | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
       +img("images/content/install-on-vmware/mount-vmware-tools_small.jpg", false)(alt="Загрузка VMWare Tools")
@@ -143,4 +143,4 @@ block content
     +li
       | если интерфейс macOS High Sierra будет слишком крупным, в режиме работающей ВМ зайдите в настройки VMWare: Player > Manage > Virtual Machine Settings > Display и уберите галку с Display Scaling. 
     +li
-      | для локализации интерфейса откройте System Preferences > Language & Region. Затем добавьте язык в Prefered Languages и сделайте его первым в списке.
+      | для локализации интерфейса откройте System Preferences > Language & Region, затем добавьте язык в Prefered Languages и сделайте его первым в списке.
