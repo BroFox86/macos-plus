@@ -5,18 +5,20 @@ function Transition() {
   this.fadeIn = function( elem, value ) {
 
     elem.style.display = value;
+    elem.style.opacity = 0;
 
     setTimeout(function() {
-      elem.classList.add("is-visible");
+      elem.style.opacity = 1;
     }, 20 );
   }
 
   this.fadeOut = function( elem ) {
 
-    elem.classList.remove("is-visible");
+    elem.style.opacity = 0;
 
     setTimeout(function() {
 
+      elem.style.opacity = "";
       elem.style.display = "";
 
     }, this.getDuration( elem ) );

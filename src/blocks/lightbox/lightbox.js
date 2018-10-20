@@ -82,10 +82,15 @@ function Modal() {
 
     this.fadeOut( this._modal );
 
-    toggleScroll();
+    setTimeout(function() {
+
+      toggleScroll();
+
+    }, this.getDuration( this._modal ) );
   }
 
   function toggleScroll() {
+
     if ( !document.body.classList.contains( "is-fixed" ) ) {
       var scrollbar = window.innerWidth - document.documentElement.clientWidth;
 
@@ -94,7 +99,6 @@ function Modal() {
       document.body.classList.add( "is-fixed" );
 
     } else {
-
       document.body.style.paddingRight = "";
 
       document.body.classList.remove( "is-fixed" );
