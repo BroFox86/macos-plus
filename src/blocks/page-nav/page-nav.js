@@ -26,7 +26,7 @@ function PageNav( options ) {
     }
   }
 
-  ["scroll", "DOMContentLoaded"].forEach(function( item ) {
+  [ "scroll", "DOMContentLoaded" ].forEach(function( item ) {
     window.addEventListener( item, handleItemSelection );
   })
 
@@ -81,6 +81,7 @@ function PageNav( options ) {
   function clearSelection() {
 
     for ( var i = 0; i < navItems.length; i++ ) {
+
       navItems[i].classList.remove("is-active");
     }
   }

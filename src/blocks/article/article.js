@@ -18,7 +18,7 @@ function CustomList( options ) {
 
     style.sheet.insertRule(
 
-      selector + "> li:nth-child("+ ( i + 1 ) + ")::before {\
+      selector + "> li:nth-child("+ (i + 1) + ")::before {\
         content:'" + item + closing + "'}", 0 )
   });
 };

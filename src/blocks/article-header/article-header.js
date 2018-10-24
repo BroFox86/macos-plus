@@ -85,9 +85,9 @@ function calcDiff( modDate ) {
   var now = new Date(),
     current = new Date( now.getFullYear(), now.getMonth(), now.getDate() ),
     modified = new Date( modDate ).setHours( 0 ),
-    days = Math.floor( ( current - modified ) / 86400000 );
+    days = Math.floor( (current - modified) / 86400000 );
 
-  return days = ( days >= 0  ) ? days : undefined;
+  return days = ( days >= 0 ) ? days : undefined;
 }
 
 // Set the name of time units in accordance with the Russian grammar

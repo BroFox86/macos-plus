@@ -18,8 +18,7 @@ function Transition() {
 
     setTimeout(function() {
 
-      elem.style.opacity = "";
-      elem.style.display = "";
+      elem.style.cssText = "";
 
     }, this.getDuration( elem ) );
   }

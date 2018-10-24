@@ -9,13 +9,13 @@ function ScrollButton( options ) {
   var btn = document.querySelector( options.button ),
     threshold = options.threshold;
 
-  window.addEventListener( "scroll", function() {
+  window.addEventListener("scroll", function() {
 
     if ( pageYOffset > threshold ) {
-      btn.classList.add( "is-visible" );
+      btn.classList.add("is-visible");
 
     } else {
-      btn.classList.remove( "is-visible" );
+      btn.classList.remove("is-visible");
     }
   });
 

@@ -22,7 +22,7 @@ function ShareButtons( options ) {
         break;
       }
 
-      if ( target.getAttribute( "data-toggle" ) != "share" ) {
+      if ( target.getAttribute("data-toggle") != "share" ) {
 
         target = target.parentElement;
 
