@@ -9,6 +9,14 @@ var shareButtons = new ShareButtons({
   height: 600
 })
 
+/**
+ * Buttons that post the page URL on social networks by opening a new window.
+ * @class
+ * @param {object} options - Window dimensions.
+ * @param {number} options.width - Window width in pixels.
+ * @param {number} options.height - Window height in pixels.
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
 function ShareButtons( options ) {
   var width = options.width,
     height = options.height;
@@ -35,8 +43,13 @@ function ShareButtons( options ) {
 
       break;
     }
-  })
+  });
 
+  /**
+   * Open the new window.
+   * @private
+   * @param {HTMLElement} elem - Share button.
+   */
   function openWindow( elem ) {
 
     width = "width=" + width,
@@ -45,6 +58,12 @@ function ShareButtons( options ) {
     window.open( getUrl( elem ), "", width + "," + height );
   }
 
+  /**
+   * Get the page URL without an anchor and make it ready to share.
+   * @private
+   * @param {HTMLElement} elem - Share button with href attribute.
+   * @returns {string} - Code to open a specific website including the page URL.
+   */
   function getUrl( elem ) {
     var url = window.location.href.replace( /\#\d$/i, "" );
 
@@ -61,13 +80,23 @@ var copyUrl = new CopyUrl({
   output: "[data-target='copyUrl']"
 });
 
+/**
+ * Button to copy URL of the current page.
+ * @class
+ * @augments Transition
+ * @param {object} options - CSS selectors.
+ * @param {string} options.button - Button.
+ * @param {string} options.output - Output field.
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
 function CopyUrl( options ) {
-  var btn = document.querySelector( options.button ),
-    output = document.querySelector( options.output ),
-    duration = 600,
-    wrapper = output.parentElement;
 
   Transition.call( this );
+
+  var btn = document.querySelector( options.button ),
+    output = document.querySelector( options.output ),
+    wrapper = output.parentElement,
+    duration = this.getDuration(wrapper);
 
   btn.onclick = function() {
 
@@ -87,7 +116,10 @@ function CopyUrl( options ) {
 
   }.bind( this );
 
-  // Copy URL without an anchor link
+  /**
+   * Copy URL without an anchor link.
+   * @private
+   */
   function copyUrl() {
 
     output.value = window.location.href.replace( /\#\d$/i, "" );
@@ -99,6 +131,10 @@ function CopyUrl( options ) {
     document.execCommand("Copy");
   }
 
+  /**
+   * Show the message.
+   * @private
+   */
   function showMessage() {
 
     output.blur();

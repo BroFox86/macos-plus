@@ -2,6 +2,12 @@
 
 var tooltip = new Tooltip();
 
+/**
+ * Set flying tooltips.
+ * @class
+ * @augments Transition
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
 function Tooltip() {
   var tooltip;
 
@@ -37,6 +43,11 @@ function Tooltip() {
     move( event );
   });
 
+  /**
+   * Show the tooltip with the text from the title attribute.
+   * @private
+   * @param {HTMLElement} - Element with text in the title.
+   */
   var show = function( elem ) {
     // Get the title text
     var text = elem.title;
@@ -58,8 +69,12 @@ function Tooltip() {
 
   }.bind( this );
 
+  /**
+   * Close the tooltip and restore the title attribute.
+   * @private
+   * @param {HTMLElement} - Element that has the visible tooltip.
+   */
   var close = function( elem ) {
-    // Restore the title
     var text = elem.getAttribute("data-text");
 
     elem.title = text;
@@ -72,6 +87,11 @@ function Tooltip() {
 
   }.bind( this );
 
+  /**
+   * Move the tooltip in accordance with cursor.
+   * @private
+   * @param {object} event - Mousemove event object.
+   */
   function move( event ) {
     var mouseX = event.pageX + 20,
       mouseY = event.pageY + 10;

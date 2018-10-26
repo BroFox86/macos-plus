@@ -5,6 +5,15 @@ var lightbox = new Lightbox({
   close: "[data-dismiss='lightbox']"
 });
 
+/**
+ * Open original images in the modal window.
+ * @class
+ * @augments Modal
+ * @param {object} options - CSS selectors.
+ * @param {string} options.modal - Modal element.
+ * @param {string} options.close - Close button.
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
 function Lightbox( options ) {
   var closeBtn = document.querySelector( options.close ),
     img;
@@ -65,19 +74,36 @@ function Lightbox( options ) {
   }.bind( this );
 }
 
+/**
+ * Open & close modal window with smooth effects.
+ * @class
+ * @augments Transition
+ */
 function Modal() {
-
-  this._modal;
-
   Transition.call( this );
 
+  /**
+   * Modal window element.
+   * @type {HTMLElement}
+   * @protected
+   */
+  this._modal;
+
+  /**
+   * Open modal window.
+   * @private
+   */
   this.openModal = function() {
 
-    this.fadeIn( this._modal, "block" );
+    this.fadeIn( this._modal );
 
     toggleScroll();
   }
 
+  /**
+   * Close modal window.
+   * @private
+   */
   this.closeModal = function() {
 
     this.fadeOut( this._modal );
@@ -89,6 +115,10 @@ function Modal() {
     }, this.getDuration( this._modal ) );
   }
 
+  /**
+   * Turn off/on the page scrolling.
+   * @private
+   */
   function toggleScroll() {
 
     if ( !document.body.classList.contains("is-fixed") ) {
@@ -99,6 +129,7 @@ function Modal() {
       document.body.classList.add("is-fixed");
 
     } else {
+
       document.body.style.paddingRight = "";
 
       document.body.classList.remove("is-fixed");

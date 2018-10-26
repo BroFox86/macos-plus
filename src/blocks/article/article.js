@@ -1,11 +1,20 @@
 "use strict";
 
-var cyrillicList = new CustomList({
+var cyrillicLists = new CustomList({
   selector: "ol ol",
   items: "абвгдежзиклмнопрстуфхцчшщэюя",
   closing: ")"
 });
 
+/**
+ * Add custom characters to ordered lists.
+ * @class
+ * @param {Object} options - Object with options.
+ * @param {string} options.selector - Selector of the ordered lists (ol).
+ * @param {Array} options.items - Array with characters.
+ * @param {string} options.closing - Closing symbol after character.
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
 function CustomList( options ) {
   var selector = options.selector,
     items = options.items,

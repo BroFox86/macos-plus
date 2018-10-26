@@ -1,8 +1,19 @@
 "use strict";
 
+/**
+ * Multiple methods to display & hide elements with CSS transition effects.
+ * @class
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
 function Transition() {
-
+  /**
+   * Show element smooth from transparency to opacity.
+   * @param {HTMLElement} elem - Element with CSS display:none.
+   * @param {string} [value=Block] - Which value will set to display property when element became visible.
+   */
   this.fadeIn = function( elem, value ) {
+
+    value = value || "block";
 
     elem.style.display = value;
     elem.style.opacity = 0;
@@ -12,6 +23,10 @@ function Transition() {
     }, 20 );
   }
 
+  /**
+   * Hide element smooth from opacity to transparency.
+   * @param {HTMLElement} elem - Element that was previously displayed by fadeIn method.
+   */
   this.fadeOut = function( elem ) {
 
     elem.style.opacity = 0;
@@ -23,11 +38,18 @@ function Transition() {
     }, this.getDuration( elem ) );
   }
 
+  /**
+   * Expand the element smooth.
+   * @param {HTMLElement} elem - Element with CSS display:none.
+   * @param {string} [value=Block] - Which value will set to display property when element become visible.
+   */
   this.slideDown = function( elem, value ) {
     var style = elem.style,
       height,
       paddingTop,
       paddingBottom;
+
+    value = value || "block";
 
     style.boxSizing = "content-box";
 
@@ -61,6 +83,10 @@ function Transition() {
     }, this.getDuration( elem ) );
   }
 
+  /**
+   * Roll up the element smooth to top direction.
+   * @param {HTMLElement} elem - Element that was previously expanded by slideDown.
+   */
   this.slideUp = function( elem ) {
     var style = elem.style;
 
@@ -84,12 +110,24 @@ function Transition() {
     }, this.getDuration( elem ) );
   }
 
+  /**
+   * Get the CSS transition-duration value.
+   * @param {HTMLElement} elem
+   * @returns {number} - Value in ms.
+   */
   this.getDuration = function( elem ) {
     var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
 
     return duration * 1000;
   }
 
+  /**
+   * Get the computed style value.
+   * @private
+   * @param {HTMLElement} elem
+   * @param {string} property - CSS property of the element in camelCase.
+   * @returns {number} - Property value.
+   */
   function getStyle( elem, property ) {
     var value = getComputedStyle( elem )[property];
 
