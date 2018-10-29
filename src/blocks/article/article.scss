@@ -52,14 +52,14 @@
 
   &__h2-wrapper {
     display: block;
-    margin: $margin*1.5 0 $margin;
+    margin: $margin*2.5 0 $margin*1.5;
   }
 
   &__h2 {
     position: relative;
     display: inline-block;
     margin: 0;
-    color: $headings;
+    color: $base-font-color;
     font-family: $headings-font;
     font-size: $h2;
     font-weight: 700;
@@ -70,8 +70,8 @@
   }
 
   &__h3 {
-    margin: $margin 0;
-    color: $headings;
+    margin: $margin*1.5 0 $margin;
+    color: $base-font-color;
     font-family: $headings-font;
     font-size: $h3;
     font-weight: 700;
