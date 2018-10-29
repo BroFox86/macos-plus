@@ -27,10 +27,11 @@
   &--note {
     padding-bottom: 1px;
     color: inherit;
-    border-bottom: 1px solid fade-out(white, .3);
+    text-decoration: underline solid fade-out(white, .2);
 
     &:hover {
-      border-color: transparent;
+      color: fade-out(white, .2);
+      text-decoration-color: fade-out(white, .3);
     }
   }
 }
