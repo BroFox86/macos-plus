@@ -31,6 +31,9 @@ function Transition() {
 
     elem.style.opacity = 0;
 
+    // Normalize delay in MS Edge when backdrop filter is specified
+    elem.style.WebkitBackdropFilter = "blur(0)";
+
     setTimeout(function() {
 
       elem.style.cssText = "";
