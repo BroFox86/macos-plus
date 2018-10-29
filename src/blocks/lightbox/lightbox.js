@@ -53,7 +53,7 @@ function Lightbox( options ) {
   }.bind( this );
 
   var openLightbox = function( elem ) {
-    var original = elem.href;
+    var original = elem.getAttribute("href");
 
     img = document.createElement("img");
     img.className = "lightbox__img";
