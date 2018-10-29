@@ -6,7 +6,7 @@ var lightbox = new Lightbox({
 });
 
 /**
- * Open original images in the modal window.
+ * Open original images in the modal window. It's triggered by a element with the data-toggle="lightbox" attribute value.
  * @class
  * @augments Modal
  * @param {object} options - CSS selectors.
@@ -31,7 +31,7 @@ function Lightbox( options ) {
         break;
       }
 
-      if ( target.getAttribute("data-target") != "lightbox" ) {
+      if ( target.getAttribute("data-toggle") != "lightbox" ) {
 
         target = target.parentElement;
 
@@ -116,13 +116,13 @@ function Modal() {
   }
 
   /**
-   * Turn off/on the page scrolling.
+   * Switch page scroll.
    * @private
    */
   function toggleScroll() {
+    var scrollbar = window.innerWidth - document.documentElement.clientWidth;
 
     if ( !document.body.classList.contains("is-fixed") ) {
-      var scrollbar = window.innerWidth - document.documentElement.clientWidth;
 
       document.body.style.paddingRight = scrollbar + "px";
 

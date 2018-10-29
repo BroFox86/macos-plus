@@ -16,7 +16,7 @@ function Tooltip() {
   document.body.addEventListener("mouseover", function( event ) {
     var target = event.target;
 
-    if ( target.getAttribute("data-target") != "tooltip" ) {
+    if ( target.getAttribute("data-toggle") != "tooltip" ) {
       return;
     }
 
@@ -26,7 +26,7 @@ function Tooltip() {
   document.body.addEventListener("mouseout", function( event ) {
     var target = event.target;
 
-    if ( target.getAttribute("data-target") != "tooltip" ) {
+    if ( target.getAttribute("data-toggle") != "tooltip" ) {
       return;
     }
 
@@ -36,7 +36,7 @@ function Tooltip() {
   document.body.addEventListener("mousemove", function( event ) {
     var target = event.target;
 
-    if ( target.getAttribute("data-target") != "tooltip" ) {
+    if ( target.getAttribute("data-toggle") != "tooltip" ) {
       return;
     }
 

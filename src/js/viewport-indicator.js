@@ -30,13 +30,16 @@ function ViewportIndicator( styles ) {
    * @private
    * @yields {HTMLElement} - Append &lt;div id="indicator">&lt;/div> to body.
    */
-  (function() {
+  window.addEventListener("DOMContentLoaded", function() {
+
     indicator = document.createElement("div");
+
     indicator.id = "viewportIndicator";
+
     indicator.style.cssText = stylesStr;
 
     document.body.appendChild( indicator );
-  })();
+  });
 
   [ "DOMContentLoaded", "resize" ].forEach(function( item ) {
     window.addEventListener( item, displayViewportSize );
