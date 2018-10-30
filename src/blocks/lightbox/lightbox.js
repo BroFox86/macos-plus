@@ -1,7 +1,7 @@
 "use strict";
 
 var lightbox = new Lightbox({
-  modal: "[data-show='lightbox']",
+  modal: "[data-target='lightbox']",
   close: "[data-dismiss='lightbox']"
 });
 

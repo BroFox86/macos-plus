@@ -54,7 +54,7 @@ mixin figure(src, modal)
   case modal
     default
       figure.article__figure
-        a.article__img-wrapper(href= original, data-target="lightbox")
+        a.article__img-wrapper(href= original, data-toggle="lightbox")
           img.article__img.article__img--figure(
             src = src
             alt = attributes.alt)
