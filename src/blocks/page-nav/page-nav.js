@@ -23,8 +23,7 @@ function PageNav( options ) {
   var contents = query( options.contents )[0],
     headings = query( options.headings ),
     offset = options.offset || 0,
-    navItems = query( "li", contents ),
-    previousItem;
+    navItems = query( "li", contents );
 
   /**
    * Get an element by query selector.
@@ -52,18 +51,18 @@ function PageNav( options ) {
    * @private
    */
   function handleItemSelection() {
-    var item = isItemActive();
+    var heading = isItemActive();
 
-    if ( !item ) {
+    if ( !heading ) {
       return;
     }
 
-    var id = item.id,
-      li = query( "li:nth-child(" + id + ")", contents )[0];
+    var id = heading.id,
+      item = query( "li:nth-child(" + id + ")", contents )[0];
 
     clearSelection();
 
-    li.classList.add("is-active");
+    item.classList.add("is-active");
   }
 
   /**
@@ -71,29 +70,33 @@ function PageNav( options ) {
    * @private
    * @returns {HTMLElement}
    */
-  function isItemActive() {
-    var idx = headings.length,
+  var isItemActive = (function() {
+    var previousItem,
       currentItem;
 
-    // Reverse loop to optimize getting a current item
-    while( idx-- ) {
+    return function() {
+      var idx = headings.length;
 
-      if ( isInViewportArea( headings[idx] ) ) {
+      // Reverse loop to optimize getting a current item
+      while( idx-- ) {
 
-        currentItem = headings[idx];
+        if ( isInViewportArea( headings[idx] ) ) {
 
-        break;
+          currentItem = headings[idx];
+
+          break;
+        }
       }
+
+      if ( currentItem == previousItem ) {
+        return;
+      }
+
+      previousItem = currentItem;
+
+      return currentItem;
     }
-
-    if ( currentItem == previousItem ) {
-      return;
-    }
-
-    previousItem = currentItem;
-
-    return currentItem;
-  }
+  })();
 
   /**
    * Check if the element is in the specific screen area.
