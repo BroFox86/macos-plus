@@ -25,6 +25,7 @@
 * “6 Gulp Best Practices” by [Cosmin](http://blog.rangle.io/angular-gulp-bestpractices/)
 * “HTML/CSS Style Guide” by [Google](https://google.github.io/styleguide/htmlcssguide.html)
 * “Principles of writing consistent, idiomatic CSS” by [Necolas](https://github.com/necolas/idiomatic-css)
+* “Principles of Writing Consistent, Idiomatic JavaScript” by [rwaldron](https://github.com/rwaldron/idiomatic.js/)
 
 ### Дополнительно
 
@@ -34,4 +35,4 @@
 
 ____________________
 
-*Внимание! Большая просьба не нарушать авторские права и использовать репозиторий только в ознакомительных целях.* 
+*Внимание! Большая просьба не нарушать авторские права и использовать репозиторий только в ознакомительных целях.*

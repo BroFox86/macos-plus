@@ -6,7 +6,7 @@ var lightbox = new Lightbox({
 });
 
 /**
- * Open original images in the modal window. It's triggered by a element with the data-toggle="lightbox" attribute value.
+ * Open original images in the modal window.
  * @class
  * @augments Modal
  * @param {object} options - CSS selectors.
@@ -61,13 +61,13 @@ function Lightbox( options ) {
 
     this._modal.children[0].appendChild( img );
 
-    this.openModal();
+    this._openModal();
 
   }.bind( this );
 
   var closeLightbox = function() {
 
-    this.closeModal();
+    this._closeModal();
 
     this._modal.children[0].removeChild( img );
 
@@ -93,9 +93,9 @@ function Modal() {
    * Open modal window.
    * @private
    */
-  this.openModal = function() {
+  this._openModal = function() {
 
-    this.fadeIn( this._modal );
+    this._fadeIn( this._modal );
 
     toggleScroll();
   }
@@ -104,19 +104,19 @@ function Modal() {
    * Close modal window.
    * @private
    */
-  this.closeModal = function() {
+  this._closeModal = function() {
 
-    this.fadeOut( this._modal );
+    this._fadeOut( this._modal );
 
     setTimeout(function() {
 
       toggleScroll();
 
-    }, this.getDuration( this._modal ) );
+    }, this._getDuration( this._modal ) );
   }
 
   /**
-   * Switch page scroll.
+   * Turn off/on the page scrolling.
    * @private
    */
   function toggleScroll() {

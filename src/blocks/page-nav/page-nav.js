@@ -11,7 +11,8 @@ var pageNav = new PageNav({
 });
 
 /**
- * Table of contents with show the current position by selecting an item.
+ * Table of contents
+ * with show the current position by selecting an item.
  * @class
  * @param {object} options - Object with options.
  * @param {string} options.contents - Contents selector.

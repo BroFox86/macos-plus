@@ -12,8 +12,13 @@ var displayViewportSize = new ViewportIndicator([
 /**
  * Display viewport size on the screen.
  * @class
- * @param {string[]} styles - The array of styles that add to the indicator.
+ * @param {string[]} styles - Array of styles that add to the indicator.
  * @author Daur Gamisonia <daurgam@gmail.com>
+ * @example
+ * var displayViewportSize = new ViewportIndicator([
+ *   "position: fixed",
+ *   "bottom: 0"
+ * ]);
 */
 function ViewportIndicator( styles ) {
   var stylesStr = "",
@@ -30,16 +35,13 @@ function ViewportIndicator( styles ) {
    * @private
    * @yields {HTMLElement} - Append &lt;div id="indicator">&lt;/div> to body.
    */
-  window.addEventListener("DOMContentLoaded", function() {
-
+  (function() {
     indicator = document.createElement("div");
-
     indicator.id = "viewportIndicator";
-
     indicator.style.cssText = stylesStr;
 
     document.body.appendChild( indicator );
-  });
+  })();
 
   [ "DOMContentLoaded", "resize" ].forEach(function( item ) {
     window.addEventListener( item, displayViewportSize );

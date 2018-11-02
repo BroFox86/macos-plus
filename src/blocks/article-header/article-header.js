@@ -1,7 +1,8 @@
 "use strict";
 
 /**
- * Add the relative date of the post from the published date to the modified date.
+ * Add a relative date of a post
+ * from the published date to the modified date.
  * @module relativeDate
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
@@ -14,8 +15,8 @@
   /**
    * Wrapper function that set the specific time unit from days
    * @private
-   * @param {function} calcDiff - Calculate the interval between the dates in days.
-   * @param {function} localizeUnits - Set the name of the time units in accordance with the Russian grammar.
+   * @param {function} calcDiff - Calculate the interval between dates in days.
+   * @param {function} localizeUnits - Set the name of time units in accordance with the Russian grammar.
    * @returns {function}
    */
   function setDate( calcDiff, localizeUnits ) {
@@ -94,7 +95,7 @@
   }
 
   /**
-   * Calculate the interval between the dates in days.
+   * Calculate the interval between dates in days.
    * @private
    * @param {string} modDate - Modified date in MM-DD-YYYY.
    * @returns {number|undefined} - Amount of days of undefined.
@@ -109,11 +110,12 @@
   }
 
   /**
-   * Set the name of the time units in accordance with the Russian grammar.
+   * Set the name of time units
+   * in accordance with the Russian grammar.
    * @private
-   * @param {string} units - Name of the units of time in English.
-   * @param {!number} amount - Amount of the time units.
-   * @returns {string} - Name of the time units with decline.
+   * @param {string} units - Name of time units in English.
+   * @param {!number} amount - Amount of time units.
+   * @returns {string} - Name of time units with decline.
    */
   function localizeUnits( units, amount ) {
 

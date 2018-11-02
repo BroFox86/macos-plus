@@ -44,9 +44,9 @@ function Tooltip() {
   });
 
   /**
-   * Show the tooltip with the text from the title attribute.
+   * Show the tooltip with a text from title.
    * @private
-   * @param {HTMLElement} - Element with text in the title.
+   * @param {HTMLElement} - Element with a text in the title.
    */
   var show = function( elem ) {
     // Get the title text
@@ -58,28 +58,28 @@ function Tooltip() {
     // Clear the title
     elem.title = "";
 
-    // Create tooltip
+    // Create the tooltip
     tooltip = document.createElement("p");
     tooltip.className = "tooltip";
     tooltip.textContent = text;
 
     document.body.appendChild( tooltip );
 
-    this.fadeIn( tooltip, "block" );
+    this._fadeIn( tooltip, "block" );
 
   }.bind( this );
 
   /**
    * Close the tooltip and restore the title attribute.
    * @private
-   * @param {HTMLElement} - Element that has the visible tooltip.
+   * @param {HTMLElement} - Element that has a visible tooltip.
    */
   var close = function( elem ) {
     var text = elem.getAttribute("data-text");
 
     elem.title = text;
 
-    this.fadeOut( tooltip );
+    this._fadeOut( tooltip );
 
     setTimeout(function() {
       document.body.removeChild( tooltip );
@@ -88,7 +88,7 @@ function Tooltip() {
   }.bind( this );
 
   /**
-   * Move the tooltip in accordance with cursor.
+   * Move the tooltip in accordance with the cursor.
    * @private
    * @param {object} event - Mousemove event object.
    */

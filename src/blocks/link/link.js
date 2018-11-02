@@ -1,5 +1,5 @@
 /**
- * Open external links in the new tabs.
+ * Open external links in new tabs.
  * @module externalLinks
  * @author Daur Gamisonia <daurgam@gmail.com>
  */

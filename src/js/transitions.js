@@ -1,7 +1,8 @@
 "use strict";
 
 /**
- * Multiple methods to display & hide elements with CSS transition effects.
+ * Multiple methods to display & hide elements
+ * with CSS transition effects.
  * @class
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
@@ -11,7 +12,7 @@ function Transition() {
    * @param {HTMLElement} elem - Element with CSS display:none.
    * @param {string} [value=Block] - Which value will set to display property when element became visible.
    */
-  this.fadeIn = function( elem, value ) {
+  this._fadeIn = function( elem, value ) {
 
     value = value || "block";
 
@@ -27,7 +28,7 @@ function Transition() {
    * Hide element smooth from opacity to transparency.
    * @param {HTMLElement} elem - Element that was previously displayed by fadeIn method.
    */
-  this.fadeOut = function( elem ) {
+  this._fadeOut = function( elem ) {
 
     elem.style.opacity = 0;
 
@@ -38,7 +39,7 @@ function Transition() {
 
       elem.style.cssText = "";
 
-    }, this.getDuration( elem ) );
+    }, this._getDuration( elem ) );
   }
 
   /**
@@ -83,14 +84,14 @@ function Transition() {
 
       style.cssText = "display:" + value;
 
-    }, this.getDuration( elem ) );
+    }, this._getDuration( elem ) );
   }
 
   /**
    * Roll up the element smooth to top direction.
    * @param {HTMLElement} elem - Element that was previously expanded by slideDown.
    */
-  this.slideUp = function( elem ) {
+  this._slideUp = function( elem ) {
     var style = elem.style;
 
     style.height = elem.offsetHeight + "px";
@@ -110,7 +111,7 @@ function Transition() {
 
       style.cssText = "";
 
-    }, this.getDuration( elem ) );
+    }, this._getDuration( elem ) );
   }
 
   /**
@@ -118,7 +119,7 @@ function Transition() {
    * @param {HTMLElement} elem
    * @returns {number} - Value in ms.
    */
-  this.getDuration = function( elem ) {
+  this._getDuration = function( elem ) {
     var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
 
     return duration * 1000;

@@ -10,7 +10,8 @@ var shareButtons = new ShareButtons({
 })
 
 /**
- * Buttons that post the page URL on social networks by opening a new window.
+ * Buttons that insert the page URL
+ * on social networks by opening a new window.
  * @class
  * @param {object} options - Window dimensions.
  * @param {number} options.width - Window width in pixels.
@@ -59,7 +60,9 @@ function ShareButtons( options ) {
   }
 
   /**
-   * Get the page URL without an anchor and make it ready to share.
+   * Get URL without
+   * an anchor and make it ready to share.
+   *
    * @private
    * @param {HTMLElement} elem - Share button with href attribute.
    * @returns {string} - Code to open a specific website including the page URL.
@@ -84,7 +87,7 @@ var copyUrl = new CopyUrl({
  * Button to copy URL of the current page.
  * @class
  * @augments Transition
- * @param {object} options - CSS selectors.
+ * @param {object} options - Query selectors.
  * @param {string} options.button - Button.
  * @param {string} options.output - Output field.
  * @author Daur Gamisonia <daurgam@gmail.com>
@@ -96,7 +99,7 @@ function CopyUrl( options ) {
   var btn = document.querySelector( options.button ),
     output = document.querySelector( options.output ),
     wrapper = output.parentElement,
-    duration = this.getDuration(wrapper);
+    duration = this._getDuration(wrapper);
 
   btn.onclick = function() {
 
