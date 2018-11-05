@@ -103,7 +103,7 @@ function CopyUrl( options ) {
 
   btn.onclick = function() {
 
-    this.slideDown( wrapper, "block" );
+    this._slideDown( wrapper, "block" );
 
     setTimeout(function() {
 

@@ -47,7 +47,7 @@ function Transition() {
    * @param {HTMLElement} elem - Element with CSS display:none.
    * @param {string} [value=Block] - Which value will set to display property when element become visible.
    */
-  this.slideDown = function( elem, value ) {
+  this._slideDown = function( elem, value ) {
     var style = elem.style,
       height,
       paddingTop,
