@@ -52,7 +52,7 @@
 
   &__h2-wrapper {
     display: block;
-    margin: $margin*2.5 0 $margin*1.5;
+    margin: $margin*2 0 $margin;
   }
 
   &__h2 {
@@ -70,7 +70,7 @@
   }
 
   &__h3 {
-    margin: $margin*1.5 0 $margin;
+    margin: $margin 0 0;
     color: $base-font-color;
     font-family: $headings-font;
     font-size: $h3;
