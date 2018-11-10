@@ -24,6 +24,7 @@
 
     @media (max-width: $tablet) {
       position: fixed;
+      z-index: 4;
       top: 0;
       display: block;
       overflow-y: scroll;

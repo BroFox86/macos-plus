@@ -48,7 +48,7 @@
 
   &__header {
     position: fixed;
-    z-index: 10;
+    z-index: 3;
     top: 0;
   }
 
@@ -81,12 +81,17 @@
     }
   }
 
+  &__footer {
+    position: relative;
+    z-index: 1;
+  }
+
   &__scroll-btn {
     display: none;
 
     @media (max-width: $tablet) {
       position: fixed;
-      z-index: 99;
+      z-index: 5;
       right: 40px;
       bottom: 40px;
       display: block;

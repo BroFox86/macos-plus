@@ -9,12 +9,13 @@
 
   @media (max-width: $mobile) {
     padding: 30px 10px;
+    border-radius: $border-radius--large;
   }
 
   &__img-wrapper {
     position: relative;
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto 25px;
     border-radius: 50%;
     background: $accent;
