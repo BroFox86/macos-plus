@@ -4,7 +4,7 @@ mixin articleHeader
 
   mixin datePublished
     time.article-header__data-item(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
-  
+
   mixin dateModified
     time.article-header__data-item(
       data-modified,

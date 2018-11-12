@@ -1,24 +1,23 @@
 extends /layouts/layout
 
 prepend page
+  - var pageTitle = "Монтирование раздела EFI в macOS"
+  - var pageDesc = "Подробная инструкция по подключению раздела EFI в macOS через утилиту EFI Mounter"
+  - var datePublished = ["02", "09", "2017"]
+  - var pageLink = pages.efi
+  - var likeBtnId = "Монтирование EFI"
   -
-    var pageTitle       = "Монтирование раздела EFI в macOS"
-        pageDesc        = "Подробная инструкция по подключению раздела EFI в macOS через утилиту EFI Mounter"
-        datePublished   = ["02", "09", "2017"]
-        pageLink        = pages.efi
-        likeBtnId       = "Монтирование EFI"
-
     var metaImage = {
       src: "images/content/mount-efi/thumbnail.jpg",
       width: 882,
       height: 548
-    };
-
+    }
+  -
     var articleHeader = {
       iconId: "gears",
       title: "Монтирование EFI в macOS"
-    };
-
+    }
+  -
     var itemList = [
       "Введение", 
       "Инструкция"

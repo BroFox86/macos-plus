@@ -3,10 +3,7 @@ include /pug/mixins/*
 include /pug/variables
 include /blocks/**/*
 
-//-
-//- <html> tag is deliberately omitted.
-//- Info here: google.github.io/styleguide/htmlcssguide.html#Optional_Tags
-//-
+//- <html> tag is deliberately omitted. Info here: google.github.io/styleguide/htmlcssguide.html#Optional_Tags 
 
 block page
   head
@@ -49,7 +46,7 @@ block page
       meta(name="msapplication-config" content="browserconfig.xml")
       meta(name="theme-color" content="#455a64")
 
-      //- Google Tag
+      // Google Tag
       script(async src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1")
       script.
         window.dataLayer = window.dataLayer || [];
@@ -57,12 +54,14 @@ block page
         gtag('js', new Date());
         gtag('config', 'UA-100340915-1');
 
-      //- LikeBtn
+      // LikeBtn
       script(async id="likebtn_wjs" src="https://w.likebtn.com/js/w/widget.js")
 
   body.page(lang="ru")
-    <noscript> Для полной функциональности этого сайта необходимо включить JavaScript. Вот <a href="https://www.enable-javascript.com/ru/" target="_blank"> инструкции, как включить JavaScript в вашем браузере</a>.
-    </noscript>
+    noscript 
+      | Для полной функциональности этого сайта необходимо включить JavaScript. Вот 
+      a(href="https://www.enable-javascript.com/ru/" target="_blank") инструкции
+      | , как включить JavaScript в вашем браузере.
 
     // inject:svg 
     // endinject
@@ -76,8 +75,8 @@ block page
         article.article
           block articleHeader
             +articleHeader
-          
-          .article__content(data-toggle="content")
+
+          .article__content
             block content
 
           +pageNav("mobile")

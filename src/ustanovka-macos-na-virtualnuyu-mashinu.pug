@@ -1,26 +1,25 @@
 extends /layouts/layout
 
 prepend page
+  - var pageTitle = "Установка macOS на компьютер с помощью VMWare"
+  - var pageDesc = "Подробная инструкция по установке macOS High Sierra на виртуальную машину   со ссылками на необходимые файлы"
+  - var isDateModified = true
+  - var datePublished = ["17", "08", "2017"]
+  - var dateModified = ["20", "10", "2018"]
+  - var pageLink = pages.vmware
+  - var likeBtnId = "Установка через VMWare"
   -
-    var pageTitle      = "Установка macOS на компьютер с помощью VMWare"
-        pageDesc       = "Подробная инструкция по установке macOS High Sierra на виртуальную машину со ссылками на необходимые файлы"
-        isDateModified = true
-        datePublished  = ["17", "08", "2017"]
-        dateModified   = ["20", "10", "2018"]
-        pageLink       = pages.vmware
-        likeBtnId      = "Установка через VMWare"
-
     var metaImage = {
       src: "images/content/install-on-vmware/install-vmware-tools_original.jpg",
       width: 1024,
       height: 834
-    };
-
+    }
+  -
     var articleHeader = {
       iconId: "vmware",
       title: "Установка macOS High&nbsp;Sierra на&nbsp;компьютер через VMWare"
-    };
-
+    }
+  -
     var itemList = [
       "Введение", 
       "Требования",

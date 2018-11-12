@@ -1,26 +1,25 @@
 extends /layouts/layout
 
 prepend page
+  - var pageTitle = "Установка macOS High Sierra на ПК на базе Intel"
+  - var pageDesc = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
+  - var isDateModified = true
+  - var datePublished = ["03", "05", "2017"]
+  - var dateModified = ["27", "08", "2018"]
+  - var pageLink = pages.index
+  - var likeBtnId = "Установка macOS на ПК"
   -
-    var pageTitle      = "Установка macOS High Sierra на ПК на базе Intel"
-        pageDesc       = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
-        isDateModified = true
-        datePublished  = ["03", "05", "2017"]
-        dateModified   = ["27", "08", "2018"]
-        pageLink       = pages.index
-        likeBtnId      = "Установка macOS на ПК"
-
     var metaImage = {
       src: "images/content/install-on-pc/high-sierra-desktop_original.jpg",
       width: 960,
       height: 540
-    };
-
+    }
+  -
     var articleHeader = {
       iconId: "apple",
       title: "Установка macOS High Sierra<br>&#32;на ПК на базе Intel"
-    };
-
+    }
+  -
     var itemList = [
       "Введение", 
       "Подготовка", 
@@ -35,7 +34,7 @@ block articleHeader
   +articleHeader
 
 block nav
-  +nav()(index = selected)
+  +nav()(mainGuide = selected)
 
 block content
   +h2

@@ -1,14 +1,12 @@
 extends /layouts/layout
 
 prepend page
-  -
-    var encodedUrl = pages.indexForShare
-        hasPageNav = false
+  - var encodedUrl = pages.indexForShare
 
 block head
   meta(charset="utf-8")
   meta(content="width=device-width, initial-scale=1" name="viewport")
-  title= "Страница не найдена"
+  title="Страница не найдена"
 
   // inject:critical:css 
   // endinject

@@ -1,26 +1,25 @@
 extends /layouts/layout
 
 prepend page
+  - var pageTitle = "Настройка iCloud и App Store на хакинтоше"
+  - var pageDesc = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
+  - var isDateModified = true
+  - var datePublished = ["23", "05", "2017"]
+  - var dateModified = ["09", "01", "2018"]
+  - var pageLink = pages.services
+  - var likeBtnId = "Запуск сервисов Apple"
   -
-    var pageTitle      = "Настройка iCloud и App Store на хакинтоше"
-        pageDesc       = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
-        isDateModified = true
-        datePublished  = ["23", "05", "2017"]
-        dateModified   = ["09", "01", "2018"]
-        pageLink       = pages.services
-        likeBtnId      = "Запуск сервисов Apple"
-
     var metaImage = {
       src: "images/content/setup-services/thumbnail.jpg",
       width: 1334,
       height: 772
-    };
-
+    }
+  -
     var articleHeader = {
       iconId: "icloud",
       title: "Настройка iCloud и App&nbsp;Store<br> на хакинтоше"
-    };
-
+    }
+  -
     var itemList = [
       "Настройка iCloud",
       "Настройка App Store"
@@ -29,7 +28,7 @@ prepend page
 block nav
   +nav()(popup = selected, services = selected)
 
-block content	
+block content
   +h2
   +h3
     | а) Сброс данных

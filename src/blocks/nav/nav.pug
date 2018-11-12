@@ -8,14 +8,14 @@ mixin nav
     .nav__inner
       ul.nav__list
         li
-          a(href="#0").nav__close-btn
+          a.nav__close-btn(href="#0")
             +svg("angle-left")(class="nav__close-icon")
-        li.nav__item(class= attributes.index)
+        li.nav__item(class= attributes.mainGuide)
           a.nav__link(href= pages.index) macOS на PC
         li.nav__item(class= attributes.vmware)
           a.nav__link(href= pages.vmware ) macOS на VMWare
 
-        li.nav__item.nav__item--popup(class= attributes.popup)
+        li.nav__item.nav__item--popup
           span.nav__link Другое
             +svg("arrow-down")(class="nav__popup-icon")
           ul.nav__nested-list

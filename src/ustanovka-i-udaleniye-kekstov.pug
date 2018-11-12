@@ -1,26 +1,25 @@
 extends /layouts/layout
 
 prepend page
+  - var pageTitle = "Установка и удаление кекстов в macOS"
+  - var pageDesc = "Подробная и доступная инструкция по установке и удалению кекстов на хакинтоше"
+  - var isDateModified = true
+  - var datePublished = ["02", "09", "2017"]
+  - var dateModified = ["09", "01", "2018"]
+  - var pageLink = pages.kexts
+  - var likeBtnId = "Установка и удаление кекстов"
   -
-    var pageTitle      = "Установка и удаление кекстов в macOS"
-        pageDesc       = "Подробная и доступная инструкция по установке и удалению кекстов на хакинтоше"
-        isDateModified = true
-        datePublished  = ["02", "09", "2017"]
-        dateModified   = ["09", "01", "2018"]
-        pageLink       = pages.kexts
-        likeBtnId      = "Установка и удаление кекстов"
-
     var metaImage = {
       src: "images/content/install-kexts/kext-dragging_original.jpg",
       width: 797,
       height: 534
-    };
-
+    }
+  -
     var articleHeader = {
       iconId: "puzzle",
       title: "Установка и удаление<br>&#32;кекстов в macOS"
-    };
-
+    }
+  -
     var itemList = [
       "Введение", 
       "Установка кекстов", 

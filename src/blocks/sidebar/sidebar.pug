@@ -1,9 +1,5 @@
 mixin sidebar
   aside.page__sidebar.sidebar
     .sidebar__inner
-      case hasPageNav
-        default
-          +pageNav("desktop")
-        when false
-          // Empty
+      +pageNav("desktop")
       +share(appendClass = "sidebar__item")

@@ -1,26 +1,25 @@
 extends /layouts/layout
 
 prepend page
+  - var pageTitle      = "Завод звука на хакинтоше"
+  - var pageDesc       = "Инструкции по настройке звука на хакинтоше. Не всеобъемлющие, но с рядом полезной информации, которая может быть полезной"
+  - var isDateModified = true
+  - var datePublished  = ["02", "09", "2017"]
+  - var dateModified   = ["07", "11", "2018"]
+  - var pageLink       = pages.sound
+  - var likeBtnId      = "Завод звука"
   -
-    var pageTitle      = "Завод звука на хакинтоше"
-        pageDesc       = "Инструкции по настройке звука на хакинтоше. Не всеобъемлющие, но с рядом полезной информации, которая может быть полезной"
-        isDateModified = true
-        datePublished  = ["02", "09", "2017"]
-        dateModified   = ["07", "11", "2018"]
-        pageLink       = pages.sound
-        likeBtnId      = "Завод звука"
-
     var metaImage = {
       src: "images/content/setup-sound/thumbnail.jpg",
       width: 1334,
       height: 772
-    };
-
+    }
+  -
     var articleHeader = {
       iconId: "music",
       title: "Настройка звука на хакинтоше"
-    };
-
+    }
+  -
     var itemList = [
       "Введение",
       "Codec Commander", 
