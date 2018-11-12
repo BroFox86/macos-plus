@@ -4,12 +4,10 @@ mixin respImg(src, width)
   - var src3 = src.replace(/(\.[\w\d_-]+)$/i, "@2x$1")  + " " + Math.round(width * 2) + "w"
 
   img(
-    class  = attributes.class
     srcset = src1 + ", " + src2 + ", " + src3
     sizes  = width / 16 + "rem"
-    src	   = src
-    alt	   = attributes.alt)
+    src	   = src)&attributes(attributes)
 
 mixin svg(id)
-  svg(class= attributes.class, width= "30")
+  svg(width= "30")&attributes(attributes)
     use(xlink:href="#" + id)

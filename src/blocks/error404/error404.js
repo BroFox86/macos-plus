@@ -7,7 +7,7 @@
 (function() {
 
   function animate() {
-    var elem = document.querySelector("[data-toggle='error404'] img");
+    var elem = document.querySelector("[data-toggle='error404']");
 
     if (!elem) {
       return;

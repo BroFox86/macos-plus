@@ -10,7 +10,7 @@ mixin articleHeader
       data-modified,
       datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0])
 
-  header.article__header.article-header(class= attributes.theme)
+  header.article__header.article-header
     .article-header__img-wrapper
       +svg(articleHeader.iconId)(class="article-header__img")
     h1.article-header__headline!= articleHeader.title

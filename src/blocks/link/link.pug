@@ -1,10 +1,10 @@
 mixin a(modifier)
   case modifier
     default
-      a.link.link--article(href= attributes.href)
+      a.link.link--article&attributes(attributes)
         if block
         block
     when "note"
-      a.link.link--note(href= attributes.href)
+      a.link.link--note&attributes(attributes)
         if block
         block

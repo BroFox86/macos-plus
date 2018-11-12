@@ -17,7 +17,7 @@ mixin p
     block
 
 mixin ol
-  ol.article__ordered-list(start= attributes.start)
+  ol.article__ordered-list&attributes(attributes)
     if block
     block
 
@@ -44,12 +44,12 @@ mixin smallImage
 mixin tooltip(abbr)
   case abbr
     default
-      span.article__tooltip(title= attributes.title, data-toggle="tooltip")
+      span.article__tooltip(data-toggle="tooltip")&attributes(attributes)
         if block
         block
 
     when "abbr"
-      abbr.article__tooltip(title= attributes.title, data-toggle="tooltip")
+      abbr.article__tooltip(data-toggle="tooltip")&attributes(attributes)
         if block
         block
 
