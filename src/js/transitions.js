@@ -39,7 +39,7 @@ function Transition() {
 
       elem.style.cssText = "";
 
-    }, this._getDuration( elem ) );
+    }, this.getDuration( elem ) );
   }
 
   /**
@@ -84,7 +84,7 @@ function Transition() {
 
       style.cssText = "display:" + value;
 
-    }, this._getDuration( elem ) );
+    }, this.getDuration( elem ) );
   }
 
   /**
@@ -111,7 +111,7 @@ function Transition() {
 
       style.cssText = "";
 
-    }, this._getDuration( elem ) );
+    }, this.getDuration( elem ) );
   }
 
   /**
@@ -119,7 +119,7 @@ function Transition() {
    * @param {HTMLElement} elem
    * @returns {number} - Value in ms.
    */
-  this._getDuration = function( elem ) {
+  this.getDuration = function( elem ) {
     var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
 
     return duration * 1000;
