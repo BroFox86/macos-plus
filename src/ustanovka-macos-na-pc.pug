@@ -97,11 +97,10 @@ block content
       | .
     +li
       | В разделе «Суммарная информация» узнайте чипсет своей МП.
-      +figure("images/content/install-on-pc/сhipset.jpg")(alt="Информация о чипсете в AIDA64")
-        | Чипсет моей МП — H170 (100-я серия чипсетов Intel).
+      +image("images/content/install-on-pc/сhipset.jpg")(data-size="935x590" alt="Информация о чипсете в AIDA64")
     +li
       | И «тип BIOS» — AMI UEFI или AWARD BIOS. 
-      +img("images/content/install-on-pc/bios-type.jpg")(alt="«Тип BIOS» в AIDA64")
+      +image("images/content/install-on-pc/bios-type.jpg")(data-size="935x590" alt="«Тип BIOS» в AIDA64")
 
       +note(inf)
         | Об основных отличиях UEFI от BIOS подробно рассказано в статье на сайте  
@@ -110,11 +109,10 @@ block content
         | .
     +li
       | На той же вкладке указан аудиокодек.
-      +img("images/content/install-on-pc/audio-codec.jpg")(alt="Аудиокодек в AIDA64")
+      +image("images/content/install-on-pc/audio-codec.jpg")(data-size="935x590" alt="Аудиокодек в AIDA64")
     +li
       | Название сетевой карты в разделе «Сеть PCI/PnP».
-      +figure("images/content/install-on-pc/ethernet-card.jpg")(alt="Раздел сетевого оборудования в AIDA64")
-        | Моя встроенная сетевая карта — Killer E2400 (Atheros).
+      +image("images/content/install-on-pc/ethernet-card.jpg")(data-size="935x590" alt="Раздел сетевого оборудования в AIDA64")
   +h3
     | в) Перед тем, как начать
   +ul
@@ -143,7 +141,7 @@ block content
       +ol
         +li
           | запустите Install macOS High Sierra и загрузите данные полноценного образа; 
-          +img("images/content/install-on-pc/install-image-from-appstore.png")(alt="Загрузка образа macOS High Sierra")
+          +image("images/content/install-on-pc/install-image-from-appstore.png")(data-size="912x734" alt="Загрузка образа macOS High Sierra")
           +note(warning)
            | Если загрузка образа macOS происходит через виртуальную машину, советую проследить момент ее окончания. Иначе может произойти автоматическое обновление VMWare, что крайне нежелательно.
         +li
@@ -166,13 +164,13 @@ block content
             | Последняя команда начнет сборку образа из загруженных данных. Дождитесь ее окончания. На строку 
             i “Failed to set file flags” 
             | не обращайте внимания.
-          +img("images/content/install-on-pc/build-an-image.png")(alt="Сборка образа macOS High Sierra")
+          +image("images/content/install-on-pc/build-an-image.png")(data-size="893x478" alt="Сборка образа macOS High Sierra")
   +ol
     +li
       | Вставьте флешку.
     +li
       | Откройте Finder &gt; «Программы» &gt; «Утилиты» &gt; «Дисковая утилита» и выберите ее в левой колонке.
-      +img("images/content/install-on-pc/install-unibeast-1.png")(alt="Окно дисковой утилиты macOS")
+      +image("images/content/install-on-pc/install-unibeast-1.png")(data-size="1864x1130" alt="Окно дисковой утилиты macOS")
     +li
       | Нажмите «Стереть».
     +li
@@ -183,7 +181,7 @@ block content
       | Выберите формат OS X Extended (Журналируемый).
     +li
       | Выберите схему GUID partition Map (GPT).
-      +img("images/content/install-on-pc/install-unibeast-2.png")(alt="Форматирование диска в macOS")
+      +image("images/content/install-on-pc/install-unibeast-2.png")(data-size="1864x1130" alt="Форматирование диска в macOS")
     +li
       | Нажмите «Стереть», а затем «Готово».
     +li
@@ -194,7 +192,7 @@ block content
       | Нажимайте Continue, Continue, Continue, Agree, пока не дойдете до Destination Select.
     +li
       | На этапе Destination Select выберите флешку и нажмите Continue.
-      +img("images/content/install-on-pc/install-unibeast-4.png")(alt="Destination select в UniBeast")
+      +image("images/content/install-on-pc/install-unibeast-4.png")(data-size="1622x1204" alt="Destination select в UniBeast")
       +note(tip)
         | У UniBeast могут быть проблемы обнаружением внешних HDD. Для того чтобы обойти это ограничение, я создал 16 Гб раздел с файловой системой HFS с помощью Paragon Hard Disk Manager, а остальное пространство оставил нераз&shy;меченным.
     +li
@@ -208,12 +206,12 @@ block content
         |  рекомендуется для 5/6 серий чипсетов, а также для всех систем на базе традиционного BIOS.
       +note(inf)
         | Чипсеты Intel для МП 100-й серии — это такие модели как h370, B150 и т.п. Чипсеты 9-й серии — H97, Z97 и т.п.
-      +img("images/content/install-on-pc/install-unibeast-5.png")(alt="Bootloader Configuration в UniBeast")
+      +image("images/content/install-on-pc/install-unibeast-5.png")(data-size="1622x1204" alt="Bootloader Configuration в UniBeast")
     +li
       | (Необязательно) В Graphics Configuration представлен список опций для старых видеокарт и встроенных решений. Ознакомьтесь с их описанием.
     +li
       | Проверьте параметры установки, затем нажмите Continue и Install.
-      +img("images/content/install-on-pc/install-unibeast-6.png")(alt="Installation в UniBeast")
+      +image("images/content/install-on-pc/install-unibeast-6.png")(data-size="1622x1204" alt="Installation в UniBeast")
   +p
     | Для того чтобы macOS запустилась на обычном ПК, ей нужен сторонний загрузчик. То есть загрузчик необходим, чтобы запустить macOS на не-Apple оборудовании. UniBeast создаст загрузочную флешку, используя самый актуальный на данное время загрузчик Clover. Процесс может занять до 10 минут в зависимости от системы и скорости накопителя. Не рекомендую выходить из виртуальной машины, в случае, если создание флешки происходит через нее.
   +ol(start= "16")
@@ -352,7 +350,7 @@ block content
       | Включите компьютер и загрузитесь с USB, выбрав соответствующий пункт в меню загрузки UEFI. Или предварительно настройте для этого загрузку с USB/CD-ROM в BIOS.
     +li
       | Когда появится интерфейс Clover, запустите установку macOS High Sierra с загрузочной флешки.
-      +img("images/content/install-on-pc/unibeast-clover-screen.jpg")(alt="Загрузочный экран Clover")
+      +image("images/content/install-on-pc/unibeast-clover-screen.jpg")(data-size="1024x768" alt="Загрузочный экран Clover")
     +li
       | (Необязательно). Для первичной установки macOS на ПК необходимо отформатировать целевой жесткий диск.
       +ol
@@ -419,13 +417,13 @@ block content
         |  рекомендуется для систем на базе 7/8/9/100/200 серии чипсетов Intel и всех систем с UEFI. 
         i Legacy Boot Mode 
         | рекомендуем для 5/6 серий и всех систем на базе BIOS.
-      +img("images/content/install-on-pc/quick-start.png")(alt="Вкладка Quick Start в MultiBeast")
+      +image("images/content/install-on-pc/quick-start.png")(data-size="1826x1482" alt="Вкладка Quick Start в MultiBeast")
     +li
       | На вкладке Audio представлен список опций для аудиокодеков Realtek ALC. Ниже представлены опции для звука, реализуемого посредством HDMI. Выберите подходящий вариант для своей системы, отметив только один пункт. Если в системе чипсет Intel 100-серии, то дополнительно отметьте и соответствующую опцию. Если так и не смогли определить встроенный аудио-кодек своей системы, вероятно, подойдет один из вариантов VoodooHDA.
-      +img("images/content/install-on-pc/drivers_audio.png")(alt="Раздел Audio в MultiBeast")
+      +image("images/content/install-on-pc/drivers_audio.png")(data-size="913x741" alt="Раздел Audio в MultiBeast")
     +li
       | В Disc представлены опции для сторонних (3rd pty) SATA-контроллеров жестких дисков, а также Intel Generic AHCI SATA, которые предназначены только для определенных чипсетов (см. описание).
-      +img("images/content/install-on-pc/drivers_disk.png")(alt="Раздел Disk в MultiBeast")
+      +image("images/content/install-on-pc/drivers_disk.png")(data-size="913x741" alt="Раздел Disk в MultiBeast")
     +li
       | Вкладка Misc содержит важный для работы хакинтоша кекст FakeSMC, эмулирующий фирменную микросхему 
       +tooltip()(title="Контроллер управления системой (SMC) является подсистемой компьютеров Macintosh на базе процессоров Intel. SMC учавствует в управлении теплом и питанием, зарядкой аккумулятора, переключением видеорежима, ждущим режимом и гибернацией, светодиодными индикаторами. Он также блокирует использование macOS, когда она работает на оборудовании, отличном от Apple. ©Wikipedia")
@@ -436,10 +434,10 @@ block content
           | кексты VoodooTSCSync предназначены только для процессоров c разъемом LGA2011;
         +li
           | FakeSMC HWMonitor используется для получения данных о температурах и скоростях вращения систем охлаждения. 
-      +img("images/content/install-on-pc/drivers_misc.png")(alt="Раздел Misc в MultiBeast")
+      +image("images/content/install-on-pc/drivers_misc.png")(data-size="913x741" alt="Раздел Misc в MultiBeast")
     +li
       | В Network выберите подходящую сетевую карту.
-      +img("images/content/install-on-pc/drivers_network.png")(alt="Раздел Network в MultiBeast")
+      +image("images/content/install-on-pc/drivers_network.png")(data-size="913x741" alt="Раздел Network в MultiBeast")
     +li
       | Вкладка USB содержит несколько опций:
       +ul
@@ -449,10 +447,10 @@ block content
           | 7/8/9 Series USB Support для USB 2.0/3.0 чипсетов Intel 7/8/9 серии,
         +li
           | Increase Max Port Limit для USB 2.0/3.0 чипсетов Intel 9 и 100-й серии.
-      +img("images/content/install-on-pc/drivers_usb.png")(alt="Раздел USB в MultiBeast")
+      +image("images/content/install-on-pc/drivers_usb.png")(data-size="913x741" alt="Раздел USB в MultiBeast")
     +li
       | Переходим ко вкладке Bootloaders. Подходящий пункт должен быть отмеченным по умолчанию.
-      +img("images/content/install-on-pc/bootloaders.png")(alt="Вкладка Bootloaders в MultiBeast")
+      +image("images/content/install-on-pc/bootloaders.png")(data-size="913x741" alt="Вкладка Bootloaders в MultiBeast")
     +li
       | Customize разделена на 3 раздела. Первый раздел — Graphics Configuration.
       +ul
@@ -460,18 +458,18 @@ block content
           | Inject NVIDIA — опция для старых видеокарт NVIDIA GeForce серии 8xxx, 9xxx, 2xx, 4xx, 610 и 630;
         +li
           | Inject ATI нужна для старых видеокарт ATI, таких как 4xxx серия.
-      +img("images/content/install-on-pc/customize_graphics.png")(alt="Раздел Graphics Configuration в MultiBeast")
+      +image("images/content/install-on-pc/customize_graphics.png")(data-size="913x741" alt="Раздел Graphics Configuration в MultiBeast")
     +li
       | Раздел SSDT содержит только опции для процессоров семейства Sandy Bridge.
-      +img("images/content/install-on-pc/customize_ssdt.png")(alt="Раздел SSDT Options в MultiBeast")
+      +image("images/content/install-on-pc/customize_ssdt.png")(data-size="913x741" alt="Раздел SSDT Options в MultiBeast")
     +li
       | Раздел System Definitions содержит ряд опций, которые маскируют ПК под настоящий компьютер Mac, тем самым открывая доступ к сервисам Apple, а также нужны для нормальной работы macOS в целом. Выбирать подходящий вариант не придется, так как он уже должен быть отмечен. Раскройте списки и убедитесь в этом сами.
-      +img("images/content/install-on-pc/customize_sys-definitions.png")(alt="System Definitions в MultiBeast")
+      +image("images/content/install-on-pc/customize_sys-definitions.png")(data-size="913x741" alt="System Definitions в MultiBeast")
     +li
       | Нажмите Print или Save для сохранения данных об установленных пакетах.
     +li
       | В Build нажмите на Install.
-      +img("images/content/install-on-pc/build.png")(alt="Вкладка Build в MultiBeast")
+      +image("images/content/install-on-pc/build.png")(data-size="913x741" alt="Вкладка Build в MultiBeast")
   +h3
     | б) Установка драйверов видеокарты
   +p
@@ -493,16 +491,16 @@ block content
       | Найдите папку Clover, созданную MultiBeast на жестком диске. Она должна находится в разделе EFI. Подключенные разделы видны в левой колонке Finder или на Рабочем столе.
     +li
       | Откройте config.plist через Clover Configurator.
-      +img("images/content/install-on-pc/plist-location.jpg")(alt="Расположение config.plist")
+      +image("images/content/install-on-pc/plist-location.jpg")(data-size="864x639" alt="Расположение config.plist")
     +li
       | Перейдите на вкладку System pameters и поставьте галочку на NvidiaWeb.
-      +img("images/content/install-on-pc/clover-settings.png")(alt="NvidiaWeb в Clover Configurator")
+      +image("images/content/install-on-pc/clover-settings.png")(data-size="1334x772" alt="NvidiaWeb в Clover Configurator")
     +li
       | Сохраните изменения и выйдите из программы.
-      +img("images/content/install-on-pc/save-config_small.jpg", false)(alt="Сохранение изменений Clover Configurator")
+      +smallImage()(src="images/content/install-on-pc/save-config_small.jpg" alt="Сохранение изменений Clover Configurator")
     +li
-      | По окончании безопасно извлеките загрузочный USB и перезагрузите компьютер. Теперь можно загружаться в macOS без USB.  
-      +img("images/content/install-on-pc/high-sierra-desktop.jpg")(alt="Рабочий стол macOS High Sierra")
+      | По окончании безопасно извлеките загрузочный USB и перезагрузите компьютер. Теперь можно загружаться в macOS без USB.
+      +image("images/content/install-on-pc/high-sierra-desktop.jpg")(data-size="960x540" alt="Рабочий стол macOS High Sierra")
       +note(tip)
         | Перед изменением конфигурации загрузчика, рекомендую создавать резервную копию папки Clover на другой раздел. При аварийных ситуациях, ее можно будет восстановить из Windows, подключив раздел EFI.
   +h2

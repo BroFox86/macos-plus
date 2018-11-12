@@ -179,8 +179,9 @@
   }
 
   &__img {
-    max-width: 80%;
+    max-width: 530px;
     color: $grey;
+    transition: opacity .5s ease-in;
 
     @media (max-width: $mobile) {
       max-width: 100%;

@@ -96,7 +96,7 @@ block content
     | kXAudioDriver в данное время не поддерживает звуковые карты Creative Audigy SE/LS. И когда будет — неизвестно.
   +h2 
   +p
-    | AppleALC  — кекст, который значительно упрощает настройку звука на хакинтоше. Он позволяет включить поддержку 
+    | AppleALC — кекст, который значительно упрощает настройку звука на хакинтоше. Он позволяет включить поддержку 
     em встроенного
     |  звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты.
   +note(tip)
@@ -130,13 +130,13 @@ block content
       | Перейдите в System &gt; Library &gt; Extensions.
     +li
       | Скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
-      +img("images/content/setup-sound/native-applehda-in-boot-usb.jpg")(alt="Расположение AppleHDA на загрузочном диске")
+      +image("images/content/setup-sound/native-applehda-in-boot-usb.jpg")(data-size="860x534" alt="Расположение AppleHDA на загрузочном диске")
   +h3
     | Шаг 2.  Восстановление AppleHDA
   +ol
     +li
       | Выберите в строке меню пункт «Переход к папке».
-      +img("images/content/setup-sound/go-to-folder_small.jpg", false)(alt="Переход к папке в macOS")
+      +smallImage()(src="images/content/setup-sound/go-to-folder_small.jpg" alt="Переход к папке в macOS")
     +li
       | И введите путь к системной папке: /System/Library/Extensions.
     +li
@@ -169,18 +169,18 @@ block content
       +a()(href="http://mackie100projects.altervista.org/download-clover-configurator/")
         | Clover Configurator
       | .
-      +img("images/content/setup-sound/plist-location.jpg")(alt="Расположение config.plist")
+      +image("images/content/setup-sound/plist-location.jpg")(data-size="864x639" alt="Расположение config.plist")
     +li
       | Перейдите в раздел Kernel and Kext Patches и удалите строки, имеющие отношение к 
       i AppleHDA/HDA
       | .
-      +img("images/content/setup-sound/remove-applehda-string.png")(alt="Вкладка Kernel and Kext Patches программы Clover Configurator")
+      +image("images/content/setup-sound/remove-applehda-string.png")(data-size="1334x794" alt="Вкладка Kernel and Kext Patches программы Clover Configurator")
     +li
       | Укажите layout-id. Подробнее об этом рассказано тут: 
       +a()(href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs")
         | github.com/vit9696/AppleALC/<wbr>wiki/Supported-codecs
       | . Обычно подходит стандартное значение «1».
-      +img("images/content/setup-sound/enter-layout-id.png")(alt="Вкладка Devices программы Clover Configurator")
+      +image("images/content/setup-sound/enter-layout-id.png")(data-size="1334x772" alt="Вкладка Devices программы Clover Configurator")
     +li
       | (Необязательно) Чтобы позволить многим системам на основе процессоров семейства Skylake работать с AppleALC, необходимо переименовать 
       +a()(href="https://github.com/corpnewt/Hackintosh-Tips-And-Tricks/blob/master/README.md#audio")
@@ -196,9 +196,9 @@ block content
         +li
           i 48444546 
           | в Replace [HEX].
-      +img("images/content/setup-sound/rename-hdas.png")(alt="Вкладка ACPI программы Clover Configurator")
+      +image("images/content/setup-sound/rename-hdas.png")(data-size="1334x772" alt="Вкладка ACPI программы Clover Configurator")
     +li
       | Скопируйте AppleALC.kext в папку кекстов Clover (..EFI/CLOVER/kexts/Other/).
     +li
       | Сохраните изменения и перезагрузите компьютер. 
-      +img("images/content/setup-sound/save-config_small.jpg", false)(alt="Сохранение изменений Clover Configurator")
+      +smallImage()(src="images/content/setup-sound/save-config_small.jpg" alt="Сохранение изменений Clover Configurator")

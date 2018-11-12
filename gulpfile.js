@@ -391,10 +391,21 @@ gulp.task("images:content", function() {
     .pipe(gulp.dest(".tmp/images/"));
 });
 
+// Copy images
+gulp.task("images:misc", function() {
+  return gulp
+    .src("src/images/*misc/**")
+    .pipe(
+      plugins.plumber({ errorHandler: plugins.notify.onError("Error: <%= error.message %>") })
+    )
+    .pipe(gulp.dest(".tmp/images/"));
+});
+
 gulp.task("images:prebuild", function(cb) {
   plugins.sequence([
     "images:responsive",
-    "images:content"
+    "images:content",
+    "images:misc"
   ])(cb);
 });
 
@@ -444,27 +455,6 @@ gulp.task("images:sprites:svg", function() {
     .pipe(plugins.rename("sprite.svg"))
     .pipe(gulp.dest(".tmp/"))
     .pipe(browserSync.stream());
-});
-
-/* Check unused images
-   ========================================================================== */
-
-gulp.task("images:unused", function() {
-  return gulp
-    .src([
-      ".tmp/*.{html,xml}",
-      ".tmp/css/*",
-      ".tmp/images/**/!(*_original|*@1.5|*@2|thumbnail|logo-mobile)*"
-    ])
-    .pipe(
-      plugins.plumber({
-        errorHandler: plugins.notify.onError({
-          title: "Images filter error"
-        })
-      })
-    )
-    .pipe(plugins.unusedImages())
-    .pipe(plugins.plumber.stop());
 });
 
 /* ==========================================================================
@@ -622,7 +612,7 @@ gulp.task("build", function(cb) {
     ["html:build"],
     ["html:minify", "styles:build", "scripts:build"],
     ["images:build", "fonts:build", "favicons", "metadata"],
-    ["images:unused", "html:validate"]
+    ["html:validate"]
   )(cb);
 });
 
