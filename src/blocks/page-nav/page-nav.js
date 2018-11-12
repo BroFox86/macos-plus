@@ -21,47 +21,29 @@ var pageNav = new PageNav({
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function PageNav( options ) {
-  var contents = query( options.contents )[0],
-    headings = query( options.headings ),
+  var contents = document.querySelector( options.contents ),
+    headings = document.querySelectorAll( options.headings ),
     offset = options.offset || 0,
-    navItems = query( "li", contents );
-
-  /**
-   * Get an element by query selector.
-   * @private
-   * @param {string} selector - Selector of an element.
-   * @param {HTMLElement} [elem] - HTML Element inside of which should start finding.
-   * @returns {NodeList}
-   */
-  function query( selector, elem ) {
-
-    if ( !elem ) {
-      return document.querySelectorAll( selector );
-
-    } else {
-      return elem.querySelectorAll( selector );
-    }
-  }
-
-  [ "scroll", "DOMContentLoaded" ].forEach(function( item ) {
-    window.addEventListener( item, handleItemSelection );
-  });
+    navItems = contents.querySelectorAll( "li", contents );
 
   /**
    * Handle item selection.
    * @private
    */
-  function handleItemSelection() {
-    var heading = isItemActive();
+  function select() {
+    var heading = isItemActive(),
+      id,
+      item;
 
     if ( !heading ) {
       return;
     }
 
-    var id = heading.id,
-      item = query( "li:nth-child(" + id + ")", contents )[0];
+    clear();
 
-    clearSelection();
+    id = heading.id;
+
+    item = contents.querySelector( "li:nth-child(" + id + ")" );
 
     item.classList.add("is-active");
   }
@@ -81,7 +63,7 @@ function PageNav( options ) {
       // Reverse loop to optimize getting a current item
       while( idx-- ) {
 
-        if ( isInViewportArea( headings[idx] ) ) {
+        if ( isInArea(headings[idx]) ) {
 
           currentItem = headings[idx];
 
@@ -105,24 +87,28 @@ function PageNav( options ) {
    * @param {HTMLElement} elem
    * @returns {Boolean}
    */
-  function isInViewportArea( elem ) {
+  function isInArea( elem ) {
     var viewportTop = pageYOffset,
       elementTop = elem.getBoundingClientRect().top + pageYOffset;
 
-    if ( viewportTop > elementTop - offset ) {
+    if ( viewportTop > (elementTop - offset) ) {
       return true;
     }
-  };
+  }
 
   /**
-   * Clear selection states.
+   * Clear active state.
    * @private
    */
-  function clearSelection() {
+  function clear() {
 
     for ( var i = 0; i < navItems.length; i++ ) {
 
       navItems[i].classList.remove("is-active");
     }
   }
+
+  [ "scroll", "DOMContentLoaded" ].forEach(function( item ) {
+    window.addEventListener( item, select );
+  });
 }

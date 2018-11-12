@@ -60,9 +60,7 @@ function ShareButtons( options ) {
   }
 
   /**
-   * Get URL without
-   * an anchor and make it ready to share.
-   *
+   * Get URL without an anchor and make it ready to share.
    * @private
    * @param {HTMLElement} elem - Share button with href attribute.
    * @returns {string} - Code to open a specific website including the page URL.
@@ -99,7 +97,7 @@ function CopyUrl( options ) {
   var btn = document.querySelector( options.button ),
     output = document.querySelector( options.output ),
     wrapper = output.parentElement,
-    duration = this._getDuration(wrapper);
+    duration = this.getDuration(wrapper);
 
   btn.onclick = function() {
 
@@ -107,7 +105,7 @@ function CopyUrl( options ) {
 
     setTimeout(function() {
 
-      copyUrl();
+      copy();
 
     }, duration );
 
@@ -123,7 +121,7 @@ function CopyUrl( options ) {
    * Copy URL without an anchor link.
    * @private
    */
-  function copyUrl() {
+  function copy() {
 
     output.value = window.location.href.replace( /\#\d$/i, "" );
 

@@ -9,6 +9,7 @@
 function Transition() {
   /**
    * Show element smooth from transparency to opacity.
+   * @protected
    * @param {HTMLElement} elem - Element with CSS display:none.
    * @param {string} [value=Block] - Which value will set to display property when element became visible.
    */
@@ -17,15 +18,19 @@ function Transition() {
     value = value || "block";
 
     elem.style.display = value;
+
     elem.style.opacity = 0;
 
     setTimeout(function() {
+
       elem.style.opacity = 1;
+
     }, 20 );
   }
 
   /**
    * Hide element smooth from opacity to transparency.
+   * @protected
    * @param {HTMLElement} elem - Element that was previously displayed by fadeIn method.
    */
   this._fadeOut = function( elem ) {
@@ -44,6 +49,7 @@ function Transition() {
 
   /**
    * Expand the element smooth.
+   * @protected
    * @param {HTMLElement} elem - Element with CSS display:none.
    * @param {string} [value=Block] - Which value will set to display property when element become visible.
    */
@@ -62,9 +68,11 @@ function Transition() {
     height = getStyle( elem, "height" );
 
     paddingTop = getStyle( elem, "padding-top" );
+
     paddingBottom = getStyle( elem, "padding-bottom" );
 
     style.paddingTop = 0;
+
     style.paddingBottom = 0;
 
     style.height = 0;
@@ -78,6 +86,7 @@ function Transition() {
       style.paddingTop = paddingTop + "px";
 
       style.paddingBottom = paddingBottom + "px";
+
     }, 20 );
 
     setTimeout(function() {
@@ -89,6 +98,7 @@ function Transition() {
 
   /**
    * Roll up the element smooth to top direction.
+   * @protected
    * @param {HTMLElement} elem - Element that was previously expanded by slideDown.
    */
   this._slideUp = function( elem ) {
@@ -97,13 +107,9 @@ function Transition() {
     style.height = elem.offsetHeight + "px";
 
     setTimeout(function() {
-
       style.overflow = "hidden";
-
       style.height = 0;
-
       style.paddingTop = 0;
-
       style.paddingBottom = 0;
     }, 20 );
 
@@ -116,6 +122,7 @@ function Transition() {
 
   /**
    * Get the CSS transition-duration value.
+   * @public
    * @param {HTMLElement} elem
    * @returns {number} - Value in ms.
    */

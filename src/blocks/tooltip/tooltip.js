@@ -13,54 +13,30 @@ function Tooltip() {
 
   Transition.call( this );
 
-  document.body.addEventListener("mouseover", function( event ) {
-    var target = event.target;
-
-    if ( target.getAttribute("data-toggle") != "tooltip" ) {
-      return;
-    }
-
-    show( target );
-  })
-
-  document.body.addEventListener("mouseout", function( event ) {
-    var target = event.target;
-
-    if ( target.getAttribute("data-toggle") != "tooltip" ) {
-      return;
-    }
-
-    close( target );
-  })
-
-  document.body.addEventListener("mousemove", function( event ) {
-    var target = event.target;
-
-    if ( target.getAttribute("data-toggle") != "tooltip" ) {
-      return;
-    }
-
-    move( event );
-  });
-
   /**
    * Show the tooltip with a text from title.
    * @private
    * @param {HTMLElement} - Element with a text in the title.
    */
-  var show = function( elem ) {
-    // Get the title text
-    var text = elem.title;
+  var show = function( event ) {
+    var target = event.target,
+      text;
+
+    if ( target.getAttribute("data-toggle") != "tooltip" ) {
+      return;
+    }
+
+    text = target.title;
 
     // Save it in the data attribute
-    elem.setAttribute( "data-text", text );
+    target.setAttribute( "data-text", text );
 
-    // Clear the title
-    elem.title = "";
+    target.title = "";
 
-    // Create the tooltip
-    tooltip = document.createElement("p");
+    tooltip = document.createElement("div");
+
     tooltip.className = "tooltip";
+
     tooltip.textContent = text;
 
     document.body.appendChild( tooltip );
@@ -74,16 +50,22 @@ function Tooltip() {
    * @private
    * @param {HTMLElement} - Element that has a visible tooltip.
    */
-  var close = function( elem ) {
-    var text = elem.getAttribute("data-text");
+  var close = function( event ) {
 
-    elem.title = text;
+    var target = event.target,
+      text;
+
+    if ( target.getAttribute("data-toggle") != "tooltip" ) {
+      return;
+    }
+
+    text = target.getAttribute("data-text");
+
+    target.title = text;
 
     this._fadeOut( tooltip );
 
-    setTimeout(function() {
-      document.body.removeChild( tooltip );
-    }, 200 );
+    document.body.removeChild( tooltip );
 
   }.bind( this );
 
@@ -92,11 +74,25 @@ function Tooltip() {
    * @private
    * @param {object} event - Mousemove event object.
    */
-  function move( event ) {
-    var mouseX = event.pageX + 20,
-      mouseY = event.pageY + 10;
+  var move = function( event ) {
+    var target = event.target,
+      mouseX,
+      mouseY;
+
+    if ( target.getAttribute("data-toggle") != "tooltip" ) {
+      return;
+    }
+
+    mouseX = event.pageX + 20;
+    mouseY = event.pageY + 10;
 
     tooltip.style.left = mouseX + "px";
     tooltip.style.top = mouseY + "px";
   }
+
+  document.body.addEventListener( "mouseover", show );
+
+  document.body.addEventListener( "mouseout", close );
+
+  document.body.addEventListener( "mousemove", move );
 }

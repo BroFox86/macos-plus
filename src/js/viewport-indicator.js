@@ -1,6 +1,6 @@
 "use strict";
 
-var displayViewportSize = new ViewportIndicator([
+var viewportIndicator = new ViewportIndicator([
   "position: fixed",
   "bottom: 0",
   "left: 1%",
@@ -31,11 +31,13 @@ function ViewportIndicator( styles ) {
 
   /**
    * Generate indicator and append it to body.
-   * @kind function
-   * @private
+   * @function generate
+   * @memberof ViewportIndicator
    * @yields {HTMLElement} - Append &lt;div id="indicator">&lt;/div> to body.
+   * @private
+   * @inner
    */
-  (function() {
+  (function generate() {
     indicator = document.createElement("div");
     indicator.id = "viewportIndicator";
     indicator.style.cssText = stylesStr;
@@ -43,19 +45,19 @@ function ViewportIndicator( styles ) {
     document.body.appendChild( indicator );
   })();
 
-  [ "DOMContentLoaded", "resize" ].forEach(function( item ) {
-    window.addEventListener( item, displayViewportSize );
-  });
-
   /**
    * Calculate viewport sizes of the page and insert the value to the indicator.
    * @private
    */
-  function displayViewportSize() {
+  function display() {
     var scrollbar = window.innerWidth - document.documentElement.clientWidth,
       width = window.innerWidth,
       height = window.innerHeight;
 
     indicator.innerHTML = (width - scrollbar) + "x" + height;
   }
+
+  [ "DOMContentLoaded", "resize" ].forEach(function( item ) {
+    window.addEventListener( item, display );
+  });
 }

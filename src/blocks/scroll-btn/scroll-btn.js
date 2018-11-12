@@ -17,17 +17,20 @@ function ScrollButton( options ) {
   var btn = document.querySelector( options.button ),
     threshold = options.threshold;
 
-  window.addEventListener("scroll", function() {
-
+  function toggle() {
     if ( pageYOffset > threshold ) {
       btn.classList.add("is-visible");
 
     } else {
       btn.classList.remove("is-visible");
     }
-  });
+  }
 
-  btn.onclick = function() {
+  function toTop() {
     scrollTo( 0, 0 );
   }
+
+  window.addEventListener( "scroll", toggle );
+
+  btn.addEventListener( "click", toTop );
 }
