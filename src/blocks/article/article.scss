@@ -46,15 +46,10 @@
     }
   }
 
-  &__h2-wrapper {
-    display: block;
-    margin: $margin 0;
-  }
-
   &__h2 {
     position: relative;
     display: inline-block;
-    margin: 0;
+    margin: $margin 0;
     color: $base-font-color;
     font-family: $headings-font;
     font-size: $h2;
