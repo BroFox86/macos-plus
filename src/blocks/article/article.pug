@@ -1,5 +1,10 @@
 - var j = 0
 
+mixin section
+  section.article__section
+    if block
+    block
+
 mixin h2
   a.link.article__h2-wrapper(href= "#" + (j + 1))
     h2.article__h2(id = (j + 1), data-spy="pageNav")

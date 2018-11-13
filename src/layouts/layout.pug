@@ -69,22 +69,16 @@ block page
     +header
       block nav
         +nav
-
-    .page__container
-      block containerInner
+    main.page__container  
+      block inner
         article.article
           block articleHeader
             +articleHeader
-
-          .article__content
-            block content
-
+          block content
           +pageNav("mobile")
           +vote
-
       block sidebar
         +sidebar
-    
     +footer
     +scrollButton
     +lightbox
