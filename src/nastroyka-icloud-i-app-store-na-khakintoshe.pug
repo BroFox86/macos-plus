@@ -5,14 +5,14 @@ prepend page
   - var pageDesc = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
   - var isDateModified = true
   - var datePublished = ["23", "05", "2017"]
-  - var dateModified = ["09", "01", "2018"]
-  - var pageLink = pages.services
+  - var dateModified = ["14", "12", "2018"]
+  - var pageLink = page.services
   - var likeBtnId = "Запуск сервисов Apple"
   -
     var metaImage = {
       src: "images/content/setup-services/thumbnail.jpg",
-      width: 1334,
-      height: 772
+      width: 1332,
+      height: 792
     }
   -
     var articleHeader = {
@@ -39,14 +39,6 @@ block content
         +image("images/content/setup-services/logout-from-appstore.jpg")(data-size="920x609" alt="Выход из App Store")
         +image("images/content/setup-services/logout-from-icloud.png")(data-size="892x565" alt="Выход из iCloud")
       +li
-        | Войдите в свою 
-        +a()(href="https://appleid.apple.com/#!&page=signin")
-          | учетную запись
-        |  Apple и удалите все устройства из списка, с которых был произведен вход. Можно оставить 
-        i подлинные 
-        | устройства Apple — iPhone, iPod и т.д...
-        +image("images/content/setup-services/remove-devices.jpg")(data-size="1303x834" alt="Стереть историю входов учетной записи Apple")
-      +li
         | Перезагрузите компьютер.
     +h3
       | б) Настройка Clover
@@ -61,12 +53,12 @@ block content
         +image("images/content/setup-services/pick-mac-model.png")(data-size="864x639" alt="Вкладка SMBIOS")
         +note(inf)
           | Подходящий вариант и поля уже должны быть введены автоматически во время 
-          +a("note")(href= pages.index + "#6")
+          +a("note")(href= page.index + "#6")
           | пост-установки
           |  с MultiBeast. Поэтому, если страницы конфигуратора окажутся полупустыми, убедитесь, что config.plist открыт правильно.
       +li
-        | Нажмите на Generate New и сгенерируйте серийный номер.
-        +image("images/content/setup-services/generate-serial.png")(data-size="1334x772" alt="Вкладка SMBIOS")
+        | Сгенерируйте серийный номер и SmUUID.
+        +image("images/content/setup-services/generate.png")(data-size="1334x772" alt="Вкладка SMBIOS")
       +li
         | Скопируйте полученный код из поля Serial Number и введите его в форму на странице 
         +a()(href="https://checkcoverage.apple.com")
@@ -78,18 +70,15 @@ block content
           | , как на приведенном ниже скриншоте — значит это то, что надо и можно продолжать дальше. В противном случае, если серийный номер окажется «валидным», необходимо будет сгенерировать его по-новому. Иначе возникнут проблемы с дубликатом уже зарегистрированного серийного номера Mac.
         +smallImage()(src="images/content/setup-services/check-serial_small.jpg" alt="Проверка серийного номера Mac")
       +li
-        | Откройте Terminal и введите 
-        +code("uuidgen")
-        | , затем нажмите Enter.
-        +smallImage()(src="images/content/setup-services/get-uuidgen.png" alt="Вставка uuidgen в терминал")
-      +li
-        | Скопируйте выданное терминалом значение в буфер обмена и вставьте в поле SmUUID.
-        +image("images/content/setup-services/smuuid-field.png")(data-size="1334x772" alt="Вкладка SMBIOS")
-      +li
         | Сохраните изменения.
         +smallImage()(src="images/content/setup-services/config-6_small.jpg" alt="Сохранение в Clover Configurator")
       +li
         | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и App Store.
+    +note(tip)
+      | Также могут пригодиться различные способы решения проблемы с периодическими запросами пароля для iCloud, о которых рассказано по ссылке: 
+      +a("note")(href="https://ddr5.ru/oshibka-podklyucheniya-mac-k-icloud/")
+        | ddr5.ru/oshibka-podklyucheniya-mac-k-icloud/
+
   +section
     +h2
     +p

@@ -5,8 +5,8 @@ prepend page
   - var pageDesc = "С помощью этого руководства получится установить хакинтош на большинство персональных компьютеров на базе intel."
   - var isDateModified = true
   - var datePublished = ["03", "05", "2017"]
-  - var dateModified = ["13", "11", "2018"]
-  - var pageLink = pages.index
+  - var dateModified = ["06", "12", "2018"]
+  - var pageLink = page.index
   - var likeBtnId = "Установка macOS на ПК"
   -
     var metaImage = {
@@ -24,7 +24,7 @@ prepend page
       "Введение", 
       "Подготовка", 
       "Создание флешки", 
-      "Настройка МП", 
+      "Настройка BIOS/UEFI", 
       "Установка macOS", 
       "Пост-установка",
       "Полезные ссылки"
@@ -60,7 +60,7 @@ block content
       | а) Настройка VMWare
     +p
       | Для того чтобы установить официальный образ macOS Mojave на ПК, потребуется для начала загрузить его через цифровой магазин App Store. Это можно сделать с помощью виртуальных машин, программ, которые эмулируют работу одной операционной системы внутри другой. На этом сайте будет приведена установка и настройка бесплатной версии одной из таких программ — VMWare Workstation Player. Запущенная на виртуальной машине macOS отображается как обычная программа для Windows — в окне или в режиме полного экрана. Установка и настройка виртуальной машины VMWare подробно изложена на отдельной 
-      +a()(href= pages.vmware)
+      +a()(href= page.vmware)
         | странице
       | .
     +note(tip)
@@ -138,6 +138,14 @@ block content
     +ol
       +li
         | Найдите в App Store образ Mojave и загрузите. Размер загружаемых данных должен быть около 5-6 Гб.
+        +note(tip)
+          | Ввиду 
+          +a("note")(href="https://www.tonymacx86.com/nvidia-drivers/") 
+            | отсутствия
+          |  альтернативных драйверов Nvidia для macOS Mojave, на системы с видеокартами GeForce лучше устанавливать стабильную версию High&nbsp;Sierra, доступную для загрузки по 
+          +a("note")(href="https://itunes.apple.com/us/app/macos-high-sierra/id1246284741?mt=12")
+            | прямой ссылке
+          | .
       +li 
         | (Необязательно) Если вместо полноценного образа загрузится небольшой установщик размером ~20 Мб, выполните инструкцию ниже. В противном случае пропустите данный этап.
         +ol
@@ -219,7 +227,7 @@ block content
           |Процесс может занять до 10 минут в зависимости от системы и скорости накопителя. Не рекомендую выходить из виртуальной машины, в случае, если создание флешки происходит через нее.
         +image("images/content/install-on-pc/install-unibeast-6.png")(data-size="1622x1204" alt="Installation в UniBeast")
         +note(inf)
-          | Для того чтобы macOS запустилась на обычном ПК, ей нужен сторонний загрузчик. То есть загрузчик необходим, чтобы запустить macOS на не-Apple оборудовании. UniBeast создаст загрузочную флешку, используя самый актуальный на данное время загрузчик Clover. 
+          | Для того чтобы macOS запустилась на обычном ПК, ей нужен сторонний загрузчик. UniBeast создаст загрузочную флешку, используя актуальный на данное время загрузчик Clover. 
       +li
         | Переместите архив с 
         +a()(href="https://www.tonymacx86.com/resources/categories/tonymacx86-downloads.3/")
@@ -433,8 +441,9 @@ block content
           | Дополнительная информация: 
         +ol
           +li 
-            +a()(href= pages.sound)
-              | Настройка звука на хакинтоше, 
+            +a()(href= page.sound)
+              | Настройка звука на хакинтоше
+            | , 
           +li
             +a()(href="https://www.tonymacx86.com/threads/mojave-applehda-audio.260004/")
               | www.tonymacx86.com/threads/mojave-applehda-audio
@@ -535,4 +544,5 @@ block content
       +li
         | утилита для удобной настройки Clover: 
         +a()(href="http://mackie100projects.altervista.org/download-clover-configurator/")
-          | Clover Configurator.
+          | Clover Configurator
+        | .
