@@ -11,19 +11,19 @@ mixin nav
           a.nav__close-btn(href="#0")
             +svg("angle-left")(class="nav__close-icon")
         li.nav__item(class= attributes.mainGuide)
-          a.nav__link(href= pages.index) macOS на PC
+          a.nav__link(href= page.index) macOS на PC
         li.nav__item(class= attributes.vmware)
-          a.nav__link(href= pages.vmware ) macOS на VMWare
+          a.nav__link(href= page.vmware ) macOS на VMWare
 
         li.nav__item.nav__item--popup
           span.nav__link Другое
             +svg("arrow-down")(class="nav__popup-icon")
           ul.nav__nested-list
             li.nav__item(class= attributes.kexts)
-              a.nav__link(href= pages.kexts) Установка кекстов
+              a.nav__link(href= page.kexts) Установка кекстов
             li.nav__item(class= attributes.services)
-              a.nav__link(href= pages.services) iCloud &amp; AppStore
+              a.nav__link(href= page.services) iCloud &amp; AppStore
             li.nav__item(class= attributes.sound)
-              a.nav__link(href= pages.sound) Настройка звука
+              a.nav__link(href= page.sound) Настройка звука
             li.nav__item(class= attributes.efi)
-              a.nav__link(href= pages.efi) Монтирование EFI
+              a.nav__link(href= page.efi) Монтирование EFI

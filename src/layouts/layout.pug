@@ -15,10 +15,10 @@ block page
       // inject:critical:css 
       // endinject
 
-      // build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+      //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
       link(href="css/normalize.css" rel="stylesheet")
       link(href="css/main.css" rel="stylesheet")
-      // endbuild 
+      //endbuild 
 
       // inject:fg-loadcss:html 
       // endinject 
@@ -30,10 +30,10 @@ block page
       meta(property="og:title" content= pageTitle)
       meta(property="og:description" content= pageDesc)
       meta(property="og:type" content="article")
-      meta(property="og:image" content= domainName + metaImage.src)
+      meta(property="og:image" content= domain + metaImage.src)
       meta(property="og:image:width" content= metaImage.width)
       meta(property="og:image:height" content= metaImage.height)
-      meta(property="og:url" content= domainName)
+      meta(property="og:url" content= domain)
       meta(property="og:site_name" content="macOS+ | Лис подскажет")
 
       link(rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png")
@@ -84,14 +84,14 @@ block page
     +lightbox
 
     block scripts
-      // build:js js/global.min.js
+      //build:js js/global.min.js
       script(src="js/transitions.js")
       script(src="js/blocks.js")
-      // endbuild 
+      //endbuild 
 
-      // build:remove 
+      //build:remove 
       script(src="js/viewport-indicator.js") 
-      // endbuild 
+      //endbuild 
 
     block structuredData
       mixin structuredData
@@ -102,10 +102,10 @@ block page
             "@type": "TechArticle",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "#{domainName}#{pageLink}"
+              "@id": "#{domain}#{pageLink}"
             },
             "headline": "#{pageTitle}",
-            "image": "#{domainName}#{metaImage.src}",
+            "image": "#{domain}#{metaImage.src}",
             "datePublished": "#{datePublished[2]}-#{datePublished[1]}-#{datePublished[0]}",
             "dateModified": "#{dateModifiedString}",
             "author": {
@@ -124,7 +124,7 @@ block page
               "name": "macOS Plus",
               "logo": {
                 "@type": "ImageObject",
-                "url": "#{domainName}images/logo.jpg"
+                "url": "#{domain}images/logo.jpg"
               }
             },
             "description": "#{pageDesc}"

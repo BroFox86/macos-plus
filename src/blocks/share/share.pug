@@ -4,21 +4,21 @@ mixin share
     .share__container
 
       a.share__btn.share__btn--vk( 
-        href="https://vk.com/share.php?url=" + domainName
+        href="https://vk.com/share.php?url=" + domain
         data-toggle="share"
         title="Вконтакте"
       )
         +svg("vk")(class="share__icon")
 
       a.share__btn.share__btn--twitter(
-        href="https://twitter.com/intent/tweet?url=" + domainName
+        href="https://twitter.com/intent/tweet?url=" + domain
         data-toggle="share"
         title="Twitter"
       )
         +svg("twitter")(class="share__icon")
 
       a.share__btn.share__btn--fb(
-        href="https://www.facebook.com/sharer/sharer.php?u=" + domainName
+        href="https://www.facebook.com/sharer/sharer.php?u=" + domain
         data-toggle="share"
         title="Facebook"
       )
