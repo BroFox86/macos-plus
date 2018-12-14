@@ -1,21 +1,13 @@
 .footer {
   height: 100%;
-  padding-bottom: 30px;
+  padding: 35px 0;
   color: $dimmed-font-color;
   background: $footer-bg;
   text-align: center;
   font-size: 0.895em;
 
-  @media (max-width: $desktop) {
-    padding-top: 15px;
-  }
-
-  @media (max-width: $tablet) {
-    padding-bottom: 30px;
-  }
-
   @media (max-width: $mobile) {
-    padding: 30px 30px;
+    padding: 40px 0;
   }
 
   &::before {
@@ -28,7 +20,7 @@
     display: block;
     height: inherit;
     background: inherit;
-    transform: skewY(-3deg);
+    transform: skewY(-2deg);
     transform-origin: 0 0;
   }
 
@@ -47,6 +39,7 @@
 
   &__copyrights {
     margin: 0 0 15px;
+    padding: 0 20px;
   }
 
   &__my-links {

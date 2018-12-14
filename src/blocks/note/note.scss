@@ -1,7 +1,7 @@
 .note {
   width: 70%;
-  padding: 15px 15px 15px 65px;
-  border-radius: $border-radius--large;
+  padding: 17px 17px 17px 65px;
+  border-radius: 23px;
   color: white;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
   font-family: $second-font;
@@ -15,8 +15,8 @@
 
   &__icon {
     position: absolute;
-    top: 25px;
-    left: 21px;
+    top: 27px;
+    left: 20px;
     width: 28px;
     height: 28px;
     fill: white;

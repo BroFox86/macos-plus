@@ -1,72 +1,66 @@
 // Breakpoints
 // ==========================================================================
-$desktop:   1160px;
-$tablet:    960px;
-$mobile:    600px;
+$desktop: 1160px;
+$tablet: 960px;
+$mobile: 600px;
 
 // Sizes
 // ==========================================================================
-$margin:          26px;
-$margin--large:   40px;
-$header-width:    70px;
+$margin: 26px;
+$margin--large: 40px;
+$header-width: 75px;
 
 // Font sizes
-$h1:           37px;
-$h2:           29px;
-$h3:           23px;
-$h1--mobile:   26px;
-$h2--mobile:   23px;
-$h3--mobile:   20px;
-
-// Borders
-// ==========================================================================
-$border-radius--tiny:    4px;
-$border-radius:          10px;
-$border-radius--large:   23px;
-$border-radius--huge:    40px;
+$h1: 37px;
+$h2: 29px;
+$h3: 23px;
+$h1--mobile: 26px;
+$h2--mobile: 23px;
+$h3--mobile: 20px;
 
 // Color theme
 // ==========================================================================
-$accent:      #4367d4;
-$header-bg:   #455a64;
-$footer-bg:   #230e2d;
-$light:       #f4f4f4;
-$grey:        #858585;
-$border:      darken(#ebebeb, 5);
-$code:        #ebebeb;
+
+// Fonts
+$base-font-color: #444;
+$nav-font-color: darken(#6c757d, 5);
+$dimmed-font-color: transparentize(white, .05);
+
+$accent: #4367d4;
+$header-bg: #455a64;
+$footer-bg: #230e2d;
+$light: #f4f4f4;
+$grey: #858585;
+$border: darken(#ebebeb, 5);
+$code: #ebebeb;
 
 // Links
-$visited:     #512da8;
-$selection:   #BA68C8;
+$visited: #512da8;
+$selection: #BA68C8;
 
 // Notes
-$tip:         #00acc1;
-$info:        #7e57c2;
-$tooltip:     $info;
-$warning:     #ec407a;
+$tip: #00acc1;
+$info: #7e57c2;
+$tooltip: $info;
+$warning: #ec407a;
 
 // Social
-$vk:           #507299;
-$twitter:      #55acee;
-$googleplus:   #dd4e42;
-$facebook:     #3b5998;
+$vk: #507299;
+$twitter: #55acee;
+$googleplus: #dd4e42;
+$facebook: #3b5998;
 
 // Fonts
 // ==========================================================================
-$websafe:         -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$base-font:       "PT Sans", $websafe;
-$second-font:     "PT Sans Caption", $websafe;
-$headings-font:   $base-font;
-
-// Font colors
-$base-font-color:     #464646;
-$nav-font-color:      darken(#6c757d, 5);
-$dimmed-font-color:   transparentize(white, .1);
+$websafe: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$base-font: "PT Sans", $websafe;
+$second-font: "PT Sans Caption", $websafe;
+$headings-font: $base-font;
 
 // Animations
 // ==========================================================================
-$fall-duration:    .25s;
-$shake-duration:   .2s;
-$shake-delay:      $fall-duration;
+$fall-duration: .25s;
+$shake-duration: .2s;
+$shake-delay: $fall-duration;
 
 $transition: all .15s ease-out;

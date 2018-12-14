@@ -33,6 +33,7 @@
     @media (max-width: $tablet) {
       display: block;
       order: -1;
+      margin-bottom: $margin;
     }
   }
 
@@ -56,6 +57,7 @@
     font-weight: 700;
 
     @media (max-width: $mobile) {
+      margin: $margin/2 0;
       font-size: $h2--mobile;
     }
   }
@@ -204,7 +206,7 @@
   &__code {
     padding: 3px 6px;
     hyphens: none;
-    border-radius: $border-radius--tiny;
+    border-radius: 4px;
     background: $code;
     font-size: 0.947em;
 

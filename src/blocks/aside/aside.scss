@@ -1,7 +1,11 @@
 .aside {
   overflow: hidden;
   border: 1px solid $border;
-  border-radius: $border-radius--large;
+  border-radius: 30px;
+
+  @media (max-width: $tablet) {
+    border-radius: 35px;
+  }
 
   &__headline {
     margin: 0;

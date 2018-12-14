@@ -1,6 +1,6 @@
 .article-header {
   padding: 70px;
-  border-radius: $border-radius--huge;
+  border-radius: 60px;
   text-align: center;
   background: linear-gradient(135deg, $light 22px, white 22px, white 24px, transparent 24px, transparent 67px, white 67px, white 69px, transparent 69px),
               linear-gradient(225deg, $light 22px, white 22px, white 24px, transparent 24px, transparent 67px, white 67px, white 69px, transparent 69px)0 64px;
@@ -8,8 +8,8 @@
   background-size: 64px 128px;
 
   @media (max-width: $mobile) {
+    border-radius: 35px;
     padding: 30px 10px;
-    border-radius: $border-radius--large;
   }
 
   &__img-wrapper {
@@ -61,7 +61,6 @@
 
   &__data-item {
     display: inline-block;
-    color: $grey;
     line-height: 2;
 
     &::after {
