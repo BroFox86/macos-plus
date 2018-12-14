@@ -115,22 +115,29 @@ function LazyImage( options ) {
     setDimensions();
   }, 500);
 
-  window.addEventListener("scroll", function() {
+  function handle() {
+    var img,
+      isLoaded,
+      src;
 
     for ( var i = 0; i < imgs.length; i++ ) {
-      var img = imgs[i],
-        isLoaded = img.getAttribute("data-src") == "loaded";
+      img = imgs[i],
+      isLoaded = img.getAttribute("data-src") == "loaded";
 
-      if ( !isInArea(img) || isLoaded ) {
+      if ( !isInArea( img ) || isLoaded ) {
         continue;
       }
 
-      var src = img.getAttribute("data-src");
+      src = img.getAttribute("data-src");
 
       img.setAttribute( "data-src", "loaded" );
 
       display( img, src );
     }
+  }
+
+  [ "DOMContentLoaded", "scroll" ].forEach(function( item ) {
+    window.addEventListener( item, handle );
   });
 
   /**
@@ -141,7 +148,7 @@ function LazyImage( options ) {
    * @returns {Boolean}
    */
   function isInArea( elem ) {
-    var offset = document.documentElement.clientHeight / 2,
+    var offset = document.documentElement.clientHeight,
       bottomViewport = pageYOffset + document.documentElement.clientHeight,
       elemTop = elem.getBoundingClientRect().top + pageYOffset;
 

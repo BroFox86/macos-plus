@@ -10,7 +10,7 @@
   var relativeDate = setDate( calcDiff, localizeUnits ),
     SELECTOR = "[data-modified]";
 
-  relativeDate(SELECTOR);
+  relativeDate( SELECTOR );
 
   /**
    * Wrapper function that set the specific time unit from days
@@ -104,7 +104,8 @@
     var now = new Date(),
       current = new Date( now.getFullYear(), now.getMonth(), now.getDate() ),
       modified = new Date( modDate ).setHours( 0 ),
-      days = Math.floor( (current - modified) / 86400000 );
+      day = 86400000, // ms
+      days = Math.floor( (current - modified) / day );
 
     return days = ( days >= 0 ) ? days : undefined;
   }
