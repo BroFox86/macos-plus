@@ -3,13 +3,13 @@
 mixin nav
   nav.nav
     a(href="#target").nav__open-btn
-      +svg("bars")(class="nav__open-icon")
+      +svg("#bars")(class="nav__open-icon")
     a.nav__open-target(id="target")
     .nav__inner
       ul.nav__list
         li
           a.nav__close-btn(href="#0")
-            +svg("angle-left")(class="nav__close-icon")
+            +svg("#angle-left")(class="nav__close-icon")
         li.nav__item(class= attributes.mainGuide)
           a.nav__link(href= page.index) macOS на PC
         li.nav__item(class= attributes.vmware)
@@ -17,7 +17,7 @@ mixin nav
 
         li.nav__item.nav__item--popup
           span.nav__link Другое
-            +svg("arrow-down")(class="nav__popup-icon")
+            +svg("#arrow-down")(class="nav__popup-icon")
           ul.nav__nested-list
             li.nav__item(class= attributes.kexts)
               a.nav__link(href= page.kexts) Установка кекстов

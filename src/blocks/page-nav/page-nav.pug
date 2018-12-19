@@ -9,7 +9,7 @@ mixin pageNav(state)
           a.page-nav__link(href="#" + (i+1))
             span!= itemList[i++] + " "
             span.page-nav__icon-wrapper
-              +svg("link-solid")(class="page-nav__icon")
+              +svg("#link-solid")(class="page-nav__icon")
 
   case state
     when "desktop"

@@ -8,27 +8,27 @@ mixin share
         data-toggle="share"
         title="Вконтакте"
       )
-        +svg("vk")(class="share__icon")
+        +svg("#vk")(class="share__icon")
 
       a.share__btn.share__btn--twitter(
         href="https://twitter.com/intent/tweet?url=" + domain
         data-toggle="share"
         title="Twitter"
       )
-        +svg("twitter")(class="share__icon")
+        +svg("#twitter")(class="share__icon")
 
       a.share__btn.share__btn--fb(
         href="https://www.facebook.com/sharer/sharer.php?u=" + domain
         data-toggle="share"
         title="Facebook"
       )
-        +svg("facebook")(class="share__icon")
+        +svg("#facebook")(class="share__icon")
 
       button.btn.share__btn.share__btn--url(
         data-toggle="copyUrl"
         title="Скопировать ссылку"
       )
-        +svg("link-solid")(class="share__icon")
+        +svg("#link-solid")(class="share__icon")
 
     .share__output-wrapper
       input.share__output-field(data-target="copyUrl")

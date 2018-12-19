@@ -9,5 +9,5 @@ mixin respImg(src, width)
     src = src)&attributes(attributes)
 
 mixin svg(id)
-  svg(width= "30")&attributes(attributes)
-    use(xlink:href="#" + id)
+  svg(width="30")&attributes(attributes)
+    use(xlink:href= "images/sprite.svg" + id)

@@ -63,9 +63,6 @@ block page
       a(href="https://www.enable-javascript.com/ru/" target="_blank") инструкции
       | , как включить JavaScript в вашем браузере.
 
-    // inject:svg 
-    // endinject
-
     +header
       block nav
         +nav
@@ -87,7 +84,11 @@ block page
       //build:js js/global.min.js
       script(src="js/transitions.js")
       script(src="js/blocks.js")
-      //endbuild 
+      script(src="js/svg4everybody.min.js")
+      //endbuild
+
+      script.
+        svg4everybody();
 
       //build:remove 
       script(src="js/viewport-indicator.js") 
