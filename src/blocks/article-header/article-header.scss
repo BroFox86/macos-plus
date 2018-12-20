@@ -45,14 +45,6 @@
       margin-bottom: 12px;
       font-size: $h1--mobile;
     }
-
-    br {
-      display: block;
-
-      @media (max-width: $tablet) {
-        display: none;
-      }
-    }
   }
 
   &__data {
