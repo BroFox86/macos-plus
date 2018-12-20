@@ -29,13 +29,8 @@ function ViewportIndicator( styles ) {
     stylesStr += styles[i] + ";"
   }
 
-  /**
+  /*
    * Generate indicator and append it to body.
-   * @function generate
-   * @memberof ViewportIndicator
-   * @yields {HTMLElement} - Append &lt;div id="indicator">&lt;/div> to body.
-   * @private
-   * @inner
    */
   (function generate() {
     indicator = document.createElement("div");
@@ -45,9 +40,8 @@ function ViewportIndicator( styles ) {
     document.body.appendChild( indicator );
   })();
 
-  /**
+  /*
    * Calculate viewport sizes of the page and insert the value to the indicator.
-   * @private
    */
   function display() {
     var scrollbar = window.innerWidth - document.documentElement.clientWidth,

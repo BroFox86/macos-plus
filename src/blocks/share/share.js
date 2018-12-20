@@ -46,10 +46,8 @@ function ShareButtons( options ) {
     }
   });
 
-  /**
+  /*
    * Open the new window.
-   * @private
-   * @param {HTMLElement} elem - Share button.
    */
   function openWindow( elem ) {
 
@@ -117,9 +115,8 @@ function CopyUrl( options ) {
 
   }.bind( this );
 
-  /**
+  /*
    * Copy URL without an anchor link.
-   * @private
    */
   function copy() {
 
@@ -132,10 +129,6 @@ function CopyUrl( options ) {
     document.execCommand("Copy");
   }
 
-  /**
-   * Show the message.
-   * @private
-   */
   function showMessage() {
 
     output.blur();

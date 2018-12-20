@@ -51,12 +51,8 @@ var lazyLoad = new LazyImage({
 function LazyImage( options ) {
   var imgs = document.querySelectorAll( options.images );
 
-  /**
+  /*
    * Change preloader image from *.svg to *.gif for IE/Edge.
-   * @function changePreloader
-   * @memberof LazyLoad
-   * @private
-   * @inner
    */
   (function changePreloader() {
     var userAgent = window.navigator.userAgent,
@@ -77,12 +73,8 @@ function LazyImage( options ) {
     }
   })();
 
-  /**
+  /*
    * Specify image dimensions to prevent bounces when the page is scrolling and images aren't yet loaded.
-   * @function setDimensions
-   * @memberof LazyLoad
-   * @private
-   * @inner
    */
   function setDimensions() {
     for ( var i = 0; i < imgs.length; i++ ) {
@@ -140,12 +132,9 @@ function LazyImage( options ) {
     window.addEventListener( item, handle );
   });
 
-  /**
+  /*
    * Check if the element is in the specific document position
    * out of the screen.
-   * @private
-   * @param {HTMLElement} elem
-   * @returns {Boolean}
    */
   function isInArea( elem ) {
     var offset = document.documentElement.clientHeight,
@@ -157,11 +146,8 @@ function LazyImage( options ) {
     }
   }
 
-  /**
+  /*
    * Display image smoothly when it's loaded.
-   * @private
-   * @param {HTMLElement} targetImg - Image element.
-   * @param {string} src - Image source.
    */
   function display( targetImg, src ) {
     var preloadImg = document.createElement("img"),

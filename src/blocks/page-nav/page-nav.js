@@ -26,9 +26,8 @@ function PageNav( options ) {
     offset = options.offset || 0,
     navItems = contents.querySelectorAll( "li", contents );
 
-  /**
+  /*
    * Handle item selection.
-   * @private
    */
   function select() {
     var heading = isItemActive(),
@@ -96,9 +95,8 @@ function PageNav( options ) {
     }
   }
 
-  /**
+  /*
    * Clear active state.
-   * @private
    */
   function clear() {
 

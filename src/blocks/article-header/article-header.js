@@ -12,12 +12,8 @@
 
   relativeDate( SELECTOR );
 
-  /**
+  /*
    * Wrapper function that set the specific time unit from days
-   * @private
-   * @param {function} calcDiff - Calculate the interval between dates in days.
-   * @param {function} localizeUnits - Set the name of time units in accordance with the Russian grammar.
-   * @returns {function}
    */
   function setDate( calcDiff, localizeUnits ) {
 

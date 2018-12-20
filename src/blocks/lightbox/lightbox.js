@@ -27,12 +27,8 @@ function Lightbox( options ) {
 
   this._modal = modal;
 
-  /**
+  /*
    * Change preloader image from *.svg to *.gif for IE/Edge.
-   * @function changePreloader
-   * @memberof Lightbox
-   * @private
-   * @inner
    */
   (function changePreloader() {
     var userAgent = window.navigator.userAgent,
@@ -138,10 +134,6 @@ function Modal() {
    */
   this._modal;
 
-  /**
-   * Open modal window.
-   * @protected
-   */
   this._open = function() {
 
     this._fadeIn( this._modal );
@@ -149,10 +141,6 @@ function Modal() {
     toggleScroll();
   }
 
-  /**
-   * Close modal window.
-   * @protected
-   */
   this._close = function() {
 
     this._fadeOut( this._modal );
@@ -164,10 +152,6 @@ function Modal() {
     }, this._getDuration( this._modal ) );
   }
 
-  /**
-   * Turn off/on the page scrolling.
-   * @private
-   */
   function toggleScroll() {
     var scrollbar = window.innerWidth - document.documentElement.clientWidth;
 

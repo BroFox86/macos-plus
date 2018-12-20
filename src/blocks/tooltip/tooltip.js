@@ -13,10 +13,8 @@ function Tooltip() {
 
   Transition.call( this );
 
-  /**
+  /*
    * Show the tooltip with a text from title.
-   * @private
-   * @param {HTMLElement} - Element with a text in the title.
    */
   var show = function( event ) {
     var target = event.target,
@@ -45,10 +43,8 @@ function Tooltip() {
 
   }.bind( this );
 
-  /**
+  /*
    * Close the tooltip and restore the title attribute.
-   * @private
-   * @param {HTMLElement} - Element that has a visible tooltip.
    */
   var close = function( event ) {
 
@@ -69,10 +65,8 @@ function Tooltip() {
 
   }.bind( this );
 
-  /**
+  /*
    * Move the tooltip in accordance with the cursor.
-   * @private
-   * @param {object} event - Mousemove event object.
    */
   var move = function( event ) {
     var target = event.target,
