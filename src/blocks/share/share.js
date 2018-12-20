@@ -97,7 +97,7 @@ function CopyUrl( options ) {
   var btn = document.querySelector( options.button ),
     output = document.querySelector( options.output ),
     wrapper = output.parentElement,
-    duration = this.getDuration(wrapper);
+    duration = this._getDuration(wrapper);
 
   btn.onclick = function() {
 

@@ -44,7 +44,7 @@ function Transition() {
 
       elem.style.cssText = "";
 
-    }, this.getDuration( elem ) );
+    }, this._getDuration( elem ) );
   }
 
   /**
@@ -59,33 +59,31 @@ function Transition() {
       paddingTop,
       paddingBottom;
 
-    value = value || "block";
-
-    style.boxSizing = "content-box";
-
-    style.display = value;
-
-    height = getStyle( elem, "height" );
-
     paddingTop = getStyle( elem, "padding-top" );
 
     paddingBottom = getStyle( elem, "padding-bottom" );
 
-    style.paddingTop = 0;
+    style.padding = "0";
 
-    style.paddingBottom = 0;
+    value = value || "block";
+
+    style.display = value;
+
+    height = elem.offsetHeight + paddingTop + paddingBottom;
 
     style.height = 0;
 
     style.overflow = "hidden";
 
-    setTimeout(function() {
+    style.boxSizing = "border-box";
 
-      style.height = height + "px";
+    setTimeout(function() {
 
       style.paddingTop = paddingTop + "px";
 
       style.paddingBottom = paddingBottom + "px";
+
+      style.height = height + "px";
 
     }, 20 );
 
@@ -93,7 +91,7 @@ function Transition() {
 
       style.cssText = "display:" + value;
 
-    }, this.getDuration( elem ) );
+    }, this._getDuration( elem ) );
   }
 
   /**
@@ -117,7 +115,7 @@ function Transition() {
 
       style.cssText = "";
 
-    }, this.getDuration( elem ) );
+    }, this._getDuration( elem ) );
   }
 
   /**
@@ -126,7 +124,7 @@ function Transition() {
    * @param {HTMLElement} elem
    * @returns {number} - Value in ms.
    */
-  this.getDuration = function( elem ) {
+  this._getDuration = function( elem ) {
     var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
 
     return duration * 1000;

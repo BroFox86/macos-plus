@@ -161,7 +161,7 @@ function Modal() {
 
       toggleScroll();
 
-    }, this.getDuration( this._modal ) );
+    }, this._getDuration( this._modal ) );
   }
 
   /**
