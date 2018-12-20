@@ -103,7 +103,6 @@
 
   &__ordered-list {
     margin-bottom: $margin;
-    padding-left: 0;
     list-style: inside decimal;
 
     ol & {
@@ -114,6 +113,7 @@
 
   &__marked-list {
     margin-bottom: $margin;
+    padding-left: 40px;
     list-style: none;
 
     ol & {
@@ -143,8 +143,6 @@
     }
 
     ol ol & {
-      list-style: none;
-
       &::before {
         position: absolute;
         left: -30px;

@@ -1,24 +1,12 @@
-// ==========================================================================
-// Global
-// ==========================================================================
-
-::-moz-focus-inner {
-  border: 0;
-}
-
-:focus {
-  outline: none;
-}
+//
+// Font shorthands are not used
+// due to bug with REM in IE10.
+//
 
 ::selection {
   color: white;
   background: $selection;
 }
-
-//
-// Font shorthands are not used
-// due to bug with REM in IE10.
-//
 
 :root {
   word-wrap: break-word;

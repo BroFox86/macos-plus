@@ -12,18 +12,19 @@ block page
       title= pageTitle
       meta(name="description" content= pageDesc)
 
-      // inject:critical:css 
-      // endinject
+      //inject:critical:css 
+      //endinject
 
       //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
       link(href="css/normalize.css" rel="stylesheet")
+      link(href="css/normalize.custom.css" rel="stylesheet")
       link(href="css/main.css" rel="stylesheet")
       //endbuild 
 
-      // inject:fg-loadcss:html 
-      // endinject 
+      //inject:fg-loadcss:html 
+      //endinject 
 
-      // inject-string:noscript
+      //inject-string:noscript
 
       meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
 
