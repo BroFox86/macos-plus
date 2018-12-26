@@ -108,6 +108,7 @@
     ol & {
       margin-top: $margin;
       padding-left: 5%;
+      list-style: none;
     }
   }
 
@@ -115,10 +116,6 @@
     margin-bottom: $margin;
     padding-left: 40px;
     list-style: none;
-
-    ol & {
-      margin-top: $margin;
-    }
   }
 
   &__list-item {
