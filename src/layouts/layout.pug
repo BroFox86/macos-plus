@@ -17,7 +17,7 @@ block page
 
       //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
       link(href="css/normalize.css" rel="stylesheet")
-      link(href="css/normalize.custom.css" rel="stylesheet")
+      link(href="css/global.css" rel="stylesheet")
       link(href="css/main.css" rel="stylesheet")
       //endbuild 
 
@@ -92,5 +92,5 @@ block page
         svg4everybody();
 
       //build:remove 
-      script(src="js/viewport-indicator.js") 
+      script(src="js/_viewport.js") 
       //endbuild

@@ -5,6 +5,7 @@
  * with CSS transition effects.
  * @class
  * @author Daur Gamisonia <daurgam@gmail.com>
+ * @version 1.0.0
  */
 function Transition() {
   /**
@@ -59,11 +60,17 @@ function Transition() {
       paddingTop,
       paddingBottom;
 
+    style.overflow = "hidden";
+
+    style.boxSizing = "border-box";
+
     paddingTop = getStyle( elem, "padding-top" );
 
     paddingBottom = getStyle( elem, "padding-bottom" );
 
-    style.padding = "0";
+    style.paddingTop = "0";
+
+    style.paddingBottom = "0";
 
     value = value || "block";
 
@@ -73,17 +80,13 @@ function Transition() {
 
     style.height = 0;
 
-    style.overflow = "hidden";
-
-    style.boxSizing = "border-box";
-
     setTimeout(function() {
+
+      style.height = height + "px";
 
       style.paddingTop = paddingTop + "px";
 
       style.paddingBottom = paddingBottom + "px";
-
-      style.height = height + "px";
 
     }, 20 );
 
@@ -102,13 +105,20 @@ function Transition() {
   this._slideUp = function( elem ) {
     var style = elem.style;
 
+    style.overflow = "hidden";
+
+    style.boxSizing = "border-box";
+
     style.height = elem.offsetHeight + "px";
 
     setTimeout(function() {
-      style.overflow = "hidden";
+
       style.height = 0;
+
       style.paddingTop = 0;
+
       style.paddingBottom = 0;
+
     }, 20 );
 
     setTimeout(function() {

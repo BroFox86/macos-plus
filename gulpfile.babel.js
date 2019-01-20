@@ -64,7 +64,7 @@ const options = {
     ignore: [/.*[is,has]-.*/, /.*[tooltip].*/]
   },
   penthouse: {
-    url: "file:///Users/daurgamisonia/Documents/GitHub/macos-plus/.tmp/index.html",
+    url: "file:///Users/daurgamisonia/Development/GitHub/macos-plus/.tmp/index.html",
     css: ".tmp/css/main.css",
     include: [
       ".nav__inner",
@@ -132,9 +132,10 @@ function watchFiles() {
     "src/js/**"
   ], prebuildScripts);
 
-  watch(["src/images/*.*"], generateResponsiveImages);
-
-  watch(["src/images/*content/**"], generateContentImages);
+  watch([
+    "src/images/content/**",
+    "src/images/*.*"
+  ], generateResponsiveImages);
 
   watch("src/images/icons/*", generateSvgSprite);
 
@@ -287,7 +288,7 @@ const prebuildStyles = series(
   generateStyles
 );
 
-function generateCritical(cb) {
+export function generateCritical(cb) {
   penthouse(
     {
       url: options.penthouse.url,
@@ -364,11 +365,12 @@ const respOptions = {
 large = "@1.5x",
 huge = "@2x";
 
-function generateResponsiveImages() {
-  return src(
-    "src/images/*.*", {since: lastRun(generateResponsiveImages)}
+export function generateResponsiveImages() {
+  return src([
+    "src/images/*content/**",
+    "src/images/*.*"
+  ], {since: lastRun(generateResponsiveImages)}
     )
-    .pipe(plugins.flatten())
     .pipe(
       plugins.responsive(
         {
@@ -393,37 +395,12 @@ function generateResponsiveImages() {
               width: 400 * 2,
               rename: { suffix: huge }
             }
-          ]
-        },
-        respOptions
-      )
-    )
-    .pipe(
-      imagemin([
-        imageminPngquant({
-          quality: options.quality.png
-        })
-      ])
-    )
-    .pipe(dest(".tmp/images/"))
-    .pipe(browserSync.stream());
-}
-
-function generateContentImages() {
-  return src(
-    "src/images/*content/**", {since: lastRun(generateContentImages)}
-    )
-    .pipe(
-      plugins.responsive(
-        {
+          ],
           "**/!(icon|*_small|thumbnail)*": [
             {  width: 700 },
             {
               rename: { suffix: "_original" }
             }
-          ],
-          "**/icon*": [
-            {  width: 133 }
           ],
           "**/*_small*": [{}],
           "**/thumbnail*": [{}]
@@ -439,7 +416,8 @@ function generateContentImages() {
       ])
     )
     .pipe(dest(".tmp/images/"))
-    .pipe(browserSync.stream());
+    .pipe(plugins.wait(1500))
+    .pipe(browserSync.stream())
 }
 
 function copyMiscImages() {
@@ -449,7 +427,6 @@ function copyMiscImages() {
 
 const prebuildImages = parallel(
   generateResponsiveImages,
-  generateContentImages,
   copyMiscImages
 );
 
