@@ -1,5 +1,4 @@
-.page-nav {
-  font-size: 17px;
+.contents {
   line-height: 50px;
 
   @media (max-width: $tablet) {
@@ -8,12 +7,12 @@
   }
 
   &__headline {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
     @media (max-width: $tablet) {
-      padding-top: 20px;
+      padding-top: 25px;
       margin-bottom: 15px;
-      font-size: $h2--mobile;
+      font-size: 30px;
     }
 
     @media (max-width: $mobile) {
@@ -39,8 +38,8 @@
     text-decoration: none;
     color: inherit;
 
-    .page-nav__item:hover &,
-    .page-nav__item.is-active & {
+    .contents__item:hover &,
+    .contents__item.is-active & {
       color: $accent;
 
       @media (max-width: $tablet) {
@@ -65,7 +64,7 @@
       width: 41px;
     }
 
-    .page-nav__item:first-child & {
+    .contents__item:first-child & {
       border-top-left-radius: 23px;
     }
   }
@@ -77,8 +76,8 @@
     fill: white;
     @include x-center();
 
-    .page-nav__item:hover &,
-    .page-nav__item.is-active & {
+    .contents__item:hover &,
+    .contents__item.is-active & {
       fill: transparentize(white, .2);
     }
   }

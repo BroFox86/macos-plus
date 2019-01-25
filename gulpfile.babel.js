@@ -247,7 +247,8 @@ export { validateHtml as validate };
 
 function generateStyles()  {
   return src([
-      "src/scss/*",
+      "src/scss/_*",
+      "src/scss/!(_)*.*",
       "src/blocks/**/*.scss"
     ])
     .pipe(plugins.flatten())
@@ -397,7 +398,7 @@ export function generateResponsiveImages() {
             }
           ],
           "**/!(icon|*_small|thumbnail)*": [
-            {  width: 700 },
+            {  width: 480 },
             {
               rename: { suffix: "_original" }
             }

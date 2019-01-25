@@ -17,7 +17,6 @@ block page
 
       //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
       link(href="css/normalize.css" rel="stylesheet")
-      link(href="css/global.css" rel="stylesheet")
       link(href="css/main.css" rel="stylesheet")
       //endbuild 
 
@@ -73,7 +72,7 @@ block page
           block articleHeader
             +articleHeader
           block content
-          +pageNav("mobile")
+          +contents("mobile")
           +vote
       block sidebar
         +sidebar

@@ -1,11 +1,12 @@
 .note {
-  width: 70%;
-  padding: 17px 17px 17px 65px;
-  border-radius: 23px;
+  width: 400px;
+  padding: 15px 15px 15px 60px;
+  border-radius: 20px;
   color: white;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
   font-family: $second-font;
-  font-size: 0.842em;
+  font-size: 15px;
+  line-height: 1.5;
 
   @media (max-width: $mobile) {
     padding-left: 55px;
@@ -17,8 +18,8 @@
     position: absolute;
     top: 27px;
     left: 20px;
-    width: 28px;
-    height: 28px;
+    width: 23px;
+    height: 23px;
     fill: white;
 
     @media (max-width: $mobile) {

@@ -1,0 +1,21 @@
+mixin contents(state)
+  - var i = 0
+
+  mixin contentsInner
+    h2.aside__headline.contents__headline= "Оглавление"
+    ul.contents__list
+      each item in itemList
+        li.contents__item
+          a.contents__link(href="#" + (i+1))
+            span!= itemList[i++] + " "
+            span.contents__icon-wrapper
+              +svg("#link-solid")(class="contents__icon")
+
+  case state
+    when "desktop"
+      nav.aside.contents.sidebar__item(data-toggle="contents")
+        +contentsInner
+    when "mobile"
+      nav.aside.contents.article__contents
+        +contentsInner
+        

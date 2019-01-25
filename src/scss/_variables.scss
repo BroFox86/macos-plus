@@ -12,8 +12,8 @@ $header-width: 75px;
 
 // Font sizes
 $h1: 37px;
-$h2: 29px;
-$h3: 23px;
+$h2: 32px;
+$h3: 22px;
 $h1--mobile: 26px;
 $h2--mobile: 23px;
 $h3--mobile: 20px;
@@ -22,8 +22,8 @@ $h3--mobile: 20px;
 // ==========================================================================
 
 // Fonts
-$base-font-color: #444;
-$nav-font-color: darken(#6c757d, 5);
+$base-font-color: #333;
+$nav-font-color: $base-font-color;
 $dimmed-font-color: transparentize(white, .05);
 
 $accent: #4367d4;
@@ -47,7 +47,6 @@ $warning: #ec407a;
 // Social
 $vk: #507299;
 $twitter: #55acee;
-$googleplus: #dd4e42;
 $facebook: #3b5998;
 
 // Fonts

@@ -1,18 +1,15 @@
 .nav {
   color: $dimmed-font-color;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
 
   @media (max-width: $tablet) {
     color: $nav-font-color;
-    font-size: 20px;
     font-weight: 400;
   }
 
   @media (max-width: $mobile) {
     color: $nav-font-color;
-    font-size: 18px;
-    font-weight: 400;
   }
 
   &__inner {

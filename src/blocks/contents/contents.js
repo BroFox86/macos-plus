@@ -4,9 +4,9 @@
    Set scrollspy navigation
    ========================================================================== */
 
-var pageNav = new PageNav({
-  contents: "[data-toggle='pageNav']",
-  headings: "[data-spy='pageNav']",
+var contents = new PageNav({
+  contents: "[data-toggle='contents']",
+  headings: "[data-spy='contents']",
   offset: 300
 });
 

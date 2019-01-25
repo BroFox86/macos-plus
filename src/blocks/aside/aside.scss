@@ -1,7 +1,7 @@
 .aside {
   overflow: hidden;
   border: 1px solid $border;
-  border-radius: 30px;
+  border-radius: 25px;
 
   @media (max-width: $tablet) {
     border-radius: 35px;
@@ -13,7 +13,7 @@
     color: $base-font-color;
     text-align: center;
     font-family: $headings-font;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 1;
 

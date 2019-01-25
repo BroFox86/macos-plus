@@ -6,7 +6,7 @@ mixin section
     block
 
 mixin h2
-  h2.article__h2(id = (j + 1), data-spy="pageNav")
+  h2.article__h2(id = (j + 1), data-spy="contents")
     a.link(href= "#" + (j + 1))
       span.article__anchor §
       | #{itemList[j++]}

@@ -14,7 +14,7 @@ mixin articleHeader
     .article-header__img-wrapper
       +svg(articleHeader.iconId)(class="article-header__img")
     h1.article-header__headline!= articleHeader.title
-    .article-header__data
+    p.article-header__data
       case isDateModified
         default
           +datePublished
