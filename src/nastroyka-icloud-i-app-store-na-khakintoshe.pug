@@ -5,7 +5,7 @@ prepend page
   - var pageDesc = "Инструкции по настройке iCloud и App Store на хакинтоше с решением некоторых частых проблем."
   - var isDateModified = true
   - var datePublished = ["23", "05", "2017"]
-  - var dateModified = ["14", "12", "2018"]
+  - var dateModified = ["27", "12", "2018"]
   - var pageLink = page.services
   - var likeBtnId = "Запуск сервисов Apple"
   -
@@ -38,6 +38,12 @@ block content
         | Выйдите из App Store, iCloud и других сервисов Apple.
         +image("images/content/setup-services/logout-from-appstore.jpg")(data-size="920x609" alt="Выход из App Store")
         +image("images/content/setup-services/logout-from-icloud.png")(data-size="892x565" alt="Выход из iCloud")
+      +li
+        | Войдите в 
+        +a()(href="https://appleid.apple.com/#!&page=signin")
+          | учетную запись
+        |  Apple и удалите компьютеры Mac, с которых был произведен вход.
+        +smallImage()(src="images/content/setup-services/remove-device_small.png" alt="Удалить устройство из учетной записи Apple")
       +li
         | Перезагрузите компьютер.
     +h3
@@ -73,9 +79,9 @@ block content
       +li
         | Перезагрузите компьютер и войдите со своим логином и паролем в сервисы iCloud и App Store.
     +note(tip)
-      | Также могут пригодиться различные способы решения проблемы с периодическими запросами пароля для iCloud, о которых рассказано по ссылке: 
+      | Вам может пригодиться решение проблемы с периодическими запросами пароля для iCloud: 
       +a("note")(href="https://ddr5.ru/oshibka-podklyucheniya-mac-k-icloud/")
-        | ddr5.ru/oshibka-podklyucheniya-mac-k-icloud/
+        | ddr5.ru/oshibka-podklyucheniya-mac-k-icloud
 
   +section
     +h2
