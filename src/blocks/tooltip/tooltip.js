@@ -7,6 +7,7 @@ var tooltip = new Tooltip();
  * @class
  * @augments Transition
  * @author Daur Gamisonia <daurgam@gmail.com>
+ * @version 1.0.1
  */
 function Tooltip() {
   var tooltip;
@@ -24,9 +25,15 @@ function Tooltip() {
       return;
     }
 
+    if ( document.body.contains( tooltip ) ) {
+
+      close( event );
+
+      return;
+    }
+
     text = target.title;
 
-    // Save it in the data attribute
     target.setAttribute( "data-text", text );
 
     target.title = "";
@@ -36,6 +43,10 @@ function Tooltip() {
     tooltip.className = "tooltip";
 
     tooltip.textContent = text;
+
+    tooltip.style.left = event.pageX + 20 + "px";
+
+    tooltip.style.top = event.pageY + 10 + "px";
 
     document.body.appendChild( tooltip );
 
@@ -47,9 +58,12 @@ function Tooltip() {
    * Close the tooltip and restore the title attribute.
    */
   var close = function( event ) {
-
     var target = event.target,
       text;
+
+    if ( !document.body.contains( tooltip ) ) {
+      return;
+    }
 
     if ( target.getAttribute("data-toggle") != "tooltip" ) {
       return;
@@ -69,24 +83,23 @@ function Tooltip() {
    * Move the tooltip in accordance with the cursor.
    */
   var move = function( event ) {
-    var target = event.target,
-      mouseX,
-      mouseY;
+    var target = event.target;
 
     if ( target.getAttribute("data-toggle") != "tooltip" ) {
       return;
     }
 
-    mouseX = event.pageX + 20;
-    mouseY = event.pageY + 10;
+    tooltip.style.left = event.pageX + 20 + "px";
 
-    tooltip.style.left = mouseX + "px";
-    tooltip.style.top = mouseY + "px";
+    tooltip.style.top = event.pageY + 10 + "px";
   }
 
   document.body.addEventListener( "mouseover", show );
 
+  document.body.addEventListener( "mousemove", move );
+
   document.body.addEventListener( "mouseout", close );
 
-  document.body.addEventListener( "mousemove", move );
+  // For compatibility with iOS
+  document.body.addEventListener( "click", show );
 }

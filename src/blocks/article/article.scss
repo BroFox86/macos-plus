@@ -195,7 +195,11 @@
     text-decoration: none;
     hyphens: none;
     border-bottom: 1px dashed $grey;
-    cursor: help;
+    //
+    // Set pointer instead of help to avoid problems
+    // with event listener on iOS.
+    //
+    cursor: pointer;
   }
 
   &__code {
