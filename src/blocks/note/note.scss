@@ -1,5 +1,5 @@
 .note {
-  width: 400px;
+  width: 70%;
   padding: 15px 15px 15px 60px;
   border-radius: 20px;
   color: white;
@@ -9,17 +9,17 @@
   line-height: 1.5;
 
   @media (max-width: $mobile) {
-    padding-left: 55px;
     width: auto;
+    padding-left: 55px;
     font-size: 0.895em;
   }
 
   &__icon {
     position: absolute;
     top: 27px;
-    left: 20px;
-    width: 23px;
-    height: 23px;
+    left: 19px;
+    width: 25px;
+    height: 25px;
     fill: white;
 
     @media (max-width: $mobile) {
@@ -34,7 +34,7 @@
     font-weight: inherit;
   }
 
-  &--inf     { background: $info; }
-  &--tip     { background: $tip; }
+  &--inf { background: $info; }
+  &--tip { background: $tip; }
   &--warning { background: $warning; }
 }
