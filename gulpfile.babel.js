@@ -235,7 +235,9 @@ function minifyHtml() {
 
 function validateHtml() {
   return src("dist/[^google]*.html")
-    .pipe(plugins.w3cjs())
+    .pipe(plugins.w3cjs({
+      // showInfo: true
+    }))
     .pipe(plugins.w3cjs.reporter());
 }
 
@@ -512,7 +514,7 @@ const clean = series(cleanTemp, cleanDist);
  * Start without prebuild
  */
 const start = series(parallel(watchFiles, connectToTemp));
-task("start", start);
+task("watch", start);
 
 const prebuild = parallel(
   prebuildHtml,
