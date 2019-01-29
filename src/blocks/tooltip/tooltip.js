@@ -1,105 +1,105 @@
 "use strict";
 
-var tooltip = new Tooltip();
-
 /**
  * Set flying tooltips.
  * @class
  * @augments Transition
  * @author Daur Gamisonia <daurgam@gmail.com>
- * @version 1.0.1
+ * @version 2.0.0
  */
 function Tooltip() {
-  var tooltip;
-
-  Transition.call( this );
-
-  /*
-   * Show the tooltip with a text from title.
+  /**
+   * Tooltip element.
+   * @type {HTMLElement}
    */
-  var show = function( event ) {
-    var target = event.target,
-      text;
+  this._tooltip;
 
-    if ( target.getAttribute("data-toggle") != "tooltip" ) {
-      return;
-    }
+  // Add event listener at call
+  this.run();
+}
 
-    if ( document.body.contains( tooltip ) ) {
+Tooltip.prototype = Object.create( Transition.prototype );
 
-      close( event );
+Tooltip.prototype._show = function( event ) {
+  var target = event.target,
+    text;
 
-      return;
-    }
-
-    text = target.title;
-
-    target.setAttribute( "data-text", text );
-
-    target.title = "";
-
-    tooltip = document.createElement("div");
-
-    tooltip.className = "tooltip";
-
-    tooltip.textContent = text;
-
-    tooltip.style.left = event.pageX + 20 + "px";
-
-    tooltip.style.top = event.pageY + 10 + "px";
-
-    document.body.appendChild( tooltip );
-
-    this._fadeIn( tooltip, "block" );
-
-  }.bind( this );
-
-  /*
-   * Close the tooltip and restore the title attribute.
-   */
-  var close = function( event ) {
-    var target = event.target,
-      text;
-
-    if ( !document.body.contains( tooltip ) ) {
-      return;
-    }
-
-    if ( target.getAttribute("data-toggle") != "tooltip" ) {
-      return;
-    }
-
-    text = target.getAttribute("data-text");
-
-    target.title = text;
-
-    this._fadeOut( tooltip );
-
-    document.body.removeChild( tooltip );
-
-  }.bind( this );
-
-  /*
-   * Move the tooltip in accordance with the cursor.
-   */
-  var move = function( event ) {
-    var target = event.target;
-
-    if ( target.getAttribute("data-toggle") != "tooltip" ) {
-      return;
-    }
-
-    tooltip.style.left = event.pageX + 20 + "px";
-
-    tooltip.style.top = event.pageY + 10 + "px";
+  if ( target.getAttribute("data-toggle") != "tooltip" ) {
+    return;
   }
 
-  document.body.addEventListener( "mouseover", show );
+  if ( document.body.contains( this._tooltip ) ) {
 
-  document.body.addEventListener( "mousemove", move );
+    this._close( event );
 
-  document.body.addEventListener( "mouseout", close );
+    return;
+  }
+
+  text = target.title;
+
+  target.setAttribute( "data-text", text );
+
+  target.title = "";
+
+  this._tooltip = document.createElement("div");
+
+  this._tooltip.className = "tooltip";
+
+  this._tooltip.textContent = text;
+
+  this._tooltip.style.left = event.pageX + 20 + "px";
+
+  this._tooltip.style.top = event.pageY + 10 + "px";
+
+  document.body.appendChild( this._tooltip );
+
+  this._fadeIn( this._tooltip, "block" );
+};
+
+Tooltip.prototype._close = function( event ) {
+  var target = event.target,
+    text;
+
+  if ( !document.body.contains( this._tooltip ) ) {
+    return;
+  }
+
+  if ( target.getAttribute("data-toggle") != "tooltip" ) {
+    return;
+  }
+
+  text = target.getAttribute("data-text");
+
+  target.title = text;
+
+  this._fadeOut( this._tooltip );
+
+  document.body.removeChild( this._tooltip );
+};
+
+Tooltip.prototype._move = function( event ) {
+  var target = event.target;
+
+  if ( target.getAttribute("data-toggle") != "tooltip" ) {
+    return;
+  }
+
+  this._tooltip.style.left = event.pageX + 20 + "px";
+
+  this._tooltip.style.top = event.pageY + 10 + "px";
+}
+
+Tooltip.prototype.run = function() {
+  var body = document.body;
+
+  body.addEventListener( "mouseover", this._show.bind( this ) );
+
+  body.addEventListener( "mousemove", this._move.bind( this ) );
+
+  body.addEventListener( "mouseout", this._close.bind( this ) );
 
   // For compatibility with iOS
-  document.body.addEventListener( "click", show );
+  body.addEventListener( "click", this._show.bind( this ) );
 }
+
+var tooltip = new Tooltip();

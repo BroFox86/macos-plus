@@ -4,21 +4,20 @@
    Share buttons
    ========================================================================== */
 
-var shareButtons = new ShareButtons({
+var shareButton = new ShareButton({
   width: 500,
   height: 600
 })
 
 /**
- * Buttons that insert the page URL
- * on social networks by opening a new window.
+ * Buttons that insert the page URL on social networks by opening a new window.
  * @class
  * @param {object} options - Window dimensions.
  * @param {number} options.width - Window width in pixels.
  * @param {number} options.height - Window height in pixels.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function ShareButtons( options ) {
+function ShareButton( options ) {
   var width = options.width,
     height = options.height;
 
@@ -74,11 +73,6 @@ function ShareButtons( options ) {
    Copy URL button
    ========================================================================== */
 
-var copyUrl = new CopyUrl({
-  button: "[data-toggle='copyUrl']",
-  output: "[data-target='copyUrl']"
-});
-
 /**
  * Button to copy URL of the current page.
  * @class
@@ -87,52 +81,66 @@ var copyUrl = new CopyUrl({
  * @param {string} options.button - Button.
  * @param {string} options.output - Output field.
  * @author Daur Gamisonia <daurgam@gmail.com>
+ * @version 2.0.0
  */
-function CopyUrl( options ) {
+function CopyButton( options ) {
 
-  Transition.call( this );
+  this._btn = document.querySelector( options.button );
 
-  var btn = document.querySelector( options.button ),
-    output = document.querySelector( options.output ),
-    wrapper = output.parentElement,
-    duration = this._getDuration(wrapper);
+  this._output = document.querySelector( options.output );
 
-  btn.onclick = function() {
+  this._wrapper = this._output.parentElement;
 
-    this._slideDown( wrapper, "block" );
-
-    setTimeout(function() {
-
-      copy();
-
-    }, duration );
-
-    setTimeout(function() {
-
-      showMessage();
-
-    }, duration * 2 );
-
-  }.bind( this );
-
-  /*
-   * Copy URL without an anchor link.
-   */
-  function copy() {
-
-    output.value = window.location.href.replace( /\#\d$/i, "" );
-
-    output.focus();
-
-    output.select();
-
-    document.execCommand("Copy");
-  }
-
-  function showMessage() {
-
-    output.blur();
-
-    output.value = "Ссылка скопирована!";
-  }
+  // Add event listener at call
+  this.run();
 };
+
+CopyButton.prototype = Object.create( Transition.prototype );
+
+/*
+ * Copy URL without an anchor link.
+ */
+CopyButton.prototype._copy = function() {
+
+  this._output.value = window.location.href.replace( /\#\d$/i, "" );
+
+  this._output.focus();
+
+  this._output.select();
+
+  document.execCommand("Copy");
+}
+
+CopyButton.prototype._showMessage = function() {
+
+  this._output.blur();
+
+  this._output.value = "Ссылка скопирована!";
+}
+
+CopyButton.prototype._handle = function() {
+  var duration = this._getDuration(this._wrapper);
+
+  this._slideDown( this._wrapper, "block" );
+
+  setTimeout(function() {
+
+    this._copy();
+
+  }.bind( this ), duration );
+
+  setTimeout(function() {
+
+    this._showMessage();
+
+  }.bind( this ), duration * 2 );
+}
+
+CopyButton.prototype.run = function() {
+  this._btn.addEventListener( "click", this._handle.bind( this ) );
+};
+
+var copyButton = new CopyButton({
+  button: "[data-toggle='copyUrl']",
+  output: "[data-target='copyUrl']"
+});

@@ -5,151 +5,151 @@
  * with CSS transition effects.
  * @class
  * @author Daur Gamisonia <daurgam@gmail.com>
- * @version 1.0.0
+ * @version 2.0.0
  */
-function Transition() {
-  /**
-   * Show element smooth from transparency to opacity.
-   * @protected
-   * @param {HTMLElement} elem - Element with CSS display:none.
-   * @param {string} [value=Block] - Which value will set to display property when element became visible.
-   */
-  this._fadeIn = function( elem, value ) {
+function Transition() {}
 
-    value = value || "block";
+/**
+ * Show element smooth from transparency to opacity.
+ * @protected
+ * @param {HTMLElement} elem - Element with CSS display:none.
+ * @param {string} [value=Block] - Which value will set to display property when element became visible.
+ */
+Transition.prototype._fadeIn = function( elem, value ) {
 
-    elem.style.display = value;
+  value = value || "block";
 
-    elem.style.opacity = 0;
+  elem.style.display = value;
 
-    setTimeout(function() {
+  elem.style.opacity = 0;
 
-      elem.style.opacity = 1;
+  setTimeout(function() {
 
-    }, 20 );
-  }
+    elem.style.opacity = 1;
 
-  /**
-   * Hide element smooth from opacity to transparency.
-   * @protected
-   * @param {HTMLElement} elem - Element that was previously displayed by fadeIn method.
-   */
-  this._fadeOut = function( elem ) {
+  }, 20 );
+}
 
-    elem.style.opacity = 0;
+/**
+ * Hide element smooth from opacity to transparency.
+ * @protected
+ * @param {HTMLElement} elem - Element that was previously displayed by fadeIn method.
+ */
+Transition.prototype._fadeOut = function( elem ) {
 
-    // Normalize delay in MS Edge when backdrop filter is specified
-    elem.style.WebkitBackdropFilter = "blur(0)";
+  elem.style.opacity = 0;
 
-    setTimeout(function() {
+  // Normalize delay in MS Edge when backdrop filter is specified
+  elem.style.WebkitBackdropFilter = "blur(0)";
 
-      elem.style.cssText = "";
+  setTimeout(function() {
 
-    }, this._getDuration( elem ) );
-  }
+    elem.style.cssText = "";
 
-  /**
-   * Expand the element smooth.
-   * @protected
-   * @param {HTMLElement} elem - Element with CSS display:none.
-   * @param {string} [value=Block] - Which value will set to display property when element become visible.
-   */
-  this._slideDown = function( elem, value ) {
-    var style = elem.style,
-      height,
-      paddingTop,
-      paddingBottom;
+  }, this._getDuration( elem ) );
+}
 
-    style.overflow = "hidden";
+/**
+ * Expand the element smooth.
+ * @protected
+ * @param {HTMLElement} elem - Element with CSS display:none.
+ * @param {string} [value=Block] - Which value will set to display property when element become visible.
+ */
+Transition.prototype._slideDown = function( elem, value ) {
+  var style = elem.style,
+    height,
+    paddingTop,
+    paddingBottom;
 
-    style.boxSizing = "border-box";
+  style.overflow = "hidden";
 
-    paddingTop = getStyle( elem, "padding-top" );
+  style.boxSizing = "border-box";
 
-    paddingBottom = getStyle( elem, "padding-bottom" );
+  paddingTop = this._getStyle( elem, "padding-top" );
 
-    style.paddingTop = "0";
+  paddingBottom = this._getStyle( elem, "padding-bottom" );
 
-    style.paddingBottom = "0";
+  style.paddingTop = "0";
 
-    value = value || "block";
+  style.paddingBottom = "0";
 
-    style.display = value;
+  value = value || "block";
 
-    height = elem.offsetHeight + paddingTop + paddingBottom;
+  style.display = value;
+
+  height = elem.offsetHeight + paddingTop + paddingBottom;
+
+  style.height = 0;
+
+  setTimeout(function() {
+
+    style.height = height + "px";
+
+    style.paddingTop = paddingTop + "px";
+
+    style.paddingBottom = paddingBottom + "px";
+
+  }, 20 );
+
+  setTimeout(function() {
+
+    style.cssText = "display:" + value;
+
+  }, this._getDuration( elem ) );
+}
+
+/**
+ * Roll up the element smooth to top direction.
+ * @protected
+ * @param {HTMLElement} elem - Element that was previously expanded by slideDown.
+ */
+Transition.prototype._slideUp = function( elem ) {
+  var style = elem.style;
+
+  style.overflow = "hidden";
+
+  style.boxSizing = "border-box";
+
+  style.height = elem.offsetHeight + "px";
+
+  setTimeout(function() {
 
     style.height = 0;
 
-    setTimeout(function() {
+    style.paddingTop = 0;
 
-      style.height = height + "px";
+    style.paddingBottom = 0;
 
-      style.paddingTop = paddingTop + "px";
+  }, 20 );
 
-      style.paddingBottom = paddingBottom + "px";
+  setTimeout(function() {
 
-    }, 20 );
+    style.cssText = "";
 
-    setTimeout(function() {
+  }, this._getDuration( elem ) );
+}
 
-      style.cssText = "display:" + value;
+/**
+ * Get the computed style value.
+ * @protected
+ * @param {HTMLElement} elem
+ * @param {string} property - CSS property of the element in camelCase.
+ * @returns {number} - Property value.
+ */
+Transition.prototype._getStyle = function( elem, property ) {
+  var value = getComputedStyle( elem )[property];
 
-    }, this._getDuration( elem ) );
-  }
+  return parseFloat( value );
+}
 
-  /**
-   * Roll up the element smooth to top direction.
-   * @protected
-   * @param {HTMLElement} elem - Element that was previously expanded by slideDown.
-   */
-  this._slideUp = function( elem ) {
-    var style = elem.style;
+/**
+ * Get the CSS transition-duration value.
+ * @protected
+ * @param {HTMLElement} elem
+ * @returns {number} - Value in ms.
+ */
+Transition.prototype._getDuration = function( elem ) {
+  var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
 
-    style.overflow = "hidden";
-
-    style.boxSizing = "border-box";
-
-    style.height = elem.offsetHeight + "px";
-
-    setTimeout(function() {
-
-      style.height = 0;
-
-      style.paddingTop = 0;
-
-      style.paddingBottom = 0;
-
-    }, 20 );
-
-    setTimeout(function() {
-
-      style.cssText = "";
-
-    }, this._getDuration( elem ) );
-  }
-
-  /**
-   * Get the CSS transition-duration value.
-   * @public
-   * @param {HTMLElement} elem
-   * @returns {number} - Value in ms.
-   */
-  this._getDuration = function( elem ) {
-    var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
-
-    return duration * 1000;
-  }
-
-  /**
-   * Get the computed style value.
-   * @private
-   * @param {HTMLElement} elem
-   * @param {string} property - CSS property of the element in camelCase.
-   * @returns {number} - Property value.
-   */
-  function getStyle( elem, property ) {
-    var value = getComputedStyle( elem )[property];
-
-    return parseFloat( value );
-  }
+  return duration * 1000;
 }

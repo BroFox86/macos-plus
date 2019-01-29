@@ -1,9 +1,55 @@
 "use strict";
 
-var lightbox = new Lightbox({
-  modal: "[data-target='lightbox']",
-  close: "[data-dismiss='lightbox']"
-});
+/**
+ * Open & close modal window with smooth effects.
+ * @class
+ * @augments Transition
+ * @version 2.0.0
+ */
+function Modal() {
+  /**
+   * Modal window.
+   * @type {HTMLElement}
+   */
+  this._modal;
+}
+
+Modal.prototype = Object.create( Transition.prototype );
+
+Modal.prototype._open = function() {
+
+  this._fadeIn( this._modal );
+
+  this._toggleScroll();
+}
+
+Modal.prototype._close = function() {
+
+  this._fadeOut( this._modal );
+
+  setTimeout(function() {
+
+    this._toggleScroll();
+
+  }.bind( this ), this._getDuration( this._modal ) );
+}
+
+Modal.prototype._toggleScroll = function() {
+  var scrollbar = window.innerWidth - document.documentElement.clientWidth;
+
+  if ( !document.body.classList.contains("is-fixed") ) {
+
+    document.body.style.paddingRight = scrollbar + "px";
+
+    document.body.classList.add("is-fixed");
+
+  } else {
+
+    document.body.style.paddingRight = "";
+
+    document.body.classList.remove("is-fixed");
+  }
+}
 
 /**
  * Open original images in the modal window.
@@ -13,19 +59,22 @@ var lightbox = new Lightbox({
  * @param {string} options.modal - Modal element.
  * @param {string} options.close - Close button.
  * @author Daur Gamisonia <daurgam@gmail.com>
+ * @version 2.0.0
  */
 function Lightbox( options ) {
-  var modal = document.querySelector( options.modal ),
-    closeBtn = document.querySelector( options.close ),
-    img = modal.querySelector("img"),
-    openModal,
-    closeModal,
-    originalSrc,
-    preloadImg;
 
-  Modal.call( this );
+  this._modal = document.querySelector( options.modal );
 
-  this._modal = modal;
+  this._closeBtn = document.querySelector( options.close );
+
+  this._img = this._modal.querySelector("img");
+
+  this._originalSrc;
+
+  this._preloadImg;
+
+  // Add event listener at call
+  this.run();
 
   /*
    * Change preloader image from *.svg to *.gif for IE/Edge.
@@ -38,134 +87,87 @@ function Lightbox( options ) {
       return;
     }
 
-    newSrc = img.getAttribute("src").replace( /(\.[\w\d]+)$/, ".gif" );
+    newSrc = this._img.getAttribute("src").replace( /(\.[\w\d]+)$/, ".gif" );
 
-    img.setAttribute( "src", newSrc );
+    this._img.setAttribute( "src", newSrc );
   })();
+}
 
-  openModal = this._open;
+Lightbox.prototype = Object.create( Modal.prototype );
 
-  var open = function( event ) {
-    var target = event.target;
+Lightbox.prototype._open = function( event ) {
+  var target = event.target;
 
-    while( true ) {
+  while( true ) {
 
-      if ( target == document.body ) {
-        break;
-      }
-
-      if ( target.getAttribute("data-toggle") != "lightbox" ) {
-
-        target = target.parentElement;
-
-        continue;
-      }
-
-      event.preventDefault();
-
-      showImage( target );
-
-      openModal.call( this );
-
+    if ( target == document.body ) {
       break;
     }
 
-  }.bind( this);
+    if ( target.getAttribute("data-toggle") != "lightbox" ) {
 
-  closeModal = this._close;
+      target = target.parentElement;
 
-  var close = function() {
-
-    closeModal.call( this );
-
-    removeImage();
-
-  }.bind( this );
-
-  var showImage = function( elem ) {
-    var src = elem.getAttribute("href");
-
-    preloadImg = document.createElement("img"),
-
-    originalSrc = img.getAttribute("src");
-
-    preloadImg.setAttribute( "src", src );
-
-    preloadImg.onload = function() {
-      img.setAttribute( "src", src );
+      continue;
     }
+
+    event.preventDefault();
+
+    this._showImage( target );
+
+    Modal.prototype._open.call( this );
+
+    break;
   }
-
-  var removeImage = function() {
-    var duration = getComputedStyle( this._modal ).transitionDuration;
-
-    duration = parseFloat( duration );
-
-    duration = duration * 1000;
-
-    preloadImg.onload = null;
-
-    setTimeout(function() {
-
-      img.setAttribute( "src", originalSrc );
-
-    }, duration);
-
-  }.bind( this );
-
-  document.body.addEventListener( "click", open );
-
-  closeBtn.addEventListener( "click", close );
 }
 
-/**
- * Open & close modal window with smooth effects.
- * @class
- * @augments Transition
- */
-function Modal() {
+Lightbox.prototype._close = function() {
 
-  Transition.call( this );
+  Modal.prototype._close.call( this );
 
-  /**
-   * Modal window.
-   * @type {HTMLElement}
-   * @protected
-   */
-  this._modal;
-
-  this._open = function() {
-
-    this._fadeIn( this._modal );
-
-    toggleScroll();
-  }
-
-  this._close = function() {
-
-    this._fadeOut( this._modal );
-
-    setTimeout(function() {
-
-      toggleScroll();
-
-    }, this._getDuration( this._modal ) );
-  }
-
-  function toggleScroll() {
-    var scrollbar = window.innerWidth - document.documentElement.clientWidth;
-
-    if ( !document.body.classList.contains("is-fixed") ) {
-
-      document.body.style.paddingRight = scrollbar + "px";
-
-      document.body.classList.add("is-fixed");
-
-    } else {
-
-      document.body.style.paddingRight = "";
-
-      document.body.classList.remove("is-fixed");
-    }
-  }
+  this._removeImage();
 }
+
+Lightbox.prototype._showImage = function( elem ) {
+  var src = elem.getAttribute("href");
+
+  this._preloadImg = document.createElement("img");
+
+  this._originalSrc = this._img.getAttribute("src");
+
+  this._preloadImg.setAttribute( "src", src );
+
+  this._preloadImg.onload = function() {
+
+    this._img.setAttribute( "src", src );
+
+  }.bind( this )
+}
+
+Lightbox.prototype._removeImage = function() {
+  var duration = getComputedStyle( this._modal ).transitionDuration;
+
+  duration = parseFloat( duration );
+
+  duration = duration * 1000;
+
+  this._preloadImg.onload = null;
+
+  setTimeout(function() {
+
+    this._img.setAttribute( "src", this._originalSrc );
+
+  }.bind( this ), duration);
+}
+
+Lightbox.prototype.run = function() {
+
+  document.body.addEventListener( "click", this._open.bind( this ) );
+
+  this._closeBtn.addEventListener( "click", this._close.bind( this ) );
+}
+
+var lightbox = new Lightbox({
+  modal: "[data-target='lightbox']",
+  close: "[data-dismiss='lightbox']"
+});
