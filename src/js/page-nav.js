@@ -1,15 +1,5 @@
 "use strict";
 
-/* ==========================================================================
-   Set scrollspy navigation
-   ========================================================================== */
-
-var contents = new PageNav({
-  contents: "[data-toggle='contents']",
-  headings: "[data-spy='contents']",
-  offset: 300
-});
-
 /**
  * Table of contents
  * with show the current position by selecting an item.
@@ -110,3 +100,9 @@ function PageNav( options ) {
     window.addEventListener( item, select );
   });
 }
+
+var contents = new PageNav({
+  contents: "[data-toggle='contents']",
+  headings: "[data-spy='contents']",
+  offset: 300
+});

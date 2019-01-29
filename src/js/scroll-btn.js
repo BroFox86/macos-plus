@@ -1,10 +1,5 @@
 "use strict";
 
-var scrollButton = new ScrollButton({
-  button: "[data-toggle='scrollBtn']",
-  threshold: document.documentElement.clientHeight * 1.5
-});
-
 /**
  * Button that scroll page to top
  * @class
@@ -34,3 +29,8 @@ function ScrollButton( options ) {
 
   btn.addEventListener( "click", toTop );
 }
+
+var scrollButton = new ScrollButton({
+  button: "[data-toggle='scrollBtn']",
+  threshold: document.documentElement.clientHeight * 1.5
+});

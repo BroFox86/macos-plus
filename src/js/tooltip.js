@@ -4,8 +4,8 @@
  * Set flying tooltips.
  * @class
  * @augments Transition
- * @author Daur Gamisonia <daurgam@gmail.com>
  * @version 2.0.0
+ * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function Tooltip() {
   /**

@@ -58,8 +58,8 @@ Modal.prototype._toggleScroll = function() {
  * @param {object} options - CSS selectors.
  * @param {string} options.modal - Modal element.
  * @param {string} options.close - Close button.
- * @author Daur Gamisonia <daurgam@gmail.com>
  * @version 2.0.0
+ * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function Lightbox( options ) {
 

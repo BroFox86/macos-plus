@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Open external links in new tabs.
  * @module externalLinks

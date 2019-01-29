@@ -18,5 +18,3 @@
 
   window.addEventListener( "load", animate );
 })();
-
-

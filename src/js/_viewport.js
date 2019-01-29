@@ -1,14 +1,5 @@
 "use strict";
 
-var viewportIndicator = new ViewportIndicator([
-  "position: fixed",
-  "bottom: 0",
-  "left: 1%",
-  "z-index: 9999",
-  "background: white",
-  "color: blue"
-]);
-
 /**
  * Display viewport size on the screen.
  * @class
@@ -55,3 +46,12 @@ function ViewportIndicator( styles ) {
     window.addEventListener( item, display );
   });
 }
+
+var viewportIndicator = new ViewportIndicator([
+  "position: fixed",
+  "bottom: 0",
+  "left: 1%",
+  "z-index: 9999",
+  "background: white",
+  "color: blue"
+]);

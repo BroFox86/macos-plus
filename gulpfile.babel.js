@@ -336,16 +336,10 @@ export function copyCommonScripts() {
     .pipe(dest(".tmp/js/"));
 }
 
-function concatBlockScripts() {
-  return src("src/blocks/**/*.js")
-    .pipe(plugins.concat("blocks.js"))
-    .pipe(dest(".tmp/js/"));
-}
-
 const prebuildScripts =
-  series(
+  parallel(
     copyPluginScripts,
-    parallel(copyCommonScripts, concatBlockScripts)
+    copyCommonScripts
   );
 
 function buildScripts() {
