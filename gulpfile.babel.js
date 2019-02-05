@@ -27,8 +27,6 @@ import del from "del";
 import autoprefixer from "autoprefixer";
 import uncss from "postcss-uncss";
 import cssnano from "cssnano";
-import mqpacker from "css-mqpacker";
-import sortCSSmq from "sort-css-media-queries";
 import pxtorem from "postcss-pxtorem";
 
 // Imagemin plugins
@@ -248,13 +246,8 @@ export { validateHtml as validate };
   ======================================================================== */
 
 function generateStyles()  {
-  return src([
-      "src/scss/_*",
-      "src/scss/!(_)*.*",
-      "src/blocks/**/*.scss"
-    ])
-    .pipe(plugins.flatten())
-    .pipe(plugins.concat("main.scss"))
+  return src("src/scss/imports.scss")
+    .pipe(plugins.sassGlob())
     .pipe(
       plugins.sass({ outputStyle: "expanded" })
       .on("error", plugins.sass.logError))
@@ -265,12 +258,10 @@ function generateStyles()  {
         pxtorem({
           propList: ["*", "!box-shadow", "!border*"]
         }),
-        autoprefixer(),
-        mqpacker({
-          sort: sortCSSmq.desktopFirst
-        })
+        autoprefixer()
       ])
     )
+    .pipe(plugins.rename("main.css"))
     .pipe(dest(".tmp/css/"));
 }
 
