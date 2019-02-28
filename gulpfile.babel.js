@@ -111,7 +111,6 @@ export { connectToDist as dist };
 function watchFiles() {
   watch([
     "src/blocks/*/*.pug",
-    "src/layouts/*",
     "src/pug/**"
   ], prebuildHtml);
 
