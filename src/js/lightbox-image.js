@@ -3,7 +3,6 @@
 /**
  * Open & close modal window with smooth effects.
  * @class
- * @augments Transition
  * @version 2.0.0
  */
 function Modal() {
@@ -14,24 +13,30 @@ function Modal() {
   this._modal;
 }
 
-Modal.prototype = Object.create( Transition.prototype );
-
 Modal.prototype._open = function() {
 
-  this._fadeIn( this._modal );
-
   this._toggleScroll();
+
+  this._modal.style.display = "block";
+
+  setTimeout(function() {
+
+    this._modal.classList.add("is-visible");
+
+  }.bind(this), 30 );
 }
 
 Modal.prototype._close = function() {
 
-  this._fadeOut( this._modal );
+  this._modal.classList.remove("is-visible");
+
+  this._toggleScroll();
 
   setTimeout(function() {
 
-    this._toggleScroll();
+    this._modal.style.display = "";
 
-  }.bind( this ), this._getDuration( this._modal ) );
+  }.bind( this ), 200 );
 }
 
 Modal.prototype._toggleScroll = function() {

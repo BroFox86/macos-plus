@@ -3,7 +3,6 @@
 /**
  * Set flying tooltips.
  * @class
- * @augments Transition
  * @version 2.0.0
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
@@ -17,8 +16,6 @@ function Tooltip() {
   // Add event listener at call
   this.run();
 }
-
-Tooltip.prototype = Object.create( Transition.prototype );
 
 Tooltip.prototype._show = function( event ) {
   var target = event.target,
@@ -53,7 +50,13 @@ Tooltip.prototype._show = function( event ) {
 
   document.body.appendChild( this._tooltip );
 
-  this._fadeIn( this._tooltip, "block" );
+  this._tooltip.style.display = "block";
+
+  setTimeout(function() {
+
+    this._tooltip.style.opacity = 1;
+
+  }.bind(this), 30 );
 };
 
 Tooltip.prototype._close = function( event ) {
@@ -71,8 +74,6 @@ Tooltip.prototype._close = function( event ) {
   text = target.getAttribute("data-text");
 
   target.title = text;
-
-  this._fadeOut( this._tooltip );
 
   document.body.removeChild( this._tooltip );
 };

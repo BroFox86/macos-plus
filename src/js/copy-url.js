@@ -7,11 +7,10 @@
 /**
  * Button to copy URL of the current page.
  * @class
- * @augments Transition
  * @param {object} options - Query selectors.
  * @param {string} options.button - Button.
  * @param {string} options.output - Output field.
- * @version 2.0.0
+ * @version 1.0.1
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function CopyButton( options ) {
@@ -26,7 +25,7 @@ function CopyButton( options ) {
   this.run();
 };
 
-CopyButton.prototype = Object.create( Transition.prototype );
+CopyButton.prototype = Object.create( Collapse.prototype );
 
 /*
  * Copy URL without an anchor link.
@@ -50,9 +49,7 @@ CopyButton.prototype._showMessage = function() {
 }
 
 CopyButton.prototype._handle = function() {
-  var duration = this._getDuration(this._wrapper);
-
-  this._slideDown( this._wrapper, "block" );
+  var duration = this._getDuration( this._wrapper );
 
   setTimeout(function() {
 
@@ -68,7 +65,11 @@ CopyButton.prototype._handle = function() {
 }
 
 CopyButton.prototype.run = function() {
-  this._btn.addEventListener( "click", this._handle.bind( this ) );
+  var parentHandle = Collapse.prototype._handle;
+
+  this._btn.addEventListener("click", parentHandle.bind(this,"js-copy-toggle"));
+
+  this._btn.addEventListener("click", this._handle.bind(this));
 };
 
 var copyButton = new CopyButton({
