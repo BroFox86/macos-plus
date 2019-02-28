@@ -4,7 +4,7 @@
  * Expandable lists that triggered by an element with data-toggle="collapse"
  * and a data-target with their selector.
  * @class
- * @version 2.0.0
+ * @version 2.0.1
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 var Collapse = new Function();
