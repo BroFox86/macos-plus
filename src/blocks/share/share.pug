@@ -1,4 +1,4 @@
-mixin share
+mixin share(footer)
   aside.aside.share(class= attributes.appendClass data-target="sidebar")
     h2.aside__headline.share__headline Поделиться
     .share__container
@@ -24,12 +24,16 @@ mixin share
       )
         +svg("#facebook")(class="share__icon")
 
-      button.share__btn.share__btn--url.js-copy-toggle(
-        data-toggle="copyUrl"
-        data-target="#copy"
-        title="Скопировать ссылку"
-      )
-        +svg("#link-solid")(class="share__icon")
+      case footer
+        when false
+          button.share__btn.share__btn--url.js-copy-toggle(
+            data-toggle="copyUrl"
+            data-target="#copy"
+            title="Скопировать ссылку"
+          )
+            +svg("#link-solid")(class="share__icon")
 
-    .share__output-wrapper(id="copy")
-      input.share__output-field(data-target="copyUrl")
+    case footer
+      when false
+        .share__output-wrapper(id="copy")
+          input.share__output-field(data-target="copyUrl")
