@@ -24,11 +24,12 @@ mixin share
       )
         +svg("#facebook")(class="share__icon")
 
-      button.share__btn.share__btn--url(
+      button.share__btn.share__btn--url.js-copy-toggle(
         data-toggle="copyUrl"
+        data-target="#copy"
         title="Скопировать ссылку"
       )
         +svg("#link-solid")(class="share__icon")
 
-    .share__output-wrapper
+    .share__output-wrapper(id="copy")
       input.share__output-field(data-target="copyUrl")
