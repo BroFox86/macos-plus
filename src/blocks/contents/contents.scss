@@ -70,11 +70,16 @@
   }
 
   &__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: inline-block;
     width: 17px;
     height: 17px;
+    margin: auto;
     fill: white;
-    @include x-center();
 
     .contents__item:hover &,
     .contents__item.is-active & {

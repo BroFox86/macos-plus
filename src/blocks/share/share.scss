@@ -53,10 +53,15 @@
   }
 
   &__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 22px;
     height: 22px;
+    margin: auto;
     fill: white;
-    @include x-center();
 
     @media(min-width: $tablet) and (max-width: $desktop) {
       width: 20px;

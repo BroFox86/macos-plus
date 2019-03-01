@@ -207,10 +207,15 @@
     display: none;
 
     @media (max-width: $tablet) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      right: auto;
       display: block;
       width: 21px;
       height: 21px;
-      @include x-center($left: 20px, $right: auto);
+      margin: auto;
     }
   }
 
