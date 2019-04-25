@@ -1,6 +1,4 @@
 .contents {
-  line-height: 50px;
-
   @media (max-width: $tablet) {
     width: 100%;
     font-size: 1em;
@@ -28,15 +26,25 @@
 
   &__item {
     position: relative;
+    height: 50px;
+    line-height: 50px;
+
+    &:last-child {
+      height: 55px;
+    }
   }
 
   &__link {
     position: relative;
     display: block;
+    height: 100%;
     padding-left: 22px;
     padding-right: 37px;
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
     .contents__item:hover &,
     .contents__item.is-active & {
@@ -56,16 +64,12 @@
     display: inline-block;
     position: absolute;
     right: 0;
-    width: 33px;
+    width: 35px;
     height: 101%;
     background: $accent;
 
-    @media (max-width: $desktop) {
-      width: 41px;
-    }
-
     .contents__item:first-child & {
-      border-top-left-radius: 23px;
+      border-top-left-radius: 20px;
     }
   }
 
