@@ -46,15 +46,15 @@ mixin smallImage
   .article__img-wrapper
     img.article__img&attributes(attributes)
 
-mixin tooltip(abbr)
+mixin tooltipTrigger(abbr)
   case abbr
     default
-      span.article__tooltip(data-toggle="tooltip")&attributes(attributes)
+      span.article__tooltip.js-tooltip-trigger&attributes(attributes)
         if block
         block
 
     when "abbr"
-      abbr.article__tooltip(data-toggle="tooltip")&attributes(attributes)
+      abbr.article__tooltip.js-tooltip-trigger&attributes(attributes)
         if block
         block
 
