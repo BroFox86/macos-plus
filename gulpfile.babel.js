@@ -2,25 +2,23 @@
  * Run 'gulp' or 'gulp serve' to make a prebuild
  * in the .tmp/ folder and serve it.
  *
- * Run 'gulp build' to build the project in the dist/ folder.
+ * Run 'gulp cleanBuild' to build the project in the dist/ folder.
  *
  * Run 'gulp dist' to start local server in the dist/ folder.
  */
 
 "use strict";
 
-// Main plugins
 const {
-  task, src, lastRun, dest, watch, series, parallel, symlink
+  src, lastRun, dest, watch, series, parallel, symlink
 } = require("gulp");
 
+// Main plugins
 import browserSync from "browser-sync";
 import pugIncludeGlob from "pug-include-glob";
 import useref from "gulp-useref";
 import fs from "fs";
 import penthouse from "penthouse";
-import buffer from "vinyl-buffer";
-import merge from "merge-stream";
 import del from "del";
 
 // PostCSS plugins
@@ -44,19 +42,17 @@ const plugins = loadPlugins();
 
 const paths = {
   plugins: {
-    js: [
-      "node_modules/svg4everybody/dist/svg4everybody.min.js"
-    ],
-    css: [
-      "node_modules/normalize.css/normalize.css",
-      "src/css/*.css"
-    ]
+    js: "node_modules/svg4everybody/dist/svg4everybody.min.js",
+    css: "node_modules/normalize.css/normalize.css"
   }
 };
 
 const options = {
-  quality: {
-    png: 80
+  pngquant: {
+    quality: [0.9, 1]
+  },
+  pxToRem: {
+    propList: ["*", "!box-shadow", "!border*"]
   },
   uncss: {
     ignore: [/.*[is,has]-.*/, /.*[tooltip].*/]
@@ -75,10 +71,10 @@ const options = {
 }
 
 /* ==========================================================================
-  Local server
+  Local server & Watching
   ======================================================================== */
 
-function connectToTemp() {
+export function watchFiles() {
   browserSync.init({
     server: ".tmp/",
     notify: false,
@@ -87,64 +83,49 @@ function connectToTemp() {
     reloadDebounce: 500
   });
 
-  browserSync.watch(".tmp/*.html").on("change", browserSync.reload);
-  browserSync.watch(".tmp/css/*").on("change", browserSync.reload);
-  browserSync.watch(".tmp/js/*").on("change", browserSync.reload);
-  browserSync.watch(".tmp/fonts/*").on("change", browserSync.reload);
-}
+  // Watch Pug
+  watch("src/pug/*/*", {
+    delay: 500,
+    ignoreInitial: true
+  }, generateHtml);
 
-function connectToDist() {
-  browserSync.init({
-    server: "dist/",
-    notify: false,
-    open: false,
-    port: 3002
-  });
-}
+  // Watch pages
+  watch("src/pug/*.*", {
+    delay: 500
+  }, generateIncrementalHtml);
 
-export { connectToDist as dist };
+  // Watch styles
+  watch("src/scss/**", {
+    delay: 500, ignoreInitial: true
+  }, generateStyles);
 
-/* ==========================================================================
-  Watch files
-  ======================================================================== */
+  // Watch scripts
+  watch("src/js/*.*", {
+    ignoreInitial: true
+  }, copyAllScripts);
 
-function watchFiles() {
-  watch([
-    "src/blocks/*/*.pug",
-    "src/pug/**"
-  ], prebuildHtml);
+  // Watch images
+  watch(["src/images/content/**", "src/images/*.*"], {
+    delay: 500, ignoreInitial: true
+  }, processImages);
 
-  watch([
-    "src/*.pug"
-  ], generateIncrementalHtml);
+  // Watch icons
+  watch("src/images/icons/*", {
+    delay: 500, ignoreInitial: true
+  }, generateSvgSprite);
 
-  watch([
-    "src/blocks/**/*.scss",
-    "src/scss/**",
-    "src/css/*"
-  ], prebuildStyles);
-
-  watch([
-    "src/blocks/**/*.js",
-    "src/js/**"
-  ], prebuildScripts);
-
-  watch([
-    "src/images/content/**",
-    "src/images/*.*"
-  ], generateResponsiveImages);
-
-  watch("src/images/icons/*", generateSvgSprite);
-
-  watch("src/fonts/*", prebuildFonts);
+  // Watch fonts
+  watch("src/fonts/*", {
+    ignoreInitial: true
+  }, prebuildFonts);
 }
 
 /* ==========================================================================
-  Generate HTML
+  HTML
   ======================================================================== */
 
-function prebuildHtml() {
-  return src("src/*.pug")
+function generateHtml() {
+  return src("src/pug/*.*")
     .pipe(
       plugins.pug({
         basedir: __dirname + "/src",
@@ -156,11 +137,14 @@ function prebuildHtml() {
       indent_size: 4,
       indent_inner_html: true
     }))
-    .pipe(dest(".tmp/"));
+    .pipe(dest(".tmp/"))
+    .pipe(browserSync.stream());
 }
 
 function generateIncrementalHtml() {
-  return src("src/*.pug", {since: lastRun(generateIncrementalHtml)})
+  return src("src/pug/*.*", {
+    since: lastRun(generateIncrementalHtml)
+  })
     .pipe(
       plugins.pug({
         basedir: __dirname + "/src",
@@ -172,7 +156,8 @@ function generateIncrementalHtml() {
       indent_size: 4,
       indent_inner_html: true
     }))
-    .pipe(dest(".tmp/"));
+    .pipe(dest(".tmp/"))
+    .pipe(browserSync.stream());
 }
 
 function buildHtml() {
@@ -194,9 +179,7 @@ function buildHtml() {
     )
     .pipe(
       plugins.inject(
-        src(
-          "node_modules/fg-loadcss/src/cssrelpreload.js"
-        )
+        src("node_modules/fg-loadcss/src/cssrelpreload.js")
         .pipe(plugins.concat("fg-loadcss.html"))
         .pipe(plugins.injectString.prepend("<script>"))
         .pipe(plugins.injectString.append("</script>")), {
@@ -230,7 +213,7 @@ function minifyHtml() {
     .pipe(dest("dist/"));
 }
 
-function validateHtml() {
+export function validate() {
   return src("dist/[^google]*.html")
     .pipe(plugins.w3cjs({
       // showInfo: true
@@ -238,14 +221,25 @@ function validateHtml() {
     .pipe(plugins.w3cjs.reporter());
 }
 
-export { validateHtml as validate };
-
 /* ==========================================================================
   Styles
   ======================================================================== */
 
-function generateStyles()  {
-  return src("src/scss/imports.scss")
+export function copyPluginStyles(callback) {
+  // Do nothing if there are no sources
+  if (paths.plugins.css == "") {
+    return callback();
+  }
+
+  return src(paths.plugins.css)
+    .pipe(plugins.rename({
+      extname: ".scss"
+    }))
+    .pipe(dest("src/scss/vendors/"));
+}
+
+function generateStyles() {
+  return src(["src/scss/main.scss", "src/scss/vendors/*"])
     .pipe(plugins.sassGlob())
     .pipe(
       plugins.sass({ outputStyle: "expanded" })
@@ -254,26 +248,14 @@ function generateStyles()  {
     )
     .pipe(
       plugins.postcss([
+        autoprefixer(),
         pxtorem({
-          propList: ["*", "!box-shadow", "!border*"]
-        }),
-        autoprefixer()
-      ])
-    )
-    .pipe(plugins.rename("main.css"))
-    .pipe(dest(".tmp/css/"));
-}
-
-function copyPluginStyles() {
-  return src(paths.plugins.css)
-    .pipe(
-      plugins.postcss([
-        pxtorem({
-          propList: ["*", "!box-shadow", "!border*"]
+          propList: options.pxToRem.propList
         })
       ])
     )
-    .pipe(dest(".tmp/css/"));
+    .pipe(dest(".tmp/css/"))
+    .pipe(browserSync.stream());
 }
 
 const prebuildStyles = series(
@@ -281,7 +263,10 @@ const prebuildStyles = series(
   generateStyles
 );
 
-export function generateCritical(cb) {
+/* Critical styles
+  ======================================================================== */
+
+function generateCritical(cb) {
   penthouse(
     {
       url: options.penthouse.url,
@@ -316,21 +301,24 @@ function buildStyles() {
   Scripts
   ======================================================================== */
 
-function copyPluginScripts() {
+export function copyPluginScripts(callback) {
+  // Do nothing if there are no sources
+  if (paths.plugins.js == "") {
+    return callback();
+  }
+
   return src(paths.plugins.js)
-    .pipe(dest(".tmp/js/"));
+    .pipe(dest("src/js/vendors"));
 }
 
-export function copyCommonScripts() {
-  return src("src/js/**")
-    .pipe(dest(".tmp/js/"));
+function copyAllScripts() {
+  return src("src/js/**", { since: lastRun(copyAllScripts) })
+    .pipe(plugins.flatten())
+    .pipe(dest(".tmp/js/"))
+    .pipe(browserSync.stream());
 }
 
-const prebuildScripts =
-  parallel(
-    copyPluginScripts,
-    copyCommonScripts
-  );
+const prebuildScripts = series(copyPluginScripts, copyAllScripts);
 
 function buildScripts() {
   return src("dist/js/*")
@@ -342,22 +330,13 @@ function buildScripts() {
   Images
   ======================================================================== */
 
-const respOptions = {
-  errorOnUnusedImage: false,
-  errorOnUnusedConfig: false,
-  errorOnEnlargement: false,
-  silent: true,
-  quality: 80
-},
-large = "@1.5x",
-huge = "@2x";
+export function processImages() {
+  const large = "@1.5x";
+  const huge = "@2x";
 
-export function generateResponsiveImages() {
-  return src([
-    "src/images/*content/**",
-    "src/images/*.*"
-  ], {since: lastRun(generateResponsiveImages)}
-    )
+  return src(["src/images/*content/**", "src/images/*.*"], {
+    since: lastRun(processImages)
+  })
     .pipe(
       plugins.responsive(
         {
@@ -392,13 +371,19 @@ export function generateResponsiveImages() {
           "**/*_small*": [{}],
           "**/thumbnail*": [{}]
         },
-        respOptions
+        {
+          errorOnUnusedImage: false,
+          errorOnUnusedConfig: false,
+          errorOnEnlargement: false,
+          silent: true,
+          quality: 80
+        }
       )
     )
     .pipe(
       imagemin([
         imageminPngquant({
-          quality: options.quality.png
+          quality: options.pngquant.quality
         })
       ])
     )
@@ -407,15 +392,12 @@ export function generateResponsiveImages() {
     .pipe(browserSync.stream())
 }
 
-function copyMiscImages() {
+export function copyMiscImages() {
   return src("src/images/*misc/**")
     .pipe(dest(".tmp/images/"));
 }
 
-const prebuildImages = parallel(
-  generateResponsiveImages,
-  copyMiscImages
-);
+const prebuildImages = parallel(processImages, copyMiscImages);
 
 function buildImages() {
   return src(".tmp/images/**")
@@ -425,7 +407,7 @@ function buildImages() {
 /* SVG sprites
   ======================================================================== */
 
-function generateSvgSprite() {
+export function generateSvgSprite() {
   return src("src/images/icons/*.svg")
     .pipe(
       imagemin([
@@ -436,10 +418,9 @@ function generateSvgSprite() {
     )
     .pipe(plugins.svgstore())
     .pipe(plugins.rename("sprite.svg"))
-    .pipe(dest(".tmp/images"));
+    .pipe(dest(".tmp/images"))
+    .pipe(browserSync.stream());
 }
-
-export { generateSvgSprite as svg };
 
 /* ==========================================================================
   Fonts
@@ -448,6 +429,7 @@ export { generateSvgSprite as svg };
 function prebuildFonts() {
   return src("src/fonts/")
     .pipe(symlink(".tmp/fonts/"))
+    .pipe(browserSync.stream());
 }
 
 function buildFonts() {
@@ -456,15 +438,15 @@ function buildFonts() {
 }
 
 /* ==========================================================================
-    Misc
+  Misc
   ======================================================================== */
 
-function copyFavicons() {
+export function copyFavicons() {
   return src("src/favicons/**")
     .pipe(dest("dist/"));
 }
 
-function copyMetadata() {
+export function copyMetadata() {
   return src("src/metadata/*")
     .pipe(plugins.lineEndingCorrector({
       verbose: true,
@@ -478,30 +460,24 @@ function copyMetadata() {
   Clean
   ======================================================================== */
 
-export function cleanTemp() {
+function cleanTemp() {
   console.log("----- Cleaning .tmp/ folder -----");
-  return del([".tmp/**"]);
+  return del(".tmp/**");
 }
 
-export function cleanDist() {
+function cleanDist() {
   console.log("----- Cleaning dist/ folder -----");
-  return del(["dist/**"]);
+  return del("dist/**");
 }
 
 const clean = series(cleanTemp, cleanDist);
 
 /* ==========================================================================
-  Main tasks
+  Build
   ======================================================================== */
 
-/*
- * Start without prebuild
- */
-const start = series(parallel(watchFiles, connectToTemp));
-task("watch", start);
-
 const prebuild = parallel(
-  prebuildHtml,
+  generateHtml,
   prebuildStyles,
   prebuildScripts,
   generateSvgSprite,
@@ -509,20 +485,7 @@ const prebuild = parallel(
   prebuildFonts
 );
 
-/*
- * Start with prebuild
- */
-const serve = series(prebuild, parallel(watchFiles, connectToTemp));
-task("serve", serve);
-
-/*
- * Export the default task
- */
-export default serve;
-
 const build = series(
-  clean,
-  prebuild,
   generateCritical,
   buildHtml,
   minifyHtml,
@@ -534,22 +497,27 @@ const build = series(
     copyFavicons,
     copyMetadata
   ),
-  validateHtml
+  validate
 );
-task("build", build);
 
-/*
- * Fast build
- */
-const fastBuild = series(
-  generateCritical,
-  buildHtml,
-  minifyHtml,
-  parallel(
-    buildStyles,
-    buildScripts,
-    buildFonts
-  ),
-  validateHtml
+const cleanBuild = series(
+  clean,
+  prebuild,
+  build
 );
-task("fast", fastBuild);
+
+/* ==========================================================================
+  Main tasks
+  ======================================================================== */
+
+// Prebuild and watch files
+const serve = series(prebuild, watchFiles);
+
+// Set default task (gulp)
+export default serve
+
+// Build from prebuild
+exports.build = build;
+
+// Clean build
+exports.cleanBuild = cleanBuild;

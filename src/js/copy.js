@@ -7,6 +7,7 @@
 /**
  * Button to copy URL of the current page.
  * @class
+ * @augments Collapse
  * @param {object} options - Query selectors.
  * @param {string} options.button - Button.
  * @param {string} options.output - Output field.

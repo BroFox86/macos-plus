@@ -1,4 +1,4 @@
-extends /pug/layout
+extends /pug/layouts/_page
 
 prepend page
   - var pageTitle      = "Завод звука на хакинтоше"
@@ -10,7 +10,7 @@ prepend page
   - var likeBtnId      = "Завод звука"
   -
     var metaImage = {
-      src: "images/content/setup-sound/thumbnail.jpg",
+      src: "images/content/setup-sound/thumbnail.jpeg",
       width: 1334,
       height: 772
     }
@@ -133,13 +133,13 @@ block content
         | Перейдите в System &gt; Library &gt; Extensions.
       +li
         | Скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.
-        +image("images/content/setup-sound/native-applehda-in-boot-usb.jpg")(data-size="860x534" alt="Расположение AppleHDA на загрузочном диске")
+        +image("images/content/setup-sound/native-applehda-in-boot-usb.jpeg")(data-size="860x534" alt="Расположение AppleHDA на загрузочном диске")
     +h3
       | Шаг 2.  Восстановление AppleHDA
     +ol
       +li
         | Выберите в строке меню пункт «Переход к папке».
-        +smallImage()(src="images/content/setup-sound/go-to-folder_small.jpg" alt="Переход к папке в macOS")
+        +smallImage()(src="images/content/setup-sound/go-to-folder_small.jpeg" alt="Переход к папке в macOS")
       +li
         | И введите путь к системной папке: /System/Library/Extensions.
       +li
@@ -172,7 +172,7 @@ block content
         +a()(href="http://mackie100projects.altervista.org/download-clover-configurator/")
           | Clover Configurator
         | .
-        +image("images/content/setup-sound/plist-location.jpg")(data-size="864x639" alt="Расположение config.plist")
+        +image("images/content/setup-sound/plist-location.jpeg")(data-size="864x639" alt="Расположение config.plist")
       +li
         | Перейдите в раздел Kernel and Kext Patches и удалите строки, имеющие отношение к 
         i AppleHDA/HDA
@@ -204,4 +204,4 @@ block content
         | Скопируйте AppleALC.kext в папку кекстов Clover (..EFI/CLOVER/kexts/Other/).
       +li
         | Сохраните изменения и перезагрузите компьютер. 
-        +smallImage()(src="images/content/setup-sound/save-config_small.jpg" alt="Сохранение изменений Clover Configurator")
+        +smallImage()(src="images/content/setup-sound/save-config_small.jpeg" alt="Сохранение изменений Clover Configurator")

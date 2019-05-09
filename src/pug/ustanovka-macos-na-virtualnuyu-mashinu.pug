@@ -1,4 +1,4 @@
-extends /pug/layout
+extends /pug/layouts/_page
 
 prepend page
   - var pageTitle = "Установка macOS на компьютер с помощью VMWare"
@@ -10,7 +10,7 @@ prepend page
   - var likeBtnId = "Установка через VMWare"
   -
     var metaImage = {
-      src: "images/content/install-on-vmware/install-vmware-tools_original.jpg",
+      src: "images/content/install-on-vmware/install-vmware-tools_original.jpeg",
       width: 1024,
       height: 834
     }
@@ -83,34 +83,34 @@ block content
         | .
       +li
         | Распакуйте архив c Unlocker и запустите win-install.cmd от имени администратора. Таким образом в VMWare добавляется поддержка macOS.
-        +image("images/content/install-on-vmware/install-patch-tool.jpg")(data-size="972x653" alt="Добавление поддержки macOS в VMWare")
+        +image("images/content/install-on-vmware/install-patch-tool.jpeg")(data-size="972x653" alt="Добавление поддержки macOS в VMWare")
       +li
         | Откройте VMWare и нажмите “Create a new Virtual Machine”.
       +li
         | Выберите “I will install the operating system later”.
-        +smallImage()(src="images/content/install-on-vmware/install-later_small.jpg" alt="Создание виртуальной машины в VMWare")
+        +smallImage()(src="images/content/install-on-vmware/install-later_small.jpeg" alt="Создание виртуальной машины в VMWare")
       +li
         | Укажите Apple Mac OS X версии 10.13
-        +smallImage()(src="images/content/install-on-vmware/select-os_small.jpg" alt="Выбор версии ОС в VMWare")
+        +smallImage()(src="images/content/install-on-vmware/select-os_small.jpeg" alt="Выбор версии ОС в VMWare")
       +li
         | И папку, в которую будет установлена виртуальная ОС. Запомните ее путь.
-        +smallImage()(src="images/content/install-on-vmware/select-vm-location_small.jpg" alt="Выбор папки для VMWare")
+        +smallImage()(src="images/content/install-on-vmware/select-vm-location_small.jpeg" alt="Выбор папки для VMWare")
       +li
         | Затем в настройках созданной ВМ удалите Hard Disk.
-        +image("images/content/install-on-vmware/vmware-settings.jpg")(data-size="732x650" alt="Настройки VMWare")
-        +image("images/content/install-on-vmware/remove-hdd.jpg")(data-size="669x594" alt="Удаление жесткого диска в VMWare")
+        +image("images/content/install-on-vmware/vmware-settings.jpeg")(data-size="732x650" alt="Настройки VMWare")
+        +image("images/content/install-on-vmware/remove-hdd.jpeg")(data-size="669x594" alt="Удаление жесткого диска в VMWare")
       +li
         | Добавьте виртуальный жесткий диск: Add &gt; Hard Disk &gt; SATA. 
       +li
         | После выберите “Use an Existing Virtual Disk” и укажите путь к образу с macOS Mojave (большой файл с расширением vmdk).
-        +smallImage()(src="images/content/install-on-vmware/select-disk_small.jpg" alt="Добавление жесткого диска в VMWare")
-        +smallImage()(src="images/content/install-on-vmware/browse-macos-image_small.jpg" alt="Добавление образа в VMWare")
+        +smallImage()(src="images/content/install-on-vmware/select-disk_small.jpeg" alt="Добавление жесткого диска в VMWare")
+        +smallImage()(src="images/content/install-on-vmware/browse-macos-image_small.jpeg" alt="Добавление образа в VMWare")
       +li
         | В параметрах диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.
-        +smallImage()(src="images/content/install-on-vmware/select-hdd-size_small.jpg" alt="Выделение памяти для VMWare")
+        +smallImage()(src="images/content/install-on-vmware/select-hdd-size_small.jpeg" alt="Выделение памяти для VMWare")
       +li
         | Не забудьте выделить достаточное кол-во памяти для VMWare — порядка 50-65% от общей суммы ОЗУ компьютера.
-        +image("images/content/install-on-vmware/memory-size.jpg")(data-size="669x594" alt="Выделение памяти для VMWare")
+        +image("images/content/install-on-vmware/memory-size.jpeg")(data-size="669x594" alt="Выделение памяти для VMWare")
       +li
         | Нажмите OK и 
         em закройте
@@ -119,30 +119,30 @@ block content
         | Перейдите в папку ВМ и откройте файл macOS 10.13 с помощью блокнота. Это небольшой файл размером ~2 Кб. Вставьте туда последней строкою код: 
         +code('smc.version = "0"')
         | . Сохраните изменения.
-        +image("images/content/install-on-vmware/open-vm-file.jpg")(data-size="883x565" alt="Файлы VMWare")
-        +image("images/content/install-on-vmware/edit-vm-file.jpg")(data-size="852x803" alt="Редактирование файла VMWare")
+        +image("images/content/install-on-vmware/open-vm-file.jpeg")(data-size="883x565" alt="Файлы VMWare")
+        +image("images/content/install-on-vmware/edit-vm-file.jpeg")(data-size="852x803" alt="Редактирование файла VMWare")
       +li
         | Все, теперь можно запустить VMWare и начать установку macOS Mojave!
-        +image("images/content/install-on-vmware/start-vm.jpg")(data-size="700x618" alt="Запуск VMWare")
+        +image("images/content/install-on-vmware/start-vm.jpeg")(data-size="700x618" alt="Запуск VMWare")
       +li
         | Для того чтобы отказаться от входа в учетную запись Apple, нажмите на Set Up Later.
-        +image("images/content/install-on-vmware/sign-in-to-account.jpg")(data-size="1026x833" alt="Вход в учетную запись Apple")
+        +image("images/content/install-on-vmware/sign-in-to-account.jpeg")(data-size="1026x833" alt="Вход в учетную запись Apple")
       +li
         | По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.
-        +smallImage()(src="images/content/install-on-vmware/mount-vmware-tools_small.jpg" alt="Загрузка VMWare Tools")
+        +smallImage()(src="images/content/install-on-vmware/mount-vmware-tools_small.jpeg" alt="Загрузка VMWare Tools")
         +note(inf)
           | Патч VMWare Tools нужен главным образом для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана.
       +li
         | Установите VMWare Tools и перезагрузите ВМ. 
-        +image("images/content/install-on-vmware/install-vmware-tools.jpg")(data-size="1026x836" alt="Установка VMWare Tools")
+        +image("images/content/install-on-vmware/install-vmware-tools.jpeg")(data-size="1026x836" alt="Установка VMWare Tools")
       +li
         | Система безопасности macOS Mojave заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч кнопкой Allow. 
-        +image("images/content/install-on-vmware/allow-vmware-tools.jpg")(data-size="1026x834" alt="Открытие доступа для VMWare Tools")
+        +image("images/content/install-on-vmware/allow-vmware-tools.jpeg")(data-size="1026x834" alt="Открытие доступа для VMWare Tools")
       +li
         | Перезагрузите ВМ еще раз. 
         +p 
           | Готово, теперь macOS Mojave должна работать на Windows как виртуальная ОС!&nbsp;😊
-        +image("images/content/install-on-vmware/vmware-macos-desktop.jpg")(data-size="1920x1080" alt="Рабочий стол macOS Mojave на VMWare")
+        +image("images/content/install-on-vmware/vmware-macos-desktop.jpeg")(data-size="1920x1080" alt="Рабочий стол macOS Mojave на VMWare")
   +section
     +h2
     +ul
