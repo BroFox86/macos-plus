@@ -1,79 +1,61 @@
 "use strict";
 
-/* ==========================================================================
-   Copy URL button
-   ========================================================================== */
-
 /**
- * Button to copy URL of the current page.
+ * Сopy URL of the current page.
  * @class
  * @augments Collapse
- * @param {object} options - Query selectors.
- * @param {string} options.button - Button.
- * @param {string} options.output - Output field.
- * @version 1.0.1
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function CopyButton( options ) {
-
-  this._btn = document.querySelector( options.button );
-
-  this._output = document.querySelector( options.output );
-
-  this._wrapper = this._output.parentElement;
-
-  // Add event listener at call
-  this.run();
+function Copy() {
+  this._trigger = document.querySelector(".js-copy-url-trigger");
+  this._field = document.querySelector(".js-copy-url-field");
+  this._wrapper = this._field.parentElement;
 };
 
-CopyButton.prototype = Object.create( Collapse.prototype );
+Copy.prototype = Object.create( Collapse.prototype );
+Copy.prototype.constructor = Copy;
 
-/*
- * Copy URL without an anchor link.
- */
-CopyButton.prototype._copy = function() {
+Copy.prototype._handle = function() {
+  var duration = this._getDuration( this._wrapper );
 
-  this._output.value = window.location.href.replace( /\#\d$/i, "" );
+  Collapse.prototype._handle.call( this, this._trigger, [this._wrapper]);
 
-  this._output.focus();
+  setTimeout(function() {
 
-  this._output.select();
+    this._copyUrl();
+
+    setTimeout(function() {
+
+      this._showMessage();
+
+    }.bind(this), duration );
+
+  }.bind(this), duration );
+}
+
+// Copy URL without an anchor link.
+Copy.prototype._copyUrl = function() {
+
+  this._field.value = window.location.href.replace( /\#\d$/i, "" );
+
+  this._field.focus();
+
+  this._field.select();
 
   document.execCommand("Copy");
 }
 
-CopyButton.prototype._showMessage = function() {
+Copy.prototype._showMessage = function() {
 
-  this._output.blur();
+  this._field.blur();
 
-  this._output.value = "Ссылка скопирована!";
+  this._field.value = "Ссылка скопирована!";
 }
 
-CopyButton.prototype._handle = function() {
-  var duration = this._getDuration( this._wrapper );
-
-  setTimeout(function() {
-
-    this._copy();
-
-  }.bind( this ), duration );
-
-  setTimeout(function() {
-
-    this._showMessage();
-
-  }.bind( this ), duration * 2 );
-}
-
-CopyButton.prototype.run = function() {
-  var parentHandle = Collapse.prototype._handle;
-
-  this._btn.addEventListener("click", parentHandle.bind(this,"js-copy-toggle"));
-
-  this._btn.addEventListener("click", this._handle.bind(this));
+Copy.prototype.listen = function() {
+  this._trigger.addEventListener( "click", this._handle.bind(this) );
 };
 
-var copyButton = new CopyButton({
-  button: "[data-toggle='copyUrl']",
-  output: "[data-target='copyUrl']"
-});
+var copyUrl = new Copy();
+
+copyUrl.listen();

@@ -1,163 +1,174 @@
 "use strict";
 
 /**
- * Expandable lists that triggered by an element with data-toggle="collapse"
- * and a data-target with their selector.
+ * Expandable elements that triggered by buttons with '.js-collapse-trigger'
+ * class and the data-target with their selector.
  * @class
- * @version 2.0.1
+ * @version 4.0.0
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 var Collapse = new Function();
 
+/**
+ * Listen button.
+ * @public
+ */
 Collapse.prototype.listen = function() {
-  document.body.addEventListener( "click", this._handle.bind( this, "js-collapse-toggle" ) );
+  document.addEventListener( "click", this._initialize.bind(this) );
 };
 
-Collapse.prototype._handle = function( selector, event ) {
-  var evtTarget = event.target,
-    toggleElem,
-    targetElem,
-    id;
+/**
+ * Get target elements from the event.
+ * @protected
+ */
+Collapse.prototype._initialize = function( event ) {
+  var eventTarget = event.target;
+  var targets;
+  var trigger;
 
-  while( true ) {
+  while(true) {
 
-    if ( evtTarget == document.body ) {
-      break;
+    if ( !eventTarget ) {
+      return;
     }
 
-    if ( !evtTarget.classList.contains( selector ) ) {
+    if ( !eventTarget.classList.contains("js-collapse-trigger") ) {
 
-      evtTarget = evtTarget.parentElement;
+      eventTarget = eventTarget.parentElement;
 
       continue;
     }
 
     event.preventDefault();
 
-    toggleElem = evtTarget;
+    trigger = eventTarget;
 
-    id = toggleElem.getAttribute("data-target");
+    targets = document.querySelectorAll( trigger.getAttribute("data-target") );
 
-    targetElem = document.querySelector( id );
+    this._handle( trigger, targets );
 
-    if ( !toggleElem.classList.contains("is-active") ) {
+    return;
+  }
+};
 
-      this._show( toggleElem, targetElem );
+/**
+ * Handle transition.
+ * @protected
+ * @param {HTMLElement} trigger - Button element.
+ * @param {HTMLElement[]} targets - Target elements.
+ */
+Collapse.prototype._handle = function( trigger, targets ) {
+  var duration = this._getDuration( targets[0] );
+  var target;
+
+  if ( !trigger.classList.contains("pending") ) {
+
+    trigger.classList.add("pending");
+
+    setTimeout(function() {
+
+      trigger.classList.remove("pending");
+
+    }, duration );
+
+  } else {
+
+    return;
+  }
+
+  for ( var i = 0; i < targets.length; i++ ) {
+    target = targets[i];
+
+    if ( !trigger.classList.contains("is-active") ) {
+      this._slideDown( target );
 
     } else {
-
-      this._hide( toggleElem, targetElem );
+      this._slideUp( target );
     }
-
-    break;
-  }
-};
-
-Collapse.prototype._show = function( toggleElem, targetElem ) {
-  var toggleClass = toggleElem.classList,
-    targetClass = targetElem.classList,
-    duration = this._getDuration( targetElem );
-
-  if ( targetClass.contains("expanding") ) {
-    return;
   }
 
-  targetClass.add("expanding");
-
-  this._slideDown( targetElem );
-
-  setTimeout(function() {
-
-    toggleClass.add("is-active");
-
-    targetClass.remove("expanding");
-
-  }.bind(this), duration );
+  trigger.classList.toggle("is-active");
 };
 
-Collapse.prototype._hide = function( toggleElem, targetElem ) {
-  var toggleClass = toggleElem.classList,
-    targetClass = targetElem.classList,
-    duration = this._getDuration( targetElem );
-
-  if ( targetClass.contains("expanding") ) {
-    return;
-  }
-
-  targetClass.add("expanding");
-
-  this._slideUp( targetElem );
-
-  setTimeout(function() {
-
-    toggleClass.remove("is-active");
-
-    targetClass.remove("expanding");
-
-  }.bind(this), duration );
-};
-
-Collapse.prototype._slideDown = function( elem ) {
-  var style = elem.style,
-    duration = this._getDuration( elem ),
-    height,
-    paddingTop,
-    paddingBottom;
+/**
+ * Expand the element.
+ * @protected
+ */
+Collapse.prototype._slideDown = function( target ) {
+  var style = target.style;
+  var paddingTop = this._getStyle( target, "padding-top" );
+  var paddingBottom = this._getStyle( target, "padding-bottom" );
+  var height;
 
   style.overflow = "hidden";
-  style.boxSizing = "border-box";
-
-  paddingTop = this._getStyle( elem, "padding-top" );
-  paddingBottom = this._getStyle( elem, "padding-bottom" );
-
-  style.paddingTop = "0";
-  style.paddingBottom = "0";
 
   style.display = "block";
 
-  height = elem.offsetHeight + paddingTop + paddingBottom;
+  height = target.offsetHeight;
 
-  style.height = 0;
+  style.transition = "none";
+
+  style.height = "0";
+
+  style.paddingTop = "0";
+
+  style.paddingBottom = "0";
 
   setTimeout(function() {
+
+    style.transition = "";
+
     style.height = height + "px";
+
     style.paddingTop = paddingTop + "px";
+
     style.paddingBottom = paddingBottom + "px";
+
   }, 20 );
+};
+
+/**
+ * Roll up.
+ * @protected
+ */
+Collapse.prototype._slideUp = function( target ) {
+  var style = target.style;
+  var duration = this._getDuration( target );
+
+  style.height = "0";
+
+  style.paddingTop = "0";
+
+  style.paddingBottom = "0";
 
   setTimeout(function() {
-    style.cssText = "display: block";
+
+    target.removeAttribute("style");
+
   }, duration );
 };
 
-Collapse.prototype._slideUp = function( elem ) {
-  var style = elem.style,
-    duration = this._getDuration( elem );
+/**
+ * Get transition duration.
+ * @protected
+ */
+Collapse.prototype._getDuration = function( element ) {
+  var duration = parseFloat( getComputedStyle( element ).transitionDuration );
 
-  style.overflow = "hidden";
-  style.boxSizing = "border-box";
-  style.height = elem.offsetHeight + "px";
-
-  setTimeout(function() {
-    style.height = 0;
-    style.paddingTop = 0;
-    style.paddingBottom = 0;
-  }, 20 );
-
-  setTimeout(function() {
-    style.cssText = "";
-  }, duration );
+  // Get ms from sec.
+  return duration * 1000;
 };
 
-Collapse.prototype._getStyle = function( elem, property ) {
-  var value = getComputedStyle( elem )[property];
+/**
+ * Get style value.
+ * @protected
+ */
+Collapse.prototype._getStyle = function( element, property ) {
+  var value = getComputedStyle( element )[property];
 
   return parseFloat( value );
 };
 
-Collapse.prototype._getDuration = function( elem ) {
-  var duration = parseFloat( getComputedStyle( elem ).transitionDuration );
+var collapse = new Collapse();
 
-  // Get ms from sec
-  return duration * 1000;
-};
+collapse.listen();

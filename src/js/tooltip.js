@@ -1,16 +1,14 @@
 "use strict";
 
 /**
- * Handling flying tooltips.
- * @class
- * @version 3.0.0
+ * Handle flying tooltips.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function Tooltip() {
-  var tooltip = document.querySelector(".js-tooltip-popup");
-  var content;
+  var tooltip = document.querySelector(".js-tooltip-body");
   var trigger;
   var title;
+  var content;
 
   function handle( event ) {
 
@@ -21,9 +19,7 @@ function Tooltip() {
     }
 
     if ( tooltip.classList.contains("is-active") ) {
-
       hide();
-
       return;
     }
 
@@ -64,8 +60,6 @@ function Tooltip() {
 
     tooltip.style.top = event.pageY + 10 + "px";
   };
-
-  this.hide = hide;
 
   document.addEventListener( "mouseover", handle.bind(this) );
 

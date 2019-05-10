@@ -1,26 +1,32 @@
 extends /pug/layouts/_page
 
-prepend page
-  - var encodedUrl = page.indexForShare
-
 block head
   meta(charset="utf-8")
   meta(content="width=device-width, initial-scale=1" name="viewport")
   title="Страница не найдена"
 
-  // inject:critical:css 
-  // endinject
+  //inject:critical:css 
+  //endinject
 
-  // build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" 
+  //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+  link(href="css/normalize.css" rel="stylesheet")
   link(href="css/main.css" rel="stylesheet")
-  // endbuild 
+  //endbuild 
 
-  // inject:fg-loadcss:html 
-  // endinject 
+  //inject:fg-loadcss:html 
+  //endinject 
   
-  // inject-string:noscript
+  //inject-string:noscript
 
 block inner
   +error404
 
 block sidebar
+
+append scripts
+  script.
+    var image = document.querySelector(".js-animate-picture");
+
+    window.addEventListener("load", function() {
+      image.classList.add("is-animated");
+    });

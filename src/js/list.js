@@ -2,18 +2,17 @@
 
 /**
  * Add custom characters to ordered lists.
- * @class
- * @param {Object} options - Object with options.
- * @param {string} options.selector - Selector of the ordered lists (ol).
+ * @param {Object} options - Options.
+ * @param {string} options.list - Ordered lists selector.
  * @param {Array} options.items - Array with characters.
- * @param {string} options.closing - Closing symbol after character.
+ * @param {string} options.closing - Closing symbol after a character.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function CustomList( options ) {
-  var selector = options.selector,
-    items = options.items,
-    closing = options.closing,
-    style = document.createElement("style");
+function setCustomList( options ) {
+  var items = options.items;
+  var selector = options.list;
+  var closing = options.closing;
+  var style = document.createElement("style");
 
   document.head.appendChild( style );
 
@@ -22,12 +21,12 @@ function CustomList( options ) {
     style.sheet.insertRule(
 
       selector + "> li:nth-child("+ (i + 1) + ")::before {\
-        content:'" + item + closing + "'}", 0 )
+        content:'" + item + closing + "'}", 0 );
   });
 }
 
-var cyrillicList = new CustomList({
-  selector: "ol ol",
+setCustomList({
+  list: "ol ol",
   items: "абвгдежзиклмнопрстуфхцчшщэюя",
   closing: ")"
 });

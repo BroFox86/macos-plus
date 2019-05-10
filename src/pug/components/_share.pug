@@ -3,37 +3,21 @@ mixin share(footer)
     h2.aside__headline.share__headline Поделиться
     .share__container
 
-      a.share__btn.share__btn--vk( 
-        href="https://vk.com/share.php?url=" + domain
-        data-toggle="share"
-        title="Вконтакте"
-      )
+      a.share__btn.share__btn--vk.js-share-trigger(href="https://vk.com/share.php?url=" + domain title="Вконтакте")
         +svg("#vk")(class="share__icon")
 
-      a.share__btn.share__btn--twitter(
-        href="https://twitter.com/intent/tweet?url=" + domain
-        data-toggle="share"
-        title="Twitter"
-      )
+      a.share__btn.share__btn--twitter.js-share-trigger(href="https://twitter.com/intent/tweet?url=" + domain title="Twitter")
         +svg("#twitter")(class="share__icon")
 
-      a.share__btn.share__btn--fb(
-        href="https://www.facebook.com/sharer/sharer.php?u=" + domain
-        data-toggle="share"
-        title="Facebook"
-      )
+      a.share__btn.share__btn--fb.js-share-trigger(href="https://www.facebook.com/sharer/sharer.php?u=" + domain title="Facebook")
         +svg("#facebook")(class="share__icon")
 
       case footer
         when false
-          button.share__btn.share__btn--url.js-copy-toggle(
-            data-toggle="copyUrl"
-            data-target="#copy"
-            title="Скопировать ссылку"
-          )
+          button.share__btn.share__btn--url.js-copy-url-trigger(title="Скопировать ссылку")
             +svg("#link-solid")(class="share__icon")
 
     case footer
       when false
-        .share__output-wrapper(id="copy")
-          input.share__output-field(data-target="copyUrl" readonly)
+        .share__output-wrapper
+          input.share__output-field.js-copy-url-field(readonly)

@@ -3,9 +3,9 @@
 /**
  * Display viewport size of the page.
  * @class
- * @param {string[]} styles - Array of styles that apply to the indicator.
+ * @param {string[]} styles - Array of styles.
  * @author Daur Gamisonia <daurgam@gmail.com>
- * @version 1.0.5
+ * @version 1.0.6
  * @example
  * var displayViewportSize = new Viewport([
  *   "position: fixed",
@@ -42,7 +42,7 @@ function ViewportIndicator( styles ) {
       viewportHeight = window.innerHeight;
 
     } else if ( userAgent.match(/Safari/) ) {
-      // Safari doesn't include scrollbar in viewport width.
+      // Safari doesn't include scrollbar into viewport size.
       viewportWidth = document.documentElement.clientWidth;
       viewportHeight = document.documentElement.clientHeight;
 
@@ -51,7 +51,7 @@ function ViewportIndicator( styles ) {
       viewportHeight = window.innerHeight;
     }
 
-    indicator.innerHTML = viewportWidth + "x" + viewportHeight;
+    indicator.textContent = viewportWidth + "x" + viewportHeight;
   }
 
   ["DOMContentLoaded", "resize"].forEach(function( item ) {
@@ -59,11 +59,11 @@ function ViewportIndicator( styles ) {
   });
 }
 
-var viewportIndicator = new ViewportIndicator([
+var viewport = new ViewportIndicator([
   "position: fixed",
+  "z-index: 9999",
   "bottom: 0",
   "left: 1%",
-  "z-index: 9999",
   "background: white",
   "color: blue"
 ]);

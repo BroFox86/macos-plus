@@ -13,7 +13,7 @@ mixin contents(state)
 
   case state
     when "desktop"
-      nav.aside.contents.sidebar__item(data-toggle="contents")
+      nav.aside.contents.sidebar__item.js-scrollspy-target
         +contentsInner
     when "mobile"
       nav.aside.contents.article__contents

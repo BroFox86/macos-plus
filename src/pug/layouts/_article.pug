@@ -6,7 +6,7 @@ mixin section
     block
 
 mixin h2
-  h2.article__h2(id = (j + 1), data-spy="contents")
+  h2.article__h2.js-scrollspy-toggle(id = (j + 1))
     a.link(href= "#" + (j + 1))
       span.article__anchor §
       | #{itemList[j++]}
@@ -39,7 +39,7 @@ mixin li
 mixin image(src)
   - var original = src.replace(/(\.[\w\d]+)$/, "_original$1")
   
-  a.article__img-wrapper(href= original, data-toggle="lightbox")
+  a.article__img-wrapper.js-lightbox-trigger(href= original)
     img.article__img(src="images/misc/preloader.svg" data-src= src)&attributes(attributes)
 
 mixin smallImage

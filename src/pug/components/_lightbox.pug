@@ -1,6 +1,6 @@
 mixin lightbox
-  .lightbox(data-target="lightbox")
+  .lightbox.js-lightbox-toggle
     .lightbox__inner
-      button.lightbox__close(data-dismiss="lightbox")
+      button.lightbox__close.js-lightbox-dismiss
         +svg("#times")(class="lightbox__close-icon")
       img.lightbox__img(src="images/misc/preloader.svg" alt="")
