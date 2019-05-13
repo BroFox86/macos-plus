@@ -1,0 +1,13 @@
+// @mixin x-size($width, $height: $width) {
+//   width: $width;
+//   height: $height;
+// }
+
+@mixin x-center($position: absolute, $top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  margin: auto;
+}

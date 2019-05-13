@@ -17,14 +17,9 @@
   }
 
   &__icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    @include x-center();
     width: 17px;
     height: 17px;
-    margin: auto;
     fill: $footer-bg;
     transition: $transition;
 

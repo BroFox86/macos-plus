@@ -53,14 +53,9 @@
   }
 
   &__icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    @include x-center();
     width: 22px;
     height: 22px;
-    margin: auto;
     fill: white;
 
     @media(min-width: $tablet) and (max-width: $desktop) {
@@ -75,7 +70,6 @@
 
   &__output-wrapper {
     display: none;
-    box-sizing: border-box;
     padding-bottom: 17px;
     text-align: center;
     transition: all .6s;
