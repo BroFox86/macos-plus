@@ -89,8 +89,8 @@ function handleImageLoading( options ) {
     };
 
     /*
-     * Clear size attributes after the image is loaded
-     * in order to change its size dynamically when resizing the page.
+     * Clear size attributes after the image loading
+     * in order to change their size dynamically when resizing the page.
      */
     image.onload = function() {
 

@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Toggle modal window with smooth effects.
+ * Toggle modal window.
  * @class
  */
 var Modal = new Function();

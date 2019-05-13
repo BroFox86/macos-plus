@@ -4,8 +4,8 @@
  * Add custom characters to ordered lists.
  * @param {Object} options - Options.
  * @param {string} options.list - Ordered lists selector.
- * @param {Array} options.items - Array with characters.
- * @param {string} options.closing - Closing symbol after a character.
+ * @param {string} options.items - Characters.
+ * @param {string} options.closing - Closing symbol.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function setCustomList( options ) {

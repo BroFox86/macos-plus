@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Share current URL on social networks by opening a new window.
+ * Share the current URL on a social network by opening a new window.
  * @param {number} width - Window width.
  * @param {number} height - Window height.
  * @author Daur Gamisonia <daurgam@gmail.com>

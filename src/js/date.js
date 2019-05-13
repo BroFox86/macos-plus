@@ -1,37 +1,37 @@
 "use strict";
 
-// Wrapper function that set the specific time unit from days.
+// Wrapper function that set a specific time unit from days.
 function setDate( calcDiff, localizeUnits ) {
 
   return function() {
-    var elem = document.querySelector( arguments[0] );
+    var element = document.querySelector( arguments[0] );
 
-    if ( !elem ) {
+    if ( !element ) {
       return;
     }
 
-    var modifiedDate = elem.getAttribute("datetime");
+    var modifiedDate = element.getAttribute("datetime");
     var days = calcDiff( modifiedDate );
     var amount;
     var units;
 
     if ( days == 0 ) {
 
-      elem.innerHTML = "Обновлено сегодня.";
+      element.innerHTML = "Обновлено сегодня.";
 
       return;
     }
 
     else if ( days == 1 ) {
 
-      elem.innerHTML = "Обновлено вчера.";
+      element.innerHTML = "Обновлено вчера.";
 
       return;
     }
 
     else if ( days == 2 ) {
 
-      elem.innerHTML = "Обновлено позавчера.";
+      element.innerHTML = "Обновлено позавчера.";
 
       return;
     }
@@ -66,11 +66,11 @@ function setDate( calcDiff, localizeUnits ) {
 
     switch( amount ) {
       case 1:
-        elem.innerHTML = "Обновлено " + units + " назад.";
+        element.innerHTML = "Обновлено " + units + " назад.";
         break;
 
       default:
-        elem.innerHTML = "Обновлено " + amount + " " + units + " назад.";
+        element.innerHTML = "Обновлено " + amount + " " + units + " назад.";
         break;
     }
   }
@@ -92,7 +92,7 @@ function calcDiff( modDate ) {
 };
 
 /**
- * Set the name of time units in accordance with the Russian grammar.
+ * Set the name of time units in accordance with Russian grammar.
  * @param {string} units - Name of time units in English.
  * @param {number} amount - Amount of time units.
  * @returns {string} - Name of time units with decline.

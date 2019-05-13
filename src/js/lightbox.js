@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Open original images in the modal window.
+ * Open original size images in the modal window.
  * @class
  * @augments Modal
  * @author Daur Gamisonia <daurgam@gmail.com>

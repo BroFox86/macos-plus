@@ -168,7 +168,3 @@ Collapse.prototype._getStyle = function( element, property ) {
 
   return parseFloat( value );
 };
-
-var collapse = new Collapse();
-
-collapse.listen();
