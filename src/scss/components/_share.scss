@@ -1,17 +1,17 @@
 .share {
-  @media (max-width: $tablet) {
+  @media (max-width: $medium-screen) {
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
   }
 
-  @media (max-width: $mobile) {
+  @media (max-width: $small-screen) {
     display: none;
   }
 
   &__headline {
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       color: $dimmed-font-color;
       font-size: 18px;
     }
@@ -22,7 +22,7 @@
     justify-content: space-around;
     padding: 20px 10px;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       width: 180px;
     }
   }
@@ -39,14 +39,14 @@
       transform: scale(1.05);
     }
 
-    &--vk      { background: $vk; }
-    &--twitter { background: $twitter; }
-    &--fb      { background: $facebook; }
+    &--vk      { background: #507299; }
+    &--twitter { background: #55acee; }
+    &--fb      { background: #3b5998; }
 
     &--url {
-      background: $grey;
+      background: $grey-133;
 
-      @media (max-width: $tablet) {
+      @media (max-width: $medium-screen) {
         display: none;
       }
     }
@@ -58,7 +58,7 @@
     height: 22px;
     fill: white;
 
-    @media(min-width: $tablet) and (max-width: $desktop) {
+    @media(min-width: $medium-screen) and (max-width: $large-screen) {
       width: 20px;
       height: 20px;
     }

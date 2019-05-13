@@ -3,24 +3,24 @@
   flex-direction: column;
   width: 700px;
 
-  @media (max-width: $desktop) {
+  @media (max-width: $large-screen) {
     width: 600px;
   }
 
-  @media (max-width: $tablet) {
+  @media (max-width: $medium-screen) {
     width: 100%;
   }
 
   &__header {
-    margin: ($header-width + $margin--large) 0 20px;
+    margin: ($header-height + $large-margin) 0 20px;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       order: -2;
       margin-top: 65px + ($margin * 2);
       margin-bottom: $margin * 2;
     }
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       margin-top: 55px + $margin;
       margin-bottom: $margin;
     }
@@ -29,7 +29,7 @@
   &__contents {
     display: none;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       display: block;
       order: -1;
       margin-bottom: $margin;
@@ -41,7 +41,7 @@
     word-wrap: break-word;
     hyphens: auto;
 
-    @media (max-width: $desktop) {
+    @media (max-width: $large-screen) {
       padding:0;
     }
   }
@@ -51,24 +51,24 @@
     display: inline-block;
     margin: $margin * 1.5 0;
     color: $base-font-color;
-    font-family: $headings-font;
-    font-size: $h2;
+    font-family: $headings-fonts;
+    font-size: $h2-size;
     font-weight: 700;
 
-    @media (max-width: $mobile) {
-      font-size: $h2--mobile;
+    @media (max-width: $small-screen) {
+      font-size: $h2-size--mobile;
     }
   }
 
   &__h3 {
     margin-bottom: $margin;
     color: $base-font-color;
-    font-family: $headings-font;
-    font-size: $h3;
+    font-family: $headings-fonts;
+    font-size: $h3-size;
     font-weight: 700;
 
-    @media (max-width: $mobile) {
-      font-size: $h3--mobile;
+    @media (max-width: $small-screen) {
+      font-size: $h3-size--mobile;
     }
   }
 
@@ -78,8 +78,8 @@
     left: -.8em;
     padding-right: 12px;
     opacity: 0;
-    color: $accent;
-    font-family: $base-font;
+    color: $accent-color;
+    font-family: $base-fonts;
     font-size: 1.2em;
     transition: $transition;
 
@@ -87,7 +87,7 @@
       opacity: 1;
     }
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       display: none;
     }
   }
@@ -134,7 +134,7 @@
         height: .368em;
         content: "";
         border-radius: 50%;
-        background: $grey;
+        background: $grey-133;
       }
     }
 
@@ -166,10 +166,10 @@
 
   &__img {
     max-width: 480px;
-    color: $grey;
+    color: $grey-133;
     transition: opacity .5s ease-in;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       width: 100%;
       max-width: none;
     }
@@ -193,7 +193,7 @@
   &__tooltip[title] {
     text-decoration: none;
     hyphens: none;
-    border-bottom: 1px dashed $grey;
+    border-bottom: 1px dashed $grey-133;
     //
     // Set pointer instead of help to avoid problems
     // with event listener on iOS.
@@ -205,10 +205,10 @@
     padding: 3px 6px;
     hyphens: none;
     border-radius: 4px;
-    background: $code;
+    background: $grey-235;
     font-size: 0.947em;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       font-size: 0.889em;
     }
   }

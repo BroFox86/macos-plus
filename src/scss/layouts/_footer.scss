@@ -2,11 +2,11 @@
   height: 100%;
   padding: 35px 0 45px;
   color: $dimmed-font-color;
-  background: $footer-bg;
+  background: $footer-color;
   text-align: center;
   font-size: 0.895em;
 
-  @media (max-width: $mobile) {
+  @media (max-width: $small-screen) {
     padding: 40px 0;
   }
 
@@ -27,12 +27,12 @@
   &__share {
     display: none;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       display: flex;
       margin-bottom: 20px;
     }
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       display: none;
     }
   }
@@ -54,11 +54,11 @@
   &__link {
     border-bottom: 1px solid transparent;
     text-decoration: none;
-    color: lighten($accent, 5);
+    color: lighten($accent-color, 5);
     transition: $transition;
 
     &:hover {
-      border-bottom: 1px solid $accent;
+      border-bottom: 1px solid $accent-color;
     }
   }
 }

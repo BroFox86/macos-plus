@@ -1,6 +1,6 @@
 .aside {
   overflow: hidden;
-  border: 1px solid $border;
+  border: 1px solid $grey-222;
   border-radius: 20px;
 
   &__headline {
@@ -8,12 +8,12 @@
     padding-top: 20px;
     color: $base-font-color;
     text-align: center;
-    font-family: $headings-font;
+    font-family: $headings-fonts;
     font-size: 18px;
     font-weight: 700;
     line-height: 1;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       padding: 0;
     }
   }

@@ -20,11 +20,11 @@
     @include x-center();
     width: 17px;
     height: 17px;
-    fill: $footer-bg;
+    fill: $footer-color;
     transition: $transition;
 
     .my-links__item:hover & {
-      fill: transparentize($footer-bg, .2);
+      fill: transparentize($footer-color, .2);
     }
   }
 }

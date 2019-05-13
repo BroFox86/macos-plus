@@ -5,15 +5,15 @@
   transition: $transition;
 
   &--article {
-    color: $accent;
+    color: $accent-color;
     font-weight: 700;
 
     &:hover {
-      color: darken($accent, 15);
+      color: darken($accent-color, 15);
     }
 
     &:visited {
-      color: $visited;
+      color: #512da8;
     }
   }
 

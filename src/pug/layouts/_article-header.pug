@@ -2,22 +2,22 @@
 
 mixin articleHeader
 
-  mixin datePublished
-    time.article-header__data-item(datetime= datePublished[2] + "-" + datePublished[1] + "-" + datePublished[0])= datePublished[0] + "." + datePublished[1] + "." + datePublished[2]
+  mixin published
+    time.article-header__data-item(datetime= published[2] + "-" + published[1] + "-" + published[0])= published[0] + "." + published[1] + "." + published[2]
 
-  mixin dateModified
-    time.article-header__data-item.js-date-modified(datetime= dateModified[2] + "-" + dateModified[1] + "-" + dateModified[0])
+  mixin modified
+    time.article-header__data-item.js-date-modified(datetime= modified[2] + "-" + modified[1] + "-" + modified[0])
 
   header.article__header.article-header
     .article-header__img-wrapper
       +svg(articleHeader.iconId)(class="article-header__img")
     h1.article-header__headline!= articleHeader.title
     p.article-header__data
-      case isDateModified
+      case isModified
         default
-          +datePublished
+          +published
         when true
-          +datePublished
-          +dateModified
+          +published
+          +modified
       if block
         block

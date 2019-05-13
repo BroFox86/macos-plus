@@ -5,7 +5,7 @@
   align-items: center;
   height: 100vh;
 
-  @media (max-width: $tablet) {
+  @media (max-width: $medium-screen) {
     flex-direction: column;
   }
 
@@ -15,7 +15,7 @@
     margin: 10px 15px -10px;
     transform: translate(0, -1000px);
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       width: 50vw;
     }
 
@@ -33,10 +33,10 @@
 
   &__type {
     margin-bottom: 10px;
-    color: $accent;
+    color: $accent-color;
     font-size: 112px;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       margin-bottom: 15px;
       font-size: 64px;
     }
@@ -45,12 +45,12 @@
   &__desc {
     position: relative;
     left: 4px;
-    color: $grey;
+    color: $grey-133;
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 600;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       font-size: 17px;
     }
   }

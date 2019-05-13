@@ -2,12 +2,12 @@
   padding: 70px;
   border-radius: 60px;
   text-align: center;
-  background: linear-gradient(135deg, $light 22px, white 22px, white 24px, transparent 24px, transparent 67px, white 67px, white 69px, transparent 69px),
-              linear-gradient(225deg, $light 22px, white 22px, white 24px, transparent 24px, transparent 67px, white 67px, white 69px, transparent 69px)0 64px;
-  background-color: $light;
+  background: linear-gradient(135deg, $grey-244 22px, white 22px, white 24px, transparent 24px, transparent 67px, white 67px, white 69px, transparent 69px),
+              linear-gradient(225deg, $grey-244 22px, white 22px, white 24px, transparent 24px, transparent 67px, white 67px, white 69px, transparent 69px)0 64px;
+  background-color: $grey-244;
   background-size: 64px 128px;
 
-  @media (max-width: $mobile) {
+  @media (max-width: $small-screen) {
     border-radius: 35px;
     padding: 30px 10px;
   }
@@ -18,10 +18,10 @@
     height: 140px;
     margin: 0 auto 25px;
     border-radius: 50%;
-    background: $accent;
+    background: $accent-color;
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       width: 100px;
       height: 100px;
       margin-bottom: 15px;
@@ -36,14 +36,14 @@
   &__headline {
     margin: 0 0 15px;
     color: $base-font-color;
-    font-family: $headings-font;
-    font-size: $h1;
+    font-family: $headings-fonts;
+    font-size: $h1-size;
     font-weight: 700;
     line-height: 1.5;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       margin-bottom: 12px;
-      font-size: $h1--mobile;
+      font-size: $h1-size--mobile;
     }
   }
 

@@ -10,8 +10,8 @@ block page
   head
     block head
       meta(charset="utf-8")
-      title= pageTitle
-      meta(name="description" content= pageDesc)
+      title= title
+      meta(name="description" content= description)
 
       //inject:critical:css 
       //endinject
@@ -28,8 +28,8 @@ block page
 
       meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
 
-      meta(property="og:title" content= pageTitle)
-      meta(property="og:description" content= pageDesc)
+      meta(property="og:title" content= title)
+      meta(property="og:description" content= description)
       meta(property="og:type" content="article")
       meta(property="og:image" content= domain + metaImage.src)
       meta(property="og:image:width" content= metaImage.width)

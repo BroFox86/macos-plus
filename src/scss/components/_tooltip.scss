@@ -5,15 +5,15 @@
   max-width: 500px;
   padding: 20px;
   border-radius: 23px;
-  background: $tooltip;
+  background: #7e57c2;
   box-shadow: 0 0 4.8px rgb(102, 102, 102);
   color: white;
-  font-family: $second-font;
+  font-family: $second-fonts;
   font-size: 0.842em;
   hyphens: auto;
   transition: opacity .3s;
 
-  @media (max-width: $tablet) {
+  @media (max-width: $medium-screen) {
     width: 100%;
     padding: 30px 20px 20px;
     border-radius: 15px;
@@ -27,7 +27,7 @@
   &__close {
     display: none;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       position: absolute;
       top: 10px;
       right: 10px;

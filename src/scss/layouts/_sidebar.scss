@@ -1,11 +1,11 @@
 .sidebar {
-  @media (max-width: $tablet) {
+  @media (max-width: $medium-screen) {
     display: none;
   }
 
   &__inner {
     position: fixed;
-    top: $header-width + $margin--large;
+    top: $header-height + $large-margin;
     width: inherit;
     height: 100%;
   }

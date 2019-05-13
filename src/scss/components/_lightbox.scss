@@ -48,7 +48,7 @@
     height: 30px;
     background: transparent;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $small-screen) {
       top: 10%;
       right: 8%;
       width: 25px;
@@ -64,7 +64,7 @@
     transition: $transition;
 
     .lightbox__close:hover & {
-      fill: $accent;
+      fill: $accent-color;
     }
   }
 
@@ -72,7 +72,7 @@
     max-width: 70vw;
     max-height: 90vh;
 
-    @media (max-width: $tablet) {
+    @media (max-width: $medium-screen) {
       max-width: 100%;
     }
   }
