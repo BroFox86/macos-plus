@@ -6,8 +6,8 @@
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function ScrollSpy( offset ) {
-  var container = document.querySelector(".js-scrollspy-target");
-  var items = container.querySelectorAll("li");
+  var contents = document.querySelector(".js-scrollspy-target");
+  var items = contents.querySelectorAll("li");
   var headings = document.querySelectorAll(".js-scrollspy-toggle");
   var offset = offset || 0;
 
