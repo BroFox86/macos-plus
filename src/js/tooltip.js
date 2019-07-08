@@ -1,10 +1,10 @@
-"use strict";
-
 /**
  * Handle flying tooltips.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function Tooltip() {
+  "use strict";
+
   var tooltip = document.querySelector(".js-tooltip-body");
   var trigger;
   var title;
@@ -39,7 +39,7 @@ function Tooltip() {
     tooltip.appendChild( content );
 
     tooltip.classList.add("is-active");
-  };
+  }
 
   function hide() {
 
@@ -48,7 +48,7 @@ function Tooltip() {
     trigger.title = content.innerText;
 
     tooltip.removeChild( content );
-  };
+  }
 
   function move( event ) {
 
@@ -59,7 +59,7 @@ function Tooltip() {
     tooltip.style.left = event.pageX + 20 + "px";
 
     tooltip.style.top = event.pageY + 10 + "px";
-  };
+  }
 
   document.addEventListener( "mouseover", handle.bind(this) );
 

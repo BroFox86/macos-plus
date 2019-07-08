@@ -1,69 +1,68 @@
-"use strict";
-
 /**
  * Display viewport size of the page.
- * @class
  * @param {string[]} styles - Array of styles.
  * @author Daur Gamisonia <daurgam@gmail.com>
- * @version 1.0.6
+ * @version 1.0.7
  * @example
  * var displayViewportSize = new Viewport([
- *   "position: fixed",
- *   "bottom: 0"
- * ]);
-*/
-function ViewportIndicator( styles ) {
-  var cssText = "";
-  var indicator;
+  *   "position: fixed",
+  *   "bottom: 0"
+  * ]);
+ */
+ function ViewportIndicator( styles ) {
+   "use strict";
 
-  (function generateCssText() {
-    for ( var i = 0; i < styles.length; i++ ) {
-      cssText += styles[i] + ";"
-    }
-  })();
+   var cssText = "";
+   var indicator;
 
-  (function generateIndicator() {
-    indicator = document.createElement("div");
+   (function generateCssText() {
+     for ( var i = 0; i < styles.length; i++ ) {
+       cssText += styles[i] + ";";
+     }
+   })();
 
-    indicator.id = "viewport";
+   (function generateIndicator() {
+     indicator = document.createElement("div");
 
-    indicator.style.cssText = cssText;
+     indicator.id = "viewport";
 
-    document.body.appendChild( indicator );
-  })();
+     indicator.style.cssText = cssText;
 
-  function display() {
-    var userAgent = window.navigator.userAgent;
-    var viewportWidth;
-    var viewportHeight;
+     document.body.appendChild( indicator );
+   })();
 
-    if ( userAgent.match(/Chrome|Firefox|Opera|Edge|Trident/) ) {
-      viewportWidth = window.innerWidth;
-      viewportHeight = window.innerHeight;
+   function display() {
+     var userAgent = window.navigator.userAgent;
+     var viewportWidth;
+     var viewportHeight;
 
-    } else if ( userAgent.match(/Safari/) ) {
-      // Safari doesn't include scrollbar into viewport size.
-      viewportWidth = document.documentElement.clientWidth;
-      viewportHeight = document.documentElement.clientHeight;
+     if ( userAgent.match(/Chrome|Firefox|Opera|Edge|Trident/) ) {
+       viewportWidth = window.innerWidth;
+       viewportHeight = window.innerHeight;
 
-    } else {
-      viewportWidth = window.innerWidth;
-      viewportHeight = window.innerHeight;
-    }
+     } else if ( userAgent.match(/Safari/) ) {
+       // Safari doesn't include scrollbar into viewport size.
+       viewportWidth = document.documentElement.clientWidth;
+       viewportHeight = document.documentElement.clientHeight;
 
-    indicator.textContent = viewportWidth + "x" + viewportHeight;
-  }
+     } else {
+       viewportWidth = window.innerWidth;
+       viewportHeight = window.innerHeight;
+     }
 
-  ["DOMContentLoaded", "resize"].forEach(function( item ) {
-    window.addEventListener( item, display );
-  });
-}
+     indicator.textContent = viewportWidth + "x" + viewportHeight;
+   }
 
-var viewport = new ViewportIndicator([
-  "position: fixed",
-  "z-index: 9999",
-  "bottom: 0",
-  "left: 1%",
-  "background: white",
-  "color: blue"
-]);
+   ["DOMContentLoaded", "resize"].forEach(function( item ) {
+     window.addEventListener( item, display );
+   });
+ }
+
+ var viewport = new ViewportIndicator([
+   "position: fixed",
+   "z-index: 9999",
+   "bottom: 0",
+   "left: 1%",
+   "background: white",
+   "color: blue"
+ ]);

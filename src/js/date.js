@@ -1,7 +1,8 @@
-"use strict";
-
-// Wrapper function that set a specific time unit from days.
+/**
+ * Wrapper function that set a specific time unit from days.
+ */
 function setDate( calcDiff, localizeUnits ) {
+  "use strict";
 
   return function() {
     var element = document.querySelector( arguments[0] );
@@ -73,12 +74,12 @@ function setDate( calcDiff, localizeUnits ) {
         element.innerHTML = "Обновлено " + amount + " " + units + " назад.";
         break;
     }
-  }
-};
+  };
+}
 
 /**
  * Calculate interval between dates in days.
- * @param {string} modDate - Modified date in MM-DD-YYYY.
+ * @param {string} modDate - Modified date in MM-DD-YYYY format.
  * @returns {number|undefined} - Amount of days.
  */
 function calcDiff( modDate ) {
@@ -88,8 +89,10 @@ function calcDiff( modDate ) {
   var DAY = 86400000; // ms
   var days = Math.floor( (current - modified) / DAY );
 
-  return days = ( days >= 0 ) ? days : undefined;
-};
+  days = ( days >= 0 ) ? days : undefined;
+
+  return days;
+}
 
 /**
  * Set the name of time units in accordance with Russian grammar.
@@ -105,25 +108,21 @@ function localizeUnits( units, amount ) {
       return  ( amount == 1 ) ? "день"
             : ( amount <= 4 ) ? "дня"
             : "дней";
-      break;
 
     case "weeks":
       return ( amount == 1 ) ? "неделю": "недели";
-      break;
 
     case "months":
       return  ( amount == 1 ) ? "месяц"
             : ( amount <= 4 ) ? "месяца"
             : "месяцев";
-      break;
 
     case "years":
       return  ( amount == 1 ) ? "год"
             : ( amount <= 4 ) ? "года"
             : "лет";
-      break;
   }
-};
+}
 
 // Add a relative date of a post from the published date to the modified date.
 var relativeDate = setDate( calcDiff, localizeUnits );

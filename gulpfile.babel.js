@@ -235,6 +235,7 @@ export function copyPluginStyles(callback) {
     .pipe(plugins.rename({
       extname: ".scss"
     }))
+    .pipe(plugins.changed("src/scss/vendors/"))
     .pipe(dest("src/scss/vendors/"));
 }
 
@@ -308,6 +309,7 @@ export function copyPluginScripts(callback) {
   }
 
   return src(paths.plugins.js)
+    .pipe(plugins.changed("src/js/vendors"))
     .pipe(dest("src/js/vendors"));
 }
 

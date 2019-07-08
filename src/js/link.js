@@ -1,7 +1,7 @@
-"use strict";
-
 // Open external links in new tabs.
 (function() {
+  "use strict";
+
   var SELECTORS = 'a[href^="http://"], a[href^="https://"]';
   var links = document.querySelectorAll( SELECTORS );
 

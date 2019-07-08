@@ -1,13 +1,12 @@
-"use strict";
-
 /**
  * Asynchronous images that become visible if they get in on the specific scroll positions.
- * @param {Object} options - Options.
  * @param {number} options.width - Images width.
  * @param {string} options.fullWidth - Media query string for case where images are fill the container.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function handleImageLoading( options ) {
+  "use strict";
+
   var images = document.querySelectorAll("[data-src]");
   var userAgent = window.navigator.userAgent;
 
@@ -42,7 +41,7 @@ function handleImageLoading( options ) {
 
       image.setAttribute( "height", actualHeight );
     }
-  }, 500);
+  }, 500 );
 
   function getImage() {
     var image;
@@ -60,7 +59,7 @@ function handleImageLoading( options ) {
 
       loadImage( image );
     }
-  };
+  }
 
   function loadImage( image ) {
     var preloadImg = document.createElement("img");
@@ -97,8 +96,8 @@ function handleImageLoading( options ) {
       this.removeAttribute("width");
 
       this.removeAttribute("height");
-    }
-  };
+    };
+  }
 
   function isInArea( element ) {
     var bottomViewport = pageYOffset + document.documentElement.clientHeight;
@@ -108,7 +107,7 @@ function handleImageLoading( options ) {
     if ( bottomViewport > (elementTop - offset) ) {
       return true;
     }
-  };
+  }
 
   // Change preloader image from *.svg to *.gif for IE/Edge.
   function changePreloader() {
@@ -123,7 +122,7 @@ function handleImageLoading( options ) {
 
       image.setAttribute( "src", newSrc );
     }
-  };
+  }
 
   ["DOMContentLoaded", "scroll"].forEach(function( item ) {
     window.addEventListener( item, getImage );

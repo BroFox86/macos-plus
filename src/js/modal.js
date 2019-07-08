@@ -1,62 +1,64 @@
-"use strict";
+(function() {
+  "use strict";
 
-/**
- * Toggle modal window.
- * @class
- */
-var Modal = new Function();
+  /**
+   * Toggle modal window.
+   */
+  window.Modal = function Modal() {};
 
-Modal.prototype._open = function() {
-  var modal = this._modal;
+  Modal.prototype._open = function() {
+    var modal = this._modal;
 
-  this._toggleScroll();
+    this._toggleScroll();
 
-  modal.style.display = "block";
+    modal.style.display = "block";
 
-  setTimeout(function() {
+    setTimeout(function() {
 
-    modal.classList.add("is-visible");
+      modal.classList.add("is-visible");
 
-  }.bind(this), 20 );
-};
+    }.bind(this), 20 );
+  };
 
-Modal.prototype._close = function() {
-  var modal = this._modal;
-  var duration = this._duration;
+  Modal.prototype._close = function() {
+    var modal = this._modal;
+    var duration = this._duration;
 
-  modal.classList.remove("is-visible");
+    modal.classList.remove("is-visible");
 
-  this._toggleScroll();
+    this._toggleScroll();
 
-  setTimeout(function() {
+    setTimeout(function() {
 
-    modal.style.display = "";
+      modal.style.display = "";
 
-  }.bind(this), duration );
-};
+    }.bind(this), duration );
+  };
 
-Modal.prototype._toggleScroll = function() {
-  var body = document.body;
-  var scrollbar = window.innerWidth - document.documentElement.clientWidth;
+  Modal.prototype._toggleScroll = function() {
+    var body = document.body;
+    var scrollbar = window.innerWidth - document.documentElement.clientWidth;
 
-  if ( !body.classList.contains("is-fixed") ) {
+    if ( !body.classList.contains("is-fixed") ) {
 
-    body.style.paddingRight = scrollbar + "px";
+      body.style.paddingRight = scrollbar + "px";
 
-    body.classList.add("is-fixed");
+      body.classList.add("is-fixed");
 
-  } else {
+    } else {
 
-    body.style.paddingRight = "";
+      body.style.paddingRight = "";
 
-    body.classList.remove("is-fixed");
-  }
-};
+      body.classList.remove("is-fixed");
+    }
+  };
 
-// Get transition duration.
-Modal.prototype._getDuration = function( element ) {
-  var duration = parseFloat( getComputedStyle( element ).transitionDuration );
+  // Get transition duration.
+  Modal.prototype._getDuration = function( element ) {
+    var duration = parseFloat( getComputedStyle( element ).transitionDuration );
 
-  // Get ms from sec.
-  return duration * 1000;
-};
+    // Get ms from sec.
+    return duration * 1000;
+  };
+
+})();

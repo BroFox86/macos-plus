@@ -1,14 +1,13 @@
-"use strict";
-
 /**
  * Add custom characters to ordered lists.
- * @param {Object} options - Options.
  * @param {string} options.list - Ordered lists selector.
  * @param {string} options.items - Characters.
  * @param {string} options.closing - Closing symbol.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function setCustomList( options ) {
+  "use strict";
+
   var items = options.items;
   var selector = options.list;
   var closing = options.closing;
@@ -20,8 +19,8 @@ function setCustomList( options ) {
 
     style.sheet.insertRule(
 
-      selector + "> li:nth-child("+ (i + 1) + ")::before {\
-        content:'" + item + closing + "'}", 0 );
+      selector + "> li:nth-child("+ (i + 1) + ")::before {" +
+        "content:'" + item + closing + "'}", 0 );
   });
 }
 
