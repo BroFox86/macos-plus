@@ -3,15 +3,11 @@
  * @param {string} options.list - Ordered lists selector.
  * @param {string} options.items - Characters.
  * @param {string} options.closing - Closing symbol.
- * @version 1.0.0
+ * @version 1.0.1
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function setCustomList( options ) {
-  "use strict";
+function setCustomList({ selector, items, closing }) {
 
-  const selector = options.list;
-  const items = options.items;
-  const closing = options.closing;
   const style = document.createElement("style");
 
   document.head.appendChild( style );
@@ -27,7 +23,7 @@ function setCustomList( options ) {
 }
 
 setCustomList({
-  list: "ol ol",
+  selector: "ol ol",
   items: "абвгдежзиклмнопрстуфхцчшщэюя",
   closing: ")"
 });
