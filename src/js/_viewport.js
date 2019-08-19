@@ -1,68 +1,32 @@
 /**
  * Display viewport size of the page.
- * @param {string[]} styles - Array of styles.
+ * @param {string[]} styles - Array of strings with styles.
  * @author Daur Gamisonia <daurgam@gmail.com>
- * @version 1.0.7
- * @example
- * var displayViewportSize = new Viewport([
-  *   "position: fixed",
-  *   "bottom: 0"
-  * ]);
+ * @version 2.0.0
  */
- function ViewportIndicator( styles ) {
-   "use strict";
+function setViewportIndicator( styles ) {
+  "use strict";
 
-   var cssText = "";
-   var indicator;
+  const indicator = document.createElement("div");
 
-   (function generateCssText() {
-     for ( var i = 0; i < styles.length; i++ ) {
-       cssText += styles[i] + ";";
-     }
-   })();
+  for ( let style of styles ) {
+    indicator.style.cssText += `${style};`;
+  }
 
-   (function generateIndicator() {
-     indicator = document.createElement("div");
+  document.body.appendChild( indicator );
 
-     indicator.id = "viewport";
+  [ "DOMContentLoaded", "resize" ].forEach(( item ) => {
+    window.addEventListener( item, () => {
+      indicator.textContent = window.innerWidth + "x" + window.innerHeight;
+    });
+  });
+}
 
-     indicator.style.cssText = cssText;
-
-     document.body.appendChild( indicator );
-   })();
-
-   function display() {
-     var userAgent = window.navigator.userAgent;
-     var viewportWidth;
-     var viewportHeight;
-
-     if ( userAgent.match(/Chrome|Firefox|Opera|Edge|Trident/) ) {
-       viewportWidth = window.innerWidth;
-       viewportHeight = window.innerHeight;
-
-     } else if ( userAgent.match(/Safari/) ) {
-       // Safari doesn't include scrollbar into viewport size.
-       viewportWidth = document.documentElement.clientWidth;
-       viewportHeight = document.documentElement.clientHeight;
-
-     } else {
-       viewportWidth = window.innerWidth;
-       viewportHeight = window.innerHeight;
-     }
-
-     indicator.textContent = viewportWidth + "x" + viewportHeight;
-   }
-
-   ["DOMContentLoaded", "resize"].forEach(function( item ) {
-     window.addEventListener( item, display );
-   });
- }
-
- var viewport = new ViewportIndicator([
-   "position: fixed",
-   "z-index: 9999",
-   "bottom: 0",
-   "left: 1%",
-   "background: white",
-   "color: blue"
- ]);
+setViewportIndicator([
+  "position: fixed",
+  "z-index: 9999",
+  "bottom: 0",
+  "left: 1%",
+  "background: white",
+  "color: blue"
+]);

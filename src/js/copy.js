@@ -1,40 +1,38 @@
-(function() {
-  "use strict";
+/**
+ * Сopy URL of the current page.
+ * @augments Collapse
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
+class Copy extends Collapse {
 
-  /**
-   * Сopy URL of the current page.
-   * @augments Collapse
-   * @author Daur Gamisonia <daurgam@gmail.com>
-   */
-  function Copy() {
+  constructor() {
+    super();
     this._trigger = document.querySelector(".js-copy-url-trigger");
     this._field = document.querySelector(".js-copy-url-field");
     this._wrapper = this._field.parentElement;
   }
 
-  Copy.prototype = Object.create( Collapse.prototype );
-  Copy.prototype.constructor = Copy;
+  listen() {
+    this._trigger.addEventListener( "click", this._handle.bind(this) );
+  }
 
-  Copy.prototype._handle = function() {
-    var duration = this._getDuration( this._wrapper );
+  _handle() {
+    const duration = this._getDuration( this._wrapper );
 
-    Collapse.prototype._handle.call( this, this._trigger, [this._wrapper]);
+    super._handle( this._trigger, [ this._wrapper ] );
 
-    setTimeout(function() {
+    setTimeout(() => {
 
       this._copyUrl();
 
-      setTimeout(function() {
-
+      setTimeout(() => {
         this._showMessage();
+      }, duration );
 
-      }.bind(this), duration );
+    }, duration );
+  }
 
-    }.bind(this), duration );
-  };
-
-  // Copy URL without an anchor link.
-  Copy.prototype._copyUrl = function() {
+  _copyUrl() {
 
     this._field.value = window.location.href.replace( /\#\d$/i, "" );
 
@@ -43,21 +41,16 @@
     this._field.select();
 
     document.execCommand("Copy");
-  };
+  }
 
-  Copy.prototype._showMessage = function() {
+  _showMessage() {
 
     this._field.blur();
 
     this._field.value = "Ссылка скопирована!";
-  };
+  }
+}
 
-  Copy.prototype.listen = function() {
-    this._trigger.addEventListener( "click", this._handle.bind(this) );
-  };
+const copyUrl = new Copy();
 
-  var copyUrl = new Copy();
-
-  copyUrl.listen();
-
-})();
+copyUrl.listen();

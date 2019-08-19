@@ -2,70 +2,56 @@
  * Handle flying tooltips.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function Tooltip() {
+(() => {
   "use strict";
 
-  var tooltip = document.querySelector(".js-tooltip-body");
-  var trigger;
-  var title;
-  var content;
+  let trigger;
+  let title;
+  let tooltip;
 
-  function handle( event ) {
+  document.addEventListener( "mouseover", ( event ) => {
+    let button;
+
+    if ( !event.target.classList.contains("js-tooltip-trigger") ) {
+      return;
+    }
 
     trigger = event.target;
-
-    if ( !trigger.classList.contains("js-tooltip-trigger") ) {
-      return;
-    }
-
-    if ( tooltip.classList.contains("is-active") ) {
-      hide();
-      return;
-    }
-
-    show();
-  }
-
-  function show() {
 
     title = trigger.title;
 
     trigger.title = "";
 
-    content = document.createElement("div");
+    tooltip = document.createElement("aside");
 
-    content.innerText = title;
+    tooltip.className = "tooltip";
 
-    tooltip.appendChild( content );
+    button = '<button class="tooltip__close" type="button"></button>';
 
-    tooltip.classList.add("is-active");
-  }
+    tooltip.innerHTML = title + button;
 
-  function hide() {
+    document.body.appendChild( tooltip );
+  });
 
-    tooltip.classList.remove("is-active");
+  document.addEventListener( "mousemove", ( event ) => {
 
-    trigger.title = content.innerText;
-
-    tooltip.removeChild( content );
-  }
-
-  function move( event ) {
-
-    if ( !tooltip.classList.contains("is-active") ) {
+    if ( !event.target.classList.contains("js-tooltip-trigger") ) {
       return;
     }
 
-    tooltip.style.left = event.pageX + 20 + "px";
+    tooltip.style.left = `${event.pageX + 20}px`;
 
-    tooltip.style.top = event.pageY + 10 + "px";
-  }
+    tooltip.style.top = `${event.pageY + 10}px`;
+  });
 
-  document.addEventListener( "mouseover", handle.bind(this) );
+  document.addEventListener( "mouseout", ( event ) => {
 
-  document.addEventListener( "mouseout", handle.bind(this) );
+    if ( !event.target.classList.contains("js-tooltip-trigger") ) {
+      return;
+    }
 
-  document.addEventListener( "mousemove", move.bind(this) );
-}
+    trigger.title = tooltip.textContent;
 
-var tooltip = new Tooltip();
+    document.body.removeChild( tooltip );
+  });
+})();

@@ -8,21 +8,17 @@
     "type": "git",
     "url": "https://github.com/BroFox86/macos-plus"
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  },
   "scripts": {
     "lint": "stylelint .tmp/css/main.css ; exit 0"
   },
   "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "ie 10",
-    "not dead"
+    "defaults"
   ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "stylelint": {
     "extends": "stylelint-config-recommended",
     "rules": {
@@ -39,21 +35,25 @@
       ]
     }
   },
+  "jshintConfig": {
+    "esversion": 6
+  },
   "dependencies": {
     "fg-loadcss": "^2.1.0",
-    "svg4everybody": "^2.1.9",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
     "autoprefixer": "^9.5.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.26.0",
     "browser-sync": "^2.26.5",
     "cssnano": "^4.1.10",
     "cssom": "^0.3.6",
     "del": "^4.1.1",
     "fs": "0.0.2",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^3.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-flatten": "^0.4.0",
     "gulp-html-beautify": "^1.0.1",

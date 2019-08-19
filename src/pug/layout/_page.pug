@@ -27,6 +27,7 @@ block page
       //inject-string:noscript
 
       meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+      meta(http-equiv="x-ua-compatible" content="ie=edge")
 
       meta(property="og:title" content= title)
       meta(property="og:description" content= description)
@@ -79,28 +80,23 @@ block page
         +sidebar
     +footer
     +scrollButton
-    +tooltipPopup
     +lightbox
 
     block scripts
       //build:js js/global.min.js
-      script(src="js/svg4everybody.min.js")
       script(src="js/collapse.js")
       script(src="js/date.js")
       script(src="js/scrollspy.js")
-      script(src="js/image.js")
+      script(src="js/lazy.js")
       script(src="js/modal.js")
       script(src="js/lightbox.js")
       script(src="js/tooltip.js")
-      script(src="js/link.js")
+      script(src="js/links.js")
       script(src="js/list.js")
       script(src="js/share.js")
       script(src="js/copy.js")
       script(src="js/scroll-button.js")
       //endbuild
-
-      script.
-        svg4everybody();
 
       //build:remove 
       script(src="js/_viewport.js") 

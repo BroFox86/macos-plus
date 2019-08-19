@@ -1,62 +1,61 @@
-"use strict";
-
 /**
  * Scroll page to top.
- * @param {string} options.button - Button selector.
- * @param {number} [options.threshold] - Threshold in pixels from top of the page that show up the button.
- * @param {number} [options.step=100] - Step in pixels. Larger values make animation faster.
- * @version 3.0.2
+ * @param {string} options.selector - Button selector.
+ * @param {number} [options.step=150] - Animation speed in pixels.
+ * @version 4.0.1
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function ScrollButton( options ) {
-  var button = document.querySelector( options.button );
-  var threshold = options.threshold || 0;
-  var step = (-options.step) || (-100);
-  var timeOut;
+class ScrollButton {
 
-  /**
-   * Move scroll to top.
-   * @public
-   */
-  this.scrollUp = function() {
+  constructor( options ) {
+    this.button = document.querySelector( options.button );
+    this.step = options.step || 150;
+  }
+
+  listenButton() {
+    this.button.onclick = this.scrollUp.bind(this);
+  }
+
+  scrollUp() {
+    let timeOut;
 
     if (document.documentElement.scrollTop !=0 || document.body.scrollTop !=0) {
 
-      window.scrollBy( 0, step );
+      window.scrollBy( 0, -this.step );
 
-      timeOut = setTimeout(function() {
+      timeOut = setTimeout(() => {
 
         this.scrollUp();
 
-      }.bind(this), 10 );
+      }, 20 );
 
     } else {
+
       clearTimeout( timeOut );
     }
-  };
-
-  button.onclick = this.scrollUp.bind(this);
+  }
 
   /**
-   * Show and hide the button.
+   * @param {number} threshold - Offset from top that show up the button.
    */
-  if ( options.threshold ) {
+  handleVisibility( threshold ) {
 
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", () => {
 
       if ( pageYOffset > threshold ) {
-
-        button.classList.add("is-active");
-
+        this.button.classList.add("is-active");
       } else {
-        button.classList.remove("is-active");
+        this.button.classList.remove("is-active");
       }
     });
-  };
+  }
 }
 
-var scrollButton = new ScrollButton({
+const scrollButton = new ScrollButton({
   button: ".js-scroll-button-toggle",
-  threshold: document.documentElement.clientHeight * 1.5,
-  step: 200
+  step: 300
 });
+
+scrollButton.listenButton();
+
+scrollButton.handleVisibility( document.documentElement.clientHeight * 1.5 );

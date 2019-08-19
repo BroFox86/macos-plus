@@ -3,24 +3,26 @@
  * @param {string} options.list - Ordered lists selector.
  * @param {string} options.items - Characters.
  * @param {string} options.closing - Closing symbol.
+ * @version 1.0.0
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function setCustomList( options ) {
   "use strict";
 
-  var items = options.items;
-  var selector = options.list;
-  var closing = options.closing;
-  var style = document.createElement("style");
+  const selector = options.list;
+  const items = options.items;
+  const closing = options.closing;
+  const style = document.createElement("style");
 
   document.head.appendChild( style );
 
-  items.split("").forEach(function( item, i ) {
+  items.split("").forEach(( item, index ) => {
 
     style.sheet.insertRule(
 
-      selector + "> li:nth-child("+ (i + 1) + ")::before {" +
-        "content:'" + item + closing + "'}", 0 );
+      `${selector} > li:nth-child( ${index + 1} )::before {
+        content: "${item}${closing}";
+      }`, 0 );
   });
 }
 

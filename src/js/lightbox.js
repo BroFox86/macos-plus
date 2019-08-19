@@ -1,29 +1,27 @@
-(function() {
-  "use strict";
+/**
+ * Open original size images in the modal window.
+ * @augments Modal
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
+class Lightbox extends Modal {
 
-  /**
-   * Open original size images in the modal window.
-   * @augments Modal
-   * @author Daur Gamisonia <daurgam@gmail.com>
-   */
-  function Lightbox() {
-    var userAgent = window.navigator.userAgent;
-
-    if ( userAgent.match("Trident") && userAgent.match("Edge") ) {
-      this._changePreloader();
-    }
-
+  constructor() {
+    super();
     this._modal = document.querySelector(".js-lightbox-toggle");
-    this._closeButton = document.querySelector(".js-lightbox-dismiss");
     this._image = this._modal.querySelector("img");
     this._duration = this._getDuration( this._modal );
   }
 
-  Lightbox.prototype = Object.create( Modal.prototype );
-  Lightbox.prototype.constructor = Lightbox;
+  listen() {
+    const closeButton = this._modal.querySelector(".js-lightbox-dismiss");
 
-  Lightbox.prototype._open = function( event ) {
-    var target = event.target;
+    closeButton.addEventListener( "click", this._close.bind(this) );
+
+    document.addEventListener( "click", this._open.bind(this) );
+  }
+
+  _open( event ) {
+    let target = event.target;
 
     while( target != document.body ) {
 
@@ -38,69 +36,37 @@
 
       this._showImage( target );
 
-      Modal.prototype._open.call(this);
+      super._open();
 
-      break;
+      return;
     }
-  };
+  }
 
-  Lightbox.prototype._showImage = function( element ) {
-    var newSrc = element.getAttribute("href");
-    var preloadImg = this._preloadImage;
-    var originalSrc = this._originalSrc;
-    var img = this._image;
+  _showImage( target ) {
+    const imgSrc = target.getAttribute("href");
+    const preloadImg = document.createElement("img");
 
-    preloadImg = document.createElement("img");
+    this._originSrc = this._image.src;
 
-    originalSrc = this._image.getAttribute("src");
+    preloadImg.src = imgSrc;
 
-    preloadImg.setAttribute( "src", newSrc );
+    preloadImg.onload = () => {
+      this._image.src = imgSrc;
+    };
+  }
 
-    preloadImg.onload = function() {
-
-      img.setAttribute( "src", newSrc );
-
-    }.bind(this);
-  };
-
-  Lightbox.prototype._close = function() {
-
-    Modal.prototype._close.call(this);
-
+  _close() {
+    super._close();
     this._removeImage();
-  };
+  }
 
-  Lightbox.prototype._removeImage = function() {
-    var preloadImg = this._preloadImage;
-    var originalSrc = this._originalSrc;
-    var img = this._image;
-    var duration = this._duration;
+  _removeImage() {
+    setTimeout(() => {
+      this._image.src = this._originSrc;
+    }, this._duration );
+  }
+}
 
-    preloadImg.onload = null;
+const lightbox = new Lightbox();
 
-    setTimeout(function() {
-
-      img.setAttribute( "src", originalSrc );
-
-    }.bind(this), duration );
-  };
-
-  // Change preloader image from *.svg to *.gif for IE/Edge.
-  Lightbox.prototype._changePreloader = function() {
-    var newSrc = this._image.getAttribute("src").replace( /(\.[\w\d]+)$/, ".gif" );
-
-    this._image.setAttribute( "src", newSrc );
-  };
-
-  Lightbox.prototype.listen = function() {
-
-    document.addEventListener( "click", this._open.bind(this) );
-
-    this._closeButton.addEventListener( "click", this._close.bind(this) );
-  };
-
-  var lightbox = new Lightbox();
-
-  lightbox.listen();
-
-})();
+lightbox.listen();

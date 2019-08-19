@@ -1,85 +1,64 @@
-(function() {
-  "use strict";
+/**
+ * Expandable elements that triggered by buttons with '.js-collapse-trigger'
+ * class and the data-target with their selector.
+ * @version 5.0.0
+ * @author Daur Gamisonia <daurgam@gmail.com>
+ */
+class Collapse {
 
-  /**
-   * Expandable elements that triggered by buttons with '.js-collapse-trigger'
-   * class and the data-target with their selector.
-   * @version 4.0.2
-   * @author Daur Gamisonia <daurgam@gmail.com>
-   */
-  window.Collapse = function Collapse() {};
+  listen() {
+    document.addEventListener( "click", ( event ) => {
+      let eventTarget = event.target;
 
-  /**
-   * Listen button.
-   * @public
-   */
-  Collapse.prototype.listen = function() {
-    document.addEventListener( "click", this._initialize.bind(this) );
-  };
+      while( true ) {
+        let trigger;
+        let targets;
 
-  /**
-   * Get target elements from the event.
-   * @protected
-   */
-  Collapse.prototype._initialize = function( event ) {
-    var eventTarget = event.target;
-    var targets;
-    var trigger;
+        if ( !eventTarget ) {
+          return;
+        }
 
-    while( true ) {
+        if ( !eventTarget.classList.contains("js-collapse-trigger") ) {
+          eventTarget = eventTarget.parentElement;
+          continue;
+        }
 
-      if ( !eventTarget ) {
+        event.preventDefault();
+
+        trigger = eventTarget;
+
+        targets = document.querySelectorAll(
+          trigger.getAttribute("data-target")
+        );
+
+        this._handle( trigger, targets );
+
         return;
       }
+    });
+  }
 
-      if ( !eventTarget.classList.contains("js-collapse-trigger") ) {
-
-        eventTarget = eventTarget.parentElement;
-
-        continue;
-      }
-
-      event.preventDefault();
-
-      trigger = eventTarget;
-
-      targets = document.querySelectorAll( trigger.getAttribute("data-target") );
-
-      this._handle( trigger, targets );
-
-      return;
-    }
-  };
-
-  /**
-   * Handle transition.
-   * @protected
-   * @param {HTMLElement} trigger - Button element.
-   * @param {HTMLElement[]} targets - Target elements.
-   */
-  Collapse.prototype._handle = function( trigger, targets ) {
-    var duration = this._getDuration( targets[0] );
-    var target;
+  _handle( trigger, targets ) {
 
     if ( !trigger.classList.contains("pending") ) {
 
       trigger.classList.add("pending");
 
-      setTimeout(function() {
+      setTimeout(() => {
 
         trigger.classList.remove("pending");
 
-      }, duration );
+      }, this._getDuration( targets[ 0 ] ) );
 
     } else {
 
       return;
     }
 
-    for ( var i = 0; i < targets.length; i++ ) {
-      target = targets[i];
+    for ( let target of targets ) {
 
       if ( !trigger.classList.contains("is-active") ) {
+
         this._slideDown( target );
 
       } else {
@@ -88,18 +67,14 @@
     }
 
     trigger.classList.toggle("is-active");
-  };
+  }
 
-  /**
-   * Expand the element.
-   * @protected
-   */
-  Collapse.prototype._slideDown = function( target ) {
-    var style = target.style;
-    var paddingTop = this._getStyle( target, "padding-top" );
-    var paddingBottom = this._getStyle( target, "padding-bottom" );
-    var duration = this._getDuration( target );
-    var height;
+  _slideDown( target ) {
+    const style = target.style;
+    const paddingTop = this._getStyle( target, "padding-top" );
+    const paddingBottom = this._getStyle( target, "padding-bottom" );
+    const duration = this._getDuration( target );
+    let height;
 
     style.overflow = "hidden";
 
@@ -109,77 +84,50 @@
 
     style.transition = "none";
 
-    style.height = "0";
+    style.height = style.paddingTop = style.paddingBottom = 0;
 
-    style.paddingTop = "0";
-
-    style.paddingBottom = "0";
-
-    setTimeout(function() {
+    setTimeout(() => {
 
       style.transition = "";
 
-      style.height = height + "px";
+      style.height = `${height}px`;
 
-      style.paddingTop = paddingTop + "px";
+      style.paddingTop = `${paddingTop}px`;
 
-      style.paddingBottom = paddingBottom + "px";
+      style.paddingBottom = `${paddingBottom}px`;
 
-      setTimeout(function() {
+      setTimeout(() => {
 
         style.overflow = "";
 
       }, duration );
 
-    }, 10 );
-  };
+    }, 20 );
+  }
 
-  /**
-   * Roll up.
-   * @protected
-   */
-  Collapse.prototype._slideUp = function( target ) {
-    var style = target.style;
-    var duration = this._getDuration( target );
+  _slideUp( target ) {
+    const style = target.style;
 
     style.overflow = "hidden";
 
-    style.height = "0";
+    style.height = style.paddingTop = style.paddingBottom = 0;
 
-    style.paddingTop = "0";
-
-    style.paddingBottom = "0";
-
-    setTimeout(function() {
+    setTimeout(() => {
 
       target.removeAttribute("style");
 
-    }, duration );
-  };
+    }, this._getDuration( target ) );
+  }
 
-  /**
-   * Get transition duration.
-   * @protected
-   */
-  Collapse.prototype._getDuration = function( element ) {
-    var duration = parseFloat( getComputedStyle( element ).transitionDuration );
+  _getStyle( element, property ) {
+    return parseFloat(
+      getComputedStyle( element )[ property ]
+    );
+  }
 
-    // Get ms from sec.
-    return duration * 1000;
-  };
-
-  /**
-   * Get style value.
-   * @protected
-   */
-  Collapse.prototype._getStyle = function( element, property ) {
-    var value = getComputedStyle( element )[property];
-
-    return parseFloat( value );
-  };
-
-  var collapse = new Collapse();
-
-  collapse.listen();
-
-})();
+  _getDuration( element ) {
+    return parseFloat(
+      getComputedStyle( element ).transitionDuration
+    ) * 1000;
+  }
+}

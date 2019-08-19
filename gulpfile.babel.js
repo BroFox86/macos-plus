@@ -42,7 +42,7 @@ const plugins = loadPlugins();
 
 const paths = {
   plugins: {
-    js: "node_modules/svg4everybody/dist/svg4everybody.min.js",
+    js: "",
     css: "node_modules/normalize.css/normalize.css"
   }
 };
@@ -322,8 +322,9 @@ function copyAllScripts() {
 
 const prebuildScripts = series(copyPluginScripts, copyAllScripts);
 
-function buildScripts() {
+export function buildScripts() {
   return src("dist/js/*")
+    .pipe(plugins.babel())
     .pipe(plugins.uglify())
     .pipe(dest("dist/js/"));
 }

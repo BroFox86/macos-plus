@@ -1,77 +1,62 @@
 /**
- * Table of contents with show the current position by selecting an item.
- * @param {number} offset - Threshold from top of the screen in pixels that triggers selecting an item.
+ * Show the current position by selecting a contents item.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function ScrollSpy( offset ) {
+(() => {
   "use strict";
 
-  var contents = document.querySelector(".js-scrollspy-target");
-  var items = contents.querySelectorAll("li");
-  var headings = document.querySelectorAll(".js-scrollspy-toggle");
+  const headings = document.querySelectorAll(".js-scrollspy-toggle");
+  const contents = document.querySelector(".js-scrollspy-target");
+  const items = contents.querySelectorAll("li");
 
-  offset = offset || 0;
+  [ "scroll", "DOMContentLoaded" ].forEach(( item ) => {
+    window.addEventListener( item, select );
+  });
 
-  function selectItem() {
-    var activeElement = getActiveElement();
-    var id;
+  function select() {
+    const activeElement = getActiveElement();
 
     if ( !activeElement ) {
       return;
     }
 
-    clearSelection();
+    for ( let item of items ) {
+      item.classList.remove("is-active");
+    }
 
-    id = activeElement.id;
-
-    items[id - 1].classList.add("is-active");
+    items[ activeElement.id - 1 ].classList.add("is-active");
   }
 
-  var getActiveElement = (function() {
-    var previousItem;
-    var currentItem;
+  const getActiveElement = (() => {
+    let previousItem;
+    let currentItem;
 
-    return function() {
-      var length = headings.length;
+    return () => {
+      let sum = headings.length;
 
-      while( length-- ) {
+      while( sum-- ) {
 
-        if ( isInArea( headings[length] ) ) {
+        if ( isInArea( headings[ sum ] ) ) {
 
-          currentItem = headings[length];
+          currentItem = headings[ sum ];
 
-          break;
+          if ( currentItem == previousItem ) {
+            return false;
+          }
+
+          return previousItem = currentItem;
         }
       }
-
-      if ( currentItem == previousItem ) {
-        return false;
-      }
-
-      previousItem = currentItem;
-
-      return currentItem;
     };
   })();
 
   function isInArea( element ) {
-    var viewportTop = pageYOffset;
-    var elementTop = element.getBoundingClientRect().top + pageYOffset;
+    const viewportTop = pageYOffset;
+    const elementTop = element.getBoundingClientRect().top + pageYOffset;
+    const OFFSET = 300;
 
-    if ( viewportTop > (elementTop - offset) ) {
+    if ( viewportTop > (elementTop - OFFSET) ) {
       return true;
     }
   }
-
-  function clearSelection() {
-    for ( var i = 0; i < items.length; i++ ) {
-      items[i].classList.remove("is-active");
-    }
-  }
-
-  ["scroll", "DOMContentLoaded"].forEach(function( item ) {
-    window.addEventListener( item, selectItem );
-  });
-}
-
-var contents = new ScrollSpy( 300 );
+})();

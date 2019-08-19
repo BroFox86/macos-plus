@@ -1,64 +1,48 @@
-(function() {
-  "use strict";
+class Modal {
 
-  /**
-   * Toggle modal window.
-   */
-  window.Modal = function Modal() {};
+  _open() {
 
-  Modal.prototype._open = function() {
-    var modal = this._modal;
+    this._togglePageScroll();
 
-    this._toggleScroll();
+    this._modal.style.display = "block";
 
-    modal.style.display = "block";
+    setTimeout(() => {
+      this._modal.classList.add("is-visible");
+    }, 20 );
+  }
 
-    setTimeout(function() {
+  _close() {
 
-      modal.classList.add("is-visible");
+    this._modal.classList.remove("is-visible");
 
-    }.bind(this), 20 );
-  };
+    this._togglePageScroll();
 
-  Modal.prototype._close = function() {
-    var modal = this._modal;
-    var duration = this._duration;
+    setTimeout(() => {
+      this._modal.style.display = "";
+    }, this._duration );
+  }
 
-    modal.classList.remove("is-visible");
-
-    this._toggleScroll();
-
-    setTimeout(function() {
-
-      modal.style.display = "";
-
-    }.bind(this), duration );
-  };
-
-  Modal.prototype._toggleScroll = function() {
-    var body = document.body;
-    var scrollbar = window.innerWidth - document.documentElement.clientWidth;
+  _togglePageScroll() {
+    const body = document.body;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
 
     if ( !body.classList.contains("is-fixed") ) {
 
-      body.style.paddingRight = scrollbar + "px";
-
       body.classList.add("is-fixed");
+
+      body.style.paddingRight = `${scrollbar}px`;
 
     } else {
 
-      body.style.paddingRight = "";
-
       body.classList.remove("is-fixed");
+
+      body.style.paddingRight = "";
     }
-  };
+  }
 
-  // Get transition duration.
-  Modal.prototype._getDuration = function( element ) {
-    var duration = parseFloat( getComputedStyle( element ).transitionDuration );
-
-    // Get ms from sec.
-    return duration * 1000;
-  };
-
-})();
+  _getDuration( element ) {
+    return parseFloat(
+      getComputedStyle( element ).transitionDuration
+    ) * 1000;
+  }
+}

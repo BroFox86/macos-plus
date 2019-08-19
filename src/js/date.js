@@ -4,61 +4,50 @@
 function setDate( calcDiff, localizeUnits ) {
   "use strict";
 
-  return function() {
-    var element = document.querySelector( arguments[0] );
+  return ( selector ) => {
+    const element = document.querySelector( selector );
+    const modifiedDate = element.getAttribute("datetime");
+    const days = calcDiff( modifiedDate );
 
-    if ( !element ) {
-      return;
-    }
+    let amount;
+    let units;
 
-    var modifiedDate = element.getAttribute("datetime");
-    var days = calcDiff( modifiedDate );
-    var amount;
-    var units;
+    if ( days <= 2 ) {
 
-    if ( days == 0 ) {
+      if ( days == 0 ) {
+        element.innerHTML = "Обновлено сегодня.";
+      }
 
-      element.innerHTML = "Обновлено сегодня.";
+      if ( days == 1 ) {
+        element.innerHTML = "Обновлено вчера.";
+      }
 
-      return;
-    }
-
-    else if ( days == 1 ) {
-
-      element.innerHTML = "Обновлено вчера.";
-
-      return;
-    }
-
-    else if ( days == 2 ) {
-
-      element.innerHTML = "Обновлено позавчера.";
+      if ( days == 2 ) {
+        element.innerHTML = "Обновлено позавчера.";
+      }
 
       return;
     }
 
-    else if ( days <= 6 ) {
+    if ( days <= 6 ) {
 
       amount = days;
 
       units = localizeUnits( "days", amount );
-    }
 
-    else if ( days <= 27 ) {
+    } else if ( days <= 27 ) {
 
       amount = Math.floor( days / 7 );
 
       units = localizeUnits( "weeks", amount );
-    }
 
-    else if ( days >= 28 && days < 365 ) {
+    } else if ( days >= 28 && days < 365 ) {
 
       amount = ( days < 30 ) ? 1 : Math.floor( days / 30 );
 
       units = localizeUnits( "months", amount );
-    }
 
-    else if ( days >= 365 ) {
+    } else if ( days >= 365 ) {
 
       amount = Math.floor( days / 365 );
 
@@ -67,11 +56,11 @@ function setDate( calcDiff, localizeUnits ) {
 
     switch( amount ) {
       case 1:
-        element.innerHTML = "Обновлено " + units + " назад.";
+        element.innerHTML = `Обновлено ${units} назад.`;
         break;
 
       default:
-        element.innerHTML = "Обновлено " + amount + " " + units + " назад.";
+        element.innerHTML = `Обновлено ${amount} ${units} назад.`;
         break;
     }
   };
@@ -80,18 +69,14 @@ function setDate( calcDiff, localizeUnits ) {
 /**
  * Calculate interval between dates in days.
  * @param {string} modDate - Modified date in MM-DD-YYYY format.
- * @returns {number|undefined} - Amount of days.
+ * @returns {number} - Amount of days.
  */
 function calcDiff( modDate ) {
-  var date = new Date();
-  var current = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
-  var modified = new Date( modDate ).setHours( 0 );
-  var DAY = 86400000; // ms
-  var days = Math.floor( (current - modified) / DAY );
+  const currentDate = new Date();
+  const modifiedDate = new Date( modDate );
+  const DAY_MS = 86400000;
 
-  days = ( days >= 0 ) ? days : undefined;
-
-  return days;
+  return Math.floor( (currentDate - modifiedDate) / DAY_MS );
 }
 
 /**
@@ -124,7 +109,6 @@ function localizeUnits( units, amount ) {
   }
 }
 
-// Add a relative date of a post from the published date to the modified date.
-var relativeDate = setDate( calcDiff, localizeUnits );
+const setRelativeDate = setDate( calcDiff, localizeUnits );
 
-relativeDate(".js-date-modified");
+setRelativeDate(".js-date-modified");

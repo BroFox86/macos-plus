@@ -1,7 +1,6 @@
 .tooltip {
   position: absolute;
   z-index: 2;
-  display: none;
   max-width: 500px;
   padding: 20px;
   border-radius: 23px;
@@ -11,17 +10,12 @@
   font-family: $second-fonts;
   font-size: 0.842em;
   hyphens: auto;
-  transition: opacity .3s;
 
   @media (max-width: $medium-screen) {
     width: 100%;
     padding: 30px 20px 20px;
     border-radius: 15px;
     font-size: 0.895em;
-  }
-
-  &.is-active {
-    display: block;
   }
 
   &__close {
