@@ -5,9 +5,7 @@
  * @param {string} options.breakpoint - Media query for case where images are fill the container.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function handleLazyLoad( options ) {
-  "use strict";
-
+function handleLazyLoad({ actualWidth, breakpoint }) {
   const images = document.querySelectorAll("[data-src]");
 
   window.addEventListener( "DOMContentLoaded", setImageSizes );
@@ -24,13 +22,10 @@ function handleLazyLoad( options ) {
       const [ width, height ] = [ size.split("x")[0], size.split("x")[1] ];
       const aspectRatio = width / height;
 
-      let actualWidth = options.width;
-      let actualHeight;
+      let actualHeight = Math.floor( actualWidth / aspectRatio );
 
-      if ( window.matchMedia(`(${options.breakpoint})`).matches ) {
+      if ( window.matchMedia(`(${breakpoint})`).matches ) {
         actualWidth = image.parentElement.offsetWidth;
-      } else {
-        actualHeight = Math.floor( actualWidth / aspectRatio )
       }
 
       [ image.width, image.height ] = [ actualWidth, actualHeight ];
@@ -97,6 +92,6 @@ function handleLazyLoad( options ) {
 }
 
 handleLazyLoad({
-  width: 530,
+  actualWidth: 530,
   breakpoint: "max-width: 600px"
 });

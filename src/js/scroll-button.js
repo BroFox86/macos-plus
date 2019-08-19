@@ -2,18 +2,18 @@
  * Scroll page to top.
  * @param {string} options.selector - Button selector.
  * @param {number} [options.step=150] - Animation speed in pixels.
- * @version 4.0.1
+ * @version 4.0.2
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 class ScrollButton {
 
   constructor( options ) {
-    this.button = document.querySelector( options.button );
-    this.step = options.step || 150;
+    this._button = document.querySelector( options.button );
+    this._step = options.step || 150;
   }
 
   listenButton() {
-    this.button.onclick = this.scrollUp.bind(this);
+    this._button.onclick = this.scrollUp.bind(this);
   }
 
   scrollUp() {
@@ -21,7 +21,7 @@ class ScrollButton {
 
     if (document.documentElement.scrollTop !=0 || document.body.scrollTop !=0) {
 
-      window.scrollBy( 0, -this.step );
+      window.scrollBy( 0, -this._step );
 
       timeOut = setTimeout(() => {
 
@@ -43,9 +43,9 @@ class ScrollButton {
     window.addEventListener("scroll", () => {
 
       if ( pageYOffset > threshold ) {
-        this.button.classList.add("is-active");
+        this._button.classList.add("is-active");
       } else {
-        this.button.classList.remove("is-active");
+        this._button.classList.remove("is-active");
       }
     });
   }
