@@ -1,7 +1,7 @@
 /**
  * Asynchronous image that become visible if they get in on the specific
  * scroll position.
- * @param {number} options.width - Images width.
+ * @param {number} options.actualWidth - Images width.
  * @param {string} options.breakpoint - Media query for case where images are fill the container.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
@@ -22,11 +22,11 @@ function handleLazyLoad({ actualWidth, breakpoint }) {
       const [ width, height ] = [ size.split("x")[0], size.split("x")[1] ];
       const aspectRatio = width / height;
 
-      let actualHeight = Math.floor( actualWidth / aspectRatio );
-
       if ( window.matchMedia(`(${breakpoint})`).matches ) {
         actualWidth = image.parentElement.offsetWidth;
       }
+
+      let actualHeight = Math.floor( actualWidth / aspectRatio );
 
       [ image.width, image.height ] = [ actualWidth, actualHeight ];
     }
