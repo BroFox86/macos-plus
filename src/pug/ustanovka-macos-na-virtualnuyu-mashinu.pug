@@ -57,7 +57,7 @@ block content
           | www.vmware.com/products
         | ;
       +li
-        | архиватор WinRAR, желательно нестарый;
+        | архиватор WinRAR (нестарый, чтоб не ругался на битый архив);
       +li
         | образ macOS Mojave 10.14.4 для ВМ: 
         +a()(href="https://drive.google.com/drive/folders/1ixtDc8gS8GGMyTMq0z-RjNifBbu9JdJA")
@@ -119,7 +119,7 @@ block content
         |  VMWare, иначе при старте ВМ появится сообщение об ошибке.&nbsp;⚠️
       +li
         | Перейдите в папку ВМ и откройте файл macOS 10.14 с помощью блокнота. Это небольшой файл размером ~2 Кб. Вставьте туда последней строкою код: 
-        +code('smc.version = "0"')
+        +code('smc.version&nbsp;=&nbsp;"0"')
         | . Сохраните изменения.
         +image("images/content/install-on-vmware/open-vm-file.jpeg")(data-size="883x565" alt="Файлы VMWare")
         +image("images/content/install-on-vmware/edit-vm-file.jpeg")(data-size="852x803" alt="Редактирование файла VMWare")
