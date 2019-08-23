@@ -6,6 +6,9 @@ function setDate( calcDiff, localizeUnits ) {
 
   return ( selector ) => {
     const element = document.querySelector( selector );
+
+    if ( !element ) return;
+
     const modifiedDate = element.getAttribute("datetime");
     const days = calcDiff( modifiedDate );
 
