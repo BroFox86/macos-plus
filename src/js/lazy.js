@@ -45,9 +45,9 @@ function handleLazyLoad({ actualWidth, breakpoint }) {
     }
   }
 
-  function isInArea( element ) {
+  function isInArea( image ) {
     const bottomViewport = pageYOffset + document.documentElement.clientHeight;
-    const elementTop = element.getBoundingClientRect().top + pageYOffset;
+    const elementTop = image.getBoundingClientRect().top + pageYOffset;
     const offset = document.documentElement.clientHeight;
 
     if ( bottomViewport > (elementTop - offset) ) {
