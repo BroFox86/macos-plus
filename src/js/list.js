@@ -7,7 +7,6 @@
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 function setCustomList({ selector, items, closing }) {
-
   const style = document.createElement("style");
 
   document.head.appendChild( style );
@@ -19,6 +18,7 @@ function setCustomList({ selector, items, closing }) {
       `${selector} > li:nth-child( ${index + 1} )::before {
         content: "${item}${closing}";
       }`, 0 );
+
   });
 }
 

@@ -5,7 +5,7 @@
  * @param {string} options.breakpoint - Media query for case where images are fill the container.
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
-function handleLazyLoad({ actualWidth, breakpoint }) {
+function handleLoadImages({ actualWidth, breakpoint }) {
   const images = document.querySelectorAll("[data-src]");
 
   window.addEventListener( "DOMContentLoaded", setImageSizes );
@@ -33,11 +33,10 @@ function handleLazyLoad({ actualWidth, breakpoint }) {
   }
 
   function handle() {
-
     for ( let image of images ) {
       const isLoaded = image.getAttribute("data-src") == "loaded";
 
-      if ( !isInArea( image ) || isLoaded ) {
+      if ( isLoaded || !isInArea( image ) ) {
         continue;
       }
 
@@ -91,7 +90,7 @@ function handleLazyLoad({ actualWidth, breakpoint }) {
   }
 }
 
-handleLazyLoad({
+handleLoadImages({
   actualWidth: 530,
   breakpoint: "max-width: 600px"
 });
