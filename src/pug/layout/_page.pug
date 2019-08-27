@@ -83,6 +83,9 @@ block page
     +lightbox
 
     block scripts
+      //Mainly used for old & non-popular browsers
+      script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous")
+
       //build:js js/global.min.js
       script(src="js/collapse.js")
       script(src="js/date.js")
