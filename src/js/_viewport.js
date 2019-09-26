@@ -1,19 +1,17 @@
 /**
  * Display viewport size of the page.
- * @param {string[]} styles - Array of strings with styles.
+ * @param {string} styles - String with CSS decalrations.
  * @author Daur Gamisonia <daurgam@gmail.com>
- * @version 2.0.0
+ * @version 1.0.0
  */
-function setViewportIndicator( styles ) {
+function showViewportSize( styles ) {
   "use strict";
 
   const indicator = document.createElement("div");
 
-  for ( let style of styles ) {
-    indicator.style.cssText += `${style};`;
-  }
+  indicator.style.cssText = styles;
 
-  document.body.appendChild( indicator );
+  document.body.append( indicator );
 
   [ "DOMContentLoaded", "resize" ].forEach(( item ) => {
     window.addEventListener( item, () => {
@@ -22,11 +20,11 @@ function setViewportIndicator( styles ) {
   });
 }
 
-setViewportIndicator([
-  "position: fixed",
-  "z-index: 9999",
-  "bottom: 0",
-  "left: 1%",
-  "background: white",
-  "color: blue"
-]);
+showViewportSize(`
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  left: 1%;
+  background: white;
+  color: blue;
+`);

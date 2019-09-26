@@ -18,7 +18,7 @@ function handleLoadImages({ actualWidth, breakpoint }) {
    */
   function setImageSizes() {
     for ( let image of images ) {
-      const size = image.getAttribute("data-size");
+      const size = image.dataset.size;
       const [ width, height ] = [ size.split("x")[0], size.split("x")[1] ];
       const aspectRatio = width / height;
 
@@ -34,7 +34,7 @@ function handleLoadImages({ actualWidth, breakpoint }) {
 
   function handle() {
     for ( let image of images ) {
-      const isLoaded = image.getAttribute("data-src") == "loaded";
+      const isLoaded = image.dataset.src == "loaded";
 
       if ( isLoaded || !isInArea( image ) ) {
         continue;
@@ -56,10 +56,10 @@ function handleLoadImages({ actualWidth, breakpoint }) {
 
   function loadImage( image ) {
     const preloadImg = document.createElement("img");
-    const src = image.getAttribute("data-src");
+    const src = image.dataset.src;
     const style = image.style;
 
-    image.setAttribute( "data-src", "loaded" );
+    image.dataset.src = "loaded";
 
     preloadImg.setAttribute( "src", src );
 

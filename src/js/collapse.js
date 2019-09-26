@@ -1,46 +1,33 @@
 /**
  * Expandable elements that triggered by buttons with '.js-collapse-trigger'
  * class and the data-target with their selector.
- * @version 5.0.0
+ * @version 5.0.3
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 class Collapse {
 
   listen() {
     document.addEventListener( "click", ( event ) => {
-      let eventTarget = event.target;
+      let trigger;
+      let targets;
 
-      while( true ) {
-        let trigger;
-        let targets;
-
-        if ( !eventTarget ) {
-          return;
-        }
-
-        if ( !eventTarget.classList.contains("js-collapse-trigger") ) {
-          eventTarget = eventTarget.parentElement;
-          continue;
-        }
-
-        event.preventDefault();
-
-        trigger = eventTarget;
-
-        targets = document.querySelectorAll(
-          trigger.getAttribute("data-target")
-        );
-
-        this._handle( trigger, targets );
-
+      if ( !event.target || !event.target.matches(".js-collapse-trigger") ) {
         return;
       }
+
+      event.preventDefault();
+
+      trigger = event.target;
+
+      targets = document.querySelectorAll( trigger.dataset.target );
+
+      this._handle( trigger, targets );
     });
   }
 
   _handle( trigger, targets ) {
 
-    if ( !trigger.classList.contains("pending") ) {
+    if ( !trigger.matches(".pending") ) {
 
       trigger.classList.add("pending");
 
@@ -57,7 +44,7 @@ class Collapse {
 
     for ( let target of targets ) {
 
-      if ( !trigger.classList.contains("is-active") ) {
+      if ( !trigger.matches(".is-active") ) {
 
         this._slideDown( target );
 
@@ -131,3 +118,7 @@ class Collapse {
     ) * 1000;
   }
 }
+
+const collapse = new Collapse();
+
+collapse.listen();

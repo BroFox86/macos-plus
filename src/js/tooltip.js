@@ -30,7 +30,7 @@
 
     tooltip.innerHTML = title + button;
 
-    document.body.appendChild( tooltip );
+    document.body.append( tooltip );
   });
 
   document.addEventListener( "mousemove", ( event ) => {

@@ -2,7 +2,7 @@
  * Scroll page to top.
  * @param {string} options.selector - Button selector.
  * @param {number} [options.step=150] - Animation speed in pixels.
- * @version 4.0.2
+ * @version 4.0.1
  * @author Daur Gamisonia <daurgam@gmail.com>
  */
 class ScrollButton {
