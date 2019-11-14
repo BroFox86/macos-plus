@@ -10,7 +10,7 @@ prepend page
   - var likeButtonId = "Установка macOS на ПК"
   -
     var metaImage = {
-      src: "images/content/install-on-pc/mojave-desktop-dark_original.jpeg",
+      src: "images/content/install-on-pc/mojave-desktop-dark_original.jpg",
       width: 960,
       height: 540
     }
@@ -98,10 +98,10 @@ block content
         | .
       +li
         | В разделе «Суммарная информация» узнайте чипсет своей МП.
-        +image("images/content/install-on-pc/сhipset.jpeg")(data-size="935x590" alt="Информация о чипсете в AIDA64")
+        +image("images/content/install-on-pc/сhipset.jpg")(data-size="935x590" alt="Информация о чипсете в AIDA64")
       +li
         | И «тип BIOS» — AMI UEFI или AWARD BIOS. 
-        +image("images/content/install-on-pc/bios-type.jpeg")(data-size="935x590" alt="«Тип BIOS» в AIDA64")
+        +image("images/content/install-on-pc/bios-type.jpg")(data-size="935x590" alt="«Тип BIOS» в AIDA64")
 
         +note(inf)
           | Об основных отличиях UEFI от BIOS подробно рассказано в статье на сайте  
@@ -110,10 +110,10 @@ block content
           | .
       +li
         | На той же вкладке указан аудиокодек.
-        +image("images/content/install-on-pc/audio-codec.jpeg")(data-size="935x590" alt="Аудиокодек в AIDA64")
+        +image("images/content/install-on-pc/audio-codec.jpg")(data-size="935x590" alt="Аудиокодек в AIDA64")
       +li
         | Название сетевой карты в разделе «Сеть PCI/PnP».
-        +image("images/content/install-on-pc/ethernet-card.jpeg")(data-size="935x590" alt="Раздел сетевого оборудования в AIDA64")
+        +image("images/content/install-on-pc/ethernet-card.jpg")(data-size="935x590" alt="Раздел сетевого оборудования в AIDA64")
     +h3
       | в) Перед тем, как начать
     +ul
@@ -248,14 +248,14 @@ block content
         | Сбросьте параметры BIOS (Load Optimized Defaults).
       +li
         | Выключите 
-        +tooltipTrigger("abbr")(title="Аппаратная виртуализация — виртуализация с поддержкой специальной процессорной архитектуры. Аппаратная виртуализация обеспечивает производительность, сравнимую с производительностью невиртуализованной машины, что дает виртуализации возможность практического использования и влечет её широкое распространение. ©Wikipedia")
+        +tooltipTrigger("abbr")(data-href="http://google.ru")
           | VT-d
         | .
       +li
         | Выключите CFG-Lock.
       +li
         | Выключите 
-        +tooltipTrigger()(title="Опция Secure Boot разрешает/запрещает возможность установки  других ОС на данном устройстве.")
+        +tooltipTrigger()(data-href="http://google.com")
           | Secure Boot Mode
         | .
       +li
@@ -365,7 +365,7 @@ block content
         | Включите компьютер и загрузитесь с USB, выбрав соответствующий пункт в меню загрузки UEFI. Или предварительно настройте для этого загрузку с USB/CD-ROM в BIOS.
       +li
         | Когда появится интерфейс Clover, запустите установку macOS с загрузочной флешки.
-        +image("images/content/install-on-pc/unibeast-clover-screen.jpeg")(data-size="1024x768" alt="Загрузочный экран Clover")
+        +image("images/content/install-on-pc/unibeast-clover-screen.jpg")(data-size="1024x768" alt="Загрузочный экран Clover")
       +li
         | (Необязательно). Для первичной установки macOS на ПК необходимо отформатировать целевой жесткий диск.
         +ol
@@ -507,7 +507,7 @@ block content
           | Обновления macOS как правило делают текущие драйвера Nvidia несовместимыми. Поэтому желательно сперва дождаться новых драйверов, совместимых с актуальной версией ОС.
       +li
         | По окончании безопасно извлеките загрузочный USB и перезагрузите компьютер. Теперь можно загружаться в macOS без USB.
-        +image("images/content/install-on-pc/mojave-desktop-dark.jpeg")(data-size="960x540" alt="Рабочий стол macOS Mojave")
+        +image("images/content/install-on-pc/mojave-desktop-dark.jpg")(data-size="960x540" alt="Рабочий стол macOS Mojave")
   +section
     +h2
     +ul
