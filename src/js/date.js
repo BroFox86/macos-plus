@@ -17,6 +17,10 @@ function setDate( calcDiff, localizeUnits ) {
 
     if ( days <= 2 ) {
 
+      if ( days < 0 ) {
+        element.innerHTML = "Только что обновлено.";
+      }
+
       if ( days == 0 ) {
         element.innerHTML = "Обновлено сегодня.";
       }
