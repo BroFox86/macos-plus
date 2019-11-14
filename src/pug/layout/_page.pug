@@ -48,16 +48,37 @@ block page
       meta(name="msapplication-config" content="browserconfig.xml")
       meta(name="theme-color" content="#455a64")
 
-      // Google Tag
-      script(async src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1")
-      script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-100340915-1');
+      block scripts
+        // Google Tag
+        script(src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1" async)
+        script.
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-100340915-1');
 
-      // LikeBtn
-      script(async id="likebtn_wjs" src="https://w.likebtn.com/js/w/widget.js")
+        script(id="likebtn_wjs" src="https://w.likebtn.com/js/w/widget.js" async)
+
+        script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous" defer)
+
+        //build:js js/global.min.js defer
+        script(src="js/collapse.js" defer)
+        script(src="js/date.js" defer)
+        script(src="js/scrollspy.js" defer)
+        script(src="js/lazy.js" defer)
+        script(src="js/modal.js" defer)
+        script(src="js/lightbox.js" defer)
+        script(src="js/tooltip.js" defer)
+        script(src="js/links.js" defer)
+        script(src="js/list.js" defer)
+        script(src="js/share.js" defer)
+        script(src="js/copy.js" defer)
+        script(src="js/scroll-button.js" defer)
+        //endbuild
+
+        //build:remove 
+        script(src="js/_viewport.js" defer) 
+        //endbuild
 
   body.page(lang="ru")
     noscript 
@@ -81,26 +102,3 @@ block page
     +footer
     +scrollButton
     +lightbox
-
-    block scripts
-      //Mainly used for old & non-popular browsers
-      script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous")
-
-      //build:js js/global.min.js
-      script(src="js/collapse.js")
-      script(src="js/date.js")
-      script(src="js/scrollspy.js")
-      script(src="js/lazy.js")
-      script(src="js/modal.js")
-      script(src="js/lightbox.js")
-      script(src="js/tooltip.js")
-      script(src="js/links.js")
-      script(src="js/list.js")
-      script(src="js/share.js")
-      script(src="js/copy.js")
-      script(src="js/scroll-button.js")
-      //endbuild
-
-      //build:remove 
-      script(src="js/_viewport.js") 
-      //endbuild
