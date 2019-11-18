@@ -12,7 +12,7 @@
 
   @media (max-width: $small-screen) {
     width: auto;
-    padding-left: 55px;
+    padding: 10px 10px 10px 13px;
     font-size: 0.895em;
   }
 
@@ -24,9 +24,7 @@
     fill: white;
 
     @media (max-width: $small-screen) {
-      width: 25px;
-      height: 25px;
-      left: 16px;
+      margin-right: 13px;
     }
   }
 
@@ -35,7 +33,7 @@
     font-weight: inherit;
   }
 
-  &--inf { background: #7e57c2; }
-  &--tip { background: #00acc1; }
+  &--inf     { background: #7e57c2; }
+  &--tip     { background: #00acc1; }
   &--warning { background: #ec407a; }
 }
