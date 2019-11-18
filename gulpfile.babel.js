@@ -40,14 +40,14 @@ const plugins = loadPlugins();
   Paths & options
   ======================================================================== */
 
-const paths = {
+const PATHS = {
   plugins: {
     js: "",
     css: "node_modules/normalize.css/normalize.css"
   }
 };
 
-const options = {
+const OPTIONS = {
   pngquant: {
     quality: [0.9, 1]
   },
@@ -67,8 +67,15 @@ const options = {
       ".error404__img",
       ".vote"
     ]
+  },
+  responsive: {
+    errorOnUnusedImage: false,
+    errorOnUnusedConfig: false,
+    errorOnEnlargement: false,
+    silent: true,
+    quality: 80
   }
-}
+};
 
 /* ==========================================================================
   Local server & Watching
@@ -92,11 +99,12 @@ export function watchFiles() {
   // Watch pages
   watch("src/pug/*.*", {
     delay: 500
-  }, generateIncrementalHtml);
+  }, generateHtmlPage);
 
   // Watch styles
   watch("src/scss/**", {
-    delay: 500, ignoreInitial: true
+    delay: 500,
+    ignoreInitial: true
   }, generateStyles);
 
   // Watch scripts
@@ -105,19 +113,30 @@ export function watchFiles() {
   }, copyAllScripts);
 
   // Watch images
-  watch(["src/images/content/**", "src/images/*.*"], {
-    delay: 500, ignoreInitial: true
-  }, processImages);
+  watch("src/images/**", {
+    delay: 500,
+    ignoreInitial: true
+  }, prebuildImages);
 
   // Watch icons
   watch("src/images/icons/*", {
-    delay: 500, ignoreInitial: true
+    delay: 500,
+    ignoreInitial: true
   }, generateSvgSprite);
 
   // Watch fonts
   watch("src/fonts/*", {
     ignoreInitial: true
   }, prebuildFonts);
+}
+
+export function connectDist() {
+  browserSync.init({
+    server: "dist/",
+    notify: false,
+    open: false,
+    port: 3002
+  });
 }
 
 /* ==========================================================================
@@ -128,7 +147,7 @@ function generateHtml() {
   return src("src/pug/*.*")
     .pipe(
       plugins.pug({
-        basedir: __dirname + "/src",
+        basedir: `${__dirname}/src`,
         plugins: [pugIncludeGlob()]
       })
       .on("error", plugins.notify.onError())
@@ -141,13 +160,13 @@ function generateHtml() {
     .pipe(browserSync.stream());
 }
 
-function generateIncrementalHtml() {
+function generateHtmlPage() {
   return src("src/pug/*.*", {
-    since: lastRun(generateIncrementalHtml)
+    since: lastRun(generateHtmlPage)
   })
     .pipe(
       plugins.pug({
-        basedir: __dirname + "/src",
+        basedir: `${__dirname}/src`,
         plugins: [pugIncludeGlob()]
       })
       .on("error", plugins.notify.onError())
@@ -167,12 +186,12 @@ function buildHtml() {
         src(".tmp/css/_critical.css")
         .pipe(plugins.replace("../", ""))
         .pipe(plugins.replace("@charset \"UTF-8\";", ""))
-        .pipe(plugins.postcss([ cssnano() ]))
+        .pipe(plugins.postcss([cssnano()]))
         .pipe(plugins.injectString.prepend("<style>"))
         .pipe(plugins.injectString.append("</style>")), {
           starttag: "<!-- inject:critical:{{ext}} -->",
           transform: function(filePath, file) {
-            return file.contents.toString("utf8")
+            return file.contents.toString("utf8");
           }
         }
       )
@@ -185,7 +204,7 @@ function buildHtml() {
         .pipe(plugins.injectString.append("</script>")), {
           starttag: "<!-- inject:fg-loadcss:{{ext}} -->",
           transform: function(filePath, file) {
-            return file.contents.toString("utf8")
+            return file.contents.toString("utf8");
           }
         }
       )
@@ -200,7 +219,7 @@ function buildHtml() {
     .pipe(dest("dist/"));
 }
 
-// htmlmin won't work together with useref at this time
+// htmlmin won't work together with useref
 function minifyHtml() {
   return src("dist/*.html")
     .pipe(
@@ -227,11 +246,11 @@ export function validate() {
 
 export function copyPluginStyles(callback) {
   // Do nothing if there are no sources
-  if (paths.plugins.css == "") {
+  if (PATHS.plugins.css == "") {
     return callback();
   }
 
-  return src(paths.plugins.css)
+  return src(PATHS.plugins.css)
     .pipe(plugins.rename({
       extname: ".scss"
     }))
@@ -243,7 +262,9 @@ function generateStyles() {
   return src(["src/scss/main.scss", "src/scss/vendors/*"])
     .pipe(plugins.sassGlob())
     .pipe(
-      plugins.sass({ outputStyle: "expanded" })
+      plugins.sass({
+        outputStyle: "expanded"
+      })
       .on("error", plugins.sass.logError))
       .on("error", plugins.notify.onError()
     )
@@ -251,7 +272,7 @@ function generateStyles() {
       plugins.postcss([
         autoprefixer(),
         pxtorem({
-          propList: options.pxToRem.propList
+          propList: OPTIONS.pxToRem.propList
         })
       ])
     )
@@ -267,19 +288,17 @@ const prebuildStyles = series(
 /* Critical styles
   ======================================================================== */
 
-function generateCritical(cb) {
+export function generateCritical(cb) {
   penthouse(
     {
-      url: options.penthouse.url,
-      css: options.penthouse.css,
-      forceInclude: options.penthouse.include
+      url: OPTIONS.penthouse.url,
+      css: OPTIONS.penthouse.css,
+      forceInclude: OPTIONS.penthouse.include
     },
     function(err, criticalCss) {
       fs.writeFileSync(".tmp/css/_critical.css", criticalCss);
     },
-    setTimeout(function() {
-      cb();
-    }, 2000)
+    setTimeout(() => cb(), 2000)
   );
 }
 
@@ -289,12 +308,12 @@ function buildStyles() {
       plugins.postcss([
         uncss({
           html: ["dist/[^google]*.html"],
-          ignore: options.uncss.ignore,
+          ignore: OPTIONS.uncss.ignore,
           ignoreSheets: [/fonts.googleapis/]
         })
       ])
     )
-    .pipe(plugins.postcss( [cssnano()] ))
+    .pipe(plugins.postcss([cssnano()]))
     .pipe(dest("dist/css/"));
 }
 
@@ -304,17 +323,17 @@ function buildStyles() {
 
 export function copyPluginScripts(callback) {
   // Do nothing if there are no sources
-  if (paths.plugins.js == "") {
+  if (PATHS.plugins.js == "") {
     return callback();
   }
 
-  return src(paths.plugins.js)
+  return src(PATHS.plugins.js)
     .pipe(plugins.changed("src/js/vendors"))
     .pipe(dest("src/js/vendors"));
 }
 
 function copyAllScripts() {
-  return src("src/js/**", { since: lastRun(copyAllScripts) })
+  return src("src/js/**")
     .pipe(plugins.flatten())
     .pipe(dest(".tmp/js/"))
     .pipe(browserSync.stream());
@@ -333,66 +352,101 @@ export function buildScripts() {
   Images
   ======================================================================== */
 
-export function processImages() {
-  const large = "@1.5x";
-  const huge = "@2x";
-
-  return src(["src/images/*content/**", "src/images/*.*"], {
-    since: lastRun(processImages)
-  })
+export function processContentImages() {
+  return src("src/images/*content/**")
+    .pipe(plugins.changed("src/images/*content/**", {
+      hasChanged: plugins.changed.compareContents
+    }))
     .pipe(
       plugins.responsive(
         {
-          "**/logo.png": [
-            { width: 150 },
-            {
-              width: 150 * 1.5,
-              rename: { suffix: large }
-            },
-            {
-              width: 150 * 2,
-              rename: { suffix: huge }
-            }
-          ],
-          "**/fox.*": [
-            { width: 400 },
-            {
-              width: 400 * 1.5,
-              rename: { suffix: large }
-            },
-            {
-              width: 400 * 2,
-              rename: { suffix: huge }
-            }
-          ],
           "**/!(icon|*_small|thumbnail)*": [
-            {  width: 480 },
             {
-              rename: { suffix: "_original" }
+              width: 480
+            },
+            {
+              rename: {
+                suffix: "_original"
+              }
             }
           ],
           "**/*_small*": [{}],
           "**/thumbnail*": [{}]
         },
-        {
-          errorOnUnusedImage: false,
-          errorOnUnusedConfig: false,
-          errorOnEnlargement: false,
-          silent: true,
-          quality: 80
-        }
+        OPTIONS.responsive
       )
     )
     .pipe(
       imagemin([
         imageminPngquant({
-          quality: options.pngquant.quality
+          quality: OPTIONS.pngquant.quality
         })
       ])
     )
     .pipe(dest(".tmp/images/"))
     .pipe(plugins.wait(1500))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
+}
+
+export function processResponsiveImages() {
+  const large = "@1.5x";
+  const huge = "@2x";
+
+  return src("src/images/*.*")
+    .pipe(plugins.changed("src/images/*.*", {
+      hasChanged: plugins.changed.compareContents
+    }))
+    .pipe(
+      plugins.responsive(
+        {
+          "**/logo.png": [
+            {
+              width: 150
+            },
+            {
+              width: 150 * 1.5,
+              rename: {
+                suffix: large
+              }
+            },
+            {
+              width: 150 * 2,
+              rename: {
+                suffix: huge
+              }
+            }
+          ],
+          "**/fox.*": [
+            {
+              width: 400
+            },
+            {
+              width: 400 * 1.5,
+              rename: {
+                suffix: large
+              }
+            },
+            {
+              width: 400 * 2,
+              rename: {
+                suffix: huge
+              }
+            }
+          ]
+        },
+        OPTIONS.responsive
+      )
+    )
+    .pipe(
+      imagemin([
+        imageminPngquant({
+          quality: OPTIONS.pngquant.quality
+        })
+      ])
+    )
+    .pipe(dest(".tmp/images/"))
+    .pipe(plugins.wait(1500))
+    .pipe(browserSync.stream());
 }
 
 export function copyMiscImages() {
@@ -400,7 +454,13 @@ export function copyMiscImages() {
     .pipe(dest(".tmp/images/"));
 }
 
-const prebuildImages = parallel(processImages, copyMiscImages);
+const prebuildImages = parallel(
+  processContentImages,
+  processResponsiveImages,
+  copyMiscImages
+);
+
+exports.prebuildImages = prebuildImages;
 
 function buildImages() {
   return src(".tmp/images/**")
@@ -420,7 +480,7 @@ export function generateSvgSprite() {
       ])
     )
     .pipe(plugins.svgstore())
-    .pipe(plugins.rename("sprite.svg"))
+    .pipe(plugins.rename("icons.svg"))
     .pipe(dest(".tmp/images"))
     .pipe(browserSync.stream());
 }
@@ -499,8 +559,8 @@ const build = series(
     buildFonts,
     copyFavicons,
     copyMetadata
-  ),
-  validate
+  )
+  // validate
 );
 
 const cleanBuild = series(
@@ -517,7 +577,7 @@ const cleanBuild = series(
 const serve = series(prebuild, watchFiles);
 
 // Set default task (gulp)
-export default serve
+export default serve;
 
 // Build from prebuild
 exports.build = build;
