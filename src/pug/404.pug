@@ -18,15 +18,14 @@ block head
   
   //inject-string:noscript
 
+  append scripts
+    script.
+      window.addEventListener("load", function() {
+        var image = document.querySelector(".js-animate-picture");
+        image.classList.add("is-animated");
+      });
+
 block inner
   +error404
 
 block sidebar
-
-append scripts
-  script.
-    var image = document.querySelector(".js-animate-picture");
-
-    window.addEventListener("load", function() {
-      image.classList.add("is-animated");
-    });

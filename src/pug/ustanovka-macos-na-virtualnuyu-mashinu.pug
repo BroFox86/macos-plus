@@ -2,10 +2,10 @@ extends /pug/layout/_page
 
 prepend page
   - var title = "Установка macOS на компьютер с помощью VMWare"
-  - var description = "Подробная инструкция по установке macOS Mojave на виртуальную машину   со ссылками на необходимые файлы"
+  - var description = "Подробная инструкция по установке macOS на виртуальную машину со ссылками на необходимые файлы"
   - var isModified = true
   - var published = ["17", "08", "2017"]
-  - var modified = ["12", "07", "2019"]
+  - var modified = ["12", "05", "2020"]
   - var pageLink = page.vmware
   - var likeButtonId = "Установка через VMWare"
   -
@@ -17,7 +17,7 @@ prepend page
   -
     var articleHeader = {
       iconId: "#vmware",
-      title: "Установка macOS Mojave на&nbsp;компьютер через VMWare"
+      title: "Установка macOS на компьютер через VMWare"
     }
   -
     var itemList = [
@@ -59,23 +59,28 @@ block content
       +li
         | архиватор WinRAR (нестарый, чтоб не ругался на битый архив);
       +li
-        | образ macOS Mojave 10.14.4 для ВМ: 
-        +a()(href="https://drive.google.com/drive/folders/1ixtDc8gS8GGMyTMq0z-RjNifBbu9JdJA")
-          | Torrent-файл
-        |  (вечерняя раздача)
+        | образ macOS для ВМ: 
+        +a()(href="https://drive.google.com/drive/folders/1mUPKPG2Iq5qPUovrmSNFiAffqjdYhPzp")
+          | Catalina 
+        | (Google&nbsp;Drive, пароль: Geekrar.com)
         |  / 
         +a()(href="https://yadi.sk/d/ifMeiEpU9wBi5Q")
-          | Яндекс&nbsp;Диск
-        | ;
+          | Mojave 
+        | (Яндекс&nbsp;Диск);
       +li
         | патч VMWare Unlocker: 
-        +a()(href="https://github.com/DrDonk/unlocker/releases") Github
-        |  / 
-        +a()(href="https://drive.google.com/open?id=1r4Lw77l5ItKBvF8n1_42suZCKCx9TK59")
+        +a()(href="https://github.com/paolo-projects/unlocker/releases") Github
+        |  (unlocker.zip, 6.44 MB) / 
+        +a()(href="https://drive.google.com/open?id=1S3GiM9HpKRWSLb1T_eKxF0LMxps-958O")
           | Google&nbsp;Drive
-        | ;
+        |  (v2.0.8);
+        
       +li
         | базовый уровень английского языка и владения компьютером.
+
+    //- +note(warning) 
+    //-   | В настоящее время установка macOS на Windows&nbsp;10 с помощью данного руководства невозможна. VMWare Unlocker там не работает.
+
   +section
     +h2
     +ol
