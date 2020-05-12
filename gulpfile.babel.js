@@ -58,7 +58,7 @@ const OPTIONS = {
     ignore: [/.*[is,has]-.*/, /.*[tooltip].*/]
   },
   penthouse: {
-    url: "file:///Users/daurgamisonia/Development/GitHub/macos-plus/.tmp/index.html",
+    url: "file:///Users/daur.gamisonia/Development/GitHub/macos-plus/.tmp/index.html",
     css: ".tmp/css/main.css",
     include: [
       ".nav__inner",
