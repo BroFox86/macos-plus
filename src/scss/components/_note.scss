@@ -33,7 +33,7 @@
     font-weight: inherit;
   }
 
-  &--inf     { background: #7e57c2; }
-  &--tip     { background: #00acc1; }
-  &--warning { background: #ec407a; }
+  &--inf     { background: $note-info-color; }
+  &--tip     { background: $note-tip-color; }
+  &--warning { background: $note-warning-color; }
 }

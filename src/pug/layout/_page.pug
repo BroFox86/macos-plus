@@ -4,101 +4,100 @@ include /pug/components/*
 
 doctype html
 
-//- <html> tag is deliberately omitted. Info here: google.github.io/styleguide/htmlcssguide.html#Optional_Tags 
+html(lang="ru") 
+  block page
+    head
+      block head
+        meta(charset="utf-8")
+        title= title
+        meta(name="description" content= description)
 
-block page
-  head
-    block head
-      meta(charset="utf-8")
-      title= title
-      meta(name="description" content= description)
+        //inject:critical:css 
+        //endinject
 
-      //inject:critical:css 
-      //endinject
+        //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        link(href="css/normalize.css" rel="stylesheet")
+        link(href="css/main.css" rel="stylesheet")
+        //endbuild 
 
-      //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
-      link(href="css/normalize.css" rel="stylesheet")
-      link(href="css/main.css" rel="stylesheet")
-      //endbuild 
+        //inject:fg-loadcss:html 
+        //endinject 
 
-      //inject:fg-loadcss:html 
-      //endinject 
+        //inject-string:noscript
 
-      //inject-string:noscript
+        meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
 
-      meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
-      meta(http-equiv="x-ua-compatible" content="ie=edge")
+        meta(property="og:title" content= title)
+        meta(property="og:description" content= description)
+        meta(property="og:type" content="article")
+        meta(property="og:image" content= domain + metaImage.src)
+        meta(property="og:image:width" content= metaImage.width)
+        meta(property="og:image:height" content= metaImage.height)
+        meta(property="og:url" content= domain)
+        meta(property="og:site_name" content="macOS+ | Лис подскажет")
 
-      meta(property="og:title" content= title)
-      meta(property="og:description" content= description)
-      meta(property="og:type" content="article")
-      meta(property="og:image" content= domain + metaImage.src)
-      meta(property="og:image:width" content= metaImage.width)
-      meta(property="og:image:height" content= metaImage.height)
-      meta(property="og:url" content= domain)
-      meta(property="og:site_name" content="macOS+ | Лис подскажет")
+        link(rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
+        link(rel="manifest" href="manifest.json")
+        link(rel="shortcut icon" href="favicon.ico")
+        meta(name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет")
+        meta(name="application-name" content="macOS+ | Лис подскажет")
+        meta(name="msapplication-config" content="browserconfig.xml")
+        meta(name="theme-color" content="#455a64")
 
-      link(rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png")
-      link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
-      link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
-      link(rel="manifest" href="manifest.json")
-      link(rel="shortcut icon" href="favicon.ico")
-      meta(name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет")
-      meta(name="application-name" content="macOS+ | Лис подскажет")
-      meta(name="msapplication-config" content="browserconfig.xml")
-      meta(name="theme-color" content="#455a64")
+        block scripts
+          // Google Tag
+          script(src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1" async)
+          script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-100340915-1');
 
-      block scripts
-        // Google Tag
-        script(src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1" async)
-        script.
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-100340915-1');
+          script(id="likebtn_wjs" src="https://w.likebtn.com/js/w/widget.js" async)
 
-        script(id="likebtn_wjs" src="https://w.likebtn.com/js/w/widget.js" async)
+          script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous" defer)
 
-        script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous" defer)
+          //build:js js/global.min.js defer
+          script(src="js/collapse.js" defer)
+          script(src="js/date.js" defer)
+          script(src="js/scrollspy.js" defer)
+          script(src="js/lazy.js" defer)
+          script(src="js/modal.js" defer)
+          script(src="js/lightbox.js" defer)
+          script(src="js/tooltip.js" defer)
+          script(src="js/links.js" defer)
+          script(src="js/list.js" defer)
+          script(src="js/share.js" defer)
+          script(src="js/copy.js" defer)
+          script(src="js/scroll-button.js" defer)
+          //endbuild
 
-        //build:js js/global.min.js defer
-        script(src="js/collapse.js" defer)
-        script(src="js/date.js" defer)
-        script(src="js/scrollspy.js" defer)
-        script(src="js/lazy.js" defer)
-        script(src="js/modal.js" defer)
-        script(src="js/lightbox.js" defer)
-        script(src="js/tooltip.js" defer)
-        script(src="js/links.js" defer)
-        script(src="js/list.js" defer)
-        script(src="js/share.js" defer)
-        script(src="js/copy.js" defer)
-        script(src="js/scroll-button.js" defer)
-        //endbuild
+          //build:remove 
+          script(src="js/_viewport.js" defer) 
+          //endbuild
 
-        //build:remove 
-        script(src="js/_viewport.js" defer) 
-        //endbuild
+    body.page(lang="ru")
+      noscript 
+        | Для полной функциональности этого сайта необходимо включить JavaScript. Вот 
+        a(href="https://www.enable-javascript.com/ru/" target="_blank") инструкции
+        | , как включить JavaScript в вашем браузере.
 
-  body.page(lang="ru")
-    noscript 
-      | Для полной функциональности этого сайта необходимо включить JavaScript. Вот 
-      a(href="https://www.enable-javascript.com/ru/" target="_blank") инструкции
-      | , как включить JavaScript в вашем браузере.
-
-    +header
-      block nav
-        +nav
-    main.page__container  
-      block inner
-        article.article
-          block articleHeader
-            +articleHeader
-          block content
-          +contents("mobile")
-          +vote
-      block sidebar
-        +sidebar
-    +footer
-    +scrollButton
-    +lightbox
+      +header
+        block nav
+          +nav
+      main.page__container  
+        block inner
+          article.article
+            block articleHeader
+              +articleHeader
+            block content
+            +contents("mobile")
+            +vote
+        block sidebar
+          +sidebar
+      +footer
+      +scrollButton
+      +lightbox

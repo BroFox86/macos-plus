@@ -39,7 +39,7 @@
   &__section {
     padding: 0 20px;
     word-wrap: break-word;
-    hyphens: auto;
+    // hyphens: auto;
 
     @media (max-width: $large-screen) {
       padding:0;

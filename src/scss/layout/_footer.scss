@@ -1,7 +1,7 @@
 .footer {
   height: 100%;
   padding: 35px 0 45px;
-  color: $dimmed-font-color;
+  color: white;
   background: $footer-color;
   text-align: center;
 
@@ -52,12 +52,12 @@
 
   &__link {
     border-bottom: 1px solid transparent;
+    color: inherit;
     text-decoration: none;
-    color: lighten($accent-color, 5);
     transition: $transition;
 
     &:hover {
-      border-bottom: 1px solid $accent-color;
+      text-decoration: underline;
     }
   }
 }

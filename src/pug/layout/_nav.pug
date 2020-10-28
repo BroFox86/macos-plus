@@ -2,13 +2,13 @@
 
 mixin nav
   nav.nav
-    a(href="#target").nav__open-btn
+    a(href="#target" aria-label="Открыть меню навигации").nav__open-btn
       +svg("#bars")(class="nav__open-icon")
     a.nav__open-target(id="target")
     .nav__inner
       ul.nav__list
         li
-          a.nav__close-btn(href="#0")
+          a.nav__close-btn(href="#0" aria-label="Закрыть меню навигации")
             +svg("#angle-left")(class="nav__close-icon")
         li.nav__item(class= attributes.mainGuide)
           a.nav__link(href= page.index) macOS на PC

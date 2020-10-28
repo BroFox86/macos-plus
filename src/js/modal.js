@@ -4,7 +4,9 @@ class Modal {
 
     this._togglePageScroll();
 
-    this._modal.style.display = "block";
+    this._modal.setAttribute( "aria-modal", true );
+    
+    this._modal.removeAttribute("hidden");
 
     setTimeout(() => {
       this._modal.classList.add("is-visible");
@@ -18,7 +20,11 @@ class Modal {
     this._togglePageScroll();
 
     setTimeout(() => {
-      this._modal.style.display = "";
+
+      this._modal.setAttribute( "hidden", "hidden" );
+
+      this._modal.removeAttribute("aria-modal");
+
     }, this._duration );
   }
 

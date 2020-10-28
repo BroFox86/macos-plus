@@ -1,6 +1,6 @@
 mixin lightbox
-  .lightbox.js-lightbox-toggle
+  .lightbox.js-lightbox-toggle(role="dialog" hidden)
     .lightbox__inner
-      button.lightbox__close.js-lightbox-dismiss
+      button.lightbox__close.js-lightbox-dismiss(aria-label="Закрыть модальное окно")
         +svg("#times")(class="lightbox__close-icon")
       img.lightbox__img(src="images/misc/preloader.svg" alt="")
