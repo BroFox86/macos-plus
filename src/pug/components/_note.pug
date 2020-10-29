@@ -7,22 +7,22 @@ mixin note(type)
   case type
 
     when inf
-      aside.article__note.note(class= inf)
+      aside.article__note.note(class=inf role="alert")
         +svg("#info-circle")(class="note__icon")
         p.note__text
           if block
           block
 
     when tip
-      aside.article__note.note(class= tip)
+      aside.article__note.note(class=tip role="alert")
         +svg("#lightbulb")(class="note__icon")
         p.note__text
           if block
           block
 
     when warning
-      aside.article__note.note(class= warning)
-        +svg("#exclamation-triangle")(class="note__icon")
+      aside.article__note.note(class=warning role="alert")
+        +svg("#exclamation-triangle")(class="note__icon") 
         strong.note__text
           if block
           block
