@@ -48,6 +48,12 @@ const PATHS = {
 };
 
 const OPTIONS = {
+  htmlBeautify: {
+    indent_size: 2,
+    indent_inner_html: true,
+    max_preserve_newlines: 1,
+    inline: ""
+  },
   pngquant: {
     quality: [0.9, 1]
   },
@@ -152,10 +158,7 @@ function generateHtml() {
       })
       .on("error", plugins.notify.onError())
     )
-    .pipe(plugins.htmlBeautify({
-      indent_size: 4,
-      indent_inner_html: true
-    }))
+    .pipe(plugins.htmlBeautify(OPTIONS.htmlBeautify))
     .pipe(dest(".tmp/"))
     .pipe(browserSync.stream());
 }
@@ -171,10 +174,7 @@ function generateHtmlPage() {
       })
       .on("error", plugins.notify.onError())
     )
-    .pipe(plugins.htmlBeautify({
-      indent_size: 4,
-      indent_inner_html: true
-    }))
+    .pipe(plugins.htmlBeautify(OPTIONS.htmlBeautify))
     .pipe(dest(".tmp/"))
     .pipe(browserSync.stream());
 }
