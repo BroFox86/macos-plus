@@ -1,12 +1,13 @@
 mixin contents(state)
   - var i = 0
+  - var navItemsSum = 7 
 
   mixin contentsInner
     h2.aside__headline.contents__headline= "Оглавление"
     ul.contents__list
       each item in itemList
         li.contents__item
-          a.contents__link(href="#" + (i+1))
+          a.contents__link(href="#" + (i+1) tabindex=(i+navItemsSum))
             span!= itemList[i++] + " "
             span.contents__icon-wrapper
               +svg("#link-solid")(class="contents__icon")

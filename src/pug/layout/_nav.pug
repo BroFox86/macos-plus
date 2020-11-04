@@ -11,19 +11,19 @@ mixin nav
           a.nav__close-btn(href="#0" aria-label="Закрыть меню навигации")
             +svg("#angle-left")(class="nav__close-icon")
         li.nav__item(class= attributes.mainGuide)
-          a.nav__link(href= page.index) macOS на PC
+          a.nav__link(href= page.index tabindex="1") macOS на PC
         li.nav__item(class= attributes.vmware)
-          a.nav__link(href= page.vmware ) macOS на VMWare
+          a.nav__link(href= page.vmware tabindex="2") macOS на VMWare
 
         li.nav__item.nav__item--popup
-          span.nav__link Другое
+          button.nav__link( type="button" tabindex="3" onclick="nestedNavList.classList.toggle('is-active')") Другое
             +svg("#arrow-down")(class="nav__popup-icon")
-          ul.nav__nested-list
+          ul.nav__nested-list#nestedNavList
             li.nav__item(class= attributes.kexts)
-              a.nav__link(href= page.kexts) Установка кекстов
+              a.nav__link(href= page.kexts tabindex="4") Установка кекстов
             li.nav__item(class= attributes.services)
-              a.nav__link(href= page.services) iCloud &amp; AppStore
+              a.nav__link(href= page.services tabindex="5") iCloud &amp; AppStore
             li.nav__item(class= attributes.sound)
-              a.nav__link(href= page.sound) Настройка звука
+              a.nav__link(href= page.sound tabindex="6") Настройка звука
             li.nav__item(class= attributes.efi)
-              a.nav__link(href= page.efi) Монтирование EFI
+              a.nav__link(href= page.efi tabindex="7") Монтирование EFI

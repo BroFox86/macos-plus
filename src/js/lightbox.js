@@ -8,6 +8,7 @@ class Lightbox extends Modal {
   constructor() {
     super();
     this._modal = document.querySelector(".js-lightbox-toggle");
+    this._container = this._modal;
     this._image = this._modal.querySelector("img");
     this._duration = this._getDuration( this._modal );
   }
@@ -36,7 +37,7 @@ class Lightbox extends Modal {
 
       this._showImage( target );
 
-      super._open();
+      super.open();
 
       return;
     }
@@ -56,7 +57,7 @@ class Lightbox extends Modal {
   }
 
   _close() {
-    super._close();
+    super.close();
     this._removeImage();
   }
 

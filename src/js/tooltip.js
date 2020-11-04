@@ -26,6 +26,8 @@
 
     tooltip.className = "tooltip";
 
+    tooltip.setAttribute( "role", "tooltip" );
+
     button = '<button class="tooltip__close" type="button"></button>';
 
     tooltip.innerHTML = title + button;

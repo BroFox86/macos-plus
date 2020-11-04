@@ -89,7 +89,8 @@
       box-shadow: none;
     }
 
-    .nav__item--popup:hover & {
+    .nav__item--popup:hover &,
+    &.is-active {
       display: block;
     }
   }

@@ -2,11 +2,7 @@
   border: 0;
 }
 
-:focus {
-  outline: none;
-}
-
-:root {
+:root { 
   box-sizing: border-box;
 }
 
@@ -41,9 +37,18 @@ fieldset {
   border: none;
 }
 
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
 button {
   padding: 0;
   border: none;
-  outline: none;
+  background: none;
   cursor: pointer;
+  font-weight: inherit;
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
