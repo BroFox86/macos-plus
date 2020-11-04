@@ -76,15 +76,11 @@
     background: lighten($header-color, 4);
     box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
     white-space: nowrap;
-
-    //
-    // Blur doesn't work correctly with border-radius
-    // on MS Edge at this time
-    //
-    // @supports (-webkit-backdrop-filter: blur(0)) {
-    //   background: transparentize($header-color, .15);
-    //   -webkit-backdrop-filter: blur(15px);
-    // }
+ 
+    @supports (backdrop-filter: none) { 
+      background: transparentize($header-color, .15);
+      backdrop-filter: blur(15px);
+    }
 
     @media (max-width: $medium-screen) {
       position: static;
