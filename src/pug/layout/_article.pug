@@ -39,8 +39,9 @@ mixin li
 mixin image(src)
   - var original = src.replace(/(\.[\w\d]+)$/, "_original$1")
   
-  a.article__img-wrapper.js-lightbox-trigger(href= original)
-    img.article__img(src="images/misc/preloader.svg" data-src= src)&attributes(attributes)
+  .article__img-wrapper
+    a.article__link.js-lightbox-trigger(href= original)
+      img.article__img(src="images/misc/preloader.svg" data-src= src)&attributes(attributes)
 
 mixin smallImage
   .article__img-wrapper

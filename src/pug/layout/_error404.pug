@@ -1,6 +1,9 @@
 mixin error404
   .error404
-    +respImg("images/fox.jpg", 400)(class="error404__img js-animate-picture" alt="")
+    +respImg("images/fox.jpg", 400)(
+      class="error404__img js-animate-picture" 
+      sizes="(max-width: 960px) 50vw, 400px"
+      alt="")
     .error404__text-wrapper
       .error404__type 404
       .error404__desc Страница не найдена

@@ -155,7 +155,6 @@
   }
 
   &__img-wrapper {
-    display: block;
     margin: $margin auto;
     text-align: center;
 
@@ -164,7 +163,12 @@
     }
   }
 
+  &__link {
+    display: inline-block;
+  }
+
   &__img {
+    display: inline-block;
     max-width: 480px;
     color: $grey-133;
     transition: opacity .5s ease-in;
