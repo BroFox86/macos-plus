@@ -1,12 +1,12 @@
 /**
  * Modal window.
  * @param {string} selector - Container selector.
- * @version 6.0.10
+ * @version 7.0.1
  */
 class Modal {
 
-  constructor( selector ) {
-    this._modal = document.querySelector( selector );
+  constructor( container ) {
+    this._modal = container;
     this._pressed = new Set();
     this._lastFocus = null;
     this._listenFocusIn = null;
@@ -77,18 +77,20 @@ class Modal {
       const focusElements = getFocusElements( container );
       const firstFocusElement = focusElements[ 0 ];
       const lastFocusElement = focusElements[ focusElements.length - 1 ];
+      const isContains = container.contains( target );
 
-      if ( pressed.has("Shift") && relatedTarget === firstFocusElement ) {
+      if ( !isContains && relatedTarget === firstFocusElement ) {
         return lastFocusElement.focus();
-      } 
+      }
       
-      if ( !pressed.has("Shift") && relatedTarget === lastFocusElement ) {
+      if ( !isContains && relatedTarget === lastFocusElement ) {
         return firstFocusElement.focus();
       }
 
-      if ( !container.contains( target ) ) {
+      if ( !isContains ) {
 
         if ( pressed.has("Shift") ) {
+          
           lastFocusElement.focus();
 
         } else {
@@ -149,5 +151,5 @@ function getFocusElements( container ) {
      textarea:not(:disabled),
      select:not(:disabled),
      *[tabindex]:not(:disabled)`
-  ));
+  )); 
 }
