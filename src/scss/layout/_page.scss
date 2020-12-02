@@ -39,6 +39,8 @@
     display: flex;
     justify-content: center;
     margin-bottom: 130px;
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
 
     @media (max-width: $large-screen) {
       margin-bottom: 70px;

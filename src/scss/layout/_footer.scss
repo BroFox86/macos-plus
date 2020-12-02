@@ -1,6 +1,7 @@
 .footer {
   height: 100%;
   padding: 35px 0 45px;
+  padding-bottom: env(safe-area-inset-bottom);
   color: white;
   background: $footer-color;
   text-align: center;
@@ -39,9 +40,5 @@
   &__copyrights {
     margin-bottom: 15px;
     padding: 0 20px;
-  }
-
-  &__my-links {
-    margin-bottom: 20px;
   }
 }
