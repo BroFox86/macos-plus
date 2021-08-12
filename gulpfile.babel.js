@@ -64,7 +64,7 @@ const OPTIONS = {
     ignore: [/.*[is,has]-.*/, /.*[tooltip].*/]
   },
   penthouse: {
-    url: "file:///Users/daur.gamisonia/Development/GitHub/macos-plus/.tmp/index.html",
+    url: "file:///Users/daur.gamisonia/Development/macos-plus/.tmp/index.html",
     css: ".tmp/css/main.css",
     include: [
       ".nav__inner",
@@ -289,17 +289,15 @@ const prebuildStyles = series(
   ======================================================================== */
 
 export function generateCritical(cb) {
-  penthouse(
-    {
-      url: OPTIONS.penthouse.url,
-      css: OPTIONS.penthouse.css,
-      forceInclude: OPTIONS.penthouse.include
-    },
-    function(err, criticalCss) {
-      fs.writeFileSync(".tmp/css/_critical.css", criticalCss);
-    },
-    setTimeout(() => cb(), 2000)
-  );
+  penthouse({
+    url: OPTIONS.penthouse.url,
+    css: OPTIONS.penthouse.css,
+    forceInclude: OPTIONS.penthouse.include
+  })
+  .then(criticalCss => {
+    fs.writeFileSync(".tmp/css/_critical.css", criticalCss);
+    setTimeout(() => cb(), 2000);
+  })
 }
 
 function buildStyles() {
