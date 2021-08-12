@@ -3,7 +3,7 @@
 ## Описание
 
 Сайт состоит из переведенных и дополненных англоязычных инструкций
-и описывает установку на ПК macOS Mojave.
+и описывает установку macOS Mojave на ПК.
 
 ## О технической части
 
@@ -11,13 +11,13 @@
 
 ### Редакторы и инструменты
 
-* Visual Studio Code,
-* Inkscape,
-* SCSS,
-* PostCSS,
-* Pug,
-* Gulp,
-* Git.
+* Visual Studio Code
+* Inkscape
+* SCSS
+* PostCSS
+* Pug
+* Gulp
+* Git
 
 ### Методики и рекомендации
 
