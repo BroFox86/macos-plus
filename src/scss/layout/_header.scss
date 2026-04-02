@@ -33,8 +33,11 @@
     width: 150px;
 
     @media (max-width: $medium-screen) {
-      width: 126px;
       margin: auto;
+    }
+
+    @media (max-width: $small-screen) {
+      width: 126px;
     }
   }
 

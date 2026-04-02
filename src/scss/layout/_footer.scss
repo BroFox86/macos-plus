@@ -1,7 +1,6 @@
 .footer {
   height: 100%;
-  padding: 35px 0 45px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding: 35px 0 calc(45px + env(safe-area-inset-bottom));
   color: white;
   background: $footer-color;
   text-align: center;

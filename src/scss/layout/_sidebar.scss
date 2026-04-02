@@ -5,6 +5,7 @@
 
   &__inner {
     position: fixed;
+    z-index: 10;
     top: $header-height + $large-margin;
     width: inherit;
     height: 100%;

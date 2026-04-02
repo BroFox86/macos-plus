@@ -118,7 +118,7 @@ function clearCache() {
 
 export function doHtml() {
   return gulp
-    .src(`${SRC_PATH}/pug/*.*`)
+    .src(`${SRC_PATH}/pug/*.pug`)
     .pipe(wait(700))
     .pipe(
       pug({
@@ -126,7 +126,6 @@ export function doHtml() {
         plugins: [pugIncludeGlob()]
       }).on("error", notify.onError())
     )
-    .pipe(changed(`${DEV_PATH}`))
     .pipe(
       htmlBeautify({
         indent_size: 2,

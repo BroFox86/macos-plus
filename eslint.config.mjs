@@ -5,7 +5,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 export default defineConfig([
   {
-    ignores: ["node_modules/", ".temp/", "dist/", "**/*.svg", "src/static/"],
+    ignores: ["node_modules/", ".temp/", "dist/", "**/*.svg", "src/static/"]
   },
   js.configs.recommended,
   eslintConfigPrettier,
@@ -15,8 +15,8 @@ export default defineConfig([
       sourceType: "commonjs",
       ecmaVersion: 2021,
       globals: {
-        ...globals.browser,
-      },
+        ...globals.browser
+      }
     },
     rules: {
       eqeqeq: "warn",
@@ -26,13 +26,13 @@ export default defineConfig([
         "error",
         {
           destructuring: "any",
-          ignoreReadBeforeAssign: false,
-        },
+          ignoreReadBeforeAssign: false
+        }
       ],
       // complexity: ["warn", 10],
       // "max-lines-per-function": ["warn", { max: 50, skipBlankLines: true, skipComments: true }],
       "max-depth": ["warn", 2],
-      "max-params": ["warn", 4],
-    },
-  },
+      "max-params": ["warn", 4]
+    }
+  }
 ]);
