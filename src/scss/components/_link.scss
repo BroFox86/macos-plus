@@ -9,7 +9,7 @@
     font-weight: 700;
 
     &:hover {
-      color: darken($accent-color, 15);
+      color: color.adjust($accent-color, $lightness: -15%);
     }
 
     &:visited {
@@ -20,11 +20,14 @@
   &--note {
     padding-bottom: 1px;
     color: inherit;
-    text-decoration: underline solid fade-out(white, .2);
+    // text-decoration: underline solid fade-out(white, .2);
+    text-decoration: underline solid white;
 
     &:hover {
-      color: fade-out(white, .2);
-      text-decoration-color: fade-out(white, .3);
+      // color: fade-out(white, .2);
+      // text-decoration-color: fade-out(white, .3);
+      color: white;
+      text-decoration-color: white;
     }
   }
 }

@@ -12,18 +12,10 @@ html(lang="ru")
         title= title
         meta(name="description" content= description)
 
-        //inject:critical:css 
-        //endinject
-
-        //build:css css/styles.min.css rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        //build:css css/styles.min.css
         link(href="css/normalize.css" rel="stylesheet")
-        link(href="css/main.css" rel="stylesheet")
+        link(href="css/main.css?cache_bust=0" rel="stylesheet")
         //endbuild 
-
-        //inject:fg-loadcss:html 
-        //endinject 
-
-        //inject-string:noscript
 
         meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover")
 
@@ -47,17 +39,9 @@ html(lang="ru")
         meta(name="theme-color" content="#455a64")
 
         block scripts
-          // Google Tag
-          script(src="https://www.googletagmanager.com/gtag/js?id=UA-100340915-1" async)
-          script.
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-100340915-1');
-
           script(id="likebtn_wjs" src="https://w.likebtn.com/js/w/widget.js" async)
 
-          script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous" defer)
+          //- script(src="https://polyfill.io/v3/polyfill.min.js?features=es6%2CNodeList.prototype.%40%40iterator%2CArray.prototype.%40%40iterator%2CString.prototype.%40%40iterator%2CDOMTokenList.prototype.%40%40iterator" crossorigin="anonymous" defer)
 
           //build:js js/global.min.js defer
           script(src="js/collapse.js" defer)
@@ -72,10 +56,6 @@ html(lang="ru")
           script(src="js/share.js" defer)
           script(src="js/copy.js" defer)
           script(src="js/scroll-button.js" defer)
-          //endbuild
-
-          //build:remove 
-          script(src="js/_viewport.js" defer) 
           //endbuild
 
     body.page(lang="ru")

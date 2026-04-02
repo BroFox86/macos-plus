@@ -4,11 +4,11 @@
   width: 100%;
   height: $header-height;
   padding-left: 24vw;
-  background: transparentize($header-color, .02);
-  box-shadow: 0 1px 8px rgba(0 ,0 ,0 , .3);
+  background: color.adjust($header-color, $alpha: -0.02);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 
   @supports (-webkit-backdrop-filter: blur(0)) {
-    background: transparentize($header-color, .05);
+    background: color.adjust($header-color, $alpha: -0.05);
     -webkit-backdrop-filter: blur(10px);
   }
 

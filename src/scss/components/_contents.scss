@@ -82,7 +82,7 @@
 
     .contents__item:hover &,
     .contents__item.is-active & {
-      fill: transparentize(white, .2);
+      fill: color.adjust(white, $alpha: -0.2);
     }
   }
 }

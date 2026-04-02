@@ -1,5 +1,4 @@
-# OS generated files #
-######################
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -8,14 +7,13 @@
 ehthumbs.db
 Thumbs.db
 
-# Node projects #
-#################
+# Node projects
 node_modules/
-.tmp/
-/_*
-
-# Additional #
-##############
-src/metadata/
+.temp/
 dist/
-todo.md
+assets/
+
+# Misc
+.vscode
+*.zip
+*.mp4

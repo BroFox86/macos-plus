@@ -39,9 +39,15 @@
       transform: scale(1.05);
     }
 
-    &--vk      { background: #507299; }
-    &--twitter { background: #55acee; }
-    &--fb      { background: #3b5998; }
+    &--vk {
+      background: #507299;
+    }
+    &--twitter {
+      background: #55acee;
+    }
+    &--fb {
+      background: #3b5998;
+    }
 
     &--url {
       background: $grey-133;
@@ -58,7 +64,7 @@
     height: 22px;
     fill: white;
 
-    @media(min-width: $medium-screen) and (max-width: $large-screen) {
+    @media (min-width: $medium-screen) and (max-width: $large-screen) {
       width: 20px;
       height: 20px;
     }
@@ -72,7 +78,7 @@
     display: none;
     padding-bottom: 17px;
     text-align: center;
-    transition: all .6s;
+    transition: all 0.6s;
   }
 
   &__output-field {
@@ -81,6 +87,6 @@
     text-align: center;
     border: none;
     font-style: italic;
-    color: lighten($base-font-color, 10);
+    color: color.adjust($base-font-color, $lightness: 10%);
   }
 }

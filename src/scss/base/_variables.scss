@@ -2,7 +2,9 @@
 // ==========================================================================
 
 // Font families
-$websafe-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$websafe-fonts:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+  "Helvetica Neue", sans-serif;
 $base-fonts: "PT Sans", $websafe-fonts;
 $second-fonts: "PT Sans Caption", $websafe-fonts;
 $headings-fonts: $base-fonts;
@@ -17,7 +19,7 @@ $h3-size--mobile: 20px;
 
 // Font colors
 $base-font-color: #333;
-$dimmed-font-color: transparentize(white, .05);
+$dimmed-font-color: color.adjust(white, $alpha: -0.05);
 
 // Breakpoints
 // ==========================================================================
@@ -43,12 +45,12 @@ $grey-235: #ebebeb; // rgb(​ 235, ​ 235, ​ 235)
 $grey-244: #f4f4f4; // rgb(​ 244, ​ 244, ​ 244)
 
 $note-warning-color: #d32f2f;
-$note-tip-color: darken(#388e3c, 3);
+$note-tip-color: color.adjust(#388e3c, $lightness: -5%);
 $note-info-color: #1976d2;
 
 // Animations
 // ==========================================================================
-$fall-duration: .25s;
-$shake-duration: .2s;
+$fall-duration: 0.25s;
+$shake-duration: 0.2s;
 $shake-delay: $fall-duration;
-$transition: all .1s ease-out;
+$transition: all 0.1s ease-out;

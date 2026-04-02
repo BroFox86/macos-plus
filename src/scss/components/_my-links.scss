@@ -24,7 +24,7 @@
     transition: $transition;
 
     .my-links__item:hover & {
-      fill: transparentize($footer-color, .2);
+      fill: color.adjust($footer-color, $alpha: -0.2);
     }
   }
 }
