@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Установка macOS на компьютер с помощью VMWare</title>
+    <link rel="stylesheet" href="css/styles.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta property="og:title" content="Установка macOS на компьютер с помощью VMWare">
+    <meta property="og:description" content="Подробная инструкция по установке macOS на виртуальную машину со ссылками на необходимые файлы">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://brofox86.github.io/macos-plus/images/content/install-on-vmware/install-vmware-tools_original.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="834">
+    <meta property="og:url" content="https://brofox86.github.io/macos-plus/">
+    <meta property="og:site_name" content="macOS+ | Лис подскажет">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет">
+    <meta name="application-name" content="macOS+ | Лис подскажет">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="theme-color" content="#455a64">
+    <script src="js/global.min.js" defer></script>
+  </head>
+
+  <body class="page" lang="ru">
+    <header class="page__header header" data-target="nav">
+      <a class="header__logo" href="index.html">
+        <img class="header__img" srcset="images/logo.png 150w, images/logo@1.5x.png 225w, images/logo@2x.png 300w" src="images/logo.png" sizes="(max-width: 960px) 126px, 150px" alt="Логотип" />
+      </a>
+      <nav class="nav">
+        <a class="nav__open-btn" href="#target" aria-label="Открыть меню навигации">
+          <svg class="nav__open-icon" width="30">
+            <use href="images/icons.svg#bars"></use>
+          </svg>
+        </a>
+        <a class="nav__open-target" id="target"></a>
+        <div class="nav__inner">
+          <ul class="nav__list">
+            <li>
+              <a class="nav__close-btn" href="#0" aria-label="Закрыть меню навигации">
+                <svg class="nav__close-icon" width="30">
+                  <use href="images/icons.svg#angle-left"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="index.html" tabindex="1">macOS на PC</a>
+            </li>
+            <li class="nav__item nav__item--selected">
+              <a class="nav__link" href="ustanovka-macos-na-virtualnuyu-mashinu.html" tabindex="2">macOS на VMWare</a>
+            </li>
+            <li class="nav__item nav__item--popup">
+              <button class="nav__link" type="button" tabindex="3" onclick="nestedNavList.classList.toggle('is-active')">Другое<svg class="nav__popup-icon" width="30">
+                  <use href="images/icons.svg#arrow-down"></use>
+                </svg>
+              </button>
+              <ul class="nav__nested-list" id="nestedNavList">
+                <li class="nav__item">
+                  <a class="nav__link" href="ustanovka-i-udaleniye-kekstov.html" tabindex="4">Установка кекстов</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="nastroyka-icloud-i-app-store-na-khakintoshe.html" tabindex="5">iCloud &amp; AppStore</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="zavod-zvuka-na-khakintoshe.html" tabindex="6">Настройка звука</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="page__container">
+      <article class="article">
+        <header class="article__header article-header">
+          <div class="article-header__img-wrapper">
+            <svg class="article-header__img" width="30">
+              <use href="images/icons.svg#vmware"></use>
+            </svg>
+          </div>
+          <h1 class="article-header__headline">Установка macOS на компьютер через VMWare</h1>
+          <p class="article-header__data">
+            <time class="article-header__data-item" datetime="2017-08-17">17.08.2017</time>
+            <time class="article-header__data-item js-date-modified" datetime="2020-05-12"></time>
+          </p>
+        </header>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="1">
+            <a class="link" href="#1">
+              <span class="article__anchor">§</span>Введение
+            </a>
+          </h2>
+          <p class="article__par">Запустить операционную систему macOS Mojave «поверх» Windows на ПК или ноутбуке можно с помощью виртуальных машин — программ, которые эмулируют работу одной операционной системы в среде другой. На этой странице содержится инструкция по установке <i>полностью </i>бесплатной версии одной из таких программ — VMWare Workstation Player. Работающая на виртуальной машине <i>(далее — ВМ)</i> macOS Mojave отображается как обычная программа для Windows — в окне или режиме полного экрана.</p>
+          <p class="article__par">MacOS в качестве виртуальной ОС не предложит всех своих возможностей по техническим причинам и будет работать медленней, в следствие чего не способна оставить полноценные впечатления от своей работы. Но для поверхностного ознакомления с ОС от Apple такой способ установки вполне сгодится.</p>
+        </section>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="2">
+            <a class="link" href="#2">
+              <span class="article__anchor">§</span>Требования
+            </a>
+          </h2>
+          <ul class="article__marked-list">
+            <li class="article__list-item">ПК/ноутбук на базе процессора Intel;</li>
+            <li class="article__list-item">более 40 Гб свободного места на жестком диске;</li>
+            <li class="article__list-item">программа Workstation Player Free: <a class="link link--article" href="http://www.vmware.com/products/player/playerpro-evaluation.html">www.vmware.com/products</a>;</li>
+            <li class="article__list-item">архиватор WinRAR (нестарый, чтоб не ругался на битый архив);</li>
+            <li class="article__list-item">образ macOS для ВМ: <a class="link link--article" href="https://drive.google.com/drive/folders/1mUPKPG2Iq5qPUovrmSNFiAffqjdYhPzp">Catalina </a>(Google&nbsp;Drive, пароль: Geekrar.com)
+              / <a class="link link--article" href="https://yadi.sk/d/ifMeiEpU9wBi5Q">Mojave </a>(Яндекс&nbsp;Диск);</li>
+            <li class="article__list-item">патч VMWare Unlocker: <a class="link link--article" href="https://github.com/paolo-projects/unlocker/releases">Github</a> (unlocker.zip, 6.44 MB) / <a class="link link--article" href="https://drive.google.com/open?id=1S3GiM9HpKRWSLb1T_eKxF0LMxps-958O">Google&nbsp;Drive</a> (v2.0.8);</li>
+            <li class="article__list-item">базовый уровень английского языка и владения компьютером.</li>
+          </ul>
+        </section>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="3">
+            <a class="link" href="#3">
+              <span class="article__anchor">§</span>Инструкция
+            </a>
+          </h2>
+          <ol class="article__ordered-list">
+            <li class="article__list-item">Установите VMWare Workstation Player <i>(далее — VMWare)</i>.</li>
+            <li class="article__list-item">Распакуйте архив c Unlocker и запустите win-install.cmd от имени администратора. Таким образом в VMWare добавляется поддержка macOS.<div class="article__note note note--warning" role="alert">
+                <svg class="note__icon" width="30">
+                  <use href="images/icons.svg#exclamation-triangle"></use>
+                </svg>
+                <strong class="note__text">VMWare во время работы Unlocker должна быть закрыта.</strong>
+              </div>
+              <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/install-patch-tool_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/install-patch-tool.jpg" data-size="972x653" alt="Добавление поддержки macOS в VMWare" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Откройте VMWare и нажмите “Create a new Virtual Machine”.</li>
+            <li class="article__list-item">Выберите “I will install the operating system later”.<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/install-later_small.jpg" alt="Создание виртуальной машины в VMWare" />
+              </div>
+            </li>
+            <li class="article__list-item">Выберите Apple Mac OS X версии 10.14 или просто нажмите Next<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/select-os_small.jpg" alt="Выбор версии ОС в VMWare" />
+              </div>
+              <div class="article__note note note--tip" role="alert">
+                <svg class="note__icon" width="30">
+                  <use href="images/icons.svg#lightbulb"></use>
+                </svg>
+                <p class="note__text">Если пункт с Mac OS не появился в настройках VMWare, попробуйте другую версию Unlocker, удаляя перед этим предыдущую через <em>win-uninstall.cmd</em>.</p>
+              </div>
+            </li>
+            <li class="article__list-item">Укажите папку, в которую будет установлена виртуальная ОС. Запомните ее путь.<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/select-vm-location_small.jpg" alt="Выбор папки для VMWare" />
+              </div>
+            </li>
+            <li class="article__list-item">Откройте настройки созданной ВМ из начального экрана и удалите Hard Disk.<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/vmware-settings_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/vmware-settings.jpg" data-size="732x650" alt="Настройки VMWare" />
+                </a>
+              </div>
+              <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/remove-hdd_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/remove-hdd.jpg" data-size="669x594" alt="Удаление жесткого диска в VMWare" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Добавьте виртуальный жесткий диск: Add &gt; Hard Disk &gt; SATA. </li>
+            <li class="article__list-item">После выберите “Use an Existing Virtual Disk” и укажите путь к образу с macOS Mojave (большой файл с расширением vmdk).<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/select-disk_small.jpg" alt="Добавление жесткого диска в VMWare" />
+              </div>
+              <div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/browse-macos-image_small.jpg" alt="Добавление образа в VMWare" />
+              </div>
+            </li>
+            <li class="article__list-item">В параметрах диска советую выбрать “Store virtual disk as a single file”, как наиболее производительный вариант.<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/select-hdd-size_small.jpg" alt="Выделение памяти для VMWare" />
+              </div>
+            </li>
+            <li class="article__list-item">Не забудьте выделить достаточное количество памяти для ВМ (>=50% от общей суммы ОЗУ компьютера и желательно не менее 4Гб).<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/memory-size_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/memory-size.jpg" data-size="669x594" alt="Выделение памяти для VMWare" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Нажмите OK и <em>закройте</em> VMWare, иначе при старте ВМ появится сообщение об ошибке.&nbsp;⚠️</li>
+            <li class="article__list-item">Перейдите в папку ВМ и откройте файл macOS 10.14 с помощью блокнота. Это небольшой файл размером ~2 Кб. Вставьте туда последней строкою код: <code class="article__code">smc.version&nbsp;=&nbsp;"0"</code>. Сохраните изменения.<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/open-vm-file_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/open-vm-file.jpg" data-size="883x565" alt="Файлы VMWare" />
+                </a>
+              </div>
+              <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/edit-vm-file_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/edit-vm-file.jpg" data-size="852x803" alt="Редактирование файла VMWare" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Все, теперь можно запустить VMWare и начать установку macOS Mojave!<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/start-vm_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/start-vm.jpg" data-size="700x618" alt="Запуск VMWare" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Для того чтобы отказаться от входа в учетную запись Apple, нажмите на Set Up Later.<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/sign-in-to-account_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/sign-in-to-account.jpg" data-size="1026x833" alt="Вход в учетную запись Apple" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">По окончании установки, подключите VMWare Tools: Player > Manage > Install VMWare Tools. Через некоторое время на Рабочем столе должен появиться образ патча с установщиком.<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/install-on-vmware/mount-vmware-tools_small.jpg" alt="Загрузка VMWare Tools" />
+              </div>
+              <div class="article__note note note--inf" role="alert">
+                <svg class="note__icon" width="30">
+                  <use href="images/icons.svg#info-circle"></use>
+                </svg>
+                <p class="note__text">Патч VMWare Tools нужен главным образом для того, чтобы VMWare работала быстрее и поддерживала родное разрешение экрана.</p>
+              </div>
+              <div class="article__note note note--inf" role="alert">
+                <svg class="note__icon" width="30">
+                  <use href="images/icons.svg#info-circle"></use>
+                </svg>
+                <p class="note__text"> Могут наблюдаться проблемы с производительностью в течении 10-15 минут после появления Рабочего стола, так как процесс установки к тому времени еще не завершен.</p>
+              </div>
+            </li>
+            <li class="article__list-item">Установите VMWare Tools. <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/install-vmware-tools_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/install-vmware-tools.jpg" data-size="1026x836" alt="Установка VMWare Tools" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Система безопасности macOS Mojave заблокирует VMWare Tools как неизвестное расширение. Зайдите в настройки ОС (значок шестеренки), далее в раздел “Security and Privacy” и разблокируйте патч кнопкой Allow. <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/allow-vmware-tools_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/allow-vmware-tools.jpg" data-size="1026x834" alt="Открытие доступа для VMWare Tools" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Перезагрузите ВМ. Возможно, потребуется сделать это несколько раз.<p class="article__par"> Готово! Теперь macOS Mojave должна работать на Windows как виртуальная ОС!&nbsp;😊</p>
+              <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/install-on-vmware/vmware-macos-desktop_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/install-on-vmware/vmware-macos-desktop.jpg" data-size="1920x1080" alt="Рабочий стол macOS Mojave на VMWare" />
+                </a>
+              </div>
+            </li>
+          </ol>
+        </section>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="4">
+            <a class="link" href="#4">
+              <span class="article__anchor">§</span>Советы
+            </a>
+          </h2>
+          <ul class="article__marked-list">
+            <li class="article__list-item">если интерфейс macOS Mojave будет слишком крупным, в режиме работающей ВМ зайдите в настройки VMWare: Player > Manage > Virtual Machine Settings > Display и уберите галку с Display Scaling. </li>
+            <li class="article__list-item">для локализации интерфейса откройте System Preferences > Language & Region, затем добавьте язык в Prefered Languages и сделайте его первым в списке.</li>
+          </ul>
+        </section>
+        <nav class="aside contents article__contents">
+          <h2 class="aside__headline contents__headline">Оглавление</h2>
+          <ul class="contents__list">
+            <li class="contents__item">
+              <a class="contents__link" href="#1" tabindex="7">
+                <span>Введение </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="contents__item">
+              <a class="contents__link" href="#2" tabindex="8">
+                <span>Требования </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="contents__item">
+              <a class="contents__link" href="#3" tabindex="9">
+                <span>Инструкция </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="contents__item">
+              <a class="contents__link" href="#4" tabindex="10">
+                <span>Советы </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <footer class="vote">
+          <div class="vote__inner">
+            <p class="vote__text">Понравилась ли Вам
+              <wbr> статья?
+            </p><!-- LikeBtn.com-->
+            <span data-identifier="Установка через VMWare" class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="16" data-icon_size="20" data-icon_l_c_v="#4367d4" data-icon_d_c_v="#d50000" data-bg_c="#ffffff" data-brdr_c="#ebebeb" data-label_fs="r" data-lang="ru" data-ef_voting="push" data-show_like_label=false data-counter_zero_show="true" data-i18n_popup_text="Спасибо!" data-counter_clickable="true" data-tooltip_enabled=false data-site_id="5a3d664ffa8fdfc60c2a6d6b" data-share_enabled=false></span>
+          </div>
+        </footer>
+      </article>
+      <aside class="page__sidebar sidebar">
+        <div class="sidebar__inner">
+          <nav class="aside contents sidebar__item js-scrollspy-target">
+            <h2 class="aside__headline contents__headline">Оглавление</h2>
+            <ul class="contents__list">
+              <li class="contents__item">
+                <a class="contents__link" href="#1" tabindex="7">
+                  <span>Введение </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="contents__item">
+                <a class="contents__link" href="#2" tabindex="8">
+                  <span>Требования </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="contents__item">
+                <a class="contents__link" href="#3" tabindex="9">
+                  <span>Инструкция </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="contents__item">
+                <a class="contents__link" href="#4" tabindex="10">
+                  <span>Советы </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <aside class="aside share sidebar__item" data-target="sidebar">
+            <h2 class="aside__headline share__headline">Поделиться</h2>
+            <div class="share__container">
+              <button class="share__btn share__btn--url js-copy-url-trigger" title="Скопировать ссылку">
+                <svg class="share__icon" width="30">
+                  <use href="images/icons.svg#link-solid"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="share__output-wrapper">
+              <input class="share__output-field js-copy-url-field" aria-label="Ссылка на страницу" readonly="readonly" />
+            </div>
+          </aside>
+        </div>
+      </aside>
+    </main>
+    <footer class="page__footer footer">
+      <aside class="aside share footer__share" data-target="sidebar">
+        <h2 class="aside__headline share__headline">Поделиться</h2>
+        <div class="share__container"></div>
+      </aside>
+      <p class="footer__copyrights">© Дизайн,&nbsp;код&nbsp;и&nbsp;тексты. Daur&nbsp;“Bro&nbsp;Fox”&nbsp;Gamisonia,&nbsp;2020.</p>
+      <div class="my-links">
+        <a class="my-links__item my-links__item--email" href="mailto:daurgam@gmail.com" title="Написать письмо">
+          <svg class="my-links__icon" width="30">
+            <use href="images/icons.svg#envelope"></use>
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <button class="page__scroll-btn scroll-btn js-scroll-button-toggle" aria-label="Прокрутить наверх">
+      <svg class="scroll-btn__icon" width="30">
+        <use href="images/icons.svg#angle-up"></use>
+      </svg>
+    </button>
+    <div class="lightbox js-lightbox-toggle" role="dialog" hidden="hidden">
+      <div class="lightbox__inner">
+        <button class="lightbox__close js-lightbox-dismiss" type="button" aria-label="Закрыть модальное окно">
+          <svg class="lightbox__close-icon" width="30">
+            <use href="images/icons.svg#times"></use>
+          </svg>
+        </button>
+        <img class="lightbox__img" src="images/misc/preloader.svg" alt="" />
+      </div>
+    </div>
+  </body>
+
+</html>

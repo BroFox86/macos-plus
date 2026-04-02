@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Завод звука на хакинтоше</title>
+    <link rel="stylesheet" href="css/styles.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta property="og:title" content="Завод звука на хакинтоше">
+    <meta property="og:description" content="Инструкции по настройке звука на хакинтоше. Не всеобъемлющие, но с рядом полезной информации, которая может быть полезной">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://brofox86.github.io/macos-plus/images/content/setup-sound/thumbnail.jpg">
+    <meta property="og:image:width" content="1334">
+    <meta property="og:image:height" content="772">
+    <meta property="og:url" content="https://brofox86.github.io/macos-plus/">
+    <meta property="og:site_name" content="macOS+ | Лис подскажет">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="macOS+ | Лис подскажет">
+    <meta name="application-name" content="macOS+ | Лис подскажет">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="theme-color" content="#455a64">
+    <script src="js/global.min.js" defer></script>
+  </head>
+
+  <body class="page" lang="ru">
+    <header class="page__header header" data-target="nav">
+      <a class="header__logo" href="index.html">
+        <img class="header__img" srcset="images/logo.png 150w, images/logo@1.5x.png 225w, images/logo@2x.png 300w" src="images/logo.png" sizes="(max-width: 960px) 126px, 150px" alt="Логотип" />
+      </a>
+      <nav class="nav">
+        <a class="nav__open-btn" href="#target" aria-label="Открыть меню навигации">
+          <svg class="nav__open-icon" width="30">
+            <use href="images/icons.svg#bars"></use>
+          </svg>
+        </a>
+        <a class="nav__open-target" id="target"></a>
+        <div class="nav__inner">
+          <ul class="nav__list">
+            <li>
+              <a class="nav__close-btn" href="#0" aria-label="Закрыть меню навигации">
+                <svg class="nav__close-icon" width="30">
+                  <use href="images/icons.svg#angle-left"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="index.html" tabindex="1">macOS на PC</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="ustanovka-macos-na-virtualnuyu-mashinu.html" tabindex="2">macOS на VMWare</a>
+            </li>
+            <li class="nav__item nav__item--popup">
+              <button class="nav__link" type="button" tabindex="3" onclick="nestedNavList.classList.toggle('is-active')">Другое<svg class="nav__popup-icon" width="30">
+                  <use href="images/icons.svg#arrow-down"></use>
+                </svg>
+              </button>
+              <ul class="nav__nested-list" id="nestedNavList">
+                <li class="nav__item">
+                  <a class="nav__link" href="ustanovka-i-udaleniye-kekstov.html" tabindex="4">Установка кекстов</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="nastroyka-icloud-i-app-store-na-khakintoshe.html" tabindex="5">iCloud &amp; AppStore</a>
+                </li>
+                <li class="nav__item nav__item--selected">
+                  <a class="nav__link" href="zavod-zvuka-na-khakintoshe.html" tabindex="6">Настройка звука</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="page__container">
+      <article class="article">
+        <header class="article__header article-header">
+          <div class="article-header__img-wrapper">
+            <svg class="article-header__img" width="30">
+              <use href="images/icons.svg#music"></use>
+            </svg>
+          </div>
+          <h1 class="article-header__headline">Настройка звука
+            <br> на хакинтоше
+          </h1>
+          <p class="article-header__data">
+            <time class="article-header__data-item" datetime="2017-09-02">02.09.2017</time>
+            <time class="article-header__data-item js-date-modified" datetime="2018-11-07"></time>
+          </p>
+        </header>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="1">
+            <a class="link" href="#1">
+              <span class="article__anchor">§</span>Введение
+            </a>
+          </h2>
+          <p class="article__par">Настройка звука на хакинтоше может занять даже больше времени, чем, собственно, сама установка macOS.
+            <br>Эта статья содержит несколько инструкций, которые не являются панацеей от всех проблем, но могут помочь так же, как помогли мне.
+          </p>
+        </section>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="2">
+            <a class="link" href="#2">
+              <span class="article__anchor">§</span>Codec Commander
+            </a>
+          </h2>
+          <p class="article__par">Кекст Codec Commander используется для управления контроллером <abbr class="article__tooltip js-tooltip-trigger" title="External Amplifier Power Down">EAPD</abbr>, включающим внешний усилитель для встроенных в материнские платы кодеков (звуковых карт). Обычно такие усилители установлены в колонках и наушниках. Когда кодек теряет питание, усилитель тоже теряет питание и включить его обратно без дополнительной помощи невозможно. Как правило кодек теряет питание в двух случаях:</p>
+          <ul class="article__marked-list">
+            <li class="article__list-item">компьютер перешел в режим сна и затем вышел из него;</li>
+            <li class="article__list-item">компьютер начал переходить в режим сна, но спустя небольшой промежуток времени (около 5-20 секунд) была нажата какая-либо клавиша и переход в сон отменился (задержка сна на полминуты — это <a class="link link--article" href="https://www.reddit.com/r/hackintosh/comments/413yqm/el_capitan_taking_3040_seconds_to_sleep/">особенность</a> macOS).</li>
+          </ul>
+          <p class="article__par"> В обоих случаях может показаться, что звук есть, но на самом деле его нет или он очень тихий. Для решения этой проблемы, собственно, и нужен Codec Commander.</p>
+          <h3 class="article__h3">Настройка</h3>
+          <p class="article__par"> Последняя версия Codec Commander доступна на <a class="link link--article" href="https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/">bitbucket.org</a>. Но не все так просто: без предварительной настройки под ваш кодек кекст может не заработать. Подробное руководство по настройке Codec Commander находится на <a class="link link--article" href="https://github.com/RehabMan/EAPD-Codec-Commander">GitHub</a>. Однако новичку будет очень сложно в нем разобраться. Самый простой способ — найти уже настроенный кекст под кодек своей системы. Я нашел Codec Commander для ALC1150 на <a class="link link--article" href="https://www.tonymacx86.com/attachments/codeccommander-kext-zip.146742/">tonymackx86.com</a>.</p>
+          <h3 class="article__h3">Установка кекста</h3>
+          <p class="article__par"> Устанавливать Codec Commander надо в системную папку. Рекомендую сделать это через <a class="link link--article" href="ustanovka-i-udaleniye-kekstov.html">Kext Utility.</a>
+          </p>
+        </section>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="3">
+            <a class="link" href="#3">
+              <span class="article__anchor">§</span>Завод карт Creative
+            </a>
+          </h2>
+          <p class="article__par"> Для настройки звуковых карт Creative на хакинтоше энтузиасты разработали кекст kXAudioDriver, он заводит на хакинтоше следующие карты:</p>
+          <ul class="article__marked-list">
+            <li class="article__list-item">Creative Live! </li>
+            <li class="article__list-item">Audigy 1/2 </li>
+            <li class="article__list-item">Audigy RX </li>
+            <li class="article__list-item">EMU E-DSP</li>
+          </ul>
+          <p class="article__par">Скачивание и обсуждение кекста доступно на форуме <a class="link link--article" href="http://www.insanelymac.com/forum/topic/104797-creative-sb-live-audigy-audigy2-emu10kx-edsps-osx-driver-info-here/">insanelymac.com</a>.</p>
+          <div class="article__note note note--warning" role="alert">
+            <svg class="note__icon" width="30">
+              <use href="images/icons.svg#exclamation-triangle"></use>
+            </svg>
+            <strong class="note__text">kXAudioDriver в данное время не поддерживает звуковые карты Creative Audigy SE/LS. И когда будет — неизвестно.</strong>
+          </div>
+        </section>
+        <section class="article__section">
+          <h2 class="article__h2 js-scrollspy-toggle" id="4">
+            <a class="link" href="#4">
+              <span class="article__anchor">§</span>Метод AppleALC
+            </a>
+          </h2>
+          <p class="article__par">AppleALC — кекст, который значительно упрощает настройку звука на хакинтоше. Он позволяет включить поддержку <em>встроенного</em> звукового оборудования компьютера без внесения модификаций в систему и динамически загружает все требуемые изменения в AppleHDA и другие кексты.</p>
+          <div class="article__note note note--tip" role="alert">
+            <svg class="note__icon" width="30">
+              <use href="images/icons.svg#lightbulb"></use>
+            </svg>
+            <p class="note__text">AppleALC может помочь, если после других методов завода встроенного звука наблюдаются проблемы.</p>
+          </div>
+          <p class="article__par">Поддерживает ли ваш кодек AppleALC можно узнать на <a class="link link--article" href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs">wiki-странице</a> проекта. Там же есть и подробное <a class="link link--article" href="https://github.com/vit9696/AppleALC/wiki/Установка-и-использование">руководство</a> по его установке.</p>
+          <p class="article__par">Перед установкой AppleALC требуется отменить все манипуляции с настройкой звука, вернув в систему оригинальный, не затронутый вмешательствами кекст AppleHDA, а также удалить некоторые строки, внесенные в файл конфигурации Clover, которые мог <a class="link link--article" href="index.html#5">произвести</a>, например, MultiBeast.</p>
+          <h3 class="article__h3">Шаг 1. Получение оригинального AppleHDA</h3>
+          <p class="article__par">На загрузочной флешке, <a class="link link--article" href="index.html#2">созданной</a> UniBeast, помимо значка «Установка macOS High Sierra» есть множество скрытых системных файлов. Для того чтобы добраться до стандартных кекстов системы, необходимо сделать их видимыми.</p>
+          <div class="article__note note note--inf" role="alert">
+            <svg class="note__icon" width="30">
+              <use href="images/icons.svg#info-circle"></use>
+            </svg>
+            <p class="note__text">С помощью сочетания ⌘ + Shift + . (точка) можно отображать скрытые файлы в macOS и таким же способом их скрывать.</p>
+          </div>
+          <ol class="article__ordered-list">
+            <li class="article__list-item">Откройте флешку с macOS и отобразите скрытые папки.</li>
+            <li class="article__list-item">Перейдите в System &gt; Library &gt; Extensions.</li>
+            <li class="article__list-item">Скопируйте AppleHDA.kext на Рабочий стол или в отдельную папку.<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/setup-sound/native-applehda-in-boot-usb_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/setup-sound/native-applehda-in-boot-usb.jpg" data-size="860x534" alt="Расположение AppleHDA на загрузочном диске" />
+                </a>
+              </div>
+            </li>
+          </ol>
+          <h3 class="article__h3">Шаг 2. Восстановление AppleHDA</h3>
+          <ol class="article__ordered-list">
+            <li class="article__list-item">Выберите в строке меню пункт «Переход к папке».<div class="article__img-wrapper">
+                <img class="article__img" src="images/content/setup-sound/go-to-folder_small.jpg" alt="Переход к папке в macOS" />
+              </div>
+            </li>
+            <li class="article__list-item">И введите путь к системной папке: /System/Library/Extensions.</li>
+            <li class="article__list-item">Найдите у удалите AppleHDA.kext.</li>
+            <li class="article__list-item">Установите оригинальный AppleHDA с помощью <a class="link link--article" href="ustanovka-i-udaleniye-kekstov.html">Kext Utility</a>.</li>
+          </ol>
+          <h3 class="article__h3">Шаг 3. Установка AppleALC</h3>
+          <ol class="article__ordered-list">
+            <li class="article__list-item">Загрузите <a class="link link--article" href="https://github.com/vit9696/Lilu/releases">Lilu.kext</a>, который требуется для работы AppleALC, и установите его с помощью Kext Utility.</li>
+            <li class="article__list-item">Загрузите <a class="link link--article" href="https://github.com/vit9696/AppleALC/releases">AppleALC.kext</a>.</li>
+            <li class="article__list-item">Смонтируйте раздел EFI от macOS.</li>
+            <li class="article__list-item">Откройте файл конфигурации Clover — config.plist через <a class="link link--article" href="http://mackie100projects.altervista.org/download-clover-configurator/">Clover Configurator</a>.<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/setup-sound/plist-location_original.jpg">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/setup-sound/plist-location.jpg" data-size="864x639" alt="Расположение config.plist" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Перейдите в раздел Kernel and Kext Patches и удалите строки, имеющие отношение к <i>AppleHDA/HDA</i>.<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/setup-sound/remove-applehda-string_original.png">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/setup-sound/remove-applehda-string.png" data-size="1334x794" alt="Вкладка Kernel and Kext Patches программы Clover Configurator" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Укажите layout-id. Подробнее об этом рассказано тут: <a class="link link--article" href="https://github.com/vit9696/AppleALC/wiki/Supported-codecs">github.com/vit9696/AppleALC/
+                <wbr>wiki/Supported-codecs
+              </a>. Обычно подходит стандартное значение «1».<div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/setup-sound/enter-layout-id_original.png">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/setup-sound/enter-layout-id.png" data-size="1334x772" alt="Вкладка Devices программы Clover Configurator" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">(Необязательно) Чтобы позволить многим системам на основе процессоров семейства Skylake работать с AppleALC, необходимо переименовать <a class="link link--article" href="https://github.com/corpnewt/Hackintosh-Tips-And-Tricks/blob/master/README.md#audio">HDAS в HDEF</a> при помощи нескольких строк в файле конфигурации Clover. Для этого на вкладке DSDT найдите форму Patches и введите в каждое из перечисленных полей следующие значения: <ol class="article__ordered-list">
+                <li class="article__list-item">
+                  <i>“Rename HDAS to HDEF” </i>в поле Comment;
+                </li>
+                <li class="article__list-item">
+                  <i>48444153 </i>в Find [HEX];
+                </li>
+                <li class="article__list-item">
+                  <i>48444546 </i>в Replace [HEX].
+                </li>
+              </ol>
+              <div class="article__img-wrapper">
+                <a class="article__link js-lightbox-trigger" href="images/content/setup-sound/rename-hdas_original.png">
+                  <img class="article__img" src="images/misc/preloader.svg" data-src="images/content/setup-sound/rename-hdas.png" data-size="1334x772" alt="Вкладка ACPI программы Clover Configurator" />
+                </a>
+              </div>
+            </li>
+            <li class="article__list-item">Скопируйте AppleALC.kext в папку кекстов Clover (..EFI/CLOVER/kexts/Other/).</li>
+            <li class="article__list-item">Сохраните изменения и перезагрузите компьютер. <div class="article__img-wrapper">
+                <img class="article__img" src="images/content/setup-sound/save-config_small.jpg" alt="Сохранение изменений Clover Configurator" />
+              </div>
+            </li>
+          </ol>
+        </section>
+        <nav class="aside contents article__contents">
+          <h2 class="aside__headline contents__headline">Оглавление</h2>
+          <ul class="contents__list">
+            <li class="contents__item">
+              <a class="contents__link" href="#1" tabindex="7">
+                <span>Введение </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="contents__item">
+              <a class="contents__link" href="#2" tabindex="8">
+                <span>Codec Commander </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="contents__item">
+              <a class="contents__link" href="#3" tabindex="9">
+                <span>Завод карт Creative </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="contents__item">
+              <a class="contents__link" href="#4" tabindex="10">
+                <span>Метод AppleALC </span>
+                <span class="contents__icon-wrapper">
+                  <svg class="contents__icon" width="30">
+                    <use href="images/icons.svg#link-solid"></use>
+                  </svg>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <footer class="vote">
+          <div class="vote__inner">
+            <p class="vote__text">Понравилась ли Вам
+              <wbr> статья?
+            </p><!-- LikeBtn.com-->
+            <span data-identifier="Завод звука" class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="16" data-icon_size="20" data-icon_l_c_v="#4367d4" data-icon_d_c_v="#d50000" data-bg_c="#ffffff" data-brdr_c="#ebebeb" data-label_fs="r" data-lang="ru" data-ef_voting="push" data-show_like_label=false data-counter_zero_show="true" data-i18n_popup_text="Спасибо!" data-counter_clickable="true" data-tooltip_enabled=false data-site_id="5a3d664ffa8fdfc60c2a6d6b" data-share_enabled=false></span>
+          </div>
+        </footer>
+      </article>
+      <aside class="page__sidebar sidebar">
+        <div class="sidebar__inner">
+          <nav class="aside contents sidebar__item js-scrollspy-target">
+            <h2 class="aside__headline contents__headline">Оглавление</h2>
+            <ul class="contents__list">
+              <li class="contents__item">
+                <a class="contents__link" href="#1" tabindex="7">
+                  <span>Введение </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="contents__item">
+                <a class="contents__link" href="#2" tabindex="8">
+                  <span>Codec Commander </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="contents__item">
+                <a class="contents__link" href="#3" tabindex="9">
+                  <span>Завод карт Creative </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li class="contents__item">
+                <a class="contents__link" href="#4" tabindex="10">
+                  <span>Метод AppleALC </span>
+                  <span class="contents__icon-wrapper">
+                    <svg class="contents__icon" width="30">
+                      <use href="images/icons.svg#link-solid"></use>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <aside class="aside share sidebar__item" data-target="sidebar">
+            <h2 class="aside__headline share__headline">Поделиться</h2>
+            <div class="share__container">
+              <button class="share__btn share__btn--url js-copy-url-trigger" title="Скопировать ссылку">
+                <svg class="share__icon" width="30">
+                  <use href="images/icons.svg#link-solid"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="share__output-wrapper">
+              <input class="share__output-field js-copy-url-field" aria-label="Ссылка на страницу" readonly="readonly" />
+            </div>
+          </aside>
+        </div>
+      </aside>
+    </main>
+    <footer class="page__footer footer">
+      <aside class="aside share footer__share" data-target="sidebar">
+        <h2 class="aside__headline share__headline">Поделиться</h2>
+        <div class="share__container"></div>
+      </aside>
+      <p class="footer__copyrights">© Дизайн,&nbsp;код&nbsp;и&nbsp;тексты. Daur&nbsp;“Bro&nbsp;Fox”&nbsp;Gamisonia,&nbsp;2020.</p>
+      <div class="my-links">
+        <a class="my-links__item my-links__item--email" href="mailto:daurgam@gmail.com" title="Написать письмо">
+          <svg class="my-links__icon" width="30">
+            <use href="images/icons.svg#envelope"></use>
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <button class="page__scroll-btn scroll-btn js-scroll-button-toggle" aria-label="Прокрутить наверх">
+      <svg class="scroll-btn__icon" width="30">
+        <use href="images/icons.svg#angle-up"></use>
+      </svg>
+    </button>
+    <div class="lightbox js-lightbox-toggle" role="dialog" hidden="hidden">
+      <div class="lightbox__inner">
+        <button class="lightbox__close js-lightbox-dismiss" type="button" aria-label="Закрыть модальное окно">
+          <svg class="lightbox__close-icon" width="30">
+            <use href="images/icons.svg#times"></use>
+          </svg>
+        </button>
+        <img class="lightbox__img" src="images/misc/preloader.svg" alt="" />
+      </div>
+    </div>
+  </body>
+
+</html>
