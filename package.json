@@ -57,7 +57,7 @@
     "html-test": "^1.2.1",
     "imagemin-svgo": "^12.0.0",
     "path": "^0.12.7",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.14",
     "postcss-pxtorem": "^6.1.0",
     "prettier": "^3.8.1",
     "pug-include-glob": "^0.4.3",
